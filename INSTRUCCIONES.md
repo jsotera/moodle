@@ -21,29 +21,27 @@ Cada tema o entrada tendrá dos versiones:
 
 ## Estructura base del fragmento para Moodle
 
-El contenido exportable a Moodle debe seguir esta estructura general:
+El contenido exportable a Moodle debe seguir siempre esta estructura orientativa. Cada fragmento HTML debe ser autocontenido visualmente, de forma que pueda pegarse directamente en Moodle y también pueda ser leído por el generador del sitio:
 
 ```html
-<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
   <div class="card shadow p-4">
-    <h2 class="text-primary mb-3">
-      <i class="fas fa-code-branch"></i> Título de la entrada
-    </h2>
-
-    <p class="lead">Descripción breve de la entrada.</p>
-
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-code-branch"></i> TITULO ENTRADA</h2>
+    <p class="lead">La <strong>descripcion</strong> breve de la entrada.</p>
     <div class="mb-4">
-      <h4 class="text-primary mb-3">
-        <i class="fas fa-file-alt"></i> Subsección
-      </h4>
-      <p>Explicación de la subsección.</p>
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> Subsección de la entrada</h4>
+      <p>Descripción de la subsección, a veces con código Java de ejemplo con una clase <code>Main</code>:</p>
       <pre><code>class Main {
-    public static void main(String[] args) {
-        System.out.println("Hola, mundo");
-    }
+   // AQUI SERÍA CODIGO DE EJEMPLO
 }</code></pre>
+      <p>Puede haber más explicaciones aclarativas</p>
     </div>
-
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sync-alt"></i> Otra subsección</h4>
+      <p>Más descripciones de las subsecciones <strong>con negritas</strong> o <code>Códigos</code> si son necesarias</p>
+    </div>
     <div class="mb-4">
       <p><strong>Nombre del proyecto del ejercicio:</strong> <code>NombreProyecto</code></p>
     </div>
@@ -51,7 +49,16 @@ El contenido exportable a Moodle debe seguir esta estructura general:
 </div>
 ```
 
-Esta estructura puede ampliarse con más subsecciones, listas, tablas, avisos o ejercicios, pero manteniendo la jerarquía visual.
+Esta estructura puede ampliarse con más subsecciones, listas, tablas, avisos o ejercicios, pero manteniendo la jerarquía visual:
+
+- El contenedor exterior debe ser `div.container.mt-4.p-4` con el ajuste inline de Moodle.
+- El contenido visible debe ir dentro de `div.card.shadow.p-4`.
+- El título principal de cada fragmento debe ser un `h2.text-primary.mb-3` con icono Font Awesome.
+- La introducción breve debe ir en un `p.lead`.
+- Cada bloque interno debe ir en un `div.mb-4`.
+- Las subsecciones deben usar `h4.text-primary.mb-3` con icono.
+- Los ejemplos Java deben ir en `pre > code`.
+- En fragmentos de ejercicios, el nombre del proyecto debe aparecer con el formato `Nombre del proyecto del ejercicio:`.
 
 ## Estructura de la página completa
 

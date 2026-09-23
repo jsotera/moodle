@@ -7,7 +7,7 @@
     <title>UT 01 | Ejercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790160506959" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790161534818" rel="stylesheet">
   </head>
   <body data-page-id="ut01-ejercicios">
     <div class="app-shell">
@@ -76,57 +76,526 @@
           1.1 Ejercicio 1. Primer programa
         </a>
         <a class="section-nav-link" href="#ut01-ejercicios-02-variables-tipos">
-          1.2 Ejercicio 2. Variables y tipos
+          1.2 Variables, tipos de datos y constantes
         </a>
         <a class="section-nav-link" href="#ut01-ejercicios-03-operadores">
-          1.3 Ejercicio 3. Operadores
+          1.3 Operadores y expresiones
         </a>
-        <a class="section-nav-link" href="#ut01-ejercicios-04-conversiones-documentacion">
-          1.4 Ejercicio 4. Conversiones y documentación
+        <a class="section-nav-link" href="#ut01-ejercicios-04-conversiones">
+          1.4 Conversiones de tipo
+        </a>
+        <a class="section-nav-link" href="#ut01-ejercicios-05-documentacion">
+          1.5 Documentación y legibilidad del código
+        </a>
+        <a class="section-nav-link" href="#ut01-ejercicios-06-ejercicios-avanzados">
+          1.6 Ejercicios avanzados
         </a>
   </div>
 </nav>
 
 <section id="ut01-ejercicios-01-primer-programa" class="fragment-section section-anchor">
-<div class="mb-4">
-    <h2 class="h4 text-primary mb-3"><i class="fas fa-terminal me-2" aria-hidden="true"></i> 1.1 Ejercicio 1. Primer programa</h2>
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="h4 text-primary mb-3"><i class="fas fa-terminal me-2" aria-hidden="true"></i> 1.1 Ejercicio 1. Primer programa</h2>
     <p>Crea un programa básico en Java que muestre varios mensajes por consola.</p>
     <p><strong>Nombre del proyecto del ejercicio:</strong> <code>HolaMundo</code></p>
-  </div>
+
+</div>
+
+</div>
 </section>
 
 
 <section id="ut01-ejercicios-02-variables-tipos" class="fragment-section section-anchor">
-<div class="mb-4">
-    <h2 class="h4 text-primary mb-3"><i class="fas fa-database me-2" aria-hidden="true"></i> 1.2 Ejercicio 2. Variables y tipos</h2>
-    <p>Declara variables de distintos tipos, asígnales valores y muestra su contenido por pantalla.</p>
-    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>VariablesBasicas</code></p>
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="h4 text-primary mb-3"><i class="fas fa-database me-2" aria-hidden="true"></i> 1.2 Variables, tipos de datos y constantes</h2>
+  <p class="lead">Practica la creación de proyectos en IntelliJ y la declaración de variables, constantes y literales en Java.</p>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-user-graduate"></i> Ejercicio 1. Ficha de alumno</h4>
+    <p>Crea un proyecto en IntelliJ que almacene varios datos personales de un alumno y los muestre por consola.</p>
+    <ul>
+      <li>Declara variables para el nombre, edad, altura, inicial del apellido y si tiene conocimientos previos de programación.</li>
+      <li>Utiliza los tipos <code>String</code>, <code>int</code>, <code>double</code>, <code>char</code> y <code>boolean</code>.</li>
+      <li>Muestra cada dato en una línea diferente usando <code>System.out.println()</code>.</li>
+    </ul>
+    <pre><code>Nombre: Laura
+Edad: 18
+Altura: 1.72
+Inicial del apellido: G
+Conocimientos previos: false</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>FichaAlumno</code></p>
   </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-store"></i> Ejercicio 2. Datos de un producto</h4>
+    <p>Crea un programa que guarde información básica de un producto de una tienda.</p>
+    <ul>
+      <li>Declara una variable para el nombre del producto.</li>
+      <li>Declara una variable para el precio.</li>
+      <li>Declara una variable para las unidades disponibles.</li>
+      <li>Declara una variable booleana que indique si el producto está en oferta.</li>
+      <li>Muestra una ficha del producto por consola.</li>
+    </ul>
+    <pre><code>Producto: Teclado mecánico
+Precio: 49.99
+Unidades disponibles: 12
+En oferta: true</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>FichaProducto</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-lock"></i> Ejercicio 3. Constantes de una aplicación</h4>
+    <p>Crea un proyecto para practicar el uso de constantes con <code>final</code>.</p>
+    <ul>
+      <li>Declara una constante <code>IVA</code> con valor <code>0.21</code>.</li>
+      <li>Declara una constante <code>MAX_INTENTOS</code> con valor <code>3</code>.</li>
+      <li>Declara una constante <code>NOMBRE_APP</code> con el nombre de una aplicación inventada.</li>
+      <li>Muestra los valores por pantalla con mensajes descriptivos.</li>
+    </ul>
+    <div class="alert alert-info">
+      <i class="fas fa-lightbulb"></i>
+      Recuerda escribir los nombres de las constantes en mayúsculas y separar palabras con guiones bajos.
+    </div>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ConstantesAplicacion</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-pen"></i> Ejercicio 4. Cambios de valor</h4>
+    <p>Crea un programa que muestre cómo cambia el valor de una variable durante la ejecución.</p>
+    <ul>
+      <li>Declara una variable <code>puntos</code> con valor inicial <code>0</code>.</li>
+      <li>Muestra su valor inicial.</li>
+      <li>Asigna un nuevo valor a la variable.</li>
+      <li>Vuelve a mostrar el valor actualizado.</li>
+    </ul>
+    <pre><code>Puntos iniciales: 0
+Puntos actualizados: 10</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CambiosDeValor</code></p>
+  </div>
+
+</div>
+
+</div>
 </section>
 
 
 <section id="ut01-ejercicios-03-operadores" class="fragment-section section-anchor">
-<div class="mb-4">
-    <h2 class="h4 text-primary mb-3"><i class="fas fa-calculator me-2" aria-hidden="true"></i> 1.3 Ejercicio 3. Operadores</h2>
-    <p>Realiza cálculos sencillos usando operadores aritméticos, relacionales y lógicos.</p>
-    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>OperadoresExpresiones</code></p>
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="h4 text-primary mb-3"><i class="fas fa-calculator me-2" aria-hidden="true"></i> 1.3 Operadores y expresiones</h2>
+  <p class="lead">Practica expresiones aritméticas, operadores relacionales, operadores lógicos y prioridad de operadores.</p>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-cart-shopping"></i> Ejercicio 1. Ticket de compra</h4>
+    <p>Crea un programa que calcule el coste de una compra sencilla.</p>
+    <ul>
+      <li>Declara el precio de un producto y la cantidad comprada.</li>
+      <li>Calcula el subtotal.</li>
+      <li>Calcula el IVA usando una constante <code>IVA</code>.</li>
+      <li>Calcula el total final.</li>
+      <li>Muestra todos los importes por consola.</li>
+    </ul>
+    <pre><code>Subtotal: 59.97
+IVA: 12.5937
+Total: 72.5637</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>TicketCompra</code></p>
   </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-percent"></i> Ejercicio 2. Número par o impar</h4>
+    <p>Crea un programa que use el operador módulo <code>%</code> para comprobar si un número es par.</p>
+    <ul>
+      <li>Declara una variable <code>numero</code> de tipo <code>int</code>.</li>
+      <li>Calcula si el número es par usando una expresión booleana.</li>
+      <li>Muestra el número y el resultado de la comprobación.</li>
+    </ul>
+    <pre><code>Número: 24
+¿Es par?: true</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>NumeroPar</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-car"></i> Ejercicio 3. Puede conducir</h4>
+    <p>Crea un programa que combine operadores relacionales y lógicos.</p>
+    <ul>
+      <li>Declara una variable <code>edad</code>.</li>
+      <li>Declara una variable <code>tieneCarnet</code>.</li>
+      <li>Calcula una variable <code>puedeConducir</code> que sea verdadera solo si la persona es mayor de edad y tiene carnet.</li>
+      <li>Muestra el resultado por consola.</li>
+    </ul>
+    <pre><code>Edad: 20
+Tiene carnet: true
+Puede conducir: true</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>PuedeConducir</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-sort-numeric-down"></i> Ejercicio 4. Prioridad de operadores</h4>
+    <p>Crea un programa que compare el resultado de varias expresiones con y sin paréntesis.</p>
+    <ul>
+      <li>Calcula el resultado de <code>2 + 3 * 4</code>.</li>
+      <li>Calcula el resultado de <code>(2 + 3) * 4</code>.</li>
+      <li>Calcula una expresión booleana que combine comparación y <code>&amp;&amp;</code>.</li>
+      <li>Muestra todos los resultados.</li>
+    </ul>
+    <pre><code>2 + 3 * 4 = 14
+(2 + 3) * 4 = 20
+Expresión booleana: true</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>PrioridadOperadores</code></p>
+  </div>
+
+</div>
+
+</div>
 </section>
 
 
-<section id="ut01-ejercicios-04-conversiones-documentacion" class="fragment-section section-anchor">
-<div>
-    <h2 class="h4 text-primary mb-3"><i class="fas fa-file-code me-2" aria-hidden="true"></i> 1.4 Ejercicio 4. Conversiones y documentación</h2>
-    <p>Practica conversiones de tipo, comentarios y documentación básica del código.</p>
-    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ConversionesDocumentacion</code></p>
+<section id="ut01-ejercicios-04-conversiones" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="h4 text-primary mb-3"><i class="fas fa-exchange-alt me-2" aria-hidden="true"></i> 1.4 Conversiones de tipo</h2>
+  <p class="lead">Practica conversiones implícitas, casting y divisiones con resultados enteros y decimales.</p>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-arrow-right"></i> Ejercicio 1. Entero a decimal</h4>
+    <p>Crea un proyecto que convierta automáticamente un valor entero a decimal.</p>
+    <ul>
+      <li>Declara una variable <code>int</code> llamada <code>unidades</code>.</li>
+      <li>Asigna su valor a una variable <code>double</code> llamada <code>unidadesDecimal</code>.</li>
+      <li>Muestra ambos valores por consola.</li>
+    </ul>
+    <pre><code>Unidades: 25
+Unidades como decimal: 25.0</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>EnteroADecimal</code></p>
   </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-compress-arrows-alt"></i> Ejercicio 2. Decimal a entero</h4>
+    <p>Crea un programa que convierta explícitamente un <code>double</code> a <code>int</code>.</p>
+    <ul>
+      <li>Declara una variable <code>precio</code> con un valor decimal.</li>
+      <li>Convierte ese valor a <code>int</code> usando casting.</li>
+      <li>Muestra el valor original y el valor convertido.</li>
+      <li>Comprueba qué ocurre con la parte decimal.</li>
+    </ul>
+    <pre><code>Precio original: 19.95
+Precio convertido: 19</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>DecimalAEntero</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-divide"></i> Ejercicio 3. Media con decimales</h4>
+    <p>Crea un programa que calcule una media evitando la división entera.</p>
+    <ul>
+      <li>Declara <code>puntos</code> y <code>partidas</code> como valores <code>int</code>.</li>
+      <li>Calcula una primera media sin casting.</li>
+      <li>Calcula una segunda media convirtiendo uno de los operandos a <code>double</code>.</li>
+      <li>Muestra ambos resultados para comparar.</li>
+    </ul>
+    <pre><code>Media sin casting: 4.0
+Media con casting: 4.25</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>MediaConCasting</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-flask"></i> Ejercicio 4. Laboratorio de conversiones</h4>
+    <p>Crea un proyecto con varios ejemplos de conversiones y explica cada resultado con mensajes por consola.</p>
+    <ul>
+      <li>Convierte un <code>int</code> a <code>double</code>.</li>
+      <li>Convierte un <code>double</code> a <code>int</code>.</li>
+      <li>Calcula una división entera.</li>
+      <li>Calcula una división decimal usando casting.</li>
+    </ul>
+    <div class="alert alert-warning">
+      <i class="fas fa-triangle-exclamation"></i>
+      No reutilices siempre los mismos valores: cambia los números y observa cómo varían los resultados.
+    </div>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>LaboratorioConversiones</code></p>
+  </div>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="ut01-ejercicios-05-documentacion" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="h4 text-primary mb-3"><i class="fas fa-file-alt me-2" aria-hidden="true"></i> 1.5 Documentación y legibilidad del código</h2>
+  <p class="lead">Practica comentarios útiles, nombres claros, constantes y presentación ordenada del código.</p>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-comment"></i> Ejercicio 1. Programa comentado</h4>
+    <p>Crea un programa sencillo y añade comentarios de una línea para separar sus partes principales.</p>
+    <ul>
+      <li>Declara variables relacionadas con una compra.</li>
+      <li>Calcula subtotal, IVA y total.</li>
+      <li>Añade comentarios que expliquen cada bloque del programa.</li>
+      <li>Evita comentarios que repitan exactamente lo que ya dice el código.</li>
+    </ul>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CompraComentada</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-broom"></i> Ejercicio 2. Mejora de nombres</h4>
+    <p>Crea un proyecto con dos versiones de un mismo cálculo: una con nombres poco claros y otra con nombres descriptivos.</p>
+    <ul>
+      <li>Primero usa nombres como <code>x</code>, <code>y</code> y <code>z</code>.</li>
+      <li>Después repite el cálculo usando nombres como <code>precioProducto</code>, <code>cantidad</code> y <code>precioTotal</code>.</li>
+      <li>Muestra ambos resultados por consola.</li>
+      <li>Incluye un comentario explicando qué versión se entiende mejor y por qué.</li>
+    </ul>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>NombresDescriptivos</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-align-left"></i> Ejercicio 3. Comentarios multilínea</h4>
+    <p>Crea un programa que empiece con un comentario de varias líneas explicando su objetivo.</p>
+    <ul>
+      <li>El comentario inicial debe indicar qué hace el programa.</li>
+      <li>Debe incluir tu nombre y la fecha.</li>
+      <li>El programa debe calcular la nota media de tres exámenes.</li>
+      <li>Muestra la media por pantalla.</li>
+    </ul>
+    <pre><code>/*
+Programa: cálculo de nota media
+Autor/a: ...
+Fecha: ...
+*/</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>MediaDocumentada</code></p>
+  </div>
+
+  <div class="mb-4">
+    <h4 class="text-primary mb-3"><i class="fas fa-book"></i> Ejercicio 4. Primer contacto con Javadoc</h4>
+    <p>Crea una clase <code>Main</code> y añade un comentario de documentación antes de la clase.</p>
+    <ul>
+      <li>Utiliza el formato <code>/** ... */</code>.</li>
+      <li>Describe brevemente qué hace el programa.</li>
+      <li>Incluye una etiqueta <code>@author</code>.</li>
+      <li>El programa debe mostrar un mensaje de bienvenida por consola.</li>
+    </ul>
+    <pre><code>/**
+ * Programa de bienvenida para practicar Javadoc.
+ * @author Nombre Apellido
+ */</code></pre>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>PrimerJavadoc</code></p>
+  </div>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="ut01-ejercicios-06-ejercicios-avanzados" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="text-primary mb-3"><i class="fas fa-brain"></i> 1.6 Ejercicios avanzados</h2>
+
+<p class="lead">
+  Practica la lectura precisa de expresiones Java con <strong>conversiones, operadores,
+  incrementos, comparaciones y expresiones booleanas combinadas</strong>.
+</p>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Antes de ejecutar: predice el resultado</h4>
+  <p>
+    En estos ejercicios no basta con escribir el código y mirar qué sale. Primero debes
+    <strong>predecir el resultado de cada línea</strong> y después comprobarlo en IntelliJ.
+  </p>
+  <ol>
+    <li>Copia el código en un proyecto Java.</li>
+    <li>Antes de ejecutar, escribe en un comentario qué crees que mostrará cada <code>println</code>.</li>
+    <li>Ejecuta el programa.</li>
+    <li>Corrige tu predicción si era incorrecta y explica brevemente el motivo.</li>
+  </ol>
+  <div class="alert alert-warning">
+    <i class="fas fa-triangle-exclamation"></i>
+    <strong>Objetivo:</strong> equivocarse aquí es útil. La parte importante es entender por qué Java produce ese resultado.
+  </div>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-divide"></i> Ejercicio 1. Divisiones, casting y pérdida de decimales</h4>
+  <p>
+    Copia el siguiente programa y predice qué valor se muestra en cada punto. Fíjate especialmente
+    en <strong>cuándo se hace la división</strong> y cuándo se hace la conversión.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int a = 7;
+        int b = 2;
+
+        double r1 = a / b;
+        double r2 = (double) a / b;
+        double r3 = a / (double) b;
+        int r4 = (int) 7.9;
+        int r5 = (int) (a / (double) b);
+
+        System.out.println("Punto 1: " + r1);
+        System.out.println("Punto 2: " + r2);
+        System.out.println("Punto 3: " + r3);
+        System.out.println("Punto 4: " + r4);
+        System.out.println("Punto 5: " + r5);
+    }
+}</code></pre>
+  <p>
+    Después modifica los valores de <code>a</code> y <code>b</code> y comprueba si tus conclusiones siguen siendo válidas.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoConversiones</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-arrow-up-1-9"></i> Ejercicio 2. Preincremento y postincremento</h4>
+  <p>
+    Analiza el valor de las variables después de cada línea. Recuerda que <code>++x</code>
+    incrementa antes de usar el valor, mientras que <code>x++</code> usa el valor y después incrementa.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int x = 3;
+        int y = 5;
+
+        int a = x++;
+        int b = ++y;
+        int c = x + y++;
+        int d = ++x + y;
+
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("c: " + c);
+        System.out.println("d: " + d);
+    }
+}</code></pre>
+  <p>
+    Escribe una tabla con las columnas <code>línea</code>, <code>x</code>, <code>y</code>,
+    <code>variable calculada</code> y <code>explicación</code>.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoIncrementos</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-scale-balanced"></i> Ejercicio 3. Booleanos con operaciones aritméticas</h4>
+  <p>
+    Predice el resultado de cada expresión booleana. Hay comparaciones, operaciones aritméticas
+    y operadores lógicos mezclados.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int edad = 17;
+        int puntos = 42;
+        int partidas = 5;
+        boolean tienePermiso = true;
+
+        boolean r1 = edad >= 18 && tienePermiso;
+        boolean r2 = edad + 1 >= 18 && tienePermiso;
+        boolean r3 = puntos / partidas > 8;
+        boolean r4 = puntos % partidas == 2 || edad >= 18;
+        boolean r5 = !(edad < 18) || puntos - partidas * 2 > 30;
+
+        System.out.println("r1: " + r1);
+        System.out.println("r2: " + r2);
+        System.out.println("r3: " + r3);
+        System.out.println("r4: " + r4);
+        System.out.println("r5: " + r5);
+    }
+}</code></pre>
+  <p>
+    Después cambia <code>edad</code>, <code>puntos</code> y <code>partidas</code> para conseguir que
+    todos los resultados sean <code>true</code>.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoBooleanos</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-bug"></i> Ejercicio 4. Código que no compila</h4>
+  <p>
+    Este programa contiene errores de tipos. Cópialo en IntelliJ, observa los errores y corrígelo
+    usando conversiones explícitas solo cuando sean necesarias.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        double precio = 19.99;
+        int unidades = 3;
+
+        int precioEntero = precio;
+        int total = precio * unidades;
+        boolean descuento = total &gt; 50.0;
+
+        System.out.println("Precio entero: " + precioEntero);
+        System.out.println("Total: " + total);
+        System.out.println("Descuento: " + descuento);
+    }
+}</code></pre>
+  <p>
+    Cuando lo corrijas, añade comentarios explicando qué líneas fallaban y por qué.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoErroresTipos</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-route"></i> Ejercicio 5. Traza completa</h4>
+  <p>
+    Realiza una traza completa del programa. No ejecutes hasta haber completado tu tabla de valores.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int a = 4;
+        int b = 9;
+        double c = 2.5;
+
+        int r1 = b / a;
+        double r2 = b / a;
+        double r3 = b / c;
+
+        boolean condicion1 = r1 == 2 && r2 == 2.0;
+        boolean condicion2 = r3 &gt; 3 || ++a &gt; 5;
+        boolean condicion3 = a++ == 5 && b-- == 9;
+
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("r1: " + r1);
+        System.out.println("r2: " + r2);
+        System.out.println("r3: " + r3);
+        System.out.println("condicion1: " + condicion1);
+        System.out.println("condicion2: " + condicion2);
+        System.out.println("condicion3: " + condicion3);
+    }
+}</code></pre>
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    Fíjate en que <code>&amp;&amp;</code> y <code>||</code> pueden evitar evaluar la segunda parte de una expresión.
+  </div>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoTrazaCompleta</code></p>
+</div>
+
+</div>
+
+</div>
 </section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790160506959"></script>
-    <script src="assets/js/course.js?v=1790160506959"></script>
+    <script src="assets/js/search-data.js?v=1790161534818"></script>
+    <script src="assets/js/course.js?v=1790161534818"></script>
   </body>
 </html>

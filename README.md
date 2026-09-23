@@ -55,6 +55,8 @@ fragments/{modulo}/utXX/ejercicios/*.html
 
 Esos subfragmentos son los que pueden reutilizarse en Moodle.
 
+Cada fragmento debe seguir la estructura visual Moodle documentada en `INSTRUCCIONES.md`: `div.container.mt-4.p-4` exterior, `div.card.shadow.p-4` interior, título `h2.text-primary.mb-3` con icono, introducción `p.lead` y bloques internos `div.mb-4` con subsecciones `h4`.
+
 ## Publicación
 
 Cada módulo genera su propio espacio público:

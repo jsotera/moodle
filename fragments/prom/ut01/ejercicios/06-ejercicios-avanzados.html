@@ -1,0 +1,188 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="text-primary mb-3"><i class="fas fa-brain"></i> 1.6 Ejercicios avanzados</h2>
+
+<p class="lead">
+  Practica la lectura precisa de expresiones Java con <strong>conversiones, operadores,
+  incrementos, comparaciones y expresiones booleanas combinadas</strong>.
+</p>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Antes de ejecutar: predice el resultado</h4>
+  <p>
+    En estos ejercicios no basta con escribir el código y mirar qué sale. Primero debes
+    <strong>predecir el resultado de cada línea</strong> y después comprobarlo en IntelliJ.
+  </p>
+  <ol>
+    <li>Copia el código en un proyecto Java.</li>
+    <li>Antes de ejecutar, escribe en un comentario qué crees que mostrará cada <code>println</code>.</li>
+    <li>Ejecuta el programa.</li>
+    <li>Corrige tu predicción si era incorrecta y explica brevemente el motivo.</li>
+  </ol>
+  <div class="alert alert-warning">
+    <i class="fas fa-triangle-exclamation"></i>
+    <strong>Objetivo:</strong> equivocarse aquí es útil. La parte importante es entender por qué Java produce ese resultado.
+  </div>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-divide"></i> Ejercicio 1. Divisiones, casting y pérdida de decimales</h4>
+  <p>
+    Copia el siguiente programa y predice qué valor se muestra en cada punto. Fíjate especialmente
+    en <strong>cuándo se hace la división</strong> y cuándo se hace la conversión.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int a = 7;
+        int b = 2;
+
+        double r1 = a / b;
+        double r2 = (double) a / b;
+        double r3 = a / (double) b;
+        int r4 = (int) 7.9;
+        int r5 = (int) (a / (double) b);
+
+        System.out.println("Punto 1: " + r1);
+        System.out.println("Punto 2: " + r2);
+        System.out.println("Punto 3: " + r3);
+        System.out.println("Punto 4: " + r4);
+        System.out.println("Punto 5: " + r5);
+    }
+}</code></pre>
+  <p>
+    Después modifica los valores de <code>a</code> y <code>b</code> y comprueba si tus conclusiones siguen siendo válidas.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoConversiones</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-arrow-up-1-9"></i> Ejercicio 2. Preincremento y postincremento</h4>
+  <p>
+    Analiza el valor de las variables después de cada línea. Recuerda que <code>++x</code>
+    incrementa antes de usar el valor, mientras que <code>x++</code> usa el valor y después incrementa.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int x = 3;
+        int y = 5;
+
+        int a = x++;
+        int b = ++y;
+        int c = x + y++;
+        int d = ++x + y;
+
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("c: " + c);
+        System.out.println("d: " + d);
+    }
+}</code></pre>
+  <p>
+    Escribe una tabla con las columnas <code>línea</code>, <code>x</code>, <code>y</code>,
+    <code>variable calculada</code> y <code>explicación</code>.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoIncrementos</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-scale-balanced"></i> Ejercicio 3. Booleanos con operaciones aritméticas</h4>
+  <p>
+    Predice el resultado de cada expresión booleana. Hay comparaciones, operaciones aritméticas
+    y operadores lógicos mezclados.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int edad = 17;
+        int puntos = 42;
+        int partidas = 5;
+        boolean tienePermiso = true;
+
+        boolean r1 = edad >= 18 && tienePermiso;
+        boolean r2 = edad + 1 >= 18 && tienePermiso;
+        boolean r3 = puntos / partidas > 8;
+        boolean r4 = puntos % partidas == 2 || edad >= 18;
+        boolean r5 = !(edad < 18) || puntos - partidas * 2 > 30;
+
+        System.out.println("r1: " + r1);
+        System.out.println("r2: " + r2);
+        System.out.println("r3: " + r3);
+        System.out.println("r4: " + r4);
+        System.out.println("r5: " + r5);
+    }
+}</code></pre>
+  <p>
+    Después cambia <code>edad</code>, <code>puntos</code> y <code>partidas</code> para conseguir que
+    todos los resultados sean <code>true</code>.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoBooleanos</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-bug"></i> Ejercicio 4. Código que no compila</h4>
+  <p>
+    Este programa contiene errores de tipos. Cópialo en IntelliJ, observa los errores y corrígelo
+    usando conversiones explícitas solo cuando sean necesarias.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        double precio = 19.99;
+        int unidades = 3;
+
+        int precioEntero = precio;
+        int total = precio * unidades;
+        boolean descuento = total &gt; 50.0;
+
+        System.out.println("Precio entero: " + precioEntero);
+        System.out.println("Total: " + total);
+        System.out.println("Descuento: " + descuento);
+    }
+}</code></pre>
+  <p>
+    Cuando lo corrijas, añade comentarios explicando qué líneas fallaban y por qué.
+  </p>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoErroresTipos</code></p>
+</div>
+
+<div class="mb-4">
+  <h4 class="text-primary mb-3"><i class="fas fa-route"></i> Ejercicio 5. Traza completa</h4>
+  <p>
+    Realiza una traza completa del programa. No ejecutes hasta haber completado tu tabla de valores.
+  </p>
+  <pre><code>class Main {
+    public static void main(String[] args) {
+        int a = 4;
+        int b = 9;
+        double c = 2.5;
+
+        int r1 = b / a;
+        double r2 = b / a;
+        double r3 = b / c;
+
+        boolean condicion1 = r1 == 2 && r2 == 2.0;
+        boolean condicion2 = r3 &gt; 3 || ++a &gt; 5;
+        boolean condicion3 = a++ == 5 && b-- == 9;
+
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("r1: " + r1);
+        System.out.println("r2: " + r2);
+        System.out.println("r3: " + r3);
+        System.out.println("condicion1: " + condicion1);
+        System.out.println("condicion2: " + condicion2);
+        System.out.println("condicion3: " + condicion3);
+    }
+}</code></pre>
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    Fíjate en que <code>&amp;&amp;</code> y <code>||</code> pueden evitar evaluar la segunda parte de una expresión.
+  </div>
+  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>AvanzadoTrazaCompleta</code></p>
+</div>
+
+</div>
+
+</div>
