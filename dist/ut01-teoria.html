@@ -1,0 +1,1842 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Teoría de la UT 01. Introducción a la programación y Java.">
+    <title>UT 01 | Teoría</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790147742555" rel="stylesheet">
+  </head>
+  <body data-page-id="ut01-teoria">
+    <div class="app-shell">
+      <aside class="site-sidebar" data-sidebar>
+        <div class="sidebar-brand p-3">
+          <a class="d-flex align-items-center text-decoration-none" href="index.html" aria-label="Ir al inicio">
+            <div>
+              <strong class="brand-title d-block">Programación</strong>
+              <span class="small text-muted">DAM y DAW</span>
+            </div>
+          </a>
+        </div>
+        <nav class="course-tree" data-course-tree aria-label="Unidades de trabajo"></nav>
+      </aside>
+
+      <div class="sidebar-backdrop" data-sidebar-backdrop></div>
+
+      <div class="site-main">
+        <header class="topbar">
+          <div class="container-fluid py-2 px-3">
+            <div class="d-flex flex-wrap align-items-center gap-3">
+              <button class="btn btn-outline-primary menu-toggle" type="button" data-menu-toggle aria-label="Plegar o desplegar menú" aria-expanded="true">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+              </button>
+
+              <a class="d-flex align-items-center gap-2 text-decoration-none me-auto" href="index.html">
+                <img class="brand-logo" src="assets/img/logo-maria-ana-sanz.png" alt="Logo María Ana Sanz">
+                <div>
+                  <strong class="brand-title d-block">Programación en Java</strong>
+                  <span class="small text-muted">CI María Ana Sanz</span>
+                </div>
+              </a>
+
+              <div class="search-panel col-12 col-md-5 col-xl-4">
+                <label class="visually-hidden" for="siteSearch">Buscar en el temario</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-white"><i class="fas fa-search" aria-hidden="true"></i></span>
+                  <input id="siteSearch" class="form-control" type="search" placeholder="Buscar en el temario..." autocomplete="off" data-search-input>
+                </div>
+                <div class="search-results" data-search-results hidden></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="page-wrap">
+          <nav aria-label="Migas de pan"><ol class="breadcrumb" data-breadcrumb></ol></nav>
+
+<section class="mb-4">
+  <div class="content-card">
+    <h1 class="text-primary mb-3">
+      <i class="fas fa-book-open me-2" aria-hidden="true"></i>
+      UT 01. Teoría
+    </h1>
+    <p class="lead mb-0">Introducción a la programación y Java</p>
+  </div>
+</section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de teoría">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Teoría
+  </h2>
+  <div class="section-nav-list">
+
+        <a class="section-nav-link" href="#ut01-teoria-01-introduccion-entorno-java">
+          <span class="small text-muted d-block">01</span>
+          Introducción a la Programación y al Entorno Java
+        </a>
+        <a class="section-nav-link" href="#ut01-teoria-02-variables-tipos-constantes">
+          <span class="small text-muted d-block">02</span>
+          Variables, Tipos de Datos y Constantes
+        </a>
+        <a class="section-nav-link" href="#ut01-teoria-03-operadores-expresiones">
+          <span class="small text-muted d-block">03</span>
+          Operadores y Expresiones
+        </a>
+        <a class="section-nav-link" href="#ut01-teoria-04-conversiones-documentacion">
+          <span class="small text-muted d-block">04</span>
+          Conversiones de Tipo y Documentación
+        </a>
+  </div>
+</nav>
+
+<section id="ut01-teoria-01-introduccion-entorno-java" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+
+  <div class="card shadow p-4">
+
+    <h2 class="text-primary mb-3">
+      <i class="fas fa-terminal"></i> Introducción a la Programación y al Entorno Java
+    </h2>
+
+    <p class="lead">
+      Programar consiste en <strong>dar instrucciones a un ordenador para resolver un problema</strong>.
+      Para hacerlo necesitamos pensar primero una solución paso a paso y, después,
+      expresarla utilizando un lenguaje que el ordenador pueda procesar.
+    </p>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-route"></i> ¿Qué es un algoritmo?
+      </h4>
+
+      <p>
+        Un <strong>algoritmo</strong> es una secuencia
+        <strong>ordenada, clara y finita de pasos</strong> que permite resolver un problema
+        o realizar una tarea.
+      </p>
+
+      <p>
+        Utilizamos algoritmos continuamente, incluso fuera de la informática.
+        Por ejemplo, una receta de cocina puede verse como un algoritmo:
+      </p>
+
+      <ol>
+        <li>Preparar los ingredientes.</li>
+        <li>Mezclarlos siguiendo un orden.</li>
+        <li>Cocinar durante un tiempo determinado.</li>
+        <li>Obtener el resultado final.</li>
+      </ol>
+
+      <p>
+        En programación ocurre algo parecido. Antes de escribir código debemos
+        pensar <strong>qué pasos debe seguir el ordenador</strong> para conseguir
+        el resultado que buscamos.
+      </p>
+
+      <div class="alert alert-info">
+        <i class="fas fa-lightbulb"></i>
+        <strong>Idea importante:</strong>
+        un algoritmo no depende necesariamente de un lenguaje de programación.
+        Primero pensamos la solución; después decidimos cómo escribirla.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-code"></i> ¿Qué es un lenguaje de programación?
+      </h4>
+
+      <p>
+        Un <strong>lenguaje de programación</strong> es un conjunto de reglas,
+        símbolos y palabras que nos permite escribir instrucciones para un ordenador.
+      </p>
+
+      <p>
+        Igual que los idiomas humanos tienen vocabulario y reglas gramaticales,
+        los lenguajes de programación tienen:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Sintaxis:</strong> indica cómo debemos escribir correctamente las instrucciones.
+        </li>
+        <li>
+          <strong>Semántica:</strong> indica qué significa cada instrucción y qué efecto produce.
+        </li>
+      </ul>
+
+      <p>
+        Por ejemplo, un mismo algoritmo puede expresarse de formas diferentes
+        dependiendo del lenguaje utilizado.
+      </p>
+
+      <p>
+        En lenguaje natural podríamos decir:
+      </p>
+
+      <pre><code>Mostrar el mensaje "Hola mundo"</code></pre>
+
+      <p>
+        Mientras que en Java escribiríamos:
+      </p>
+
+      <pre><code>System.out.println("Hola mundo");</code></pre>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-layer-group"></i> Niveles de los lenguajes de programación
+      </h4>
+
+      <p>
+        Los ordenadores trabajan internamente utilizando instrucciones muy simples.
+        Según lo cerca que esté un lenguaje del hardware o de la forma de pensar
+        de las personas, podemos hablar de diferentes niveles:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Lenguaje máquina:</strong>
+          utiliza instrucciones binarias formadas por <code>0</code> y <code>1</code>
+          que el procesador puede ejecutar directamente.
+        </li>
+
+        <li>
+          <strong>Lenguaje ensamblador:</strong>
+          utiliza abreviaturas o mnemónicos que representan instrucciones concretas
+          del procesador.
+        </li>
+
+        <li>
+          <strong>Lenguajes de alto nivel:</strong>
+          utilizan instrucciones mucho más fáciles de leer y escribir para una persona.
+          Java, Python o C# son ejemplos de lenguajes de alto nivel.
+        </li>
+      </ul>
+
+      <p>
+        Nosotros trabajaremos principalmente con <strong>Java</strong>, un lenguaje
+        de alto nivel diseñado para permitir el desarrollo de aplicaciones de una
+        forma estructurada y portable.
+      </p>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-exchange-alt"></i> Del código Java al programa en ejecución
+      </h4>
+
+      <p>
+        Cuando escribimos un programa en Java, el ordenador no ejecuta directamente
+        el texto que hemos escrito. Existe un proceso intermedio.
+      </p>
+
+      <p>
+        El flujo simplificado es el siguiente:
+      </p>
+
+      <ol>
+        <li>
+          Escribimos el <strong>código fuente</strong> en un archivo con extensión
+          <code>.java</code>.
+        </li>
+
+        <li>
+          El compilador de Java, <code>javac</code>, comprueba el código y lo transforma
+          en un formato intermedio llamado <strong>bytecode</strong>.
+        </li>
+
+        <li>
+          El bytecode se almacena normalmente en archivos con extensión
+          <code>.class</code>.
+        </li>
+
+        <li>
+          La <strong>Máquina Virtual de Java (JVM)</strong> ejecuta ese bytecode.
+        </li>
+      </ol>
+
+      <p>
+        De forma resumida:
+      </p>
+
+      <pre><code>Código fuente (.java)
+        ↓
+Compilador javac
+        ↓
+Bytecode (.class)
+        ↓
+Máquina Virtual de Java (JVM)
+        ↓
+Programa en ejecución</code></pre>
+
+      <div class="alert alert-info">
+        <i class="fas fa-globe"></i>
+        <strong>¿Por qué utilizar una máquina virtual?</strong>
+        El bytecode puede ejecutarse en diferentes sistemas siempre que exista
+        una JVM compatible. Esta idea está relacionada con una de las características
+        más conocidas de Java: <em>"Write once, run anywhere"</em>.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-cubes"></i> JVM, JRE y JDK
+      </h4>
+
+      <p>
+        En el ecosistema Java aparecen varios términos que conviene diferenciar:
+      </p>
+
+      <ul>
+
+        <li>
+          <strong>JVM (Java Virtual Machine):</strong>
+          es la máquina virtual encargada de ejecutar el bytecode de Java.
+        </li>
+
+        <li>
+          <strong>JRE (Java Runtime Environment):</strong>
+          contiene los elementos necesarios para ejecutar aplicaciones Java,
+          incluyendo la JVM y las librerías necesarias.
+        </li>
+
+        <li>
+          <strong>JDK (Java Development Kit):</strong>
+          incluye las herramientas necesarias para
+          <strong>desarrollar aplicaciones Java</strong>, como el compilador
+          <code>javac</code> y otras utilidades.
+        </li>
+
+      </ul>
+
+      <p>
+        De forma simplificada podemos imaginarlo así:
+      </p>
+
+      <pre><code>JDK
+ ├── Herramientas de desarrollo
+ │     ├── javac
+ │     ├── jar
+ │     └── javadoc
+ │
+ └── Entorno necesario para ejecutar Java
+       └── JVM</code></pre>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-file-code"></i> Nuestro primer programa en Java
+      </h4>
+
+      <p>
+        Veamos ahora la estructura básica de un programa Java muy sencillo.
+        Crearemos una clase llamada <code>Main</code> que mostrará un mensaje
+        por pantalla.
+      </p>
+
+      <pre><code>public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("¡Hola, mundo desde Java!");
+
+    }
+
+}</code></pre>
+
+      <p>
+        De momento no es necesario comprender todos los elementos que aparecen
+        en este código. Los iremos estudiando poco a poco.
+      </p>
+
+      <p>
+        Por ahora nos interesa identificar tres elementos:
+      </p>
+
+      <ul>
+        <li>
+          <code>class Main</code>: define una clase llamada <strong>Main</strong>.
+        </li>
+
+        <li>
+          <code>main</code>: es el punto desde el que comenzará la ejecución del programa.
+        </li>
+
+        <li>
+          <code>System.out.println(...)</code>: permite mostrar información por pantalla.
+        </li>
+      </ul>
+
+      <div class="alert alert-warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        <strong>No intentes memorizar todavía esta estructura.</strong>
+        Durante las próximas actividades iremos entendiendo qué significa cada
+        una de sus partes.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-project-diagram"></i> De un problema a un programa
+      </h4>
+
+      <p>
+        A lo largo del curso seguiremos normalmente este proceso:
+      </p>
+
+      <ol>
+        <li><strong>Analizar el problema.</strong></li>
+        <li><strong>Pensar un algoritmo</strong> para resolverlo.</li>
+        <li><strong>Escribir el algoritmo en Java.</strong></li>
+        <li><strong>Compilar el programa.</strong></li>
+        <li><strong>Ejecutarlo y comprobar el resultado.</strong></li>
+        <li><strong>Corregir los errores</strong> si el programa no funciona como esperábamos.</li>
+      </ol>
+
+      <p>
+        Programar, por tanto, no consiste únicamente en escribir código:
+        consiste principalmente en <strong>aprender a resolver problemas de forma lógica y ordenada</strong>.
+      </p>
+
+    </div>
+
+    
+
+  </div>
+
+</div>
+</section>
+
+
+<section id="ut01-teoria-02-variables-tipos-constantes" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+
+  <div class="card shadow p-4">
+
+    <h2 class="text-primary mb-3">
+      <i class="fas fa-box-open"></i> Variables, Tipos de Datos y Constantes
+    </h2>
+
+    <p class="lead">
+      Los programas necesitan <strong>guardar información mientras se están ejecutando</strong>.
+      Para hacerlo utilizamos variables, que nos permiten almacenar datos como números,
+      textos o valores lógicos y utilizarlos posteriormente en nuestro programa.
+    </p>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-box"></i> ¿Qué es una variable?
+      </h4>
+
+      <p>
+        Una <strong>variable</strong> puede imaginarse como una pequeña caja con nombre
+        en la que guardamos un dato.
+      </p>
+
+      <p>
+        Cada variable tiene principalmente tres elementos:
+      </p>
+
+      <ul>
+        <li>
+          Un <strong>nombre</strong>, que utilizaremos para identificarla.
+        </li>
+        <li>
+          Un <strong>tipo de dato</strong>, que indica qué clase de información puede guardar.
+        </li>
+        <li>
+          Un <strong>valor</strong>, que es la información almacenada en ese momento.
+        </li>
+      </ul>
+
+      <p>
+        Por ejemplo:
+      </p>
+
+      <pre><code>int edad = 20;</code></pre>
+
+      <p>
+        En esta instrucción:
+      </p>
+
+      <ul>
+        <li><code>int</code> es el <strong>tipo de dato</strong>.</li>
+        <li><code>edad</code> es el <strong>nombre de la variable</strong>.</li>
+        <li><code>20</code> es el <strong>valor almacenado</strong>.</li>
+      </ul>
+
+      <div class="alert alert-info">
+        <i class="fas fa-lightbulb"></i>
+        <strong>Idea importante:</strong>
+        el valor de una variable puede cambiar durante la ejecución del programa.
+        Precisamente por eso se llama <em>variable</em>.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-edit"></i> Declarar, inicializar y modificar una variable
+      </h4>
+
+      <p>
+        Cuando trabajamos con variables aparecen varias operaciones diferentes.
+      </p>
+
+      <p>
+        <strong>Declarar una variable</strong> significa indicar su tipo y su nombre:
+      </p>
+
+      <pre><code>int edad;</code></pre>
+
+      <p>
+        <strong>Asignar un valor</strong> significa guardar un dato en ella:
+      </p>
+
+      <pre><code>edad = 20;</code></pre>
+
+      <p>
+        También podemos declarar e inicializar una variable al mismo tiempo:
+      </p>
+
+      <pre><code>int edad = 20;</code></pre>
+
+      <p>
+        Y posteriormente podemos modificar su valor:
+      </p>
+
+      <pre><code>edad = 21;</code></pre>
+
+      <div class="alert alert-warning">
+        <i class="fas fa-equals"></i>
+        <strong>Atención:</strong>
+        en programación, el símbolo <code>=</code> se utiliza para
+        <strong>asignar un valor</strong>. No significa exactamente lo mismo que
+        el signo igual utilizado en matemáticas.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-database"></i> Tipos de datos primitivos
+      </h4>
+
+      <p>
+        Java necesita conocer qué tipo de información almacenará cada variable.
+        Entre los tipos primitivos que utilizaremos con mayor frecuencia al principio
+        encontramos:
+      </p>
+
+      <ul>
+        <li>
+          <code>int</code>: números enteros, por ejemplo <code>25</code>,
+          <code>0</code> o <code>-10</code>.
+        </li>
+
+        <li>
+          <code>double</code>: números con decimales, por ejemplo
+          <code>19.99</code> o <code>3.14</code>.
+        </li>
+
+        <li>
+          <code>boolean</code>: valores lógicos que únicamente pueden ser
+          <code>true</code> o <code>false</code>.
+        </li>
+
+        <li>
+          <code>char</code>: almacena un único carácter y se escribe entre
+          comillas simples, por ejemplo <code>'A'</code>.
+        </li>
+      </ul>
+
+      <p>
+        Existen otros tipos primitivos en Java, como <code>byte</code>,
+        <code>short</code>, <code>long</code> y <code>float</code>, que iremos
+        utilizando cuando sean necesarios.
+      </p>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-font"></i> Trabajando con texto: String
+      </h4>
+
+      <p>
+        Para almacenar texto utilizaremos normalmente <code>String</code>.
+      </p>
+
+      <pre><code>String nombre = "María";</code></pre>
+
+      <p>
+        A diferencia de los tipos anteriores, <code>String</code>
+        <strong>no es un tipo primitivo</strong>, sino una clase de Java.
+        De momento podemos utilizarla simplemente como el tipo que nos permite
+        trabajar con cadenas de texto.
+      </p>
+
+      <p>
+        Debemos recordar la diferencia entre:
+      </p>
+
+      <ul>
+        <li>
+          <code>'A'</code>: un único carácter de tipo <code>char</code>.
+        </li>
+
+        <li>
+          <code>"A"</code>: una cadena de texto de tipo <code>String</code>.
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-code"></i> Ejemplo utilizando diferentes variables
+      </h4>
+
+      <p>
+        Veamos un programa sencillo que almacena varios datos de una persona:
+      </p>
+
+      <pre><code>public class Main {
+
+    public static void main(String[] args) {
+
+        String nombre = "María";
+        int edad = 20;
+        double altura = 1.68;
+        boolean esEstudiante = true;
+        char inicial = 'M';
+
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
+        System.out.println("Altura: " + altura);
+        System.out.println("¿Es estudiante?: " + esEstudiante);
+        System.out.println("Inicial: " + inicial);
+
+    }
+
+}</code></pre>
+
+      <p>
+        En este ejemplo cada variable almacena un tipo diferente de información.
+        Cuando mostramos los datos por pantalla utilizamos el operador
+        <code>+</code> para unir texto con el contenido de las variables.
+      </p>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-tag"></i> Literales
+      </h4>
+
+      <p>
+        Un <strong>literal</strong> es un valor que escribimos directamente
+        dentro del código.
+      </p>
+
+      <p>Por ejemplo:</p>
+
+      <pre><code>int edad = 20;
+double precio = 49.95;
+char letra = 'A';
+boolean activo = true;
+String saludo = "Hola";</code></pre>
+
+      <p>
+        En estas instrucciones, <code>20</code>, <code>49.95</code>,
+        <code>'A'</code>, <code>true</code> y <code>"Hola"</code>
+        son literales.
+      </p>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-lock"></i> Constantes
+      </h4>
+
+      <p>
+        En ocasiones necesitamos almacenar un dato que
+        <strong>no debe cambiar durante la ejecución del programa</strong>.
+        Para ello podemos utilizar una constante.
+      </p>
+
+      <p>
+        En Java se utiliza la palabra reservada <code>final</code>:
+      </p>
+
+      <pre><code>final double PI = 3.14159;
+final int MAX_INTENTOS = 3;</code></pre>
+
+      <p>
+        Una vez asignado el valor, no podremos modificarlo:
+      </p>
+
+      <pre><code>final int MAX_INTENTOS = 3;
+
+// Esto produciría un error:
+MAX_INTENTOS = 5;</code></pre>
+
+      <p>
+        Por convención, los nombres de las constantes se suelen escribir
+        en <strong>mayúsculas</strong>, separando las palabras mediante
+        guiones bajos:
+      </p>
+
+      <pre><code>final double IVA = 0.21;
+final int EDAD_MINIMA = 18;
+final int NUMERO_MAXIMO_INTENTOS = 3;</code></pre>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-user-edit"></i> Reglas básicas para nombrar variables
+      </h4>
+
+      <p>
+        Elegir nombres adecuados hace que nuestros programas sean mucho más fáciles
+        de entender.
+      </p>
+
+      <p>
+        Algunas recomendaciones básicas son:
+      </p>
+
+      <ul>
+        <li>
+          Utilizar nombres que describan el contenido de la variable:
+          <code>edad</code>, <code>precioProducto</code> o <code>nombreAlumno</code>.
+        </li>
+
+        <li>
+          No utilizar espacios:
+          <code>nombre alumno</code> sería incorrecto.
+        </li>
+
+        <li>
+          No comenzar el nombre por un número:
+          <code>1alumno</code> sería incorrecto.
+        </li>
+
+        <li>
+          No utilizar palabras reservadas de Java como
+          <code>class</code>, <code>int</code> o <code>public</code>.
+        </li>
+
+        <li>
+          Utilizar normalmente <strong>camelCase</strong> cuando el nombre
+          contiene varias palabras:
+          <code>precioFinal</code>,
+          <code>numeroIntentos</code> o
+          <code>nombreCompleto</code>.
+        </li>
+      </ul>
+
+      <div class="alert alert-info">
+        <i class="fas fa-check-circle"></i>
+        <strong>Buena práctica:</strong>
+        un nombre como <code>edadAlumno</code> nos aporta mucha más información
+        que nombres genéricos como <code>x</code> o <code>a</code>.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-pencil-alt"></i> Primer ejercicio
+      </h4>
+
+      <p>
+        Crea un programa que almacene los siguientes datos de un alumno:
+      </p>
+
+      <ul>
+        <li>Nombre.</li>
+        <li>Edad.</li>
+        <li>Altura en metros.</li>
+        <li>Inicial del apellido.</li>
+        <li>Si tiene o no conocimientos previos de programación.</li>
+      </ul>
+
+      <p>
+        Después, muestra toda la información por pantalla utilizando
+        <code>System.out.println()</code>.
+      </p>
+
+      <p>
+        Por ejemplo, la salida podría ser:
+      </p>
+
+      <pre><code>Nombre: Laura
+Edad: 18
+Altura: 1.72
+Inicial del apellido: G
+¿Tiene conocimientos previos?: false</code></pre>
+
+    </div>
+
+    
+
+  </div>
+
+</div>
+</section>
+
+
+<section id="ut01-teoria-03-operadores-expresiones" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="text-primary mb-3">
+  <i class="fas fa-calculator"></i> Operadores y Expresiones
+</h2>
+
+<p class="lead">
+  Una vez que sabemos almacenar información en variables, necesitamos poder
+  <strong>trabajar con esos datos</strong>. Para ello utilizamos operadores,
+  que nos permiten realizar cálculos, comparar valores y combinar condiciones.
+</p>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-puzzle-piece"></i> ¿Qué es una expresión?
+  </h4>
+
+  <p>
+    Una <strong>expresión</strong> es una combinación de valores, variables
+    y operadores que produce un resultado.
+  </p>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>edad + 1
+
+precio * cantidad
+nota >= 5
+edad >= 18 && tieneCarnet</code></pre>
+
+  <p>
+    Cada una de estas expresiones produce un resultado diferente:
+  </p>
+
+  <ul>
+    <li><code>edad + 1</code> produce un número.</li>
+    <li><code>precio * cantidad</code> produce un número.</li>
+    <li><code>nota >= 5</code> produce un valor <code>boolean</code>.</li>
+    <li><code>edad >= 18 && tieneCarnet</code> también produce un valor <code>boolean</code>.</li>
+  </ul>
+
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    <strong>Idea importante:</strong>
+    una expresión siempre se evalúa y produce algún resultado.
+  </div>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-plus-minus"></i> Operadores aritméticos
+  </h4>
+
+  <p>
+    Los operadores aritméticos permiten realizar operaciones matemáticas
+    sobre valores numéricos.
+  </p>
+
+  <ul>
+    <li><code>+</code>: suma.</li>
+    <li><code>-</code>: resta.</li>
+    <li><code>*</code>: multiplicación.</li>
+    <li><code>/</code>: división.</li>
+    <li><code>%</code>: resto de una división entera.</li>
+  </ul>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>int a = 10;
+
+int b = 3;
+
+int suma = a + b;
+int resta = a - b;
+int multiplicacion = a * b;
+int division = a / b;
+int resto = a % b;</code></pre>
+
+  <p>
+    En este caso:
+  </p>
+
+  <ul>
+    <li><code>suma</code> vale <code>13</code>.</li>
+    <li><code>resta</code> vale <code>7</code>.</li>
+    <li><code>multiplicacion</code> vale <code>30</code>.</li>
+    <li><code>division</code> vale <code>3</code>.</li>
+    <li><code>resto</code> vale <code>1</code>.</li>
+  </ul>
+
+  <div class="alert alert-warning">
+    <i class="fas fa-exclamation-triangle"></i>
+    <strong>Atención con la división:</strong>
+    si dividimos dos valores de tipo <code>int</code>, Java realiza una
+    <strong>división entera</strong>.
+    Por ejemplo, <code>10 / 3</code> produce <code>3</code>, no <code>3.333...</code>.
+  </div>
+
+  <p>
+    Si queremos obtener un resultado decimal, al menos uno de los valores
+    deberá ser decimal:
+  </p>
+
+  <pre><code>double resultado = 10.0 / 3;</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-percentage"></i> El operador módulo
+  </h4>
+
+  <p>
+    El operador <code>%</code> devuelve el <strong>resto de una división</strong>.
+  </p>
+
+  <pre><code>int resto = 10 % 3;</code></pre>
+
+  <p>
+    Como <code>10 / 3</code> deja un resto de <code>1</code>, la variable
+    <code>resto</code> tendrá el valor <code>1</code>.
+  </p>
+
+  <p>
+    Este operador resulta muy útil en programación. Por ejemplo, podemos utilizarlo
+    para comprobar si un número es par:
+  </p>
+
+  <pre><code>int numero = 8;
+
+boolean esPar = numero % 2 == 0;</code></pre>
+
+  <p>
+    Si el resto de dividir un número entre <code>2</code> es <code>0</code>,
+    entonces sabemos que es par.
+  </p>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-balance-scale"></i> Operadores relacionales
+  </h4>
+
+  <p>
+    Los operadores relacionales permiten <strong>comparar dos valores</strong>.
+    El resultado de una comparación siempre es un valor de tipo
+    <code>boolean</code>: <code>true</code> o <code>false</code>.
+  </p>
+
+  <ul>
+    <li><code>==</code>: igual que.</li>
+    <li><code>!=</code>: distinto de.</li>
+    <li><code>&gt;</code>: mayor que.</li>
+    <li><code>&lt;</code>: menor que.</li>
+    <li><code>&gt;=</code>: mayor o igual que.</li>
+    <li><code>&lt;=</code>: menor o igual que.</li>
+  </ul>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>int edad = 20;
+
+boolean esMayorDeEdad = edad >= 18;
+boolean tieneVeinte = edad == 20;
+boolean esMenorDeEdad = edad < 18;</code></pre>
+
+  <p>
+    En este caso:
+  </p>
+
+  <ul>
+    <li><code>esMayorDeEdad</code> será <code>true</code>.</li>
+    <li><code>tieneVeinte</code> será <code>true</code>.</li>
+    <li><code>esMenorDeEdad</code> será <code>false</code>.</li>
+  </ul>
+
+  <div class="alert alert-danger">
+    <i class="fas fa-exclamation-circle"></i>
+    <strong>No confundas <code>=</code> con <code>==</code>.</strong>
+    <br>
+    <code>=</code> sirve para <strong>asignar</strong> un valor.
+    <br>
+    <code>==</code> sirve para <strong>comparar</strong> dos valores.
+  </div>
+
+  <pre><code>int edad = 20;          // Asignación
+
+boolean resultado = edad == 20; // Comparación</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-project-diagram"></i> Operadores lógicos
+  </h4>
+
+  <p>
+    Los operadores lógicos permiten <strong>combinar varias condiciones</strong>.
+    Trabajan con valores de tipo <code>boolean</code>.
+  </p>
+
+  <ul>
+    <li>
+      <code>&amp;&amp;</code> — <strong>AND</strong>:
+      el resultado es verdadero solamente si ambas condiciones son verdaderas.
+    </li>
+
+    <li>
+      <code>||</code> — <strong>OR</strong>:
+      el resultado es verdadero si al menos una de las condiciones es verdadera.
+    </li>
+
+    <li>
+      <code>!</code> — <strong>NOT</strong>:
+      invierte un valor lógico.
+    </li>
+  </ul>
+
+  <p>
+    Una forma muy visual de entender estos operadores es utilizar una
+    <strong>tabla de verdad</strong>. En ella vemos qué resultado produce cada
+    operador según los valores de entrada:
+  </p>
+
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th>Booleano A</th>
+          <th>Booleano B</th>
+          <th>Operador</th>
+          <th>Resultado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>true</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>false</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>true</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>false</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>true</code></td>
+          <td><code>||</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>false</code></td>
+          <td><code>||</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>true</code></td>
+          <td><code>||</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>false</code></td>
+          <td><code>||</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td>No se usa</td>
+          <td><code>!</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td>No se usa</td>
+          <td><code>!</code></td>
+          <td><code>true</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    <strong>Truco:</strong>
+    con <code>&amp;&amp;</code> todo debe ser verdadero; con <code>||</code>
+    basta con que una condición sea verdadera.
+  </div>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>int edad = 20;
+
+boolean tieneCarnet = true;
+
+boolean puedeConducir = edad >= 18 && tieneCarnet;</code></pre>
+
+  <p>
+    Para que <code>puedeConducir</code> sea <code>true</code>,
+    deben cumplirse las dos condiciones:
+  </p>
+
+  <pre><code>edad >= 18
+
+tieneCarnet == true</code></pre>
+
+  <p>
+    También podemos comprobar alternativas utilizando <code>||</code>:
+  </p>
+
+  <pre><code>boolean esFinDeSemana = esSabado || esDomingo;</code></pre>
+
+  <p>
+    Y podemos invertir una condición utilizando <code>!</code>:
+  </p>
+
+  <pre><code>boolean estaApagado = !estaEncendido;</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-equals"></i> Operadores de asignación
+  </h4>
+
+  <p>
+    Ya conocemos el operador <code>=</code>, que permite asignar un valor
+    a una variable:
+  </p>
+
+  <pre><code>int puntos = 10;</code></pre>
+
+  <p>
+    Java también dispone de operadores que permiten modificar una variable
+    utilizando su valor actual.
+  </p>
+
+  <pre><code>puntos += 5;
+
+puntos -= 2;
+puntos *= 2;
+puntos /= 2;</code></pre>
+
+  <p>
+    Por ejemplo:
+  </p>
+
+  <pre><code>puntos += 5;</code></pre>
+
+  <p>
+    es una forma abreviada de escribir:
+  </p>
+
+  <pre><code>puntos = puntos + 5;</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-sort-numeric-down"></i> Prioridad de los operadores
+  </h4>
+
+  <p>
+    Cuando una expresión contiene varios operadores, Java sigue unas reglas
+    de prioridad similares a las que utilizamos en matemáticas.
+  </p>
+
+  <p>
+    La siguiente tabla resume el orden más habitual de evaluación en los
+    operadores que estamos utilizando en esta unidad:
+  </p>
+
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th>Prioridad</th>
+          <th>Operadores</th>
+          <th>Tipo</th>
+          <th>Ejemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><code>( )</code></td>
+          <td>Paréntesis</td>
+          <td><code>(2 + 3) * 4</code></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><code>!</code></td>
+          <td>Negación lógica</td>
+          <td><code>!tienePermiso</code></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><code>*</code>, <code>/</code>, <code>%</code></td>
+          <td>Multiplicación, división y módulo</td>
+          <td><code>2 + 3 * 4</code></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><code>+</code>, <code>-</code></td>
+          <td>Suma y resta</td>
+          <td><code>precio + iva</code></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code></td>
+          <td>Comparaciones de orden</td>
+          <td><code>edad &gt;= 18</code></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><code>==</code>, <code>!=</code></td>
+          <td>Igualdad y desigualdad</td>
+          <td><code>nota == 10</code></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><code>&amp;&amp;</code></td>
+          <td>AND lógico</td>
+          <td><code>edad &gt;= 18 &amp;&amp; tieneCarnet</code></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><code>||</code></td>
+          <td>OR lógico</td>
+          <td><code>esSabado || esDomingo</code></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></td>
+          <td>Asignación</td>
+          <td><code>puntos += 5</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    <strong>Idea clave:</strong>
+    cuanto menor es el número de la tabla, antes se evalúa ese operador.
+    Si hay duda, usa paréntesis para hacer explícito el orden.
+  </div>
+
+  <pre><code>int resultado = 2 + 3 * 4;</code></pre>
+
+  <p>
+    Primero se realiza la multiplicación:
+  </p>
+
+  <pre><code>2 + 12 = 14</code></pre>
+
+  <p>
+    Si queremos modificar el orden de evaluación podemos utilizar paréntesis:
+  </p>
+
+  <pre><code>int resultado = (2 + 3) * 4;</code></pre>
+
+  <p>
+    En este caso:
+  </p>
+
+  <pre><code>5 * 4 = 20</code></pre>
+
+  <div class="alert alert-info">
+    <i class="fas fa-check-circle"></i>
+    <strong>Buena práctica:</strong>
+    aunque conozcamos las reglas de prioridad, utilizar paréntesis puede hacer
+    que una expresión sea mucho más fácil de leer.
+  </div>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-code"></i> Ejemplo completo
+  </h4>
+
+  <p>
+    Veamos un programa que combina distintos operadores:
+  </p>
+
+  <pre><code>public class Main {
+
+public static void main(String[] args) {
+
+    int a = 10;
+    int b = 3;
+
+    int suma = a + b;
+    int resto = a % b;
+
+    boolean esMayor = a > b;
+    boolean estaEnRango = a > 5 && a < 20;
+
+    System.out.println("Suma: " + suma);
+    System.out.println("Resto: " + resto);
+    System.out.println("¿a es mayor que b?: " + esMayor);
+    System.out.println("¿a está entre 5 y 20?: " + estaEnRango);
+
+}
+
+}</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-pencil-alt"></i> Ejercicio
+  </h4>
+
+  <p>
+    Crea un programa que almacene las notas de tres exámenes:
+  </p>
+
+  <pre><code>double nota1 = 7.5;
+
+double nota2 = 6.0;
+double nota3 = 8.5;</code></pre>
+
+  <p>El programa deberá:</p>
+
+  <ol>
+    <li>Calcular la nota media.</li>
+    <li>Mostrar la media por pantalla.</li>
+    <li>Comprobar si la media es mayor o igual que <code>5</code>.</li>
+    <li>Guardar el resultado de esa comparación en una variable de tipo <code>boolean</code>.</li>
+    <li>Mostrar si el alumno ha aprobado.</li>
+  </ol>
+
+  <p>
+    La salida podría ser similar a:
+  </p>
+
+  <pre><code>Nota media: 7.333333333333333
+
+¿Ha aprobado?: true</code></pre>
+
+  <div class="alert alert-warning">
+    <i class="fas fa-star"></i>
+    <strong>Desafío extra:</strong>
+    crea una variable <code>notaMinima</code> con valor <code>5</code> y
+    utilízala en la comparación en lugar de escribir directamente el número
+    <code>5</code>.
+  </div>
+
+</div>
+
+
+
+</div>
+
+</div>
+</section>
+
+
+<section id="ut01-teoria-04-conversiones-documentacion" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="text-primary mb-3">
+  <i class="fas fa-exchange-alt"></i> Conversiones de Tipo y Documentación
+</h2>
+
+<p class="lead">
+  A veces necesitaremos <strong>transformar un dato de un tipo a otro</strong>
+  para poder utilizarlo correctamente. Además, aprenderemos a escribir comentarios
+  que hagan nuestro código más claro, comprensible y fácil de mantener.
+</p>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-random"></i> ¿Por qué necesitamos convertir tipos?
+  </h4>
+
+  <p>
+    En Java, cada variable tiene un tipo concreto. Sin embargo, en determinadas
+    operaciones podemos necesitar utilizar un valor como si perteneciera a otro tipo.
+  </p>
+
+  <p>
+    Por ejemplo, podemos tener un número entero y querer utilizarlo como decimal:
+  </p>
+
+  <pre><code>int edad = 20;
+
+double edadDecimal = edad;</code></pre>
+
+  <p>
+    O podemos tener un número decimal y querer quedarnos únicamente con su parte entera:
+  </p>
+
+  <pre><code>double precio = 19.95;
+
+int precioEntero = (int) precio;</code></pre>
+
+  <p>
+    Estas transformaciones se conocen como
+    <strong>conversiones de tipo</strong>.
+  </p>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-arrow-right"></i> Conversión implícita
+  </h4>
+
+  <p>
+    Una <strong>conversión implícita</strong> ocurre cuando Java puede realizar
+    la transformación automáticamente sin que tengamos que indicarlo.
+  </p>
+
+  <p>
+    Por ejemplo:
+  </p>
+
+  <pre><code>int numero = 50;
+
+double decimal = numero;</code></pre>
+
+  <p>
+    La variable <code>numero</code> contiene el valor entero <code>50</code>.
+    Al almacenarlo en una variable <code>double</code>, Java lo convierte automáticamente
+    en <code>50.0</code>.
+  </p>
+
+  <pre><code>int numero = 50;
+
+double decimal = numero;
+
+System.out.println(decimal); // 50.0</code></pre>
+
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    <strong>Idea importante:</strong>
+    Java realiza automáticamente determinadas conversiones cuando considera
+    que el valor puede representarse correctamente en el nuevo tipo.
+  </div>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-compress-arrows-alt"></i> Conversión explícita: casting
+  </h4>
+
+  <p>
+    En otras ocasiones Java no realiza la conversión automáticamente porque
+    podría producirse una <strong>pérdida de información</strong>.
+  </p>
+
+  <p>
+    En esos casos debemos indicar expresamente el tipo al que queremos convertir
+    el valor utilizando:
+  </p>
+
+  <pre><code>(tipo)</code></pre>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>double precio = 99.99;
+
+int precioEntero = (int) precio;</code></pre>
+
+  <p>
+    El valor almacenado en <code>precioEntero</code> será:
+  </p>
+
+  <pre><code>99</code></pre>
+
+  <p>
+    La parte decimal se pierde durante la conversión.
+  </p>
+
+  <div class="alert alert-warning">
+    <i class="fas fa-exclamation-triangle"></i>
+    <strong>Importante:</strong>
+    convertir un <code>double</code> a <code>int</code> no redondea el número.
+    Simplemente elimina la parte decimal.
+  </div>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>double numero = 8.99;
+
+int resultado = (int) numero;
+
+System.out.println(resultado); // 8</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-calculator"></i> Casting y división
+  </h4>
+
+  <p>
+    Las conversiones también son importantes cuando realizamos operaciones
+    entre números enteros.
+  </p>
+
+  <p>Observa este ejemplo:</p>
+
+  <pre><code>int a = 10;
+
+int b = 4;
+
+double resultado = a / b;
+
+System.out.println(resultado);</code></pre>
+
+  <p>
+    Aunque <code>resultado</code> sea de tipo <code>double</code>,
+    la división se realiza primero entre dos valores <code>int</code>.
+  </p>
+
+  <p>
+    Por tanto:
+  </p>
+
+  <pre><code>10 / 4 = 2</code></pre>
+
+  <p>
+    y después ese resultado se convierte en:
+  </p>
+
+  <pre><code>2.0</code></pre>
+
+  <p>
+    Si queremos obtener el resultado decimal real, podemos convertir uno de
+    los operandos antes de realizar la división:
+  </p>
+
+  <pre><code>double resultado = (double) a / b;</code></pre>
+
+  <p>
+    Ahora el resultado será:
+  </p>
+
+  <pre><code>2.5</code></pre>
+
+  <div class="alert alert-info">
+    <i class="fas fa-check-circle"></i>
+    <strong>Fíjate en el orden:</strong>
+    no es lo mismo convertir el resultado después de dividir que convertir
+    uno de los valores antes de realizar la operación.
+  </div>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-code"></i> Ejemplo completo de conversiones
+  </h4>
+
+  <pre><code>public class Main {
+
+public static void main(String[] args) {
+
+    int unidades = 5;
+    double unidadesDecimal = unidades;
+
+    double precio = 19.95;
+    int precioSinDecimales = (int) precio;
+
+    int puntos = 7;
+    int partidas = 2;
+
+    double media = (double) puntos / partidas;
+
+    System.out.println("Conversión automática: " + unidadesDecimal);
+    System.out.println("Conversión explícita: " + precioSinDecimales);
+    System.out.println("Media: " + media);
+
+}
+
+}</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-comment-dots"></i> Comentarios en Java
+  </h4>
+
+  <p>
+    Los comentarios son textos que escribimos dentro del código para
+    <strong>explicar su funcionamiento</strong>.
+  </p>
+
+  <p>
+    El compilador ignora los comentarios, por lo que no afectan a la ejecución
+    del programa.
+  </p>
+
+  <p>
+    Java dispone de varios tipos de comentarios.
+  </p>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-comment"></i> Comentarios de una línea
+  </h4>
+
+  <p>
+    Se escriben utilizando <code>//</code>.
+  </p>
+
+  <pre><code>// Calculamos el precio final
+
+double precioFinal = precio * cantidad;</code></pre>
+
+  <p>
+    Todo lo que aparezca después de <code>//</code> en esa línea será ignorado
+    por el compilador.
+  </p>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-align-left"></i> Comentarios de varias líneas
+  </h4>
+
+  <p>
+    Cuando necesitamos escribir una explicación más extensa podemos utilizar:
+  </p>
+
+  <pre><code>/*
+
+Este programa calcula la nota media
+de un alumno utilizando las notas
+de tres exámenes.
+*/</code></pre>
+
+  <p>
+    El comentario comienza con <code>/*</code> y termina con <code>*/</code>.
+  </p>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-book"></i> Comentarios de documentación: Javadoc
+  </h4>
+
+  <p>
+    Java también dispone de un formato especial de comentarios pensado para
+    <strong>documentar clases y métodos</strong>.
+  </p>
+
+  <pre><code>/**
+
+
+
+puntos = puntos + 1;</code></pre>
+
+  <p>
+    En cambio, este comentario explica la intención del código:
+  </p>
+
+  <pre><code>// Añadimos un punto porque el jugador ha capturado la manzana
+
+puntos = puntos + 1;</code></pre>
+
+  <div class="alert alert-info">
+    <i class="fas fa-check-circle"></i>
+    <strong>Buena práctica:</strong>
+    intenta que el propio código sea fácil de entender mediante nombres claros
+    y utiliza comentarios para explicar el <strong>por qué</strong> cuando sea necesario.
+  </div>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-eye"></i> La legibilidad también forma parte de programar
+  </h4>
+
+  <p>
+    Un programa no debe limitarse a funcionar. También debe ser
+    <strong>fácil de leer y comprender</strong>.
+  </p>
+
+  <p>
+    Algunas buenas prácticas que iremos utilizando son:
+  </p>
+
+  <ul>
+    <li>Utilizar nombres descriptivos para variables y constantes.</li>
+    <li>Mantener una indentación correcta.</li>
+    <li>Separar visualmente diferentes partes del programa.</li>
+    <li>Evitar código innecesariamente complicado.</li>
+    <li>Utilizar comentarios cuando aporten información útil.</li>
+  </ul>
+
+  <pre><code>// Poco descriptivo
+
+double x = 100;
+double y = x * 0.21;
+
+// Más fácil de comprender
+double precioProducto = 100;
+double iva = precioProducto * 0.21;</code></pre>
+
+  <p>
+    Ambos fragmentos realizan exactamente la misma operación, pero el segundo
+    resulta mucho más fácil de entender.
+  </p>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-pencil-alt"></i> Ejercicio
+  </h4>
+
+  <p>
+    Crea un programa que almacene:
+  </p>
+
+  <ul>
+    <li>El número total de puntos obtenidos por un jugador.</li>
+    <li>El número de partidas jugadas.</li>
+  </ul>
+
+  <p>
+    Calcula la <strong>media de puntos por partida</strong> y muestra el resultado
+    con decimales.
+  </p>
+
+  <p>
+    Por ejemplo:
+  </p>
+
+  <pre><code>int puntos = 17;
+
+int partidas = 4;</code></pre>
+
+  <p>
+    El resultado correcto debería ser:
+  </p>
+
+  <pre><code>Media de puntos: 4.25</code></pre>
+
+  <div class="alert alert-warning">
+    <i class="fas fa-star"></i>
+    <strong>Pista:</strong>
+    recuerda que si divides dos valores <code>int</code>, Java realizará
+    una división entera.
+  </div>
+
+  <p>
+    Añade además comentarios que expliquen las partes principales del programa,
+    procurando no comentar instrucciones que sean evidentes.
+  </p>
+
+</div>
+
+
+
+</div>
+
+</div>
+</section>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/search-data.js?v=1790147742555"></script>
+    <script src="assets/js/course.js?v=1790147742555"></script>
+  </body>
+</html>

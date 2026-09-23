@@ -1,0 +1,331 @@
+﻿<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+
+  <div class="card shadow p-4">
+
+    <h2 class="text-primary mb-3">
+      <i class="fas fa-terminal"></i> Introducción a la Programación y al Entorno Java
+    </h2>
+
+    <p class="lead">
+      Programar consiste en <strong>dar instrucciones a un ordenador para resolver un problema</strong>.
+      Para hacerlo necesitamos pensar primero una solución paso a paso y, después,
+      expresarla utilizando un lenguaje que el ordenador pueda procesar.
+    </p>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-route"></i> ¿Qué es un algoritmo?
+      </h4>
+
+      <p>
+        Un <strong>algoritmo</strong> es una secuencia
+        <strong>ordenada, clara y finita de pasos</strong> que permite resolver un problema
+        o realizar una tarea.
+      </p>
+
+      <p>
+        Utilizamos algoritmos continuamente, incluso fuera de la informática.
+        Por ejemplo, una receta de cocina puede verse como un algoritmo:
+      </p>
+
+      <ol>
+        <li>Preparar los ingredientes.</li>
+        <li>Mezclarlos siguiendo un orden.</li>
+        <li>Cocinar durante un tiempo determinado.</li>
+        <li>Obtener el resultado final.</li>
+      </ol>
+
+      <p>
+        En programación ocurre algo parecido. Antes de escribir código debemos
+        pensar <strong>qué pasos debe seguir el ordenador</strong> para conseguir
+        el resultado que buscamos.
+      </p>
+
+      <div class="alert alert-info">
+        <i class="fas fa-lightbulb"></i>
+        <strong>Idea importante:</strong>
+        un algoritmo no depende necesariamente de un lenguaje de programación.
+        Primero pensamos la solución; después decidimos cómo escribirla.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-code"></i> ¿Qué es un lenguaje de programación?
+      </h4>
+
+      <p>
+        Un <strong>lenguaje de programación</strong> es un conjunto de reglas,
+        símbolos y palabras que nos permite escribir instrucciones para un ordenador.
+      </p>
+
+      <p>
+        Igual que los idiomas humanos tienen vocabulario y reglas gramaticales,
+        los lenguajes de programación tienen:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Sintaxis:</strong> indica cómo debemos escribir correctamente las instrucciones.
+        </li>
+        <li>
+          <strong>Semántica:</strong> indica qué significa cada instrucción y qué efecto produce.
+        </li>
+      </ul>
+
+      <p>
+        Por ejemplo, un mismo algoritmo puede expresarse de formas diferentes
+        dependiendo del lenguaje utilizado.
+      </p>
+
+      <p>
+        En lenguaje natural podríamos decir:
+      </p>
+
+      <pre><code>Mostrar el mensaje "Hola mundo"</code></pre>
+
+      <p>
+        Mientras que en Java escribiríamos:
+      </p>
+
+      <pre><code>System.out.println("Hola mundo");</code></pre>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-layer-group"></i> Niveles de los lenguajes de programación
+      </h4>
+
+      <p>
+        Los ordenadores trabajan internamente utilizando instrucciones muy simples.
+        Según lo cerca que esté un lenguaje del hardware o de la forma de pensar
+        de las personas, podemos hablar de diferentes niveles:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Lenguaje máquina:</strong>
+          utiliza instrucciones binarias formadas por <code>0</code> y <code>1</code>
+          que el procesador puede ejecutar directamente.
+        </li>
+
+        <li>
+          <strong>Lenguaje ensamblador:</strong>
+          utiliza abreviaturas o mnemónicos que representan instrucciones concretas
+          del procesador.
+        </li>
+
+        <li>
+          <strong>Lenguajes de alto nivel:</strong>
+          utilizan instrucciones mucho más fáciles de leer y escribir para una persona.
+          Java, Python o C# son ejemplos de lenguajes de alto nivel.
+        </li>
+      </ul>
+
+      <p>
+        Nosotros trabajaremos principalmente con <strong>Java</strong>, un lenguaje
+        de alto nivel diseñado para permitir el desarrollo de aplicaciones de una
+        forma estructurada y portable.
+      </p>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-exchange-alt"></i> Del código Java al programa en ejecución
+      </h4>
+
+      <p>
+        Cuando escribimos un programa en Java, el ordenador no ejecuta directamente
+        el texto que hemos escrito. Existe un proceso intermedio.
+      </p>
+
+      <p>
+        El flujo simplificado es el siguiente:
+      </p>
+
+      <ol>
+        <li>
+          Escribimos el <strong>código fuente</strong> en un archivo con extensión
+          <code>.java</code>.
+        </li>
+
+        <li>
+          El compilador de Java, <code>javac</code>, comprueba el código y lo transforma
+          en un formato intermedio llamado <strong>bytecode</strong>.
+        </li>
+
+        <li>
+          El bytecode se almacena normalmente en archivos con extensión
+          <code>.class</code>.
+        </li>
+
+        <li>
+          La <strong>Máquina Virtual de Java (JVM)</strong> ejecuta ese bytecode.
+        </li>
+      </ol>
+
+      <p>
+        De forma resumida:
+      </p>
+
+      <pre><code>Código fuente (.java)
+        ↓
+Compilador javac
+        ↓
+Bytecode (.class)
+        ↓
+Máquina Virtual de Java (JVM)
+        ↓
+Programa en ejecución</code></pre>
+
+      <div class="alert alert-info">
+        <i class="fas fa-globe"></i>
+        <strong>¿Por qué utilizar una máquina virtual?</strong>
+        El bytecode puede ejecutarse en diferentes sistemas siempre que exista
+        una JVM compatible. Esta idea está relacionada con una de las características
+        más conocidas de Java: <em>"Write once, run anywhere"</em>.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-cubes"></i> JVM, JRE y JDK
+      </h4>
+
+      <p>
+        En el ecosistema Java aparecen varios términos que conviene diferenciar:
+      </p>
+
+      <ul>
+
+        <li>
+          <strong>JVM (Java Virtual Machine):</strong>
+          es la máquina virtual encargada de ejecutar el bytecode de Java.
+        </li>
+
+        <li>
+          <strong>JRE (Java Runtime Environment):</strong>
+          contiene los elementos necesarios para ejecutar aplicaciones Java,
+          incluyendo la JVM y las librerías necesarias.
+        </li>
+
+        <li>
+          <strong>JDK (Java Development Kit):</strong>
+          incluye las herramientas necesarias para
+          <strong>desarrollar aplicaciones Java</strong>, como el compilador
+          <code>javac</code> y otras utilidades.
+        </li>
+
+      </ul>
+
+      <p>
+        De forma simplificada podemos imaginarlo así:
+      </p>
+
+      <pre><code>JDK
+ ├── Herramientas de desarrollo
+ │     ├── javac
+ │     ├── jar
+ │     └── javadoc
+ │
+ └── Entorno necesario para ejecutar Java
+       └── JVM</code></pre>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-file-code"></i> Nuestro primer programa en Java
+      </h4>
+
+      <p>
+        Veamos ahora la estructura básica de un programa Java muy sencillo.
+        Crearemos una clase llamada <code>Main</code> que mostrará un mensaje
+        por pantalla.
+      </p>
+
+      <pre><code>public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("¡Hola, mundo desde Java!");
+
+    }
+
+}</code></pre>
+
+      <p>
+        De momento no es necesario comprender todos los elementos que aparecen
+        en este código. Los iremos estudiando poco a poco.
+      </p>
+
+      <p>
+        Por ahora nos interesa identificar tres elementos:
+      </p>
+
+      <ul>
+        <li>
+          <code>class Main</code>: define una clase llamada <strong>Main</strong>.
+        </li>
+
+        <li>
+          <code>main</code>: es el punto desde el que comenzará la ejecución del programa.
+        </li>
+
+        <li>
+          <code>System.out.println(...)</code>: permite mostrar información por pantalla.
+        </li>
+      </ul>
+
+      <div class="alert alert-warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        <strong>No intentes memorizar todavía esta estructura.</strong>
+        Durante las próximas actividades iremos entendiendo qué significa cada
+        una de sus partes.
+      </div>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h4 class="text-primary mb-3">
+        <i class="fas fa-project-diagram"></i> De un problema a un programa
+      </h4>
+
+      <p>
+        A lo largo del curso seguiremos normalmente este proceso:
+      </p>
+
+      <ol>
+        <li><strong>Analizar el problema.</strong></li>
+        <li><strong>Pensar un algoritmo</strong> para resolverlo.</li>
+        <li><strong>Escribir el algoritmo en Java.</strong></li>
+        <li><strong>Compilar el programa.</strong></li>
+        <li><strong>Ejecutarlo y comprobar el resultado.</strong></li>
+        <li><strong>Corregir los errores</strong> si el programa no funciona como esperábamos.</li>
+      </ol>
+
+      <p>
+        Programar, por tanto, no consiste únicamente en escribir código:
+        consiste principalmente en <strong>aprender a resolver problemas de forma lógica y ordenada</strong>.
+      </p>
+
+    </div>
+
+    
+
+  </div>
+
+</div>
+

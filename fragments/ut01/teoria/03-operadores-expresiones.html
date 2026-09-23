@@ -1,0 +1,588 @@
+﻿<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+
+<div class="card shadow p-4">
+
+<h2 class="text-primary mb-3">
+  <i class="fas fa-calculator"></i> Operadores y Expresiones
+</h2>
+
+<p class="lead">
+  Una vez que sabemos almacenar información en variables, necesitamos poder
+  <strong>trabajar con esos datos</strong>. Para ello utilizamos operadores,
+  que nos permiten realizar cálculos, comparar valores y combinar condiciones.
+</p>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-puzzle-piece"></i> ¿Qué es una expresión?
+  </h4>
+
+  <p>
+    Una <strong>expresión</strong> es una combinación de valores, variables
+    y operadores que produce un resultado.
+  </p>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>edad + 1
+
+precio * cantidad
+nota >= 5
+edad >= 18 && tieneCarnet</code></pre>
+
+  <p>
+    Cada una de estas expresiones produce un resultado diferente:
+  </p>
+
+  <ul>
+    <li><code>edad + 1</code> produce un número.</li>
+    <li><code>precio * cantidad</code> produce un número.</li>
+    <li><code>nota >= 5</code> produce un valor <code>boolean</code>.</li>
+    <li><code>edad >= 18 && tieneCarnet</code> también produce un valor <code>boolean</code>.</li>
+  </ul>
+
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    <strong>Idea importante:</strong>
+    una expresión siempre se evalúa y produce algún resultado.
+  </div>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-plus-minus"></i> Operadores aritméticos
+  </h4>
+
+  <p>
+    Los operadores aritméticos permiten realizar operaciones matemáticas
+    sobre valores numéricos.
+  </p>
+
+  <ul>
+    <li><code>+</code>: suma.</li>
+    <li><code>-</code>: resta.</li>
+    <li><code>*</code>: multiplicación.</li>
+    <li><code>/</code>: división.</li>
+    <li><code>%</code>: resto de una división entera.</li>
+  </ul>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>int a = 10;
+
+int b = 3;
+
+int suma = a + b;
+int resta = a - b;
+int multiplicacion = a * b;
+int division = a / b;
+int resto = a % b;</code></pre>
+
+  <p>
+    En este caso:
+  </p>
+
+  <ul>
+    <li><code>suma</code> vale <code>13</code>.</li>
+    <li><code>resta</code> vale <code>7</code>.</li>
+    <li><code>multiplicacion</code> vale <code>30</code>.</li>
+    <li><code>division</code> vale <code>3</code>.</li>
+    <li><code>resto</code> vale <code>1</code>.</li>
+  </ul>
+
+  <div class="alert alert-warning">
+    <i class="fas fa-exclamation-triangle"></i>
+    <strong>Atención con la división:</strong>
+    si dividimos dos valores de tipo <code>int</code>, Java realiza una
+    <strong>división entera</strong>.
+    Por ejemplo, <code>10 / 3</code> produce <code>3</code>, no <code>3.333...</code>.
+  </div>
+
+  <p>
+    Si queremos obtener un resultado decimal, al menos uno de los valores
+    deberá ser decimal:
+  </p>
+
+  <pre><code>double resultado = 10.0 / 3;</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-percentage"></i> El operador módulo
+  </h4>
+
+  <p>
+    El operador <code>%</code> devuelve el <strong>resto de una división</strong>.
+  </p>
+
+  <pre><code>int resto = 10 % 3;</code></pre>
+
+  <p>
+    Como <code>10 / 3</code> deja un resto de <code>1</code>, la variable
+    <code>resto</code> tendrá el valor <code>1</code>.
+  </p>
+
+  <p>
+    Este operador resulta muy útil en programación. Por ejemplo, podemos utilizarlo
+    para comprobar si un número es par:
+  </p>
+
+  <pre><code>int numero = 8;
+
+boolean esPar = numero % 2 == 0;</code></pre>
+
+  <p>
+    Si el resto de dividir un número entre <code>2</code> es <code>0</code>,
+    entonces sabemos que es par.
+  </p>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-balance-scale"></i> Operadores relacionales
+  </h4>
+
+  <p>
+    Los operadores relacionales permiten <strong>comparar dos valores</strong>.
+    El resultado de una comparación siempre es un valor de tipo
+    <code>boolean</code>: <code>true</code> o <code>false</code>.
+  </p>
+
+  <ul>
+    <li><code>==</code>: igual que.</li>
+    <li><code>!=</code>: distinto de.</li>
+    <li><code>&gt;</code>: mayor que.</li>
+    <li><code>&lt;</code>: menor que.</li>
+    <li><code>&gt;=</code>: mayor o igual que.</li>
+    <li><code>&lt;=</code>: menor o igual que.</li>
+  </ul>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>int edad = 20;
+
+boolean esMayorDeEdad = edad >= 18;
+boolean tieneVeinte = edad == 20;
+boolean esMenorDeEdad = edad < 18;</code></pre>
+
+  <p>
+    En este caso:
+  </p>
+
+  <ul>
+    <li><code>esMayorDeEdad</code> será <code>true</code>.</li>
+    <li><code>tieneVeinte</code> será <code>true</code>.</li>
+    <li><code>esMenorDeEdad</code> será <code>false</code>.</li>
+  </ul>
+
+  <div class="alert alert-danger">
+    <i class="fas fa-exclamation-circle"></i>
+    <strong>No confundas <code>=</code> con <code>==</code>.</strong>
+    <br>
+    <code>=</code> sirve para <strong>asignar</strong> un valor.
+    <br>
+    <code>==</code> sirve para <strong>comparar</strong> dos valores.
+  </div>
+
+  <pre><code>int edad = 20;          // Asignación
+
+boolean resultado = edad == 20; // Comparación</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-project-diagram"></i> Operadores lógicos
+  </h4>
+
+  <p>
+    Los operadores lógicos permiten <strong>combinar varias condiciones</strong>.
+    Trabajan con valores de tipo <code>boolean</code>.
+  </p>
+
+  <ul>
+    <li>
+      <code>&amp;&amp;</code> — <strong>AND</strong>:
+      el resultado es verdadero solamente si ambas condiciones son verdaderas.
+    </li>
+
+    <li>
+      <code>||</code> — <strong>OR</strong>:
+      el resultado es verdadero si al menos una de las condiciones es verdadera.
+    </li>
+
+    <li>
+      <code>!</code> — <strong>NOT</strong>:
+      invierte un valor lógico.
+    </li>
+  </ul>
+
+  <p>
+    Una forma muy visual de entender estos operadores es utilizar una
+    <strong>tabla de verdad</strong>. En ella vemos qué resultado produce cada
+    operador según los valores de entrada:
+  </p>
+
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th>Booleano A</th>
+          <th>Booleano B</th>
+          <th>Operador</th>
+          <th>Resultado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>true</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>false</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>true</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>false</code></td>
+          <td><code>&amp;&amp;</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>true</code></td>
+          <td><code>||</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td><code>false</code></td>
+          <td><code>||</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>true</code></td>
+          <td><code>||</code></td>
+          <td><code>true</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td><code>false</code></td>
+          <td><code>||</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>true</code></td>
+          <td>No se usa</td>
+          <td><code>!</code></td>
+          <td><code>false</code></td>
+        </tr>
+        <tr>
+          <td><code>false</code></td>
+          <td>No se usa</td>
+          <td><code>!</code></td>
+          <td><code>true</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    <strong>Truco:</strong>
+    con <code>&amp;&amp;</code> todo debe ser verdadero; con <code>||</code>
+    basta con que una condición sea verdadera.
+  </div>
+
+  <p>Por ejemplo:</p>
+
+  <pre><code>int edad = 20;
+
+boolean tieneCarnet = true;
+
+boolean puedeConducir = edad >= 18 && tieneCarnet;</code></pre>
+
+  <p>
+    Para que <code>puedeConducir</code> sea <code>true</code>,
+    deben cumplirse las dos condiciones:
+  </p>
+
+  <pre><code>edad >= 18
+
+tieneCarnet == true</code></pre>
+
+  <p>
+    También podemos comprobar alternativas utilizando <code>||</code>:
+  </p>
+
+  <pre><code>boolean esFinDeSemana = esSabado || esDomingo;</code></pre>
+
+  <p>
+    Y podemos invertir una condición utilizando <code>!</code>:
+  </p>
+
+  <pre><code>boolean estaApagado = !estaEncendido;</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-equals"></i> Operadores de asignación
+  </h4>
+
+  <p>
+    Ya conocemos el operador <code>=</code>, que permite asignar un valor
+    a una variable:
+  </p>
+
+  <pre><code>int puntos = 10;</code></pre>
+
+  <p>
+    Java también dispone de operadores que permiten modificar una variable
+    utilizando su valor actual.
+  </p>
+
+  <pre><code>puntos += 5;
+
+puntos -= 2;
+puntos *= 2;
+puntos /= 2;</code></pre>
+
+  <p>
+    Por ejemplo:
+  </p>
+
+  <pre><code>puntos += 5;</code></pre>
+
+  <p>
+    es una forma abreviada de escribir:
+  </p>
+
+  <pre><code>puntos = puntos + 5;</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-sort-numeric-down"></i> Prioridad de los operadores
+  </h4>
+
+  <p>
+    Cuando una expresión contiene varios operadores, Java sigue unas reglas
+    de prioridad similares a las que utilizamos en matemáticas.
+  </p>
+
+  <p>
+    La siguiente tabla resume el orden más habitual de evaluación en los
+    operadores que estamos utilizando en esta unidad:
+  </p>
+
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th>Prioridad</th>
+          <th>Operadores</th>
+          <th>Tipo</th>
+          <th>Ejemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><code>( )</code></td>
+          <td>Paréntesis</td>
+          <td><code>(2 + 3) * 4</code></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><code>!</code></td>
+          <td>Negación lógica</td>
+          <td><code>!tienePermiso</code></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><code>*</code>, <code>/</code>, <code>%</code></td>
+          <td>Multiplicación, división y módulo</td>
+          <td><code>2 + 3 * 4</code></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><code>+</code>, <code>-</code></td>
+          <td>Suma y resta</td>
+          <td><code>precio + iva</code></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code></td>
+          <td>Comparaciones de orden</td>
+          <td><code>edad &gt;= 18</code></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><code>==</code>, <code>!=</code></td>
+          <td>Igualdad y desigualdad</td>
+          <td><code>nota == 10</code></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><code>&amp;&amp;</code></td>
+          <td>AND lógico</td>
+          <td><code>edad &gt;= 18 &amp;&amp; tieneCarnet</code></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><code>||</code></td>
+          <td>OR lógico</td>
+          <td><code>esSabado || esDomingo</code></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></td>
+          <td>Asignación</td>
+          <td><code>puntos += 5</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert alert-info">
+    <i class="fas fa-lightbulb"></i>
+    <strong>Idea clave:</strong>
+    cuanto menor es el número de la tabla, antes se evalúa ese operador.
+    Si hay duda, usa paréntesis para hacer explícito el orden.
+  </div>
+
+  <pre><code>int resultado = 2 + 3 * 4;</code></pre>
+
+  <p>
+    Primero se realiza la multiplicación:
+  </p>
+
+  <pre><code>2 + 12 = 14</code></pre>
+
+  <p>
+    Si queremos modificar el orden de evaluación podemos utilizar paréntesis:
+  </p>
+
+  <pre><code>int resultado = (2 + 3) * 4;</code></pre>
+
+  <p>
+    En este caso:
+  </p>
+
+  <pre><code>5 * 4 = 20</code></pre>
+
+  <div class="alert alert-info">
+    <i class="fas fa-check-circle"></i>
+    <strong>Buena práctica:</strong>
+    aunque conozcamos las reglas de prioridad, utilizar paréntesis puede hacer
+    que una expresión sea mucho más fácil de leer.
+  </div>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-code"></i> Ejemplo completo
+  </h4>
+
+  <p>
+    Veamos un programa que combina distintos operadores:
+  </p>
+
+  <pre><code>public class Main {
+
+public static void main(String[] args) {
+
+    int a = 10;
+    int b = 3;
+
+    int suma = a + b;
+    int resto = a % b;
+
+    boolean esMayor = a > b;
+    boolean estaEnRango = a > 5 && a < 20;
+
+    System.out.println("Suma: " + suma);
+    System.out.println("Resto: " + resto);
+    System.out.println("¿a es mayor que b?: " + esMayor);
+    System.out.println("¿a está entre 5 y 20?: " + estaEnRango);
+
+}
+
+}</code></pre>
+
+</div>
+
+<div class="mb-4">
+
+  <h4 class="text-primary mb-3">
+    <i class="fas fa-pencil-alt"></i> Ejercicio
+  </h4>
+
+  <p>
+    Crea un programa que almacene las notas de tres exámenes:
+  </p>
+
+  <pre><code>double nota1 = 7.5;
+
+double nota2 = 6.0;
+double nota3 = 8.5;</code></pre>
+
+  <p>El programa deberá:</p>
+
+  <ol>
+    <li>Calcular la nota media.</li>
+    <li>Mostrar la media por pantalla.</li>
+    <li>Comprobar si la media es mayor o igual que <code>5</code>.</li>
+    <li>Guardar el resultado de esa comparación en una variable de tipo <code>boolean</code>.</li>
+    <li>Mostrar si el alumno ha aprobado.</li>
+  </ol>
+
+  <p>
+    La salida podría ser similar a:
+  </p>
+
+  <pre><code>Nota media: 7.333333333333333
+
+¿Ha aprobado?: true</code></pre>
+
+  <div class="alert alert-warning">
+    <i class="fas fa-star"></i>
+    <strong>Desafío extra:</strong>
+    crea una variable <code>notaMinima</code> con valor <code>5</code> y
+    utilízala en la comparación en lugar de escribir directamente el número
+    <code>5</code>.
+  </div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
