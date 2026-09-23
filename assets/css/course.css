@@ -174,7 +174,7 @@ a {
 .page-wrap {
   width: min(1120px, calc(100% - 2rem));
   margin-inline: auto;
-  padding-block: 1.5rem 3rem;
+  padding-block: 3.25rem 3rem;
 }
 
 .hero-panel,
@@ -218,9 +218,29 @@ a {
   font-weight: 700;
 }
 
+.breadcrumb-nav {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  left: 0;
+  z-index: 1010;
+  margin-bottom: 0;
+  padding-block: 0.45rem;
+  background: rgba(243, 246, 249, 0.96);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+  transition: left 0.2s ease;
+}
+
 .breadcrumb {
   margin-bottom: 1rem;
   font-size: 0.95rem;
+}
+
+.breadcrumb-nav .breadcrumb {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+  margin-bottom: 0;
 }
 
 .section-nav-list {
@@ -296,6 +316,19 @@ pre code {
   margin-top: 1.5rem;
 }
 
+.fragment-section > .container,
+.fragment-section > .container-sm,
+.fragment-section > .container-md,
+.fragment-section > .container-lg,
+.fragment-section > .container-xl,
+.fragment-section > .container-xxl,
+.fragment-section > .container-fluid {
+  width: 100%;
+  max-width: none;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
 .search-content-mark {
   padding: 0.05rem 0.12rem;
   border-radius: 0.2rem;
@@ -320,12 +353,20 @@ pre code {
     margin-left: var(--sidebar-width);
   }
 
+  .breadcrumb-nav {
+    left: var(--sidebar-width);
+  }
+
   body.sidebar-collapsed .site-sidebar {
     transform: translateX(-100%);
   }
 
   body.sidebar-collapsed .site-main {
     margin-left: 0;
+  }
+
+  body.sidebar-collapsed .breadcrumb-nav {
+    left: 0;
   }
 
   .sidebar-backdrop {
@@ -370,6 +411,7 @@ pre code {
   .site-sidebar,
   .sidebar-backdrop,
   .topbar,
+  .breadcrumb-nav,
   .breadcrumb,
   .section-nav,
   .unit-fragment-index,

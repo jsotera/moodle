@@ -1,15 +1,14 @@
-﻿<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
 
 <div class="card shadow p-4">
 
 <h2 class="text-primary mb-3">
-  <i class="fas fa-exchange-alt"></i> Conversiones de Tipo y Documentación
+  <i class="fas fa-exchange-alt"></i> 1.4 Conversiones de Tipo
 </h2>
 
 <p class="lead">
   A veces necesitaremos <strong>transformar un dato de un tipo a otro</strong>
-  para poder utilizarlo correctamente. Además, aprenderemos a escribir comentarios
-  que hagan nuestro código más claro, comprensible y fácil de mantener.
+  para poder utilizarlo correctamente en operaciones, asignaciones o cálculos.
 </p>
 
 <div class="mb-4">
@@ -228,196 +227,7 @@ public static void main(String[] args) {
 
 </div>
 
-<div class="mb-4">
-
-  <h4 class="text-primary mb-3">
-    <i class="fas fa-comment-dots"></i> Comentarios en Java
-  </h4>
-
-  <p>
-    Los comentarios son textos que escribimos dentro del código para
-    <strong>explicar su funcionamiento</strong>.
-  </p>
-
-  <p>
-    El compilador ignora los comentarios, por lo que no afectan a la ejecución
-    del programa.
-  </p>
-
-  <p>
-    Java dispone de varios tipos de comentarios.
-  </p>
-
-</div>
-
-<div class="mb-4">
-
-  <h4 class="text-primary mb-3">
-    <i class="fas fa-comment"></i> Comentarios de una línea
-  </h4>
-
-  <p>
-    Se escriben utilizando <code>//</code>.
-  </p>
-
-  <pre><code>// Calculamos el precio final
-
-double precioFinal = precio * cantidad;</code></pre>
-
-  <p>
-    Todo lo que aparezca después de <code>//</code> en esa línea será ignorado
-    por el compilador.
-  </p>
-
-</div>
-
-<div class="mb-4">
-
-  <h4 class="text-primary mb-3">
-    <i class="fas fa-align-left"></i> Comentarios de varias líneas
-  </h4>
-
-  <p>
-    Cuando necesitamos escribir una explicación más extensa podemos utilizar:
-  </p>
-
-  <pre><code>/*
-
-Este programa calcula la nota media
-de un alumno utilizando las notas
-de tres exámenes.
-*/</code></pre>
-
-  <p>
-    El comentario comienza con <code>/*</code> y termina con <code>*/</code>.
-  </p>
-
-</div>
-
-<div class="mb-4">
-
-  <h4 class="text-primary mb-3">
-    <i class="fas fa-book"></i> Comentarios de documentación: Javadoc
-  </h4>
-
-  <p>
-    Java también dispone de un formato especial de comentarios pensado para
-    <strong>documentar clases y métodos</strong>.
-  </p>
-
-  <pre><code>/**
-
-
-
-puntos = puntos + 1;</code></pre>
-
-  <p>
-    En cambio, este comentario explica la intención del código:
-  </p>
-
-  <pre><code>// Añadimos un punto porque el jugador ha capturado la manzana
-
-puntos = puntos + 1;</code></pre>
-
-  <div class="alert alert-info">
-    <i class="fas fa-check-circle"></i>
-    <strong>Buena práctica:</strong>
-    intenta que el propio código sea fácil de entender mediante nombres claros
-    y utiliza comentarios para explicar el <strong>por qué</strong> cuando sea necesario.
-  </div>
-
-</div>
-
-<div class="mb-4">
-
-  <h4 class="text-primary mb-3">
-    <i class="fas fa-eye"></i> La legibilidad también forma parte de programar
-  </h4>
-
-  <p>
-    Un programa no debe limitarse a funcionar. También debe ser
-    <strong>fácil de leer y comprender</strong>.
-  </p>
-
-  <p>
-    Algunas buenas prácticas que iremos utilizando son:
-  </p>
-
-  <ul>
-    <li>Utilizar nombres descriptivos para variables y constantes.</li>
-    <li>Mantener una indentación correcta.</li>
-    <li>Separar visualmente diferentes partes del programa.</li>
-    <li>Evitar código innecesariamente complicado.</li>
-    <li>Utilizar comentarios cuando aporten información útil.</li>
-  </ul>
-
-  <pre><code>// Poco descriptivo
-
-double x = 100;
-double y = x * 0.21;
-
-// Más fácil de comprender
-double precioProducto = 100;
-double iva = precioProducto * 0.21;</code></pre>
-
-  <p>
-    Ambos fragmentos realizan exactamente la misma operación, pero el segundo
-    resulta mucho más fácil de entender.
-  </p>
-
-</div>
-
-<div class="mb-4">
-
-  <h4 class="text-primary mb-3">
-    <i class="fas fa-pencil-alt"></i> Ejercicio
-  </h4>
-
-  <p>
-    Crea un programa que almacene:
-  </p>
-
-  <ul>
-    <li>El número total de puntos obtenidos por un jugador.</li>
-    <li>El número de partidas jugadas.</li>
-  </ul>
-
-  <p>
-    Calcula la <strong>media de puntos por partida</strong> y muestra el resultado
-    con decimales.
-  </p>
-
-  <p>
-    Por ejemplo:
-  </p>
-
-  <pre><code>int puntos = 17;
-
-int partidas = 4;</code></pre>
-
-  <p>
-    El resultado correcto debería ser:
-  </p>
-
-  <pre><code>Media de puntos: 4.25</code></pre>
-
-  <div class="alert alert-warning">
-    <i class="fas fa-star"></i>
-    <strong>Pista:</strong>
-    recuerda que si divides dos valores <code>int</code>, Java realizará
-    una división entera.
-  </div>
-
-  <p>
-    Añade además comentarios que expliquen las partes principales del programa,
-    procurando no comentar instrucciones que sean evidentes.
-  </p>
-
-</div>
-
-
 
 </div>
 
 </div>
-

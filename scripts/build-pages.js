@@ -161,9 +161,8 @@ function renderFragmentIndex(kind, fragments) {
   }
 
   const label = pageKinds[kind].label.toLowerCase();
-  const links = fragments.map((fragment, index) => `
+  const links = fragments.map((fragment) => `
         <a class="section-nav-link" href="#${fragment.id}">
-          <span class="small text-muted d-block">${String(index + 1).padStart(2, "0")}</span>
           ${escapeForHtml(fragment.title)}
         </a>`).join("");
 
@@ -212,22 +211,6 @@ function pageIdForKind(unit, kind) {
 function addSearchEntries(pages, unit, kind, fragments) {
   const kindConfig = pageKinds[kind];
   const baseUrl = pageUrlForKind(unit, kind);
-  const baseId = pageIdForKind(unit, kind);
-  const searchableText = fragments.map((fragment) => stripHtml(fragment.html)).join(" ");
-
-  pages.push({
-    id: baseId,
-    unitId: unit.id,
-    section: kindConfig.label,
-    title: `UT ${unit.number}. ${kindConfig.label}: ${unit.title}`,
-    url: baseUrl,
-    type: kindConfig.label,
-    text: searchableText
-  });
-
-  if (fragments.length < 2) {
-    return;
-  }
 
   for (const fragment of fragments) {
     pages.push({

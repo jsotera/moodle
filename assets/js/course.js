@@ -2,7 +2,16 @@
   const pages = window.COURSE_PAGES || [];
   const units = window.COURSE_UNITS || [];
   const currentId = document.body.dataset.pageId || "home";
-  const currentPage = pages.find((page) => page.id === currentId) || pages[0];
+  const currentUnit = units.find((unit) => unit.theoryId === currentId || unit.practiceId === currentId);
+  const currentKind = currentUnit && currentUnit.theoryId === currentId ? "teoria" : currentUnit ? "ejercicios" : "home";
+  const currentPage = currentId === "home"
+    ? pages.find((page) => page.id === "home")
+    : {
+        id: currentId,
+        unitId: currentUnit?.id,
+        section: currentKind === "teoria" ? "Teoría" : "Ejercicios",
+        title: currentUnit?.title || ""
+      };
 
   const sidebar = document.querySelector("[data-sidebar]");
   const backdrop = document.querySelector("[data-sidebar-backdrop]");
@@ -83,6 +92,12 @@
     return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
+  function escapeHtml(value) {
+    const element = document.createElement("span");
+    element.textContent = value;
+    return element.innerHTML;
+  }
+
   function buildSearchUrl(url, query) {
     const targetUrl = new URL(url, window.location.href);
     targetUrl.searchParams.set("q", query);
@@ -137,7 +152,7 @@
     `;
   }
 
-  function renderBreadcrumb() {
+  function renderBreadcrumb(activeSectionTitle) {
     if (!breadcrumb || !currentPage) {
       return;
     }
@@ -148,13 +163,13 @@
     }
 
     const unit = units.find((item) => item.id === currentPage.unitId);
-    const unitLabel = unit ? `UT ${unit.number}. ${unit.title}` : currentPage.title;
-    const sectionLabel = currentPage.section || currentPage.title;
+    const unitLabel = unit ? `UT ${Number(unit.number)}` : currentPage.title;
+    const sectionLabel = activeSectionTitle || currentPage.section || currentPage.title;
 
     breadcrumb.innerHTML = `
       <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-      <li class="breadcrumb-item">${unitLabel}</li>
-      <li class="breadcrumb-item active" aria-current="page">${sectionLabel}</li>
+      <li class="breadcrumb-item"><a href="#" data-scroll-top>${escapeHtml(unitLabel)}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">${escapeHtml(sectionLabel)}</li>
     `;
   }
 
@@ -213,6 +228,58 @@
 
     const breadcrumbNav = main.querySelector("nav[aria-label='Migas de pan']");
     breadcrumbNav?.insertAdjacentElement("afterend", nav);
+  }
+
+  function titleFromSection(section) {
+    const heading = section.querySelector("h1, h2");
+    return heading?.textContent.replace(/\s+/g, " ").trim() || "";
+  }
+
+  function setupDynamicBreadcrumb() {
+    if (!breadcrumb || currentId === "home") {
+      return;
+    }
+
+    const sections = Array.from(document.querySelectorAll(".fragment-section"));
+    if (sections.length === 0) {
+      renderBreadcrumb();
+      return;
+    }
+
+    let activeSectionId = "";
+    let ticking = false;
+
+    function updateActiveSection() {
+      const checkpoint = Math.min(window.innerHeight * 0.32, 180);
+      let activeSection = sections[0];
+
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= checkpoint) {
+          activeSection = section;
+        } else {
+          break;
+        }
+      }
+
+      if (activeSection?.id && activeSection.id !== activeSectionId) {
+        activeSectionId = activeSection.id;
+        renderBreadcrumb(titleFromSection(activeSection));
+      }
+
+      ticking = false;
+    }
+
+    function requestUpdate() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateActiveSection);
+      }
+    }
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("hashchange", requestUpdate);
   }
 
   function resultExcerpt(text, query) {
@@ -368,6 +435,7 @@
   renderTree();
   renderBreadcrumb();
   renderSectionNav();
+  setupDynamicBreadcrumb();
   highlightTargetFromHash();
   setMenuExpanded(isDesktop());
 
@@ -386,6 +454,14 @@
   });
 
   document.addEventListener("click", (event) => {
+    const scrollTopLink = event.target.closest("[data-scroll-top]");
+    if (scrollTopLink) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", window.location.pathname);
+      return;
+    }
+
     const anchor = event.target.closest("a[href*='#']");
     if (anchor) {
       const url = new URL(anchor.href, window.location.href);
