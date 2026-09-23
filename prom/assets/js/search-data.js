@@ -97,7 +97,7 @@ window.COURSE_PAGES = [
     "title": "Inicio",
     "url": "index.html",
     "type": "Portada",
-    "text": "Programación en Java para DAM y DAW. Unidades de trabajo, teoría, ejercicios y materiales del módulo."
+    "text": "Programación. Materiales de Programación para DAM y DAW."
   },
   {
     "id": "ut01-teoria",

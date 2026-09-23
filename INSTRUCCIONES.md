@@ -226,16 +226,23 @@ Usar Font Awesome para reforzar visualmente cada sección:
 
 ## Estructura del sitio GitHub Pages
 
-La versión completa del temario se organizará como un sitio estático compatible con GitHub Pages:
+El repositorio puede contener varios módulos. Cada módulo tendrá su propio código corto y su propio espacio publicado.
 
-- `fragments/utXX/teoria/*.html`: subfragmentos HTML limpios de teoría para Moodle.
-- `fragments/utXX/ejercicios/*.html`: subfragmentos HTML limpios de ejercicios para Moodle.
-- `templates/page.html`: plantilla común para las páginas completas.
+- `index.html`: portada raíz con enlaces a cada módulo.
+- `fragments/{modulo}/utXX/teoria/*.html`: subfragmentos HTML limpios de teoría para Moodle.
+- `fragments/{modulo}/utXX/ejercicios/*.html`: subfragmentos HTML limpios de ejercicios para Moodle.
+- `templates/{modulo}/index.html`: plantilla de portada del módulo.
+- `templates/{modulo}/page.html`: plantilla de página del módulo.
 - `scripts/build-pages.js`: script que genera las páginas completas a partir de los fragmentos.
 - `assets/css/course.css`: estilos comunes del sitio.
 - `assets/js/course.js`: menú lateral, árbol de navegación, migas de pan y búsqueda.
 - `assets/img/`: imágenes comunes, como el logo del centro.
-- `dist/`: salida generada con el sitio completo para GitHub Pages.
+- `{modulo}/`: salida generada del módulo para GitHub Pages, por ejemplo `prom/`.
+
+Ejemplos de URLs públicas:
+
+- `https://jsotera.github.io/moodle/prom/`
+- `https://jsotera.github.io/moodle/lmgi/`
 
 Cada UT tendrá, como mínimo, dos páginas separadas:
 
@@ -248,15 +255,15 @@ Las páginas de teoría generan un bloque de **Acceso rápido** a partir de sus 
 
 ## Fragmentos y generación
 
-El contenido se editará preferentemente en subfragmentos dentro de `fragments/utXX/teoria/` y `fragments/utXX/ejercicios/`. Esos subfragmentos deben contener el HTML que se puede subir también a Moodle, sin `doctype`, `html`, `head`, `body`, cabecera del sitio ni scripts.
+El contenido se editará preferentemente en subfragmentos dentro de `fragments/{modulo}/utXX/teoria/` y `fragments/{modulo}/utXX/ejercicios/`. Esos subfragmentos deben contener el HTML que se puede subir también a Moodle, sin `doctype`, `html`, `head`, `body`, cabecera del sitio ni scripts.
 
 Los subfragmentos se ordenan por nombre de archivo. Usar prefijos numéricos:
 
 ```text
-fragments/ut01/teoria/01-introduccion-entorno-java.html
-fragments/ut01/teoria/02-variables-tipos-constantes.html
-fragments/ut01/ejercicios/01-primer-programa.html
-fragments/ut01/ejercicios/02-variables-tipos.html
+fragments/prom/ut01/teoria/01-introduccion-entorno-java.html
+fragments/prom/ut01/teoria/02-variables-tipos-constantes.html
+fragments/prom/ut01/ejercicios/01-primer-programa.html
+fragments/prom/ut01/ejercicios/02-variables-tipos.html
 ```
 
 Después de editar un fragmento, se debe regenerar el sitio con:
@@ -267,12 +274,13 @@ node scripts/build-pages.js
 
 El script genera:
 
-- Las páginas completas `dist/utXX-teoria.html`.
-- Las páginas completas `dist/utXX-ejercicios.html`.
-- Las redirecciones `dist/utXX.html` hacia la teoría.
-- El índice de búsqueda `dist/assets/js/search-data.js`.
+- Las páginas completas `{modulo}/utXX-teoria.html`.
+- Las páginas completas `{modulo}/utXX-ejercicios.html`.
+- Las redirecciones `{modulo}/utXX.html` hacia la teoría.
+- El índice de búsqueda `{modulo}/assets/js/search-data.js`.
+- La portada raíz `index.html` con enlaces a todos los módulos.
 
-Para Moodle se usarán directamente los subfragmentos de `fragments/`.
+Para Moodle se usarán directamente los subfragmentos de `fragments/{modulo}/`.
 
 Cuando una teoría o bloque de ejercicios tiene varios subfragmentos, el script genera automáticamente un índice de la UT con enlaces a cada subfragmento.
 
@@ -298,7 +306,7 @@ El contenido debe ocupar todo el ancho disponible, sin sombras ni elementos de n
 
 ## Búsqueda del sitio
 
-La búsqueda será estática y en tiempo real, sin servidor ni base de datos. El archivo generado `dist/assets/js/search-data.js` contendrá los títulos, URLs y textos indexables de las páginas.
+La búsqueda será estática y en tiempo real, sin servidor ni base de datos. Cada módulo tendrá su propio archivo generado `{modulo}/assets/js/search-data.js`, con títulos, URLs y textos indexables de sus páginas.
 
 Cuando se añada o modifique una unidad, habrá que actualizar también ese índice para que el buscador encuentre los nuevos contenidos. El buscador debe apuntar a la página concreta de teoría o ejercicios, no a una página mixta.
 

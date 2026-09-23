@@ -2,30 +2,33 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const templatePath = path.join(root, "templates", "page.html");
-const indexTemplatePath = path.join(root, "templates", "index.html");
 const fragmentsRoot = path.join(root, "fragments");
-const distRoot = path.join(root, "dist");
+const templatesRoot = path.join(root, "templates");
 
-const units = [
-  { number: "01", title: "Introducción a la programación y Java" },
-  { number: "02", title: "Variables, tipos de datos y constantes" },
-  { number: "03", title: "Operadores y expresiones" },
-  { number: "04", title: "Entrada y salida de datos" },
-  { number: "05", title: "Estructuras condicionales" },
-  { number: "06", title: "Bucles" },
-  { number: "07", title: "Métodos y modularidad" },
-  { number: "08", title: "Arrays y colecciones básicas" },
-  { number: "09", title: "Programación orientada a objetos" },
-  { number: "10", title: "Herencia, excepciones y ficheros" }
-].map((unit) => ({
-  ...unit,
-  id: `ut${unit.number}`,
-  theoryId: `ut${unit.number}-teoria`,
-  practiceId: `ut${unit.number}-ejercicios`,
-  theoryUrl: `ut${unit.number}-teoria.html`,
-  practiceUrl: `ut${unit.number}-ejercicios.html`
-}));
+const modules = [
+  {
+    id: "prom",
+    title: "Programación",
+    subtitle: "Programación en Java",
+    description: "Materiales de Programación para DAM y DAW.",
+    publicUrl: "https://jsotera.github.io/moodle/prom/",
+    outputDir: path.join(root, "prom"),
+    fragmentsDir: path.join(fragmentsRoot, "prom"),
+    templatesDir: path.join(templatesRoot, "prom"),
+    units: [
+      { number: "01", title: "Introducción a la programación y Java" },
+      { number: "02", title: "Variables, tipos de datos y constantes" },
+      { number: "03", title: "Operadores y expresiones" },
+      { number: "04", title: "Entrada y salida de datos" },
+      { number: "05", title: "Estructuras condicionales" },
+      { number: "06", title: "Bucles" },
+      { number: "07", title: "Métodos y modularidad" },
+      { number: "08", title: "Arrays y colecciones básicas" },
+      { number: "09", title: "Programación orientada a objetos" },
+      { number: "10", title: "Herencia, excepciones y ficheros" }
+    ]
+  }
+];
 
 const pageKinds = {
   teoria: {
@@ -105,17 +108,15 @@ function render(template, replacements) {
   );
 }
 
-function extractCurrentMainContent(pagePath) {
-  const html = read(pagePath);
-  const mainMatch = html.match(/<main class="page-wrap">([\s\S]*?)<\/main>/);
-
-  if (!mainMatch) {
-    throw new Error(`No se ha encontrado <main class="page-wrap"> en ${pagePath}`);
-  }
-
-  return mainMatch[1]
-    .replace(/^\s*<nav aria-label="Migas de pan"><ol class="breadcrumb" data-breadcrumb><\/ol><\/nav>\s*/, "")
-    .trim();
+function hydrateUnits(moduleConfig) {
+  return moduleConfig.units.map((unit) => ({
+    ...unit,
+    id: `ut${unit.number}`,
+    theoryId: `ut${unit.number}-teoria`,
+    practiceId: `ut${unit.number}-ejercicios`,
+    theoryUrl: `ut${unit.number}-teoria.html`,
+    practiceUrl: `ut${unit.number}-ejercicios.html`
+  }));
 }
 
 function titleFromFragment(html, fallback) {
@@ -128,9 +129,8 @@ function titleFromFragment(html, fallback) {
   return stripHtml(heading[1]).replace(/\s+/g, " ").trim() || fallback;
 }
 
-function readSubfragments(unit, kind) {
-  const sectionDir = path.join(fragmentsRoot, unit.id, kind);
-  const legacyFile = path.join(fragmentsRoot, unit.id, `${kind}.html`);
+function readSubfragments(moduleConfig, unit, kind) {
+  const sectionDir = path.join(moduleConfig.fragmentsDir, unit.id, kind);
 
   if (existsDirectory(sectionDir)) {
     const files = fs.readdirSync(sectionDir)
@@ -152,17 +152,7 @@ function readSubfragments(unit, kind) {
     }
   }
 
-  if (fs.existsSync(legacyFile)) {
-    const html = read(legacyFile).trim();
-    return [{
-      id: `${unit.id}-${kind}`,
-      file: `${kind}.html`,
-      title: pageKinds[kind].label,
-      html
-    }];
-  }
-
-  throw new Error(`No se han encontrado fragmentos para ${unit.id}/${kind}`);
+  throw new Error(`No se han encontrado fragmentos para ${moduleConfig.id}/${unit.id}/${kind}`);
 }
 
 function renderFragmentIndex(kind, fragments) {
@@ -252,31 +242,17 @@ function addSearchEntries(pages, unit, kind, fragments) {
   }
 }
 
-function initFragments() {
-  for (const unit of units) {
-    const dir = path.join(fragmentsRoot, unit.id);
-    const theoryFragment = path.join(dir, "teoria.html");
-    const practiceFragment = path.join(dir, "ejercicios.html");
-
-    if (!fs.existsSync(theoryFragment)) {
-      write(theoryFragment, `${extractCurrentMainContent(path.join(root, unit.theoryUrl))}\n`);
-    }
-
-    if (!fs.existsSync(practiceFragment)) {
-      write(practiceFragment, `${extractCurrentMainContent(path.join(root, unit.practiceUrl))}\n`);
-    }
-  }
+function prepareModuleOutput(moduleConfig) {
+  cleanDirectory(moduleConfig.outputDir);
+  copyDirectory(path.join(root, "assets"), path.join(moduleConfig.outputDir, "assets"));
 }
 
-function prepareDist() {
-  cleanDirectory(distRoot);
-  copyDirectory(path.join(root, "assets"), path.join(distRoot, "assets"));
-}
+function buildModule(moduleConfig) {
+  prepareModuleOutput(moduleConfig);
 
-function buildPages() {
-  prepareDist();
-
-  const template = read(templatePath);
+  const units = hydrateUnits(moduleConfig);
+  const pageTemplate = read(path.join(moduleConfig.templatesDir, "page.html"));
+  const indexTemplate = read(path.join(moduleConfig.templatesDir, "index.html"));
   const assetVersion = Date.now().toString();
   const pages = [
     {
@@ -284,12 +260,14 @@ function buildPages() {
       title: "Inicio",
       url: "index.html",
       type: "Portada",
-      text: "Programación en Java para DAM y DAW. Unidades de trabajo, teoría, ejercicios y materiales del módulo."
+      text: `${moduleConfig.title}. ${moduleConfig.description}`
     }
   ];
 
-  write(path.join(distRoot, "index.html"), render(read(indexTemplatePath), {
-    assetVersion
+  write(path.join(moduleConfig.outputDir, "index.html"), render(indexTemplate, {
+    assetVersion,
+    moduleTitle: moduleConfig.title,
+    moduleSubtitle: moduleConfig.subtitle
   }));
 
   const unitIndex = units.map((unit) => ({
@@ -303,28 +281,32 @@ function buildPages() {
   }));
 
   for (const unit of units) {
-    const theoryFragments = readSubfragments(unit, "teoria");
-    const practiceFragments = readSubfragments(unit, "ejercicios");
+    const theoryFragments = readSubfragments(moduleConfig, unit, "teoria");
+    const practiceFragments = readSubfragments(moduleConfig, unit, "ejercicios");
     const theoryContent = renderPageContent(unit, "teoria", theoryFragments);
     const practiceContent = renderPageContent(unit, "ejercicios", practiceFragments);
 
-    write(path.join(distRoot, unit.theoryUrl), render(template, {
+    write(path.join(moduleConfig.outputDir, unit.theoryUrl), render(pageTemplate, {
       assetVersion,
+      moduleTitle: moduleConfig.title,
+      moduleSubtitle: moduleConfig.subtitle,
       pageId: unit.theoryId,
       title: `UT ${unit.number} | Teoría`,
       description: `Teoría de la UT ${unit.number}. ${escapeForHtml(unit.title)}.`,
       content: theoryContent
     }));
 
-    write(path.join(distRoot, unit.practiceUrl), render(template, {
+    write(path.join(moduleConfig.outputDir, unit.practiceUrl), render(pageTemplate, {
       assetVersion,
+      moduleTitle: moduleConfig.title,
+      moduleSubtitle: moduleConfig.subtitle,
       pageId: unit.practiceId,
       title: `UT ${unit.number} | Ejercicios`,
       description: `Ejercicios de la UT ${unit.number}. ${escapeForHtml(unit.title)}.`,
       content: practiceContent
     }));
 
-    write(path.join(distRoot, `${unit.id}.html`), `<!doctype html>
+    write(path.join(moduleConfig.outputDir, `${unit.id}.html`), `<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -342,12 +324,83 @@ function buildPages() {
   }
 
   const searchData = `window.COURSE_UNITS = ${JSON.stringify(unitIndex, null, 2)};\n\nwindow.COURSE_PAGES = ${JSON.stringify(pages, null, 2)};\n`;
-  write(path.join(distRoot, "assets", "js", "search-data.js"), searchData);
+  write(path.join(moduleConfig.outputDir, "assets", "js", "search-data.js"), searchData);
 }
 
-if (process.argv.includes("--init-fragments")) {
-  initFragments();
+function buildRootIndex() {
+  const moduleCards = modules.map((moduleConfig) => `      <a class="module-card" href="./${moduleConfig.id}/">
+        <span class="module-code">${moduleConfig.id.toUpperCase()}</span>
+        <strong>${escapeForHtml(moduleConfig.title)}</strong>
+        <span>${escapeForHtml(moduleConfig.description)}</span>
+      </a>`).join("\n");
+
+  write(path.join(root, "index.html"), `<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Materiales Moodle</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f3f6f9;
+        color: #202833;
+      }
+      main {
+        width: min(960px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 3rem 0;
+      }
+      h1 {
+        color: #083c5f;
+        margin-bottom: 0.5rem;
+      }
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .module-card {
+        display: grid;
+        gap: 0.4rem;
+        padding: 1rem;
+        border: 1px solid #d9e2ea;
+        border-radius: 0.75rem;
+        background: #ffffff;
+        color: inherit;
+        text-decoration: none;
+        box-shadow: 0 0.75rem 1.75rem rgba(15, 35, 52, 0.08);
+      }
+      .module-card:hover {
+        border-color: #0f5d8f;
+      }
+      .module-code {
+        width: fit-content;
+        padding: 0.2rem 0.5rem;
+        border-radius: 999px;
+        background: #ffe8a3;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Materiales Moodle</h1>
+      <p>Acceso a los módulos publicados.</p>
+      <div class="module-grid">
+${moduleCards}
+      </div>
+    </main>
+  </body>
+</html>
+`);
 }
 
-buildPages();
-console.log("Sitio generado correctamente en dist.");
+for (const moduleConfig of modules) {
+  buildModule(moduleConfig);
+}
+
+buildRootIndex();
+console.log("Módulos generados correctamente.");
