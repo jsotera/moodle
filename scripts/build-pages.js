@@ -16,16 +16,16 @@ const modules = [
     fragmentsDir: path.join(fragmentsRoot, "prom"),
     templatesDir: path.join(templatesRoot, "prom"),
     units: [
-      { number: "01", title: "Introducción a la programación y Java" },
-      { number: "02", title: "Variables, tipos de datos y constantes" },
-      { number: "03", title: "Operadores y expresiones" },
-      { number: "04", title: "Entrada y salida de datos" },
-      { number: "05", title: "Estructuras condicionales" },
-      { number: "06", title: "Bucles" },
-      { number: "07", title: "Métodos y modularidad" },
-      { number: "08", title: "Arrays y colecciones básicas" },
-      { number: "09", title: "Programación orientada a objetos" },
-      { number: "10", title: "Herencia, excepciones y ficheros" }
+      { number: "01", title: "Introducción" },
+      { number: "02", title: "Objetos y clases" },
+      { number: "03", title: "Programación estructurada" },
+      { number: "04", title: "Programación Orientada a Objetos (POO)" },
+      { number: "05", title: "Arrays" },
+      { number: "06", title: "Colecciones" },
+      { number: "07", title: "I/O y GUI" },
+      { number: "08", title: "Polimorfismo" },
+      { number: "09", title: "Bases de Datos Relacionales (BDR)" },
+      { number: "10", title: "Bases de Datos Orientadas a Objetos (BDOO)" }
     ]
   }
 ];

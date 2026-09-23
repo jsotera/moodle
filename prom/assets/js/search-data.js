@@ -2,7 +2,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut01",
     "number": "01",
-    "title": "Introducción a la programación y Java",
+    "title": "Introducción",
     "theoryId": "ut01-teoria",
     "practiceId": "ut01-ejercicios",
     "theoryUrl": "ut01-teoria.html",
@@ -11,7 +11,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut02",
     "number": "02",
-    "title": "Variables, tipos de datos y constantes",
+    "title": "Objetos y clases",
     "theoryId": "ut02-teoria",
     "practiceId": "ut02-ejercicios",
     "theoryUrl": "ut02-teoria.html",
@@ -20,7 +20,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut03",
     "number": "03",
-    "title": "Operadores y expresiones",
+    "title": "Programación estructurada",
     "theoryId": "ut03-teoria",
     "practiceId": "ut03-ejercicios",
     "theoryUrl": "ut03-teoria.html",
@@ -29,7 +29,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut04",
     "number": "04",
-    "title": "Entrada y salida de datos",
+    "title": "Programación Orientada a Objetos (POO)",
     "theoryId": "ut04-teoria",
     "practiceId": "ut04-ejercicios",
     "theoryUrl": "ut04-teoria.html",
@@ -38,7 +38,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut05",
     "number": "05",
-    "title": "Estructuras condicionales",
+    "title": "Arrays",
     "theoryId": "ut05-teoria",
     "practiceId": "ut05-ejercicios",
     "theoryUrl": "ut05-teoria.html",
@@ -47,7 +47,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut06",
     "number": "06",
-    "title": "Bucles",
+    "title": "Colecciones",
     "theoryId": "ut06-teoria",
     "practiceId": "ut06-ejercicios",
     "theoryUrl": "ut06-teoria.html",
@@ -56,7 +56,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut07",
     "number": "07",
-    "title": "Métodos y modularidad",
+    "title": "I/O y GUI",
     "theoryId": "ut07-teoria",
     "practiceId": "ut07-ejercicios",
     "theoryUrl": "ut07-teoria.html",
@@ -65,7 +65,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut08",
     "number": "08",
-    "title": "Arrays y colecciones básicas",
+    "title": "Polimorfismo",
     "theoryId": "ut08-teoria",
     "practiceId": "ut08-ejercicios",
     "theoryUrl": "ut08-teoria.html",
@@ -74,7 +74,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut09",
     "number": "09",
-    "title": "Programación orientada a objetos",
+    "title": "Bases de Datos Relacionales (BDR)",
     "theoryId": "ut09-teoria",
     "practiceId": "ut09-ejercicios",
     "theoryUrl": "ut09-teoria.html",
@@ -83,7 +83,7 @@ window.COURSE_UNITS = [
   {
     "id": "ut10",
     "number": "10",
-    "title": "Herencia, excepciones y ficheros",
+    "title": "Bases de Datos Orientadas a Objetos (BDOO)",
     "theoryId": "ut10-teoria",
     "practiceId": "ut10-ejercicios",
     "theoryUrl": "ut10-teoria.html",
@@ -202,162 +202,162 @@ window.COURSE_PAGES = [
     "id": "ut02-teoria-01-contenido-inicial",
     "unitId": "ut02",
     "section": "Teoría",
-    "title": "UT 02. Teoría: 2.1 UT 02. Teoría",
+    "title": "UT 02. Teoría: 2.1 Objetos y clases",
     "url": "ut02-teoria.html#ut02-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "2.1 UT 02. Teoría Variables, tipos de datos y constantes Contenidos Uso de variables para almacenar información y trabajo con tipos primitivos, String, literales y constantes. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "2.1 Objetos y clases Introducción a objetos, clases, atributos, métodos y creación de instancias. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut02-ejercicios-01-contenido-inicial",
     "unitId": "ut02",
     "section": "Ejercicios",
-    "title": "UT 02. Ejercicios: 2.1 UT 02. Ejercicios",
+    "title": "UT 02. Ejercicios: 2.1 Ejercicios sobre Objetos y clases",
     "url": "ut02-ejercicios.html#ut02-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "2.1 UT 02. Ejercicios Variables, tipos de datos y constantes Práctica propuesta Declara variables para representar datos personales y muéstralas por pantalla con etiquetas claras. Nombre del proyecto del ejercicio: VariablesBasicas"
+    "text": "2.1 Ejercicios sobre Objetos y clases Práctica inicial de la unidad: Objetos y clases. Práctica propuesta Crea una clase sencilla con atributos y muestra sus datos desde un programa principal. Nombre del proyecto del ejercicio: PrimerasClases"
   },
   {
     "id": "ut03-teoria-01-contenido-inicial",
     "unitId": "ut03",
     "section": "Teoría",
-    "title": "UT 03. Teoría: 3.1 UT 03. Teoría",
+    "title": "UT 03. Teoría: 3.1 Programación estructurada",
     "url": "ut03-teoria.html#ut03-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "3.1 UT 03. Teoría Operadores y expresiones Contenidos Construcción de expresiones aritméticas, relacionales y lógicas, incluyendo prioridad de operadores. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "3.1 Programación estructurada Organización del código mediante secuencias, decisiones, bucles y métodos sencillos. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut03-ejercicios-01-contenido-inicial",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.1 UT 03. Ejercicios",
+    "title": "UT 03. Ejercicios: 3.1 Ejercicios sobre Programación estructurada",
     "url": "ut03-ejercicios.html#ut03-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "3.1 UT 03. Ejercicios Operadores y expresiones Práctica propuesta Calcula el área y perímetro de varias figuras utilizando operadores aritméticos. Nombre del proyecto del ejercicio: OperadoresFiguras"
+    "text": "3.1 Ejercicios sobre Programación estructurada Práctica inicial de la unidad: Programación estructurada. Práctica propuesta Resuelve un problema paso a paso usando estructuras de control y métodos auxiliares. Nombre del proyecto del ejercicio: ProgramaEstructurado"
   },
   {
     "id": "ut04-teoria-01-contenido-inicial",
     "unitId": "ut04",
     "section": "Teoría",
-    "title": "UT 04. Teoría: 4.1 UT 04. Teoría",
+    "title": "UT 04. Teoría: 4.1 Programación Orientada a Objetos (POO)",
     "url": "ut04-teoria.html#ut04-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "4.1 UT 04. Teoría Entrada y salida de datos Contenidos Lectura de información desde teclado con Scanner y presentación de resultados por consola. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "4.1 Programación Orientada a Objetos (POO) Diseño de programas mediante clases, objetos, encapsulación y responsabilidades. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut04-ejercicios-01-contenido-inicial",
     "unitId": "ut04",
     "section": "Ejercicios",
-    "title": "UT 04. Ejercicios: 4.1 UT 04. Ejercicios",
+    "title": "UT 04. Ejercicios: 4.1 Ejercicios sobre Programación Orientada a Objetos (POO)",
     "url": "ut04-ejercicios.html#ut04-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "4.1 UT 04. Ejercicios Entrada y salida de datos Práctica propuesta Pide datos al usuario y genera una ficha básica con los valores introducidos. Nombre del proyecto del ejercicio: FichaUsuario"
+    "text": "4.1 Ejercicios sobre Programación Orientada a Objetos (POO) Práctica inicial de la unidad: Programación Orientada a Objetos (POO). Práctica propuesta Modela una entidad del mundo real mediante una clase con atributos y métodos. Nombre del proyecto del ejercicio: ModeloPOO"
   },
   {
     "id": "ut05-teoria-01-contenido-inicial",
     "unitId": "ut05",
     "section": "Teoría",
-    "title": "UT 05. Teoría: 5.1 UT 05. Teoría",
+    "title": "UT 05. Teoría: 5.1 Arrays",
     "url": "ut05-teoria.html#ut05-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "5.1 UT 05. Teoría Estructuras condicionales Contenidos Toma de decisiones con if, else, else if, switch y condiciones compuestas. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "5.1 Arrays Trabajo con arrays para almacenar y recorrer colecciones de valores del mismo tipo. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut05-ejercicios-01-contenido-inicial",
     "unitId": "ut05",
     "section": "Ejercicios",
-    "title": "UT 05. Ejercicios: 5.1 UT 05. Ejercicios",
+    "title": "UT 05. Ejercicios: 5.1 Ejercicios sobre Arrays",
     "url": "ut05-ejercicios.html#ut05-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "5.1 UT 05. Ejercicios Estructuras condicionales Práctica propuesta Clasifica una nota numérica en insuficiente, suficiente, bien, notable o sobresaliente. Nombre del proyecto del ejercicio: ClasificadorNotas"
+    "text": "5.1 Ejercicios sobre Arrays Práctica inicial de la unidad: Arrays. Práctica propuesta Crea un array, rellénalo con datos y calcula información a partir de sus valores. Nombre del proyecto del ejercicio: PracticaArrays"
   },
   {
     "id": "ut06-teoria-01-contenido-inicial",
     "unitId": "ut06",
     "section": "Teoría",
-    "title": "UT 06. Teoría: 6.1 UT 06. Teoría",
+    "title": "UT 06. Teoría: 6.1 Colecciones",
     "url": "ut06-teoria.html#ut06-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "6.1 UT 06. Teoría Bucles Contenidos Repetición controlada de instrucciones con while, do while y for. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "6.1 Colecciones Uso de colecciones para almacenar conjuntos dinámicos de datos y objetos. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut06-ejercicios-01-contenido-inicial",
     "unitId": "ut06",
     "section": "Ejercicios",
-    "title": "UT 06. Ejercicios: 6.1 UT 06. Ejercicios",
+    "title": "UT 06. Ejercicios: 6.1 Ejercicios sobre Colecciones",
     "url": "ut06-ejercicios.html#ut06-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "6.1 UT 06. Ejercicios Bucles Práctica propuesta Genera una tabla de multiplicar y calcula la suma de los números de un intervalo. Nombre del proyecto del ejercicio: BuclesBasicos"
+    "text": "6.1 Ejercicios sobre Colecciones Práctica inicial de la unidad: Colecciones. Práctica propuesta Gestiona una lista de elementos añadiendo, recorriendo, buscando y eliminando datos. Nombre del proyecto del ejercicio: PracticaColecciones"
   },
   {
     "id": "ut07-teoria-01-contenido-inicial",
     "unitId": "ut07",
     "section": "Teoría",
-    "title": "UT 07. Teoría: 7.1 UT 07. Teoría",
+    "title": "UT 07. Teoría: 7.1 I/O y GUI",
     "url": "ut07-teoria.html#ut07-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "7.1 UT 07. Teoría Métodos y modularidad Contenidos División de programas en métodos con parámetros, argumentos, retorno y ámbito de variables. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "7.1 I/O y GUI Entrada y salida de datos, interacción con el usuario e introducción a interfaces gráficas. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut07-ejercicios-01-contenido-inicial",
     "unitId": "ut07",
     "section": "Ejercicios",
-    "title": "UT 07. Ejercicios: 7.1 UT 07. Ejercicios",
+    "title": "UT 07. Ejercicios: 7.1 Ejercicios sobre I/O y GUI",
     "url": "ut07-ejercicios.html#ut07-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "7.1 UT 07. Ejercicios Métodos y modularidad Práctica propuesta Refactoriza un programa con cálculos repetidos creando métodos reutilizables. Nombre del proyecto del ejercicio: MetodosCalculadora"
+    "text": "7.1 Ejercicios sobre I/O y GUI Práctica inicial de la unidad: I/O y GUI. Práctica propuesta Crea un programa que solicite datos, procese información y muestre resultados al usuario. Nombre del proyecto del ejercicio: EntradaSalidaGUI"
   },
   {
     "id": "ut08-teoria-01-contenido-inicial",
     "unitId": "ut08",
     "section": "Teoría",
-    "title": "UT 08. Teoría: 8.1 UT 08. Teoría",
+    "title": "UT 08. Teoría: 8.1 Polimorfismo",
     "url": "ut08-teoria.html#ut08-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "8.1 UT 08. Teoría Arrays y colecciones básicas Contenidos Almacenamiento de varios valores relacionados mediante arrays y primeras colecciones. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "8.1 Polimorfismo Uso de herencia, sobrescritura y referencias comunes para trabajar con distintos tipos de objetos. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut08-ejercicios-01-contenido-inicial",
     "unitId": "ut08",
     "section": "Ejercicios",
-    "title": "UT 08. Ejercicios: 8.1 UT 08. Ejercicios",
+    "title": "UT 08. Ejercicios: 8.1 Ejercicios sobre Polimorfismo",
     "url": "ut08-ejercicios.html#ut08-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "8.1 UT 08. Ejercicios Arrays y colecciones básicas Práctica propuesta Calcula la media, la nota máxima y la nota mínima de un conjunto de calificaciones. Nombre del proyecto del ejercicio: NotasArray"
+    "text": "8.1 Ejercicios sobre Polimorfismo Práctica inicial de la unidad: Polimorfismo. Práctica propuesta Crea varias clases relacionadas y utiliza polimorfismo para tratarlas de forma común. Nombre del proyecto del ejercicio: PracticaPolimorfismo"
   },
   {
     "id": "ut09-teoria-01-contenido-inicial",
     "unitId": "ut09",
     "section": "Teoría",
-    "title": "UT 09. Teoría: 9.1 UT 09. Teoría",
+    "title": "UT 09. Teoría: 9.1 Bases de Datos Relacionales (BDR)",
     "url": "ut09-teoria.html#ut09-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "9.1 UT 09. Teoría Programación orientada a objetos Contenidos Modelado de problemas mediante clases, objetos, atributos, métodos y constructores. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "9.1 Bases de Datos Relacionales (BDR) Introducción al trabajo con bases de datos relacionales, tablas, registros y consultas. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut09-ejercicios-01-contenido-inicial",
     "unitId": "ut09",
     "section": "Ejercicios",
-    "title": "UT 09. Ejercicios: 9.1 UT 09. Ejercicios",
+    "title": "UT 09. Ejercicios: 9.1 Ejercicios sobre Bases de Datos Relacionales (BDR)",
     "url": "ut09-ejercicios.html#ut09-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "9.1 UT 09. Ejercicios Programación orientada a objetos Práctica propuesta Crea una clase para representar un producto con nombre, precio y unidades disponibles. Nombre del proyecto del ejercicio: ProductosPOO"
+    "text": "9.1 Ejercicios sobre Bases de Datos Relacionales (BDR) Práctica inicial de la unidad: Bases de Datos Relacionales (BDR). Práctica propuesta Diseña una estructura relacional sencilla y plantea operaciones básicas sobre sus datos. Nombre del proyecto del ejercicio: PracticaBDR"
   },
   {
     "id": "ut10-teoria-01-contenido-inicial",
     "unitId": "ut10",
     "section": "Teoría",
-    "title": "UT 10. Teoría: 10.1 UT 10. Teoría",
+    "title": "UT 10. Teoría: 10.1 Bases de Datos Orientadas a Objetos (BDOO)",
     "url": "ut10-teoria.html#ut10-teoria-01-contenido-inicial",
     "type": "Teoría · Sección",
-    "text": "10.1 UT 10. Teoría Herencia, excepciones y ficheros Contenidos Ampliación de POO, gestión de errores con excepciones y persistencia en ficheros. Pendiente: aquí se volcará la teoría completa cuando esté disponible."
+    "text": "10.1 Bases de Datos Orientadas a Objetos (BDOO) Persistencia de objetos y aproximación a bases de datos orientadas a objetos. Contenidos Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible."
   },
   {
     "id": "ut10-ejercicios-01-contenido-inicial",
     "unitId": "ut10",
     "section": "Ejercicios",
-    "title": "UT 10. Ejercicios: 10.1 UT 10. Ejercicios",
+    "title": "UT 10. Ejercicios: 10.1 Ejercicios sobre Bases de Datos Orientadas a Objetos (BDOO)",
     "url": "ut10-ejercicios.html#ut10-ejercicios-01-contenido-inicial",
     "type": "Ejercicios · Sección",
-    "text": "10.1 UT 10. Ejercicios Herencia, excepciones y ficheros Práctica propuesta Diseña un pequeño proyecto final que use clases, herencia, control de errores y almacenamiento. Nombre del proyecto del ejercicio: ProyectoFinalJava"
+    "text": "10.1 Ejercicios sobre Bases de Datos Orientadas a Objetos (BDOO) Práctica inicial de la unidad: Bases de Datos Orientadas a Objetos (BDOO). Práctica propuesta Diseña un pequeño modelo de objetos pensando en su almacenamiento y recuperación. Nombre del proyecto del ejercicio: PracticaBDOO"
   }
 ];
