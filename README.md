@@ -6,14 +6,17 @@ Repositorio de materiales didácticos para publicar en GitHub Pages y reutilizar
 
 ### [PROM · Programación](https://jsotera.github.io/moodle/prom/)
 
-> Más módulos se añadirán aquí cuando se incorporen al repositorio.
+### [LMGI · Lenguaje de Marcas](https://jsotera.github.io/moodle/lmgi/)
 
 ## Estructura
 
 - `index.html`: portada raíz con enlaces a los módulos.
 - `fragments/prom/`: subfragmentos HTML del módulo de Programación.
+- `fragments/lmgi/`: subfragmentos HTML del módulo de Lenguaje de Marcas.
 - `templates/prom/`: plantillas del módulo de Programación.
+- `templates/lmgi/`: plantillas del módulo de Lenguaje de Marcas.
 - `prom/`: sitio generado del módulo de Programación.
+- `lmgi/`: sitio generado del módulo de Lenguaje de Marcas.
 - `assets/`: estilos, scripts e imágenes compartidas.
 - `scripts/build-pages.js`: generador de módulos.
 - `INSTRUCCIONES.md`: guía de formato y flujo de trabajo.
@@ -44,6 +47,12 @@ Para acceder directamente al módulo de Programación:
 http://localhost:8000/prom/
 ```
 
+Para acceder directamente al módulo de Lenguaje de Marcas:
+
+```text
+http://localhost:8000/lmgi/
+```
+
 ## Fragmentos
 
 El contenido editable vive en:
@@ -63,6 +72,7 @@ Cada módulo genera su propio espacio público:
 
 ```text
 https://jsotera.github.io/moodle/prom/
+https://jsotera.github.io/moodle/lmgi/
 ```
 
 El buscador y las páginas completas se generan por módulo.

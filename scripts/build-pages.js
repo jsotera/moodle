@@ -27,6 +27,27 @@ const modules = [
       { number: "09", title: "Bases de Datos Relacionales (BDR)" },
       { number: "10", title: "Bases de Datos Orientadas a Objetos (BDOO)" }
     ]
+  },
+  {
+    id: "lmgi",
+    title: "Lenguaje de Marcas y Gestión de la Información",
+    subtitle: "Lenguaje de Marcas",
+    description: "Materiales de Lenguaje de Marcas y Gestión de la Información para DAM y DAW.",
+    publicUrl: "https://jsotera.github.io/moodle/lmgi/",
+    outputDir: path.join(root, "lmgi"),
+    fragmentsDir: path.join(fragmentsRoot, "lmgi"),
+    templatesDir: path.join(templatesRoot, "lmgi"),
+    units: [
+      { number: "01", title: "Características del lenguaje XML. Documentos XML bien formados." },
+      { number: "02", title: "Validación de documentos XML mediante esquemas." },
+      { number: "03", title: "Introducción a los lenguajes de marcas en entornos WEB (HTML)" },
+      { number: "04", title: "Desarrollo y aplicación de lenguajes de marcas en entornos WEB (CSS)" },
+      { number: "05", title: "Utilización de lenguajes de marcas y de programación en entorno web" },
+      { number: "06", title: "Almacenamiento de información" },
+      { number: "07", title: "Proyecto web dinámica" },
+      { number: "08", title: "Sindicación de contenidos" },
+      { number: "09", title: "Sistemas de información" }
+    ]
   }
 ];
 
