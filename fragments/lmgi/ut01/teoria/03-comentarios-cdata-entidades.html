@@ -1,0 +1,74 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-comment-dots"></i> 1.3 Comentarios, CDATA y caracteres especiales</h2>
+    <p class="lead">XML permite incluir <strong>comentarios</strong>, escapar caracteres reservados y usar secciones <code>CDATA</code> para texto que no debe interpretarse como marcado.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-message"></i> Comentarios</h4>
+      <p>Los comentarios sirven para dejar aclaraciones en el documento. No forman parte de los datos que una aplicacion deberia procesar.</p>
+      <pre><code>&lt;!-- Lista de alumnos matriculados en el modulo --&gt;
+&lt;alumnos&gt;
+  &lt;alumno id="A001"&gt;Nerea&lt;/alumno&gt;
+&lt;/alumnos&gt;</code></pre>
+      <p>Un comentario empieza con <code>&lt;!--</code> y termina con <code>--&gt;</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Caracteres especiales</h4>
+      <p>Algunos caracteres tienen significado propio en XML. Si queremos usarlos como texto, debemos escribirlos mediante entidades.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Caracter</th>
+              <th>Entidad</th>
+              <th>Ejemplo de uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;</code></td>
+              <td><code>&amp;lt;</code></td>
+              <td><code>3 &amp;lt; 5</code></td>
+            </tr>
+            <tr>
+              <td><code>&gt;</code></td>
+              <td><code>&amp;gt;</code></td>
+              <td><code>5 &amp;gt; 3</code></td>
+            </tr>
+            <tr>
+              <td><code>&amp;</code></td>
+              <td><code>&amp;amp;</code></td>
+              <td><code>Java &amp;amp; XML</code></td>
+            </tr>
+            <tr>
+              <td><code>"</code></td>
+              <td><code>&amp;quot;</code></td>
+              <td><code>&amp;quot;Hola&amp;quot;</code></td>
+            </tr>
+            <tr>
+              <td><code>'</code></td>
+              <td><code>&amp;apos;</code></td>
+              <td><code>&amp;apos;Hola&amp;apos;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-box-open"></i> Secciones CDATA</h4>
+      <p>Una seccion <code>CDATA</code> permite escribir texto que contiene caracteres como <code>&lt;</code> o <code>&amp;</code> sin que el procesador XML los interprete como etiquetas o entidades.</p>
+      <pre><code>&lt;ejemplo&gt;
+  &lt;![CDATA[
+    if (edad &lt; 18 &amp;&amp; activo) {
+      System.out.println("Menor activo");
+    }
+  ]]&gt;
+&lt;/ejemplo&gt;</code></pre>
+      <p>CDATA es util para incluir fragmentos de codigo, expresiones o texto tecnico. Aun asi, no debe usarse para evitar pensar la estructura del documento: los datos importantes deben seguir estando modelados con elementos y atributos.</p>
+    </div>
+  </div>
+</div>

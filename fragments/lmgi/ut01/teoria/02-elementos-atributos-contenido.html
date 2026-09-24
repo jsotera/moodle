@@ -1,0 +1,67 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-tags"></i> 1.2 Elementos, etiquetas, atributos y contenido</h2>
+    <p class="lead">La informacion de un XML se representa mediante <strong>elementos</strong>, formados por etiquetas, atributos y contenido.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Etiquetas y elementos</h4>
+      <p>Una <strong>etiqueta</strong> es la marca que aparece entre los simbolos <code>&lt;</code> y <code>&gt;</code>. Un <strong>elemento</strong> incluye la etiqueta de apertura, el contenido y la etiqueta de cierre.</p>
+      <pre><code>&lt;nombre&gt;Marta&lt;/nombre&gt;</code></pre>
+      <p>En el ejemplo, <code>&lt;nombre&gt;</code> es la etiqueta de apertura, <code>&lt;/nombre&gt;</code> es la etiqueta de cierre y <code>Marta</code> es el contenido.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-layer-group"></i> Tipos de contenido</h4>
+      <p>Un elemento XML puede contener texto, otros elementos, una mezcla de ambos o no contener nada.</p>
+      <pre><code>&lt;ciudad&gt;Pamplona&lt;/ciudad&gt;
+
+&lt;alumno&gt;
+  &lt;nombre&gt;Iker&lt;/nombre&gt;
+  &lt;curso&gt;1 DAM&lt;/curso&gt;
+&lt;/alumno&gt;
+
+&lt;linea /&gt;</code></pre>
+      <p>La etiqueta <code>&lt;linea /&gt;</code> es un elemento vacio escrito de forma abreviada. Equivale a escribir <code>&lt;linea&gt;&lt;/linea&gt;</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sliders"></i> Atributos</h4>
+      <p>Los <strong>atributos</strong> añaden informacion adicional a un elemento. Siempre aparecen dentro de la etiqueta de apertura y sus valores deben ir entre comillas.</p>
+      <pre><code>&lt;libro isbn="978-84-376-0494-7" idioma="es"&gt;
+  &lt;titulo&gt;Don Quijote de la Mancha&lt;/titulo&gt;
+&lt;/libro&gt;</code></pre>
+      <p>En este caso, <code>isbn</code> e <code>idioma</code> son atributos del elemento <code>&lt;libro&gt;</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table"></i> ¿Elemento o atributo?</h4>
+      <p>No existe una unica respuesta correcta, pero esta regla practica suele ayudar:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Usa elementos para...</th>
+              <th>Usa atributos para...</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Datos principales del documento</td>
+              <td>Metadatos o informacion auxiliar</td>
+            </tr>
+            <tr>
+              <td>Contenido largo o estructurado</td>
+              <td>Identificadores, codigos o clasificaciones breves</td>
+            </tr>
+            <tr>
+              <td>Informacion que puede repetirse</td>
+              <td>Propiedades simples de un elemento</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

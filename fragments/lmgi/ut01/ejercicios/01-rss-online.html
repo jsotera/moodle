@@ -1,0 +1,77 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-rss"></i> 1.1 Explorando canales RSS reales</h2>
+    <p class="lead">Actividad grupal para localizar <strong>canales RSS reales</strong>, visualizarlos con una herramienta online y observar que todos tienen una estructura XML parecida.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-users"></i> Organización</h4>
+      <p>El ejercicio se realizará en grupos de <strong>2 o 3 personas</strong>, según cómo estéis sentados en el aula.</p>
+      <p>La idea no es memorizar todas las etiquetas de RSS, sino aprender a reconocer que un RSS es un documento XML con una estructura organizada mediante etiquetas, atributos y contenido.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Búsqueda de canales RSS</h4>
+      <p>Buscad páginas web que ofrezcan canales RSS. Muchas webs los muestran con un icono naranja parecido a una señal WiFi o antena.</p>
+      <p>Podéis buscar RSS en webs de noticias, blogs, medios deportivos, páginas de tecnología, instituciones, podcasts o cualquier sitio que publique contenidos periódicamente.</p>
+      <p>Localizad entre <strong>3 y 4 canales RSS diferentes</strong> y copiad la URL de cada uno.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-globe"></i> Visualización con un lector RSS online</h4>
+      <p>Entrad en un lector RSS online, por ejemplo <a href="https://rssviewer.app/" target="_blank" rel="noopener noreferrer">RSS Viewer</a>, pegad la URL de cada canal RSS y comprobad que se muestran sus entradas.</p>
+      <p>Después, abrid también la URL del RSS directamente en el navegador para observar el documento XML original.</p>
+      <pre><code>&lt;rss version="2.0"&gt;
+  &lt;channel&gt;
+    &lt;title&gt;Nombre del canal&lt;/title&gt;
+    &lt;link&gt;https://ejemplo.test&lt;/link&gt;
+    &lt;description&gt;Descripción del canal&lt;/description&gt;
+    &lt;item&gt;
+      &lt;title&gt;Título de una noticia&lt;/title&gt;
+      &lt;link&gt;https://ejemplo.test/noticia&lt;/link&gt;
+      &lt;description&gt;Resumen de la noticia&lt;/description&gt;
+    &lt;/item&gt;
+  &lt;/channel&gt;
+&lt;/rss&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table-list"></i> Comparación de estructuras</h4>
+      <p>Comparad los RSS encontrados y completad una tabla similar a esta en vuestro cuaderno o documento de trabajo:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Web</th>
+              <th>URL del RSS</th>
+              <th>Etiqueta raíz</th>
+              <th>Etiquetas que se repiten</th>
+              <th>¿Qué información contiene cada entrada?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ejemplo</td>
+              <td><code>https://...</code></td>
+              <td><code>&lt;rss&gt;</code></td>
+              <td><code>&lt;item&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;link&gt;</code></td>
+              <td>Título, enlace, descripción y fecha</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-question"></i> Preguntas para responder</h4>
+      <ul>
+        <li>¿Qué etiquetas aparecen en casi todos los RSS que habéis encontrado?</li>
+        <li>¿Qué etiqueta se utiliza para representar cada noticia, entrada o publicación?</li>
+        <li>¿Qué diferencias habéis visto entre unos RSS y otros?</li>
+        <li>¿Por qué creéis que un lector RSS puede entender canales de webs diferentes?</li>
+      </ul>
+    </div>
+
+  </div>
+</div>

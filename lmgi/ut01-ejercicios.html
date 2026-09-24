@@ -7,7 +7,7 @@
     <title>UT 01 | Ejercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790171077436" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790233139435" rel="stylesheet">
   </head>
   <body data-page-id="ut01-ejercicios">
     <div class="app-shell">
@@ -65,24 +65,314 @@
     <p class="lead mb-0">Características del lenguaje XML. Documentos XML bien formados.</p>
   </div>
 </section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de ejercicios">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Ejercicios
+  </h2>
+  <div class="section-nav-list">
 
-<section id="ut01-ejercicios-01-contenido-inicial" class="fragment-section section-anchor">
-<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+        <a class="section-nav-link" href="#ut01-ejercicios-01-rss-online">
+          1.1 Explorando canales RSS reales
+        </a>
+        <a class="section-nav-link" href="#ut01-ejercicios-02-svg-basico">
+          1.2 Creando nuestras primeras imágenes SVG
+        </a>
+        <a class="section-nav-link" href="#ut01-ejercicios-03-usos-xml">
+          1.3 Investigando otros usos de XML
+        </a>
+  </div>
+</nav>
 
-<div class="card shadow p-4">
+<section id="ut01-ejercicios-01-rss-online" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-rss"></i> 1.1 Explorando canales RSS reales</h2>
+    <p class="lead">Actividad grupal para localizar <strong>canales RSS reales</strong>, visualizarlos con una herramienta online y observar que todos tienen una estructura XML parecida.</p>
 
-<h2 class="text-primary mb-3"><i class="fas fa-laptop-code"></i> 1.1 Ejercicios sobre Características del lenguaje XML. Documentos XML bien formados.</h2>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-users"></i> Organización</h4>
+      <p>El ejercicio se realizará en grupos de <strong>2 o 3 personas</strong>, según cómo estéis sentados en el aula.</p>
+      <p>La idea no es memorizar todas las etiquetas de RSS, sino aprender a reconocer que un RSS es un documento XML con una estructura organizada mediante etiquetas, atributos y contenido.</p>
+    </div>
 
-<p class="lead">Práctica inicial de la unidad: Características del lenguaje XML. Documentos XML bien formados.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Búsqueda de canales RSS</h4>
+      <p>Buscad páginas web que ofrezcan canales RSS. Muchas webs los muestran con un icono naranja parecido a una señal WiFi o antena.</p>
+      <p>Podéis buscar RSS en webs de noticias, blogs, medios deportivos, páginas de tecnología, instituciones, podcasts o cualquier sitio que publique contenidos periódicamente.</p>
+      <p>Localizad entre <strong>3 y 4 canales RSS diferentes</strong> y copiad la URL de cada uno.</p>
+    </div>
 
-<div class="mb-4">
-  <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Práctica propuesta</h4>
-  <p>Crea documentos XML sencillos y comprueba que respetan las reglas de buena formación.</p>
-  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>XMLBienFormado</code></p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-globe"></i> Visualización con un lector RSS online</h4>
+      <p>Entrad en un lector RSS online, por ejemplo <a href="https://rssviewer.app/" target="_blank" rel="noopener noreferrer">RSS Viewer</a>, pegad la URL de cada canal RSS y comprobad que se muestran sus entradas.</p>
+      <p>Después, abrid también la URL del RSS directamente en el navegador para observar el documento XML original.</p>
+      <pre><code>&lt;rss version="2.0"&gt;
+  &lt;channel&gt;
+    &lt;title&gt;Nombre del canal&lt;/title&gt;
+    &lt;link&gt;https://ejemplo.test&lt;/link&gt;
+    &lt;description&gt;Descripción del canal&lt;/description&gt;
+    &lt;item&gt;
+      &lt;title&gt;Título de una noticia&lt;/title&gt;
+      &lt;link&gt;https://ejemplo.test/noticia&lt;/link&gt;
+      &lt;description&gt;Resumen de la noticia&lt;/description&gt;
+    &lt;/item&gt;
+  &lt;/channel&gt;
+&lt;/rss&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table-list"></i> Comparación de estructuras</h4>
+      <p>Comparad los RSS encontrados y completad una tabla similar a esta en vuestro cuaderno o documento de trabajo:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Web</th>
+              <th>URL del RSS</th>
+              <th>Etiqueta raíz</th>
+              <th>Etiquetas que se repiten</th>
+              <th>¿Qué información contiene cada entrada?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ejemplo</td>
+              <td><code>https://...</code></td>
+              <td><code>&lt;rss&gt;</code></td>
+              <td><code>&lt;item&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;link&gt;</code></td>
+              <td>Título, enlace, descripción y fecha</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-question"></i> Preguntas para responder</h4>
+      <ul>
+        <li>¿Qué etiquetas aparecen en casi todos los RSS que habéis encontrado?</li>
+        <li>¿Qué etiqueta se utiliza para representar cada noticia, entrada o publicación?</li>
+        <li>¿Qué diferencias habéis visto entre unos RSS y otros?</li>
+        <li>¿Por qué creéis que un lector RSS puede entender canales de webs diferentes?</li>
+      </ul>
+    </div>
+
+  </div>
 </div>
+</section>
 
+
+<section id="ut01-ejercicios-02-svg-basico" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-shapes"></i> 1.2 Creando nuestras primeras imágenes SVG</h2>
+    <p class="lead">Actividad individual para crear <strong>imágenes SVG</strong> y comprobar que un SVG es un documento XML con etiquetas y atributos específicos para dibujar.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user"></i> Organización</h4>
+      <p>El ejercicio se realizará de forma <strong>individual</strong>. Cada persona investigará, probará y ajustará sus propios SVG.</p>
+      <p>Al final de la actividad mostraremos algunos resultados en la pizarra compartida para comparar soluciones y comentar cómo se ha construido cada dibujo.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Documentación de apoyo</h4>
+      <p>Consultad la documentación de SVG en W3Schools y utilizad su sección <strong>Try it Yourself</strong> para modificar el código y ver el resultado directamente en el navegador:</p>
+      <p><a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank" rel="noopener noreferrer">W3Schools SVG Tutorial</a></p>
+      <p>Recordad la idea importante: un SVG puede ser un XML bien formado, pero además necesita usar las <strong>etiquetas y atributos que entiende SVG</strong>. Por ejemplo, <code>&lt;circle&gt;</code>, <code>&lt;rect&gt;</code>, <code>&lt;line&gt;</code>, <code>&lt;ellipse&gt;</code>, <code>cx</code>, <code>cy</code>, <code>r</code>, <code>fill</code>, <code>stroke</code> o <code>stroke-width</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Código base para empezar</h4>
+      <p>Podéis partir de una estructura como esta y modificar su contenido dentro de la etiqueta <code>&lt;svg&gt;</code>:</p>
+      <pre><code>&lt;svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;circle cx="150" cy="100" r="50" fill="lightblue" stroke="black" stroke-width="3" /&gt;
+&lt;/svg&gt;</code></pre>
+      <p>Fijaos en que cada figura se crea con una etiqueta y se configura mediante atributos. Si el atributo no existe, está mal escrito o tiene valores poco adecuados, el navegador no dibujará lo esperado.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-ring"></i> Imagen 1: aros olímpicos</h4>
+      <p>Cread una imagen SVG que represente los <strong>cinco aros olímpicos</strong>.</p>
+      <ul>
+        <li>Utilizad cinco elementos <code>&lt;circle&gt;</code>.</li>
+        <li>Cada aro debe tener color de borde diferente.</li>
+        <li>Los círculos no deben estar rellenos, solo tener borde.</li>
+        <li>Colocad tres aros arriba y dos ligeramente más abajo.</li>
+      </ul>
+      <p>Os resultarán útiles los atributos <code>cx</code>, <code>cy</code>, <code>r</code>, <code>stroke</code>, <code>stroke-width</code> y <code>fill</code>.</p>
+      <p>Ejemplo orientativo, creado solo con círculos:</p>
+      <svg width="320" height="160" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ejemplo de aros olímpicos con SVG">
+        <circle cx="80" cy="65" r="38" fill="none" stroke="#0072ce" stroke-width="8" />
+        <circle cx="160" cy="65" r="38" fill="none" stroke="#000000" stroke-width="8" />
+        <circle cx="240" cy="65" r="38" fill="none" stroke="#d7a900" stroke-width="8" />
+        <circle cx="120" cy="105" r="38" fill="none" stroke="#009f3d" stroke-width="8" />
+        <circle cx="200" cy="105" r="38" fill="none" stroke="#df0024" stroke-width="8" />
+      </svg>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-face-surprise"></i> Imagen 2: cara de sorpresa</h4>
+      <p>Cread una cara sorprendida utilizando círculos.</p>
+      <ul>
+        <li>Un círculo grande para la cara.</li>
+        <li>Dos círculos para los ojos.</li>
+        <li>Dos círculos pequeños dentro de los ojos para las pupilas.</li>
+        <li>Un círculo o elipse para la boca en forma de <strong>O</strong>.</li>
+      </ul>
+      <p>Probad a cambiar colores, tamaños y posiciones hasta que la expresión se entienda visualmente.</p>
+      <p>Ejemplo orientativo, creado solo con círculos:</p>
+      <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ejemplo de cara de sorpresa con SVG">
+        <circle cx="110" cy="110" r="88" fill="#ffd166" stroke="#333333" stroke-width="5" />
+        <circle cx="75" cy="82" r="19" fill="#ffffff" stroke="#333333" stroke-width="4" />
+        <circle cx="145" cy="82" r="19" fill="#ffffff" stroke="#333333" stroke-width="4" />
+        <circle cx="75" cy="82" r="7" fill="#222222" />
+        <circle cx="145" cy="82" r="7" fill="#222222" />
+        <circle cx="110" cy="145" r="24" fill="#4a2c2a" />
+      </svg>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-face-angry"></i> Imagen 3: cara enfadada</h4>
+      <p>Cread una cara enfadada combinando formas básicas.</p>
+      <ul>
+        <li>Un círculo grande para la cara.</li>
+        <li>Dos ojos con pupilas.</li>
+        <li>Círculos pequeños alineados en diagonal para simular cejas o pestañas enfadadas.</li>
+        <li>Una boca curvada hacia abajo construida con varios círculos pequeños.</li>
+      </ul>
+      <p>Ejemplo orientativo, creado solo con círculos (se pueden emplear líneas, rectángulos, etc):</p>
+      <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ejemplo de cara enfadada con SVG">
+        <circle cx="110" cy="110" r="88" fill="#ffb347" stroke="#333333" stroke-width="5" />
+        <circle cx="75" cy="88" r="17" fill="#ffffff" stroke="#333333" stroke-width="4" />
+        <circle cx="145" cy="88" r="17" fill="#ffffff" stroke="#333333" stroke-width="4" />
+        <circle cx="80" cy="91" r="6" fill="#222222" />
+        <circle cx="140" cy="91" r="6" fill="#222222" />
+        <circle cx="58" cy="60" r="5" fill="#222222" />
+        <circle cx="68" cy="64" r="5" fill="#222222" />
+        <circle cx="78" cy="68" r="5" fill="#222222" />
+        <circle cx="88" cy="72" r="5" fill="#222222" />
+        <circle cx="132" cy="72" r="5" fill="#222222" />
+        <circle cx="142" cy="68" r="5" fill="#222222" />
+        <circle cx="152" cy="64" r="5" fill="#222222" />
+        <circle cx="162" cy="60" r="5" fill="#222222" />
+        <circle cx="82" cy="160" r="6" fill="#4a2c2a" />
+        <circle cx="96" cy="150" r="6" fill="#4a2c2a" />
+        <circle cx="110" cy="146" r="6" fill="#4a2c2a" />
+        <circle cx="124" cy="150" r="6" fill="#4a2c2a" />
+        <circle cx="138" cy="160" r="6" fill="#4a2c2a" />
+      </svg>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-wand-magic-sparkles"></i> Imagen 4: creación libre</h4>
+      <p>Cread una imagen libre utilizando las formas que ofrece SVG. Podéis investigar etiquetas como <code>&lt;rect&gt;</code>, <code>&lt;ellipse&gt;</code>, <code>&lt;line&gt;</code>, <code>&lt;polygon&gt;</code>, <code>&lt;polyline&gt;</code>, <code>&lt;text&gt;</code> o <code>&lt;path&gt;</code>.</p>
+      <p>La imagen puede ser un paisaje, un icono, una señal, un personaje sencillo, una figura geométrica, un logotipo inventado o cualquier composición que os permita experimentar con etiquetas y atributos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Comprobaciones durante la actividad</h4>
+      <ul>
+        <li>¿El SVG tiene una etiqueta raíz <code>&lt;svg&gt;</code>?</li>
+        <li>¿Las etiquetas están correctamente cerradas?</li>
+        <li>¿Los atributos están escritos sin espacios en el nombre?</li>
+        <li>¿Los valores de los atributos están entre comillas?</li>
+        <li>¿Las etiquetas usadas pertenecen realmente al lenguaje SVG?</li>
+        <li>¿La imagen se interpreta correctamente en el navegador?</li>
+      </ul>
+    </div>
+  </div>
 </div>
+</section>
 
+
+<section id="ut01-ejercicios-03-usos-xml" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-magnifying-glass-chart"></i> 1.3 Investigando otros usos de XML</h2>
+    <p class="lead">Actividad de investigación para descubrir <strong>otros usos reales de XML</strong> y comparar cómo se organizan sus documentos.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Qué hay que buscar</h4>
+      <p>Buscad al menos <strong>3 usos distintos de XML</strong>. Para cada uno, localizad una breve explicación y, si es posible, un ejemplo sencillo de documento XML.</p>
+      <p>El objetivo es comprobar que XML no es un único formato cerrado, sino una forma de crear lenguajes de marcas adaptados a necesidades diferentes.</p>
+      <p>Algunas pistas para investigar podrían ser formatos de configuración, documentos ofimáticos, intercambio de datos entre sistemas, servicios web, mapas, metadatos, catálogos o formatos usados por aplicaciones concretas.</p>
+      <p>Un ejemplo podría ser <strong>GPX</strong>, que se emplea para compartir rutas mediante coordenadas GPS, por ejemplo en actividades de senderismo, ciclismo o tracking.</p>
+      <pre><code>&lt;gpx version="1.1" creator="AppRutas"&gt;
+  &lt;trk&gt;
+    &lt;name&gt;Ruta por el monte&lt;/name&gt;
+    &lt;trkseg&gt;
+      &lt;trkpt lat="42.8125" lon="-1.6458"&gt;
+        &lt;ele&gt;460&lt;/ele&gt;
+        &lt;time&gt;2026-09-24T09:30:00Z&lt;/time&gt;
+      &lt;/trkpt&gt;
+    &lt;/trkseg&gt;
+  &lt;/trk&gt;
+&lt;/gpx&gt;</code></pre>
+      <p>No hace falta entender todos los detalles técnicos del formato elegido. Lo importante es reconocer para qué se utiliza y cómo organiza la información mediante etiquetas y atributos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-ban"></i> Usos que no se pueden elegir</h4>
+      <p>Debéis buscar usos de XML diferentes a los trabajados ya en clase. Por tanto, no se pueden elegir estos ejemplos:</p>
+      <ul>
+        <li><strong>RSS</strong>, porque ya lo hemos usado para canales de noticias y publicaciones.</li>
+        <li><strong>SVG</strong>, porque ya lo hemos usado para crear imágenes vectoriales.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table"></i> Tabla de análisis</h4>
+      <p>Preparad una tabla similar a esta para comparar los formatos encontrados:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Uso o formato XML</th>
+              <th>Para qué se utiliza</th>
+              <th>Etiqueta raíz o etiquetas importantes</th>
+              <th>Qué datos almacena</th>
+              <th>Fuente consultada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ejemplo encontrado</td>
+              <td>Configuración, intercambio, documento, metadatos...</td>
+              <td><code>&lt;etiqueta&gt;</code></td>
+              <td>Datos principales del formato</td>
+              <td>URL o documentación consultada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code-compare"></i> Similitudes y diferencias</h4>
+      <p>Después de completar la tabla, comparad los formatos encontrados y responded:</p>
+      <ul>
+        <li>¿Todos tienen una etiqueta raíz?</li>
+        <li>¿Utilizan etiquetas anidadas?</li>
+        <li>¿Usan atributos? ¿Para qué tipo de información?</li>
+        <li>¿Qué formato parece más fácil de leer? ¿Por qué?</li>
+        <li>¿Qué formato parece más especializado?</li>
+        <li>¿En qué se parecen a RSS, SVG o al ejemplo GPX?</li>
+        <li>¿En qué se diferencian de RSS, SVG o del ejemplo GPX?</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-chalkboard-user"></i> Puesta en común</h4>
+      <p>Al final, comentaremos algunos de los usos encontrados. La idea es construir entre toda la clase una lista de situaciones reales en las que XML sigue siendo útil.</p>
+    </div>
+  </div>
 </div>
 </section>
         </main>
@@ -90,7 +380,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790171077436"></script>
-    <script src="assets/js/course.js?v=1790171077436"></script>
+    <script src="assets/js/search-data.js?v=1790233139435"></script>
+    <script src="assets/js/course.js?v=1790233139435"></script>
   </body>
 </html>

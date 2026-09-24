@@ -1,0 +1,71 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-diagram-project"></i> 1.5 Usos habituales de XML</h2>
+    <p class="lead">XML aparece en muchos contextos donde interesa tener informacion <strong>estructurada, legible y facil de intercambiar</strong> entre sistemas.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-rss"></i> RSS y sindicacion de contenidos</h4>
+      <p>Los canales <strong>RSS</strong> usan XML para publicar noticias, entradas de blog, podcasts u otros contenidos que pueden ser leidos por aplicaciones externas.</p>
+      <pre><code>&lt;rss version="2.0"&gt;
+  &lt;channel&gt;
+    &lt;title&gt;Noticias del centro&lt;/title&gt;
+    &lt;item&gt;
+      &lt;title&gt;Inicio de curso&lt;/title&gt;
+      &lt;link&gt;https://ejemplo.test/noticias/inicio&lt;/link&gt;
+    &lt;/item&gt;
+  &lt;/channel&gt;
+&lt;/rss&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-shapes"></i> SVG: graficos vectoriales</h4>
+      <p><strong>SVG</strong> es un formato basado en XML que permite describir imagenes vectoriales mediante etiquetas.</p>
+      <pre><code>&lt;svg width="120" height="80" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;circle cx="40" cy="40" r="25" fill="steelblue" /&gt;
+  &lt;text x="75" y="45"&gt;XML&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+      <p>En lugar de guardar una imagen como pixeles, SVG describe formas, colores, textos y coordenadas.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-gears"></i> Configuracion e intercambio de datos</h4>
+      <p>XML tambien se ha utilizado mucho en ficheros de configuracion, integracion entre aplicaciones, intercambio de datos entre empresas y formatos de documentos.</p>
+      <pre><code>&lt;configuracion&gt;
+  &lt;baseDatos host="localhost" puerto="3306"&gt;
+    &lt;usuario&gt;app&lt;/usuario&gt;
+  &lt;/baseDatos&gt;
+&lt;/configuracion&gt;</code></pre>
+      <p>Hoy en dia convive con otros formatos como JSON, pero sigue siendo importante porque muchos estandares, herramientas y sistemas lo siguen utilizando.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-scale-balanced"></i> Ventajas y limites</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Ventajas</th>
+              <th>Limites</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Es legible por personas y programas.</td>
+              <td>Puede ser mas largo que otros formatos.</td>
+            </tr>
+            <tr>
+              <td>Permite crear etiquetas adaptadas al problema.</td>
+              <td>Exige respetar una sintaxis estricta.</td>
+            </tr>
+            <tr>
+              <td>Representa datos jerarquicos con claridad.</td>
+              <td>Para validar estructuras complejas suele necesitar esquemas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

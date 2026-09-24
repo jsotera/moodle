@@ -1,0 +1,104 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-sitemap"></i> 1.4 Estructura de un documento XML</h2>
+    <p class="lead">Un documento XML se organiza como un <strong>arbol de elementos</strong>, con una unica raiz y diferentes elementos hijos.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-heading"></i> Declaracion XML</h4>
+      <p>Muchos documentos XML comienzan con una declaracion que indica la version de XML y la codificacion de caracteres utilizada.</p>
+      <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></pre>
+      <p>Esta linea no representa datos del documento. Sirve para informar al programa que va a leer el XML de como debe interpretarlo.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tree"></i> Elemento raiz</h4>
+      <p>Todo documento XML debe tener <strong>un unico elemento raiz</strong>. Ese elemento contiene al resto del documento.</p>
+      <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;biblioteca&gt;
+  &lt;libro&gt;
+    &lt;titulo&gt;El principito&lt;/titulo&gt;
+    &lt;autor&gt;Antoine de Saint-Exupery&lt;/autor&gt;
+  &lt;/libro&gt;
+  &lt;libro&gt;
+    &lt;titulo&gt;Don Quijote de la Mancha&lt;/titulo&gt;
+    &lt;autor&gt;Miguel de Cervantes&lt;/autor&gt;
+  &lt;/libro&gt;
+&lt;/biblioteca&gt;</code></pre>
+      <p>En este caso, <code>&lt;biblioteca&gt;</code> es la raiz. Dentro aparecen varios elementos <code>&lt;libro&gt;</code>, y cada libro tiene sus propios elementos hijos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-double"></i> Reglas para que este bien formado</h4>
+      <p>Un XML esta <strong>bien formado</strong> cuando cumple unas reglas basicas de escritura. Estas reglas son importantes porque un programa no interpreta un XML "mas o menos bien": si la sintaxis falla, el documento no se puede procesar correctamente.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Regla</th>
+              <th>Explicacion</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Las etiquetas se escriben entre <code>&lt;</code> y <code>&gt;</code></td>
+              <td>Una etiqueta es una palabra que representa un dato. La etiqueta de apertura marca donde empieza ese dato.</td>
+              <td><code>&lt;nombre&gt;Ana&lt;/nombre&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Las etiquetas de cierre llevan <code>/</code></td>
+              <td>La etiqueta de cierre indica donde termina el contenido de ese elemento.</td>
+              <td><code>&lt;ciudad&gt;Pamplona&lt;/ciudad&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Un elemento vacio puede cerrarse directamente</td>
+              <td>Si un elemento no tiene contenido entre apertura y cierre, se puede escribir con una unica etiqueta terminada en <code>/&gt;</code>.</td>
+              <td><code>&lt;persona edad="12" /&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Debe existir un unico elemento raiz</td>
+              <td>Todos los datos del documento deben estar dentro de un mismo elemento principal.</td>
+              <td><code>&lt;alumnos&gt;&lt;alumno&gt;Ana&lt;/alumno&gt;&lt;/alumnos&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Las etiquetas deben cerrarse en orden</td>
+              <td>Si un elemento empieza dentro de otro, tambien debe terminar dentro de ese mismo elemento.</td>
+              <td><code>&lt;persona&gt;&lt;nombre&gt;Ana&lt;/nombre&gt;&lt;/persona&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Los nombres no pueden contener espacios</td>
+              <td>Los nombres de etiquetas y atributos deben escribirse como una sola palabra. Se pueden usar guiones o guiones bajos si hace falta separar ideas.</td>
+              <td><code>&lt;fecha_nacimiento&gt;2008-04-12&lt;/fecha_nacimiento&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Mayusculas y minusculas no son lo mismo</td>
+              <td><code>&lt;Nombre&gt;</code> y <code>&lt;nombre&gt;</code> son etiquetas diferentes para XML.</td>
+              <td><code>&lt;nombre&gt;Ana&lt;/nombre&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Los atributos deben ir entre comillas</td>
+              <td>Un atributo aporta informacion adicional dentro de la etiqueta de apertura. Su valor debe escribirse entre comillas.</td>
+              <td><code>&lt;alumno id="A001"&gt;Ana&lt;/alumno&gt;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <pre><code>&lt;!-- Incorrecto: el nombre de la etiqueta tiene espacios --&gt;
+&lt;nombre completo&gt;Ana Perez&lt;/nombre completo&gt;
+
+&lt;!-- Correcto: el nombre de la etiqueta no tiene espacios --&gt;
+&lt;nombre_completo&gt;Ana Perez&lt;/nombre_completo&gt;
+
+&lt;!-- Correcto: elemento vacio cerrado directamente --&gt;
+&lt;persona edad="12" /&gt;
+
+&lt;!-- Incorrecto: las etiquetas se cruzan --&gt;
+&lt;persona&gt;&lt;nombre&gt;Ana&lt;/persona&gt;&lt;/nombre&gt;
+
+&lt;!-- Correcto: las etiquetas se cierran en orden --&gt;
+&lt;persona&gt;&lt;nombre&gt;Ana&lt;/nombre&gt;&lt;/persona&gt;</code></pre>
+    </div>
+  </div>
+</div>

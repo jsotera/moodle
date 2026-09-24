@@ -1,0 +1,83 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-magnifying-glass-chart"></i> 1.3 Investigando otros usos de XML</h2>
+    <p class="lead">Actividad de investigación para descubrir <strong>otros usos reales de XML</strong> y comparar cómo se organizan sus documentos.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Qué hay que buscar</h4>
+      <p>Buscad al menos <strong>3 usos distintos de XML</strong>. Para cada uno, localizad una breve explicación y, si es posible, un ejemplo sencillo de documento XML.</p>
+      <p>El objetivo es comprobar que XML no es un único formato cerrado, sino una forma de crear lenguajes de marcas adaptados a necesidades diferentes.</p>
+      <p>Algunas pistas para investigar podrían ser formatos de configuración, documentos ofimáticos, intercambio de datos entre sistemas, servicios web, mapas, metadatos, catálogos o formatos usados por aplicaciones concretas.</p>
+      <p>Un ejemplo podría ser <strong>GPX</strong>, que se emplea para compartir rutas mediante coordenadas GPS, por ejemplo en actividades de senderismo, ciclismo o tracking.</p>
+      <pre><code>&lt;gpx version="1.1" creator="AppRutas"&gt;
+  &lt;trk&gt;
+    &lt;name&gt;Ruta por el monte&lt;/name&gt;
+    &lt;trkseg&gt;
+      &lt;trkpt lat="42.8125" lon="-1.6458"&gt;
+        &lt;ele&gt;460&lt;/ele&gt;
+        &lt;time&gt;2026-09-24T09:30:00Z&lt;/time&gt;
+      &lt;/trkpt&gt;
+    &lt;/trkseg&gt;
+  &lt;/trk&gt;
+&lt;/gpx&gt;</code></pre>
+      <p>No hace falta entender todos los detalles técnicos del formato elegido. Lo importante es reconocer para qué se utiliza y cómo organiza la información mediante etiquetas y atributos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-ban"></i> Usos que no se pueden elegir</h4>
+      <p>Debéis buscar usos de XML diferentes a los trabajados ya en clase. Por tanto, no se pueden elegir estos ejemplos:</p>
+      <ul>
+        <li><strong>RSS</strong>, porque ya lo hemos usado para canales de noticias y publicaciones.</li>
+        <li><strong>SVG</strong>, porque ya lo hemos usado para crear imágenes vectoriales.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table"></i> Tabla de análisis</h4>
+      <p>Preparad una tabla similar a esta para comparar los formatos encontrados:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Uso o formato XML</th>
+              <th>Para qué se utiliza</th>
+              <th>Etiqueta raíz o etiquetas importantes</th>
+              <th>Qué datos almacena</th>
+              <th>Fuente consultada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ejemplo encontrado</td>
+              <td>Configuración, intercambio, documento, metadatos...</td>
+              <td><code>&lt;etiqueta&gt;</code></td>
+              <td>Datos principales del formato</td>
+              <td>URL o documentación consultada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code-compare"></i> Similitudes y diferencias</h4>
+      <p>Después de completar la tabla, comparad los formatos encontrados y responded:</p>
+      <ul>
+        <li>¿Todos tienen una etiqueta raíz?</li>
+        <li>¿Utilizan etiquetas anidadas?</li>
+        <li>¿Usan atributos? ¿Para qué tipo de información?</li>
+        <li>¿Qué formato parece más fácil de leer? ¿Por qué?</li>
+        <li>¿Qué formato parece más especializado?</li>
+        <li>¿En qué se parecen a RSS, SVG o al ejemplo GPX?</li>
+        <li>¿En qué se diferencian de RSS, SVG o del ejemplo GPX?</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-chalkboard-user"></i> Puesta en común</h4>
+      <p>Al final, comentaremos algunos de los usos encontrados. La idea es construir entre toda la clase una lista de situaciones reales en las que XML sigue siendo útil.</p>
+    </div>
+  </div>
+</div>
