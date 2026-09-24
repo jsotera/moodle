@@ -1,0 +1,66 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-boxes"></i> 2.10. Utilizar clases de las librerías de Java</h2>
+<p class="lead">Las librerías permiten reutilizar clases ya desarrolladas.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-box-open"></i> Clases disponibles en Java</h4>
+<p>Java incluye una gran cantidad de clases preparadas para resolver problemas habituales. Estas clases se organizan en <strong>paquetes</strong>.</p>
+<p>Una de ellas es <code>Random</code>, que permite generar números pseudoaleatorios.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-file-import"></i> Importar una clase</h4>
+<pre><code>import java.util.Random;</code></pre>
+<p>Esta instrucción indica que queremos utilizar la clase <code>Random</code> del paquete <code>java.util</code>.</p>
+<pre><code>Random generador = new Random();
+
+int numero = generador.nextInt(100);</code></pre>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-puzzle-piece"></i> Identificar los elementos</h4>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead class="table-light">
+<tr>
+<th>Elemento</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Random</code></td>
+<td>clase</td>
+</tr>
+<tr>
+<td><code>generador</code></td>
+<td>variable referencia</td>
+</tr>
+<tr>
+<td><code>new Random()</code></td>
+<td>creación de objeto mediante constructor</td>
+</tr>
+<tr>
+<td><code>nextInt</code></td>
+<td>método</td>
+</tr>
+<tr>
+<td><code>100</code></td>
+<td>argumento</td>
+</tr>
+<tr>
+<td><code>numero</code></td>
+<td>variable que recibe el resultado</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-recycle"></i> Reutilizar código</h4>
+<pre><code>Random generador = new Random();
+
+int numero = generador.nextInt(100);
+int dado = generador.nextInt(6) + 1;</code></pre>
+<p>No necesitamos saber cómo está programada internamente la clase <code>Random</code>. Necesitamos saber <strong>cómo utilizarla</strong>.</p>
+</div>
+</div>
+</div>

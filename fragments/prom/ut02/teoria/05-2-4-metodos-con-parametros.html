@@ -1,0 +1,49 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-sliders-h"></i> 2.4. Métodos con parámetros</h2>
+<p class="lead">Los parámetros permiten que un método reciba información para realizar su tarea.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-sign-in-alt"></i> Proporcionar información a un método</h4>
+<p>Algunos métodos necesitan recibir datos para realizar su tarea.</p>
+<pre><code>coche.acelerar(20);</code></pre>
+<p>El valor <code>20</code> indica cuánto queremos acelerar.</p>
+<p>La cabecera del método podría ser:</p>
+<pre><code>void acelerar(int cantidad)</code></pre>
+<p>El parámetro <code>cantidad</code> indica que el método necesita un dato de tipo <code>int</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-tags"></i> Parámetro y argumento</h4>
+<div class="row">
+<div class="col-md-6 mb-3">
+<div class="card h-100">
+<div class="card-body">
+<h5 class="card-title">Parámetro</h5>
+<pre><code>void acelerar(int cantidad)</code></pre>
+<p class="mb-0"><code>cantidad</code> es el <strong>parámetro</strong>.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="card h-100">
+<div class="card-body">
+<h5 class="card-title">Argumento</h5>
+<pre><code>coche.acelerar(20);</code></pre>
+<p class="mb-0"><code>20</code> es el <strong>argumento</strong> proporcionado al realizar la llamada.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-shapes"></i> Tipos de los parámetros</h4>
+<pre><code>coche.acelerar(20);
+coche.setColor("azul");
+
+personaje.moverHorizontal(50);
+personaje.moverVertical(20);
+personaje.cambiarNombre("Alex");</code></pre>
+<p>Los métodos pueden recibir valores de distintos tipos, como <code>int</code>, <code>double</code>, <code>boolean</code> o <code>String</code>.</p>
+<p>Más adelante veremos que una <strong>clase también define un tipo</strong> y que, por tanto, un objeto puede utilizarse como argumento.</p>
+</div>
+</div>
+</div>

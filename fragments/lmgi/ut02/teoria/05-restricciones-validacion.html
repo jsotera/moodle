@@ -1,0 +1,63 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-filter-circle-xmark"></i> 2.5 Restricciones y validación</h2>
+    <p class="lead">Las restricciones permiten limitar los valores aceptados por un elemento o atributo.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-ruler-combined"></i> Restricciones numéricas</h4>
+      <p>Podemos indicar valores mínimos y máximos. Por ejemplo, una edad entre 0 y 120:</p>
+      <pre><code>&lt;xs:element name="edad"&gt;
+  &lt;xs:simpleType&gt;
+    &lt;xs:restriction base="xs:integer"&gt;
+      &lt;xs:minInclusive value="0" /&gt;
+      &lt;xs:maxInclusive value="120" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:element&gt;</code></pre>
+      <p><code>&lt;edad&gt;17&lt;/edad&gt;</code> sería válido, pero <code>&lt;edad&gt;200&lt;/edad&gt;</code> no lo sería.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-ul"></i> Valores permitidos</h4>
+      <p>Con <code>&lt;xs:enumeration&gt;</code> podemos limitar un valor a una lista cerrada de opciones.</p>
+      <pre><code>&lt;xs:element name="modalidad"&gt;
+  &lt;xs:simpleType&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:enumeration value="DAM" /&gt;
+      &lt;xs:enumeration value="DAW" /&gt;
+      &lt;xs:enumeration value="ASIR" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:element&gt;</code></pre>
+      <p>En este caso, <code>&lt;modalidad&gt;DAM&lt;/modalidad&gt;</code> sería válido, pero <code>&lt;modalidad&gt;Bachillerato&lt;/modalidad&gt;</code> no.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Patrones</h4>
+      <p>Con <code>&lt;xs:pattern&gt;</code> podemos obligar a que un texto siga una forma concreta. Por ejemplo, un código de alumno formado por la letra <code>A</code> y tres dígitos:</p>
+      <pre><code>&lt;xs:element name="codigo"&gt;
+  &lt;xs:simpleType&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:pattern value="A[0-9][0-9][0-9]" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:element&gt;</code></pre>
+      <p><code>&lt;codigo&gt;A125&lt;/codigo&gt;</code> sería válido, pero <code>&lt;codigo&gt;AL125&lt;/codigo&gt;</code> no.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Cómo pensaremos la validación</h4>
+      <p>Para validar un XML frente a un XSD seguiremos siempre una idea sencilla:</p>
+      <ul>
+        <li>Leer el XSD para localizar la raíz esperada.</li>
+        <li>Comprobar qué elementos y atributos son obligatorios.</li>
+        <li>Revisar el orden definido por las secuencias.</li>
+        <li>Comprobar los tipos de datos.</li>
+        <li>Aplicar restricciones: rangos, enumeraciones, patrones y repeticiones.</li>
+      </ul>
+      <p>Durante la unidad trabajaremos mucho modificando XML para que cumplan un XSD dado, y también modificando XSD para expresar nuevas reglas.</p>
+    </div>
+  </div>
+</div>

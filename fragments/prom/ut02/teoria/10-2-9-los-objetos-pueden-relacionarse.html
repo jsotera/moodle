@@ -1,0 +1,42 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> 2.9. Los objetos pueden relacionarse</h2>
+<p class="lead">En una aplicación, los objetos pueden colaborar y mantener referencias entre sí.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> Objetos que colaboran</h4>
+<pre><code>Coche coche =
+        new Coche("Toyota", "Corolla", "azul");
+
+Circuito circuito =
+        new Circuito("Los Arcos", 3933);</code></pre>
+<p>Tenemos dos objetos de clases diferentes. Un método de <code>Circuito</code> podría recibir un objeto <code>Coche</code>:</p>
+<pre><code>void inscribir(Coche coche)</code></pre>
+<p>y podríamos utilizarlo así:</p>
+<pre><code>circuito.inscribir(coche);</code></pre>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-tag"></i> Las clases también son tipos</h4>
+<pre><code>int velocidad;
+String nombre;
+Coche coche;</code></pre>
+<p><code>Coche</code> es también un tipo. Por eso puede aparecer como tipo de una variable o de un parámetro.</p>
+</div>
+<div class="mb-4" style="text-align: left;">
+<h4 class="text-primary mb-3"><i class="fas fa-link"></i> Varias referencias al mismo objeto</h4>
+<p>Después de inscribir un coche, un objeto <code>Circuito</code> puede mantener una referencia al mismo objeto <code>Coche</code> al que también apunta la variable <code>coche</code>.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.5.composition.png" alt="Referencia de un circuito a coches" width="843" height="429"></p>
+<p style="text-align: center;">Imagen 5. Un circuito referenciando a dos coches.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-user-graduate"></i> Otro ejemplo</h4>
+<pre><code>Estudiante ana =
+        new Estudiante("Ana", 18);
+
+Curso programacion =
+        new Curso("Programacion");
+
+programacion.matricular(ana);</code></pre>
+<p>La idea es la misma: un objeto puede utilizar o almacenar referencias a otros objetos.</p>
+</div>
+</div>
+</div>

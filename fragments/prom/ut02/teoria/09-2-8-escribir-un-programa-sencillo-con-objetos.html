@@ -1,0 +1,47 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-laptop-code"></i> 2.8. Escribir un programa sencillo con objetos</h2>
+<p class="lead">Ya podemos combinar creación de objetos, métodos y resultados en un mismo programa.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Un pequeño programa completo</h4>
+<pre><code>public class Principal {
+
+    public static void main(String[] args) {
+
+        Coche coche1 =
+                new Coche("Toyota", "Corolla", "azul");
+
+        Coche coche2 =
+                new Coche("Ford", "Focus", "rojo");
+
+        coche1.arrancar();
+        coche1.acelerar(30);
+
+        coche2.arrancar();
+        coche2.acelerar(20);
+
+        System.out.println(coche1.getModelo());
+        System.out.println(coche1.getVelocidad());
+
+        System.out.println(coche2.getModelo());
+        System.out.println(coche2.getVelocidad());
+    }
+}</code></pre>
+<p>Por ahora podemos considerar el método <code>main</code> como el <strong>punto de comienzo de la ejecución</strong> de nuestro programa.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-stream"></i> Qué hace el programa</h4>
+<div class="d-flex flex-wrap align-items-center justify-content-center my-3"><span class="badge bg-primary p-2 m-1">crear objetos</span> <i class="fas fa-arrow-right m-1"></i> <span class="badge bg-primary p-2 m-1">usar métodos</span> <i class="fas fa-arrow-right m-1"></i> <span class="badge bg-primary p-2 m-1">obtener resultados</span></div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-sync-alt"></i> Escribir, ejecutar, comprobar</h4>
+<p>Conviene programar de forma incremental: escribir una pequeña parte, ejecutarla, observar el resultado, corregir los posibles errores y continuar.</p>
+<div class="alert alert-success mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-check-circle"></i> Buena práctica</h5>
+<div>
+<p class="mb-0">No esperes a tener todo el programa escrito para probarlo. Ejecutar con frecuencia ayuda a detectar antes los errores y a comprender mejor lo que está ocurriendo.</p>
+</div>
+</div>
+</div>
+</div>
+</div>

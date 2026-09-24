@@ -1,0 +1,39 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-tachometer-alt"></i> 2.6. Consultar y modificar el estado</h2>
+<p class="lead">El estado de un objeto cambia cuando sus atributos cambian.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-edit"></i> Modificar el estado</h4>
+<pre><code>coche.setColor("azul");
+coche.arrancar();
+coche.acelerar(30);</code></pre>
+<p>Después de estas operaciones el objeto puede haber cambiado su estado.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-search"></i> Consultar el estado</h4>
+<pre><code>String color = coche.getColor();
+int velocidad = coche.getVelocidad();
+boolean arrancado = coche.isArrancado();</code></pre>
+<p>Estos métodos nos permiten obtener información sobre el objeto.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-history"></i> El estado cambia durante la ejecución</h4>
+<p>Un mismo objeto puede pasar por distintos estados conforme se ejecutan métodos sobre él.</p>
+<pre><code>Coche coche = new Coche();
+
+coche.setColor("azul");
+coche.arrancar();
+coche.acelerar(30);</code></pre>
+<p>El <strong>estado de un objeto</strong> es el conjunto de valores de sus atributos en un determinado instante.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-bug"></i> Observar objetos durante la ejecución</h4>
+<p>Mediante el modo <strong>Debug</strong> y los <strong>puntos de interrupción</strong>, el IDE permite detener temporalmente la ejecución y observar variables, objetos y atributos.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.3.debug.png" alt="Debug de un programa." width="887" height="747"></p>
+<p style="text-align: center;">Imagen 3. Debug de un programa.</p>
+<p>Un plugin como <strong>Java Visualizer de IntelliJ IDEA</strong> puede facilitar todavía más la comprensión mostrando gráficamente las relaciones entre variables y objetos.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.4.estados.png" alt="Dos coches en dos estados distintos." width="544" height="198"></p>
+<p style="text-align: center;">Imagen 4. Dos objetos Coche con estados diferentes.</p>
+</div>
+</div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-code"></i> 2.2 Estructura básica de un XSD</h2>
+    <p class="lead">Un XSD también es un documento XML, pero utiliza etiquetas propias del vocabulario <strong>XML Schema</strong>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-layer-group"></i> La etiqueta raíz <code>&lt;xs:schema&gt;</code></h4>
+      <p>Todo esquema XSD suele comenzar con la etiqueta <code>&lt;xs:schema&gt;</code>. El prefijo <code>xs</code> indica que estamos usando elementos del lenguaje XML Schema.</p>
+      <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+
+  &lt;!-- Aquí se definen las reglas del XML --&gt;
+
+&lt;/xs:schema&gt;</code></pre>
+      <p>La parte <code>xmlns:xs="http://www.w3.org/2001/XMLSchema"</code> declara el espacio de nombres de XSD. Gracias a ello, etiquetas como <code>&lt;xs:element&gt;</code> o <code>&lt;xs:complexType&gt;</code> tienen significado para un validador.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Ejemplo mínimo</h4>
+      <p>Este XSD define que el XML debe tener un elemento llamado <code>&lt;mensaje&gt;</code> cuyo contenido será texto:</p>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="mensaje" type="xs:string" /&gt;
+&lt;/xs:schema&gt;</code></pre>
+      <p>Con ese esquema, este XML sería válido:</p>
+      <pre><code>&lt;mensaje&gt;Hola XML&lt;/mensaje&gt;</code></pre>
+      <p>Pero este otro no cumpliría la regla, porque la raíz no se llama <code>&lt;mensaje&gt;</code>:</p>
+      <pre><code>&lt;texto&gt;Hola XML&lt;/texto&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-link"></i> Relación entre XML y XSD</h4>
+      <p>Un XML puede indicar qué esquema XSD debe usarse para validarlo. Para ello se suelen usar atributos relacionados con <code>xsi</code> y <code>schemaLocation</code>.</p>
+      <pre><code>&lt;alumno
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="alumno.xsd"&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+  &lt;edad&gt;17&lt;/edad&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>En clase será habitual trabajar con dos ficheros: un <strong>XML</strong> con datos y un <strong>XSD</strong> con las reglas que debe cumplir.</p>
+    </div>
+  </div>
+</div>

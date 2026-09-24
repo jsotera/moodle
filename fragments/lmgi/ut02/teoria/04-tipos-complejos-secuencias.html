@@ -1,0 +1,63 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-diagram-project"></i> 2.4 Tipos complejos y secuencias</h2>
+    <p class="lead">Los tipos complejos permiten definir elementos que contienen otros elementos, atributos o ambas cosas.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-boxes-stacked"></i> Elementos con otros elementos dentro</h4>
+      <p>Muchos documentos XML tienen elementos que agrupan información. Por ejemplo, un elemento <code>&lt;alumno&gt;</code> puede contener <code>&lt;nombre&gt;</code>, <code>&lt;edad&gt;</code> y <code>&lt;curso&gt;</code>.</p>
+      <pre><code>&lt;alumno&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+  &lt;edad&gt;17&lt;/edad&gt;
+  &lt;curso&gt;1 DAM&lt;/curso&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>En XSD, ese elemento se define con <code>&lt;xs:complexType&gt;</code>:</p>
+      <pre><code>&lt;xs:element name="alumno"&gt;
+  &lt;xs:complexType&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="nombre" type="xs:string" /&gt;
+      &lt;xs:element name="edad" type="xs:integer" /&gt;
+      &lt;xs:element name="curso" type="xs:string" /&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:element&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-arrow-down-1-9"></i> La importancia del orden</h4>
+      <p><code>&lt;xs:sequence&gt;</code> indica que los elementos hijos deben aparecer en el mismo orden en el que se han declarado.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>XML</th>
+              <th>Resultado</th>
+              <th>Motivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;nombre&gt;</code>, <code>&lt;edad&gt;</code>, <code>&lt;curso&gt;</code></td>
+              <td>Válido</td>
+              <td>Respeta el orden del XSD.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;edad&gt;</code>, <code>&lt;nombre&gt;</code>, <code>&lt;curso&gt;</code></td>
+              <td>No válido</td>
+              <td>No respeta la secuencia definida.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-repeat"></i> Repeticiones y obligatoriedad</h4>
+      <p>Con <code>minOccurs</code> y <code>maxOccurs</code> podemos indicar cuántas veces puede aparecer un elemento.</p>
+      <pre><code>&lt;xs:element name="telefono" type="xs:string" minOccurs="0" maxOccurs="unbounded" /&gt;</code></pre>
+      <p>Este ejemplo indica que <code>&lt;telefono&gt;</code> puede no aparecer, aparecer una vez o aparecer muchas veces.</p>
+    </div>
+  </div>
+</div>

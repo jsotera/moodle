@@ -7,7 +7,7 @@
     <title>UT 02 | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790233139284" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790251483124" rel="stylesheet">
   </head>
   <body data-page-id="ut02-teoria">
     <div class="app-shell">
@@ -65,23 +65,853 @@
     <p class="lead mb-0">Objetos y clases</p>
   </div>
 </section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de teoría">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Teoría
+  </h2>
+  <div class="section-nav-list">
 
-<section id="ut02-teoria-01-contenido-inicial" class="fragment-section section-anchor">
+        <a class="section-nav-link" href="#ut02-teoria-01-introduccion">
+          Introducción
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-02-2-1-clases-y-objetos">
+          2.1. Clases y objetos
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-03-2-2-crear-objetos">
+          2.2. Crear objetos
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-04-2-3-metodos-pedir-a-un-objeto-que-haga-algo">
+          2.3. Métodos: pedir a un objeto que haga algo
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-05-2-4-metodos-con-parametros">
+          2.4. Métodos con parámetros
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-06-2-5-metodos-que-devuelven-resultados">
+          2.5. Métodos que devuelven resultados
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-07-2-6-consultar-y-modificar-el-estado">
+          2.6. Consultar y modificar el estado
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-08-2-7-constructores">
+          2.7. Constructores
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-09-2-8-escribir-un-programa-sencillo-con-objetos">
+          2.8. Escribir un programa sencillo con objetos
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-10-2-9-los-objetos-pueden-relacionarse">
+          2.9. Los objetos pueden relacionarse
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-11-2-10-utilizar-clases-de-las-librerias-de-java">
+          2.10. Utilizar clases de las librerías de Java
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-12-2-11-metodos-de-instancia-y-metodos-estaticos">
+          2.11. Métodos de instancia y métodos estáticos
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-13-2-12-integracion-de-los-conceptos">
+          2.12. Integración de los conceptos
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-14-2-13-leer-una-llamada-a-un-metodo">
+          2.13. Leer una llamada a un método
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-15-2-14-resumen">
+          2.14. Resumen
+        </a>
+  </div>
+</nav>
+
+<section id="ut02-teoria-01-introduccion" class="fragment-section section-anchor">
 <div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
-
 <div class="card shadow p-4">
-
-<h2 class="text-primary mb-3"><i class="fas fa-cubes"></i> 2.1 Objetos y clases</h2>
-
-<p class="lead">Introducción a objetos, clases, atributos, métodos y creación de instancias.</p>
-
+<h2 class="text-primary mb-3"><i class="fas fa-door-open"></i> Introducción</h2>
+<p class="lead">Primer contacto con la programación orientada a objetos en Java.</p>
 <div class="mb-4">
-  <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Contenidos</h4>
-  <p>Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible.</p>
+<h4 class="text-primary mb-3"><i class="fas fa-compass"></i> ¿Qué vamos a aprender?</h4>
+<p>Java es un lenguaje orientado a objetos. Esto significa que una parte importante de los programas se construye creando <strong>objetos</strong> y haciendo que esos objetos realicen operaciones y colaboren entre sí.</p>
+<p>En esta unidad comenzaremos a escribir pequeños programas utilizando clases que ya están disponibles. Aprenderemos a crear objetos, consultar y modificar su estado, utilizar sus métodos, proporcionarles información y recoger los resultados que producen.</p>
+<ul>
+<li>Reconocer clases, objetos e instancias.</li>
+<li>Crear objetos a partir de clases existentes.</li>
+<li>Utilizar métodos con y sin parámetros.</li>
+<li>Obtener valores devueltos por métodos.</li>
+<li>Utilizar constructores.</li>
+<li>Relacionar objetos entre sí.</li>
+<li>Utilizar clases de las librerías de Java.</li>
+<li>Distinguir métodos de instancia y métodos estáticos.</li>
+<li>Utilizar el IDE para ejecutar y observar nuestros programas.</li>
+</ul>
 </div>
-
+<div class="alert alert-primary mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-graduation-cap"></i> Idea importante</h5>
+<div>
+<p class="mb-0">En esta unidad nos centraremos principalmente en <strong>utilizar clases y objetos</strong>. Más adelante aprenderemos a diseñar y programar nuestras propias clases.</p>
 </div>
+</div>
+</div>
+</div>
+</section>
 
+
+<section id="ut02-teoria-02-2-1-clases-y-objetos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-cubes"></i> 2.1. Clases y objetos</h2>
+<p class="lead">Una clase describe un tipo de objetos; un objeto es una instancia concreta de esa clase.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-layer-group"></i> Clase</h4>
+<p>Una <strong>clase</strong> describe un determinado tipo de objetos. Podemos considerarla inicialmente como una plantilla que establece qué características tendrán esos objetos y qué operaciones podrán realizar.</p>
+<pre><code>Coche</code></pre>
+<p>En este ejemplo, <code>Coche</code> puede ser una clase.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-cube"></i> Objeto o instancia</h4>
+<p>Un <strong>objeto</strong> representa un elemento concreto creado a partir de una clase. También utilizaremos la palabra <strong>instancia</strong> como sinónimo de objeto.</p>
+<pre><code>miCoche</code></pre>
+<p><code>miCoche</code> puede representar un objeto concreto de la clase <code>Coche</code>.</p>
+<div class="text-center my-3"><span class="badge bg-primary p-2">Clase Coche</span> <i class="fas fa-arrow-right mx-2"></i> <span class="badge bg-secondary p-2">coche1</span> <span class="badge bg-secondary p-2">coche2</span> <span class="badge bg-secondary p-2">coche3</span></div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-sliders-h"></i> Estado y comportamiento</h4>
+<p>Un objeto posee <strong>estado</strong> y <strong>comportamiento</strong>.</p>
+<div class="row">
+<div class="col-md-6 mb-3">
+<div class="card h-100 border-primary">
+<div class="card-body">
+<h5 class="card-title"><i class="fas fa-database"></i> Estado</h5>
+<p class="card-text">Está formado por los valores de sus características en un determinado momento.</p>
+<ul class="mb-0">
+<li>marca</li>
+<li>modelo</li>
+<li>color</li>
+<li>velocidad</li>
+<li>arrancado</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="card h-100 border-primary">
+<div class="card-body">
+<h5 class="card-title"><i class="fas fa-cogs"></i> Comportamiento</h5>
+<p class="card-text">Está formado por las operaciones que puede realizar el objeto.</p>
+<ul class="mb-0">
+<li>arrancar</li>
+<li>parar</li>
+<li>acelerar</li>
+<li>frenar</li>
+<li>consultar velocidad</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>Las características suelen denominarse <strong>atributos</strong> o <strong>campos</strong>. Las operaciones se implementan mediante <strong>métodos</strong>.</p>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-lightbulb"></i> Para pensar</h5>
+<div>
+<p class="mb-0">Piensa en las clases <code>Estudiante</code> y <code>Personaje</code>. ¿Qué características podrían formar parte de su estado? ¿Qué operaciones podrían formar parte de su comportamiento?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-03-2-2-crear-objetos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-cube"></i> 2.2. Crear objetos</h2>
+<p class="lead">Los objetos se crean a partir de clases y se accede a ellos mediante referencias.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-plus-circle"></i> Crear un nuevo objeto</h4>
+<p>Veamos una instrucción Java que crea un objeto:</p>
+<pre><code>Coche coche1 = new Coche();</code></pre>
+<p>Podemos interpretarla de esta forma:</p>
+<div class="table-responsive">
+<table class="table table-bordered text-center">
+<thead class="table-light">
+<tr>
+<th><code>Coche</code></th>
+<th><code>coche1</code></th>
+<th><code>new Coche()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tipo</td>
+<td>variable</td>
+<td>creación de un nuevo objeto</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La expresión <code>new Coche()</code> crea un nuevo objeto de la clase <code>Coche</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-link"></i> Referencias a objetos</h4>
+<p>La variable <code>coche1</code> no contiene directamente todos los datos del coche. Contiene una <strong>referencia</strong> que permite acceder al objeto creado.</p>
+<pre><code>coche1  ─────►  objeto Coche
+                   marca
+                   modelo
+                   color
+                   velocidad
+                   arrancado</code></pre>
+<p>Por eso podemos decir que <code>coche1</code> es una <strong>variable referencia</strong>.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.1.object.png" alt="Referencia a un objeto en Java Visualizer." width="339" height="197"></p>
+<p style="text-align: center;">Imagen 1. Referencia a un objeto con el plugin Java Visualizer en Intellij IDEA.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-copy"></i> Crear varios objetos</h4>
+<pre><code>Coche coche1 = new Coche();
+Coche coche2 = new Coche();
+Coche coche3 = new Coche();</code></pre>
+<p>Se han creado tres objetos independientes. Aunque pertenecen a la misma clase, cada uno mantiene su propio estado.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-font"></i> Convenciones de nombres</h4>
+<p>Los nombres de las clases empiezan por mayúscula: <code>Coche</code>, <code>Circuito</code>, <code>Estudiante</code>.</p>
+<p>Los nombres de variables empiezan por minúscula: <code>coche</code>, <code>circuito</code>, <code>estudiante</code>.</p>
+<p>Cuando el nombre contiene varias palabras utilizamos habitualmente <strong>camelCase</strong>: <code>miCoche</code>, <code>velocidadMaxima</code>, <code>nombreEstudiante</code>.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-04-2-3-metodos-pedir-a-un-objeto-que-haga-algo" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-play"></i> 2.3. Métodos: pedir a un objeto que haga algo</h2>
+<p class="lead">Los métodos representan operaciones que podemos solicitar a un objeto.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-play-circle"></i> Invocar métodos</h4>
+<p>Una vez creado un objeto podemos utilizar sus <strong>métodos</strong>.</p>
+<pre><code>Coche coche1 = new Coche();
+
+coche1.arrancar();
+coche1.acelerar();</code></pre>
+<p>La estructura general es:</p>
+<pre><code>objeto.metodo();</code></pre>
+<p>La instrucción <code>coche1.arrancar();</code> solicita al objeto referenciado por <code>coche1</code> que ejecute el método <code>arrancar()</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-exchange-alt"></i> Los métodos modifican objetos concretos</h4>
+<pre><code>Coche coche1 = new Coche();
+Coche coche2 = new Coche();
+
+coche1.arrancar();
+coche1.acelerar();
+
+coche2.arrancar();</code></pre>
+<p>Las operaciones realizadas sobre <code>coche1</code> afectan a <code>coche1</code>. Las realizadas sobre <code>coche2</code> afectan a <code>coche2</code>.</p>
+<div class="alert alert-info mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-info-circle"></i> Idea clave</h5>
+<div>
+<p class="mb-0">Distintas instancias de una misma clase comparten el mismo tipo de comportamiento, pero mantienen su propio estado.</p>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-magic"></i> Ayuda del IDE</h4>
+<p>Al escribir <code>coche1.</code>, el IDE puede mostrar los métodos disponibles para ese objeto. Esto resulta especialmente útil cuando utilizamos clases que no hemos programado nosotros.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.2.code_completion.png" alt="Propiedades y métodos de un objeto." width="332" height="267"></p>
+<p style="text-align: center;">Imagen 2.  Autocompletado mostrado por el IDE.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-05-2-4-metodos-con-parametros" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-sliders-h"></i> 2.4. Métodos con parámetros</h2>
+<p class="lead">Los parámetros permiten que un método reciba información para realizar su tarea.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-sign-in-alt"></i> Proporcionar información a un método</h4>
+<p>Algunos métodos necesitan recibir datos para realizar su tarea.</p>
+<pre><code>coche.acelerar(20);</code></pre>
+<p>El valor <code>20</code> indica cuánto queremos acelerar.</p>
+<p>La cabecera del método podría ser:</p>
+<pre><code>void acelerar(int cantidad)</code></pre>
+<p>El parámetro <code>cantidad</code> indica que el método necesita un dato de tipo <code>int</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-tags"></i> Parámetro y argumento</h4>
+<div class="row">
+<div class="col-md-6 mb-3">
+<div class="card h-100">
+<div class="card-body">
+<h5 class="card-title">Parámetro</h5>
+<pre><code>void acelerar(int cantidad)</code></pre>
+<p class="mb-0"><code>cantidad</code> es el <strong>parámetro</strong>.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="card h-100">
+<div class="card-body">
+<h5 class="card-title">Argumento</h5>
+<pre><code>coche.acelerar(20);</code></pre>
+<p class="mb-0"><code>20</code> es el <strong>argumento</strong> proporcionado al realizar la llamada.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-shapes"></i> Tipos de los parámetros</h4>
+<pre><code>coche.acelerar(20);
+coche.setColor("azul");
+
+personaje.moverHorizontal(50);
+personaje.moverVertical(20);
+personaje.cambiarNombre("Alex");</code></pre>
+<p>Los métodos pueden recibir valores de distintos tipos, como <code>int</code>, <code>double</code>, <code>boolean</code> o <code>String</code>.</p>
+<p>Más adelante veremos que una <strong>clase también define un tipo</strong> y que, por tanto, un objeto puede utilizarse como argumento.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-06-2-5-metodos-que-devuelven-resultados" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-reply"></i> 2.5. Métodos que devuelven resultados</h2>
+<p class="lead">Un método puede devolver un valor que podemos guardar o utilizar directamente.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-reply"></i> Obtener un resultado</h4>
+<p>Algunos métodos no solo realizan una acción: también pueden devolver información.</p>
+<pre><code>int getVelocidad()</code></pre>
+<p>La palabra <code>int</code> indica que el método devuelve un número entero.</p>
+<pre><code>int velocidad = coche.getVelocidad();</code></pre>
+<p>El resultado devuelto por el método se guarda en la variable <code>velocidad</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Utilizar directamente el resultado</h4>
+<pre><code>System.out.println(coche.getVelocidad());</code></pre>
+<p>En este caso no guardamos primero el valor en una variable: utilizamos directamente el resultado devuelto.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-ban"></i> Métodos que no devuelven un valor</h4>
+<pre><code>void acelerar(int cantidad)</code></pre>
+<p>La palabra <code>void</code> indica que el método no devuelve un resultado que podamos guardar.</p>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead class="table-light">
+<tr>
+<th>Método</th>
+<th>¿Devuelve valor?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>void acelerar(int cantidad)</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>int getVelocidad()</code></td>
+<td>Sí, un <code>int</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-07-2-6-consultar-y-modificar-el-estado" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-tachometer-alt"></i> 2.6. Consultar y modificar el estado</h2>
+<p class="lead">El estado de un objeto cambia cuando sus atributos cambian.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-edit"></i> Modificar el estado</h4>
+<pre><code>coche.setColor("azul");
+coche.arrancar();
+coche.acelerar(30);</code></pre>
+<p>Después de estas operaciones el objeto puede haber cambiado su estado.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-search"></i> Consultar el estado</h4>
+<pre><code>String color = coche.getColor();
+int velocidad = coche.getVelocidad();
+boolean arrancado = coche.isArrancado();</code></pre>
+<p>Estos métodos nos permiten obtener información sobre el objeto.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-history"></i> El estado cambia durante la ejecución</h4>
+<p>Un mismo objeto puede pasar por distintos estados conforme se ejecutan métodos sobre él.</p>
+<pre><code>Coche coche = new Coche();
+
+coche.setColor("azul");
+coche.arrancar();
+coche.acelerar(30);</code></pre>
+<p>El <strong>estado de un objeto</strong> es el conjunto de valores de sus atributos en un determinado instante.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-bug"></i> Observar objetos durante la ejecución</h4>
+<p>Mediante el modo <strong>Debug</strong> y los <strong>puntos de interrupción</strong>, el IDE permite detener temporalmente la ejecución y observar variables, objetos y atributos.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.3.debug.png" alt="Debug de un programa." width="887" height="747"></p>
+<p style="text-align: center;">Imagen 3. Debug de un programa.</p>
+<p>Un plugin como <strong>Java Visualizer de IntelliJ IDEA</strong> puede facilitar todavía más la comprensión mostrando gráficamente las relaciones entre variables y objetos.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.4.estados.png" alt="Dos coches en dos estados distintos." width="544" height="198"></p>
+<p style="text-align: center;">Imagen 4. Dos objetos Coche con estados diferentes.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-08-2-7-constructores" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-hammer"></i> 2.7. Constructores</h2>
+<p class="lead">Los constructores permiten crear objetos y establecer sus valores iniciales.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-hammer"></i> Crear e inicializar objetos</h4>
+<p>La expresión <code>Coche()</code> que aparece tras <code>new</code> hace referencia a un <strong>constructor</strong>.</p>
+<pre><code>Coche coche = new Coche();</code></pre>
+<p>Los constructores permiten crear e inicializar objetos.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-list-ol"></i> Constructores con argumentos</h4>
+<pre><code>Coche coche = new Coche("Toyota", "Corolla", "azul");</code></pre>
+<p>En este caso proporcionamos tres argumentos en el momento de crear el objeto. El objeto puede comenzar directamente con esos valores iniciales.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-code"></i> Una clase puede tener varios constructores</h4>
+<pre><code>new Coche();
+
+new Coche("Toyota", "Corolla", "azul");</code></pre>
+<p>Una misma clase puede ofrecer diferentes formas de creación. El IDE puede ayudarnos mostrando los constructores disponibles y los argumentos que necesita cada uno.</p>
+</div>
+<div class="alert alert-success mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-key"></i> Idea clave</h5>
+<div>
+<p class="mb-0">El constructor se utiliza cuando <strong>nace el objeto</strong>; los métodos se utilizan después para trabajar con ese objeto.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-09-2-8-escribir-un-programa-sencillo-con-objetos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-laptop-code"></i> 2.8. Escribir un programa sencillo con objetos</h2>
+<p class="lead">Ya podemos combinar creación de objetos, métodos y resultados en un mismo programa.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Un pequeño programa completo</h4>
+<pre><code>public class Principal {
+
+    public static void main(String[] args) {
+
+        Coche coche1 =
+                new Coche("Toyota", "Corolla", "azul");
+
+        Coche coche2 =
+                new Coche("Ford", "Focus", "rojo");
+
+        coche1.arrancar();
+        coche1.acelerar(30);
+
+        coche2.arrancar();
+        coche2.acelerar(20);
+
+        System.out.println(coche1.getModelo());
+        System.out.println(coche1.getVelocidad());
+
+        System.out.println(coche2.getModelo());
+        System.out.println(coche2.getVelocidad());
+    }
+}</code></pre>
+<p>Por ahora podemos considerar el método <code>main</code> como el <strong>punto de comienzo de la ejecución</strong> de nuestro programa.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-stream"></i> Qué hace el programa</h4>
+<div class="d-flex flex-wrap align-items-center justify-content-center my-3"><span class="badge bg-primary p-2 m-1">crear objetos</span> <i class="fas fa-arrow-right m-1"></i> <span class="badge bg-primary p-2 m-1">usar métodos</span> <i class="fas fa-arrow-right m-1"></i> <span class="badge bg-primary p-2 m-1">obtener resultados</span></div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-sync-alt"></i> Escribir, ejecutar, comprobar</h4>
+<p>Conviene programar de forma incremental: escribir una pequeña parte, ejecutarla, observar el resultado, corregir los posibles errores y continuar.</p>
+<div class="alert alert-success mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-check-circle"></i> Buena práctica</h5>
+<div>
+<p class="mb-0">No esperes a tener todo el programa escrito para probarlo. Ejecutar con frecuencia ayuda a detectar antes los errores y a comprender mejor lo que está ocurriendo.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-10-2-9-los-objetos-pueden-relacionarse" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> 2.9. Los objetos pueden relacionarse</h2>
+<p class="lead">En una aplicación, los objetos pueden colaborar y mantener referencias entre sí.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> Objetos que colaboran</h4>
+<pre><code>Coche coche =
+        new Coche("Toyota", "Corolla", "azul");
+
+Circuito circuito =
+        new Circuito("Los Arcos", 3933);</code></pre>
+<p>Tenemos dos objetos de clases diferentes. Un método de <code>Circuito</code> podría recibir un objeto <code>Coche</code>:</p>
+<pre><code>void inscribir(Coche coche)</code></pre>
+<p>y podríamos utilizarlo así:</p>
+<pre><code>circuito.inscribir(coche);</code></pre>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-tag"></i> Las clases también son tipos</h4>
+<pre><code>int velocidad;
+String nombre;
+Coche coche;</code></pre>
+<p><code>Coche</code> es también un tipo. Por eso puede aparecer como tipo de una variable o de un parámetro.</p>
+</div>
+<div class="mb-4" style="text-align: left;">
+<h4 class="text-primary mb-3"><i class="fas fa-link"></i> Varias referencias al mismo objeto</h4>
+<p>Después de inscribir un coche, un objeto <code>Circuito</code> puede mantener una referencia al mismo objeto <code>Coche</code> al que también apunta la variable <code>coche</code>.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.5.composition.png" alt="Referencia de un circuito a coches" width="843" height="429"></p>
+<p style="text-align: center;">Imagen 5. Un circuito referenciando a dos coches.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-user-graduate"></i> Otro ejemplo</h4>
+<pre><code>Estudiante ana =
+        new Estudiante("Ana", 18);
+
+Curso programacion =
+        new Curso("Programacion");
+
+programacion.matricular(ana);</code></pre>
+<p>La idea es la misma: un objeto puede utilizar o almacenar referencias a otros objetos.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-11-2-10-utilizar-clases-de-las-librerias-de-java" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-boxes"></i> 2.10. Utilizar clases de las librerías de Java</h2>
+<p class="lead">Las librerías permiten reutilizar clases ya desarrolladas.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-box-open"></i> Clases disponibles en Java</h4>
+<p>Java incluye una gran cantidad de clases preparadas para resolver problemas habituales. Estas clases se organizan en <strong>paquetes</strong>.</p>
+<p>Una de ellas es <code>Random</code>, que permite generar números pseudoaleatorios.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-file-import"></i> Importar una clase</h4>
+<pre><code>import java.util.Random;</code></pre>
+<p>Esta instrucción indica que queremos utilizar la clase <code>Random</code> del paquete <code>java.util</code>.</p>
+<pre><code>Random generador = new Random();
+
+int numero = generador.nextInt(100);</code></pre>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-puzzle-piece"></i> Identificar los elementos</h4>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead class="table-light">
+<tr>
+<th>Elemento</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Random</code></td>
+<td>clase</td>
+</tr>
+<tr>
+<td><code>generador</code></td>
+<td>variable referencia</td>
+</tr>
+<tr>
+<td><code>new Random()</code></td>
+<td>creación de objeto mediante constructor</td>
+</tr>
+<tr>
+<td><code>nextInt</code></td>
+<td>método</td>
+</tr>
+<tr>
+<td><code>100</code></td>
+<td>argumento</td>
+</tr>
+<tr>
+<td><code>numero</code></td>
+<td>variable que recibe el resultado</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-recycle"></i> Reutilizar código</h4>
+<pre><code>Random generador = new Random();
+
+int numero = generador.nextInt(100);
+int dado = generador.nextInt(6) + 1;</code></pre>
+<p>No necesitamos saber cómo está programada internamente la clase <code>Random</code>. Necesitamos saber <strong>cómo utilizarla</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-12-2-11-metodos-de-instancia-y-metodos-estaticos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-calculator"></i> 2.11. Métodos de instancia y métodos estáticos</h2>
+<p class="lead">No todos los métodos se utilizan de la misma manera: algunos pertenecen a objetos y otros a la clase.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-cube"></i> Métodos de instancia</h4>
+<p>La mayoría de los métodos utilizados hasta ahora se invocan sobre un objeto concreto:</p>
+<pre><code>coche.getVelocidad();
+generador.nextInt(100);</code></pre>
+<p>Su estructura es <code>objeto.metodo(...)</code>. Estos métodos suelen denominarse <strong>métodos de instancia</strong>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-calculator"></i> Métodos estáticos</h4>
+<p>Otros métodos pueden utilizarse directamente a través de una clase, sin crear previamente un objeto.</p>
+<pre><code>double raiz = Math.sqrt(144);
+double potencia = Math.pow(5, 3);
+int mayor = Math.max(27, 42);
+int menor = Math.min(27, 42);</code></pre>
+<p>Estos son ejemplos de <strong>métodos estáticos</strong>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-balance-scale"></i> Comparación</h4>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead class="table-light">
+<tr>
+<th>Método de instancia</th>
+<th>Método estático</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>generador.nextInt(100)</code></td>
+<td><code>Math.sqrt(144)</code></td>
+</tr>
+<tr>
+<td>Se llama sobre un objeto</td>
+<td>Se llama mediante la clase</td>
+</tr>
+<tr>
+<td>Necesitamos crear el objeto</td>
+<td>No necesitamos crear un objeto de <code>Math</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="alert alert-info mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-eye"></i> Por ahora</h5>
+<div>
+<p class="mb-0">Nuestro objetivo es <strong>reconocer y utilizar</strong> ambos tipos de llamada. Más adelante estudiaremos cómo crear nuestros propios métodos estáticos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-13-2-12-integracion-de-los-conceptos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-puzzle-piece"></i> 2.12. Integración de los conceptos</h2>
+<p class="lead">Los conceptos de la unidad se combinan de forma natural dentro de un mismo programa.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-layer-group"></i> Crear varios objetos</h4>
+<pre><code>Coche coche1 =
+        new Coche("Toyota", "Corolla", "azul");
+
+Coche coche2 =
+        new Coche("Ford", "Focus", "rojo");
+
+Circuito circuito =
+        new Circuito("Los Arcos", 3933);</code></pre>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-random"></i> Utilizar una clase de biblioteca</h4>
+<pre><code>Random generador = new Random();
+
+int incremento1 = generador.nextInt(31) + 20;
+int incremento2 = generador.nextInt(31) + 20;</code></pre>
+<p>Los valores generados pueden utilizarse después como argumentos:</p>
+<pre><code>coche1.acelerar(incremento1);
+coche2.acelerar(incremento2);</code></pre>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-search-plus"></i> Consultar y comparar</h4>
+<pre><code>int velocidad1 = coche1.getVelocidad();
+int velocidad2 = coche2.getVelocidad();
+
+int velocidadMayor =
+        Math.max(velocidad1, velocidad2);</code></pre>
+<p>Aquí combinamos métodos de instancia con un método estático.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-link"></i> Relacionar objetos</h4>
+<pre><code>circuito.inscribir(coche1);
+circuito.inscribir(coche2);</code></pre>
+<p>Un objeto puede recibir referencias a otros objetos.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-stopwatch"></i> Un objeto como argumento y un resultado como retorno</h4>
+<pre><code>double tiempo1 =
+        circuito.calcularTiempoEnSegundos(coche1);
+
+double tiempo2 =
+        circuito.calcularTiempoEnSegundos(coche2);
+
+double mejorTiempo =
+        Math.min(tiempo1, tiempo2);</code></pre>
+<p>En una aplicación pequeña aparecen ya muchos de los mecanismos fundamentales que utilizaremos continuamente al programar en Java.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-14-2-13-leer-una-llamada-a-un-metodo" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-glasses"></i> 2.13. Leer una llamada a un método</h2>
+<p class="lead">Aprender a descomponer una instrucción facilita mucho la lectura de código Java.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-glasses"></i> Leer una llamada compleja</h4>
+<pre><code>double tiempo =
+        circuito.calcularTiempoEnSegundos(coche1);</code></pre>
+<p>Podemos analizarla mediante una serie de preguntas:</p>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead class="table-light">
+<tr>
+<th>Pregunta</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Sobre qué objeto se llama al método?</td>
+<td><code>circuito</code></td>
+</tr>
+<tr>
+<td>¿Qué método se llama?</td>
+<td><code>calcularTiempoEnSegundos</code></td>
+</tr>
+<tr>
+<td>¿Qué argumento se proporciona?</td>
+<td><code>coche1</code></td>
+</tr>
+<tr>
+<td>¿De qué tipo es el argumento?</td>
+<td><code>Coche</code></td>
+</tr>
+<tr>
+<td>¿Devuelve un resultado?</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>¿De qué tipo?</td>
+<td><code>double</code></td>
+</tr>
+<tr>
+<td>¿Dónde se guarda?</td>
+<td><code>tiempo</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-dice"></i> Otro ejemplo</h4>
+<pre><code>int numero = generador.nextInt(100);</code></pre>
+<ul>
+<li><code>generador</code>: objeto.</li>
+<li><code>nextInt</code>: método.</li>
+<li><code>100</code>: argumento.</li>
+<li><code>int</code>: tipo del resultado.</li>
+<li><code>numero</code>: variable que almacena el resultado.</li>
+</ul>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-calculator"></i> Método estático</h4>
+<pre><code>int mayor = Math.max(27, 42);</code></pre>
+<ul>
+<li><code>Math</code>: clase.</li>
+<li><code>max</code>: método estático.</li>
+<li><code>27</code> y <code>42</code>: argumentos.</li>
+<li><code>int</code>: tipo del resultado.</li>
+<li><code>mayor</code>: variable que almacena el resultado.</li>
+</ul>
+</div>
+<div class="alert alert-warning mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-book-reader"></i> Estrategia de lectura</h5>
+<div>
+<p class="mb-0">Cuando una instrucción resulte compleja, intenta identificar siempre: <strong>objeto o clase → método → argumentos → resultado → variable receptora</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-15-2-14-resumen" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-clipboard-check"></i> 2.14. Resumen</h2>
+<p class="lead">Repaso de las ideas y patrones de código más importantes de la unidad.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Conceptos fundamentales</h4>
+<ul>
+<li>Una <strong>clase</strong> describe un determinado tipo de objetos.</li>
+<li>Un <strong>objeto</strong> o <strong>instancia</strong> es un elemento concreto creado a partir de una clase.</li>
+<li>El <strong>estado</strong> está formado por los valores de los atributos.</li>
+<li>El <strong>comportamiento</strong> se implementa mediante métodos.</li>
+</ul>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-code"></i> Patrones de código que debemos reconocer</h4>
+<p><strong>Crear un objeto:</strong></p>
+<pre><code>Coche coche = new Coche("Toyota", "Corolla", "azul");</code></pre>
+<p><strong>Llamar a un método:</strong></p>
+<pre><code>coche.arrancar();</code></pre>
+<p><strong>Proporcionar un argumento:</strong></p>
+<pre><code>coche.acelerar(20);</code></pre>
+<p><strong>Guardar un resultado:</strong></p>
+<pre><code>int velocidad = coche.getVelocidad();</code></pre>
+<p><strong>Pasar un objeto como argumento:</strong></p>
+<pre><code>circuito.inscribir(coche);</code></pre>
+<p><strong>Utilizar una clase de biblioteca:</strong></p>
+<pre><code>Random generador = new Random();</code></pre>
+<p><strong>Llamar a un método estático:</strong></p>
+<pre><code>int mayor = Math.max(27, 42);</code></pre>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-tools"></i> Herramientas de apoyo</h4>
+<p>Durante el desarrollo utilizaremos <strong>el IDE</strong> para crear, ejecutar, probar y depurar nuestros programas.</p>
+<p>El modo <strong>Debug</strong> permite observar las variables y el estado de los objetos. Además, un plugin como <strong>Java Visualizer de IntelliJ IDEA</strong> puede ayudarnos a visualizar las referencias y las relaciones entre objetos.</p>
+</div>
+<div class="alert alert-success mb-4" role="alert">
+<h5 class="alert-heading mb-2"><i class="fas fa-flag-checkered"></i> Al terminar la unidad</h5>
+<div>
+<p class="mb-0">Deberías ser capaz de leer y escribir pequeños programas que creen objetos, utilicen sus métodos y constructores, trabajen con clases de Java y combinen varios objetos entre sí.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
         </main>
@@ -89,7 +919,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790233139284"></script>
-    <script src="assets/js/course.js?v=1790233139284"></script>
+    <script src="assets/js/search-data.js?v=1790251483124"></script>
+    <script src="assets/js/course.js?v=1790251483124"></script>
   </body>
 </html>

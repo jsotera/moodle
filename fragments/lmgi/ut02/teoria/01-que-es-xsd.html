@@ -1,0 +1,58 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-shield-halved"></i> 2.1 ¿Qué es XSD?</h2>
+    <p class="lead">XSD permite definir <strong>qué estructura, elementos, atributos y tipos de datos</strong> debe cumplir un documento XML para considerarse válido.</p>
+
+    <div class="alert alert-info" role="alert">
+      <i class="fas fa-book-open"></i>
+      Además de esta documentación de clase, puedes consultar la documentación completa sobre XSD en
+      <a href="https://www.w3schools.com/xml/schema_intro.asp" target="_blank" rel="noopener noreferrer">W3Schools XML Schema Tutorial</a>.
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> Idea principal</h4>
+      <p><strong>XSD</strong> significa <em>XML Schema Definition</em>. Un XSD es un documento que describe las reglas que debe cumplir otro documento XML.</p>
+      <p>En la UT1 vimos que un XML puede estar <strong>bien formado</strong>: etiquetas cerradas, anidadas correctamente, un único elemento raíz, atributos entre comillas, etc. Pero eso no garantiza que el documento tenga los datos correctos.</p>
+      <pre><code>&lt;alumno&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+  &lt;edad&gt;diecisiete&lt;/edad&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>Este XML puede estar bien formado, pero quizá para nuestra aplicación la edad debe ser un número entero. XSD sirve precisamente para definir ese tipo de reglas.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code-compare"></i> Bien formado no es lo mismo que válido</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Concepto</th>
+              <th>Qué comprueba</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>XML bien formado</td>
+              <td>Que la sintaxis XML es correcta.</td>
+              <td>Las etiquetas se abren y cierran bien.</td>
+            </tr>
+            <tr>
+              <td>XML válido</td>
+              <td>Que el XML cumple las reglas de un esquema.</td>
+              <td><code>&lt;edad&gt;</code> debe contener un número entero.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-route"></i> Enfoque de esta unidad</h4>
+      <p>En esta unidad trabajaremos con <strong>XSD</strong>. Los DTD pueden aparecer como referencia o venir dados, pero el trabajo principal será crear, leer y modificar documentos XML en función de esquemas XSD.</p>
+      <p>La pregunta habitual será: <strong>¿este XML cumple el XSD?</strong> Si no lo cumple, tendremos que detectar por qué y corregir el XML o el esquema según el caso.</p>
+    </div>
+  </div>
+</div>

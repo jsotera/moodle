@@ -1,0 +1,44 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-reply"></i> 2.5. Métodos que devuelven resultados</h2>
+<p class="lead">Un método puede devolver un valor que podemos guardar o utilizar directamente.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-reply"></i> Obtener un resultado</h4>
+<p>Algunos métodos no solo realizan una acción: también pueden devolver información.</p>
+<pre><code>int getVelocidad()</code></pre>
+<p>La palabra <code>int</code> indica que el método devuelve un número entero.</p>
+<pre><code>int velocidad = coche.getVelocidad();</code></pre>
+<p>El resultado devuelto por el método se guarda en la variable <code>velocidad</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Utilizar directamente el resultado</h4>
+<pre><code>System.out.println(coche.getVelocidad());</code></pre>
+<p>En este caso no guardamos primero el valor en una variable: utilizamos directamente el resultado devuelto.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-ban"></i> Métodos que no devuelven un valor</h4>
+<pre><code>void acelerar(int cantidad)</code></pre>
+<p>La palabra <code>void</code> indica que el método no devuelve un resultado que podamos guardar.</p>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead class="table-light">
+<tr>
+<th>Método</th>
+<th>¿Devuelve valor?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>void acelerar(int cantidad)</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>int getVelocidad()</code></td>
+<td>Sí, un <code>int</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>

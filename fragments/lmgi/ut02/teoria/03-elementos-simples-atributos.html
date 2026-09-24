@@ -1,0 +1,72 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-tag"></i> 2.3 Elementos simples, tipos de datos y atributos</h2>
+    <p class="lead">XSD permite indicar qué elementos existen, qué tipo de dato contienen y qué atributos pueden usar.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-font"></i> Elementos simples</h4>
+      <p>Un <strong>elemento simple</strong> contiene texto, pero no contiene otros elementos ni atributos propios.</p>
+      <pre><code>&lt;nombre&gt;Ane&lt;/nombre&gt;
+&lt;edad&gt;17&lt;/edad&gt;
+&lt;fechaNacimiento&gt;2009-04-18&lt;/fechaNacimiento&gt;</code></pre>
+      <p>En XSD se pueden definir así:</p>
+      <pre><code>&lt;xs:element name="nombre" type="xs:string" /&gt;
+&lt;xs:element name="edad" type="xs:integer" /&gt;
+&lt;xs:element name="fechaNacimiento" type="xs:date" /&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table"></i> Tipos de datos habituales</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Tipo XSD</th>
+              <th>Qué representa</th>
+              <th>Ejemplo válido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>xs:string</code></td>
+              <td>Texto</td>
+              <td><code>Ane</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:integer</code></td>
+              <td>Número entero</td>
+              <td><code>17</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:decimal</code></td>
+              <td>Número con decimales</td>
+              <td><code>8.75</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:boolean</code></td>
+              <td>Verdadero o falso</td>
+              <td><code>true</code>, <code>false</code>, <code>1</code>, <code>0</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:date</code></td>
+              <td>Fecha</td>
+              <td><code>2026-09-24</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sliders"></i> Atributos</h4>
+      <p>Los atributos también pueden declararse en XSD. Normalmente se definen dentro de un tipo complejo, porque pertenecen a un elemento.</p>
+      <pre><code>&lt;alumno id="A001"&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+&lt;/alumno&gt;</code></pre>
+      <pre><code>&lt;xs:attribute name="id" type="xs:string" use="required" /&gt;</code></pre>
+      <p>El atributo <code>use="required"</code> indica que ese atributo es obligatorio. Si no aparece en el XML, el documento no será válido respecto al XSD.</p>
+    </div>
+  </div>
+</div>

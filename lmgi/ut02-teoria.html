@@ -7,7 +7,7 @@
     <title>UT 02 | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790233139435" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790251483273" rel="stylesheet">
   </head>
   <body data-page-id="ut02-teoria">
     <div class="app-shell">
@@ -65,23 +65,347 @@
     <p class="lead mb-0">Validación de documentos XML mediante esquemas.</p>
   </div>
 </section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de teoría">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Teoría
+  </h2>
+  <div class="section-nav-list">
 
-<section id="ut02-teoria-01-contenido-inicial" class="fragment-section section-anchor">
-<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+        <a class="section-nav-link" href="#ut02-teoria-01-que-es-xsd">
+          2.1 ¿Qué es XSD?
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-02-estructura-basica-xsd">
+          2.2 Estructura básica de un XSD
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-03-elementos-simples-atributos">
+          2.3 Elementos simples, tipos de datos y atributos
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-04-tipos-complejos-secuencias">
+          2.4 Tipos complejos y secuencias
+        </a>
+        <a class="section-nav-link" href="#ut02-teoria-05-restricciones-validacion">
+          2.5 Restricciones y validación
+        </a>
+  </div>
+</nav>
 
-<div class="card shadow p-4">
+<section id="ut02-teoria-01-que-es-xsd" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-shield-halved"></i> 2.1 ¿Qué es XSD?</h2>
+    <p class="lead">XSD permite definir <strong>qué estructura, elementos, atributos y tipos de datos</strong> debe cumplir un documento XML para considerarse válido.</p>
 
-<h2 class="text-primary mb-3"><i class="fas fa-check-double"></i> 2.1 Validación de documentos XML mediante esquemas.</h2>
+    <div class="alert alert-info" role="alert">
+      <i class="fas fa-book-open"></i>
+      Además de esta documentación de clase, puedes consultar la documentación completa sobre XSD en
+      <a href="https://www.w3schools.com/xml/schema_intro.asp" target="_blank" rel="noopener noreferrer">W3Schools XML Schema Tutorial</a>.
+    </div>
 
-<p class="lead">Validación de documentos XML mediante esquemas para controlar su estructura y contenido.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> Idea principal</h4>
+      <p><strong>XSD</strong> significa <em>XML Schema Definition</em>. Un XSD es un documento que describe las reglas que debe cumplir otro documento XML.</p>
+      <p>En la UT1 vimos que un XML puede estar <strong>bien formado</strong>: etiquetas cerradas, anidadas correctamente, un único elemento raíz, atributos entre comillas, etc. Pero eso no garantiza que el documento tenga los datos correctos.</p>
+      <pre><code>&lt;alumno&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+  &lt;edad&gt;diecisiete&lt;/edad&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>Este XML puede estar bien formado, pero quizá para nuestra aplicación la edad debe ser un número entero. XSD sirve precisamente para definir ese tipo de reglas.</p>
+    </div>
 
-<div class="mb-4">
-  <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Contenidos</h4>
-  <p>Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code-compare"></i> Bien formado no es lo mismo que válido</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Concepto</th>
+              <th>Qué comprueba</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>XML bien formado</td>
+              <td>Que la sintaxis XML es correcta.</td>
+              <td>Las etiquetas se abren y cierran bien.</td>
+            </tr>
+            <tr>
+              <td>XML válido</td>
+              <td>Que el XML cumple las reglas de un esquema.</td>
+              <td><code>&lt;edad&gt;</code> debe contener un número entero.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-route"></i> Enfoque de esta unidad</h4>
+      <p>En esta unidad trabajaremos con <strong>XSD</strong>. Los DTD pueden aparecer como referencia o venir dados, pero el trabajo principal será crear, leer y modificar documentos XML en función de esquemas XSD.</p>
+      <p>La pregunta habitual será: <strong>¿este XML cumple el XSD?</strong> Si no lo cumple, tendremos que detectar por qué y corregir el XML o el esquema según el caso.</p>
+    </div>
+  </div>
 </div>
+</section>
 
+
+<section id="ut02-teoria-02-estructura-basica-xsd" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-code"></i> 2.2 Estructura básica de un XSD</h2>
+    <p class="lead">Un XSD también es un documento XML, pero utiliza etiquetas propias del vocabulario <strong>XML Schema</strong>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-layer-group"></i> La etiqueta raíz <code>&lt;xs:schema&gt;</code></h4>
+      <p>Todo esquema XSD suele comenzar con la etiqueta <code>&lt;xs:schema&gt;</code>. El prefijo <code>xs</code> indica que estamos usando elementos del lenguaje XML Schema.</p>
+      <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+
+  &lt;!-- Aquí se definen las reglas del XML --&gt;
+
+&lt;/xs:schema&gt;</code></pre>
+      <p>La parte <code>xmlns:xs="http://www.w3.org/2001/XMLSchema"</code> declara el espacio de nombres de XSD. Gracias a ello, etiquetas como <code>&lt;xs:element&gt;</code> o <code>&lt;xs:complexType&gt;</code> tienen significado para un validador.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Ejemplo mínimo</h4>
+      <p>Este XSD define que el XML debe tener un elemento llamado <code>&lt;mensaje&gt;</code> cuyo contenido será texto:</p>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="mensaje" type="xs:string" /&gt;
+&lt;/xs:schema&gt;</code></pre>
+      <p>Con ese esquema, este XML sería válido:</p>
+      <pre><code>&lt;mensaje&gt;Hola XML&lt;/mensaje&gt;</code></pre>
+      <p>Pero este otro no cumpliría la regla, porque la raíz no se llama <code>&lt;mensaje&gt;</code>:</p>
+      <pre><code>&lt;texto&gt;Hola XML&lt;/texto&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-link"></i> Relación entre XML y XSD</h4>
+      <p>Un XML puede indicar qué esquema XSD debe usarse para validarlo. Para ello se suelen usar atributos relacionados con <code>xsi</code> y <code>schemaLocation</code>.</p>
+      <pre><code>&lt;alumno
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="alumno.xsd"&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+  &lt;edad&gt;17&lt;/edad&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>En clase será habitual trabajar con dos ficheros: un <strong>XML</strong> con datos y un <strong>XSD</strong> con las reglas que debe cumplir.</p>
+    </div>
+  </div>
 </div>
+</section>
 
+
+<section id="ut02-teoria-03-elementos-simples-atributos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-tag"></i> 2.3 Elementos simples, tipos de datos y atributos</h2>
+    <p class="lead">XSD permite indicar qué elementos existen, qué tipo de dato contienen y qué atributos pueden usar.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-font"></i> Elementos simples</h4>
+      <p>Un <strong>elemento simple</strong> contiene texto, pero no contiene otros elementos ni atributos propios.</p>
+      <pre><code>&lt;nombre&gt;Ane&lt;/nombre&gt;
+&lt;edad&gt;17&lt;/edad&gt;
+&lt;fechaNacimiento&gt;2009-04-18&lt;/fechaNacimiento&gt;</code></pre>
+      <p>En XSD se pueden definir así:</p>
+      <pre><code>&lt;xs:element name="nombre" type="xs:string" /&gt;
+&lt;xs:element name="edad" type="xs:integer" /&gt;
+&lt;xs:element name="fechaNacimiento" type="xs:date" /&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table"></i> Tipos de datos habituales</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Tipo XSD</th>
+              <th>Qué representa</th>
+              <th>Ejemplo válido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>xs:string</code></td>
+              <td>Texto</td>
+              <td><code>Ane</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:integer</code></td>
+              <td>Número entero</td>
+              <td><code>17</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:decimal</code></td>
+              <td>Número con decimales</td>
+              <td><code>8.75</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:boolean</code></td>
+              <td>Verdadero o falso</td>
+              <td><code>true</code>, <code>false</code>, <code>1</code>, <code>0</code></td>
+            </tr>
+            <tr>
+              <td><code>xs:date</code></td>
+              <td>Fecha</td>
+              <td><code>2026-09-24</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sliders"></i> Atributos</h4>
+      <p>Los atributos también pueden declararse en XSD. Normalmente se definen dentro de un tipo complejo, porque pertenecen a un elemento.</p>
+      <pre><code>&lt;alumno id="A001"&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+&lt;/alumno&gt;</code></pre>
+      <pre><code>&lt;xs:attribute name="id" type="xs:string" use="required" /&gt;</code></pre>
+      <p>El atributo <code>use="required"</code> indica que ese atributo es obligatorio. Si no aparece en el XML, el documento no será válido respecto al XSD.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-04-tipos-complejos-secuencias" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-diagram-project"></i> 2.4 Tipos complejos y secuencias</h2>
+    <p class="lead">Los tipos complejos permiten definir elementos que contienen otros elementos, atributos o ambas cosas.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-boxes-stacked"></i> Elementos con otros elementos dentro</h4>
+      <p>Muchos documentos XML tienen elementos que agrupan información. Por ejemplo, un elemento <code>&lt;alumno&gt;</code> puede contener <code>&lt;nombre&gt;</code>, <code>&lt;edad&gt;</code> y <code>&lt;curso&gt;</code>.</p>
+      <pre><code>&lt;alumno&gt;
+  &lt;nombre&gt;Ane&lt;/nombre&gt;
+  &lt;edad&gt;17&lt;/edad&gt;
+  &lt;curso&gt;1 DAM&lt;/curso&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>En XSD, ese elemento se define con <code>&lt;xs:complexType&gt;</code>:</p>
+      <pre><code>&lt;xs:element name="alumno"&gt;
+  &lt;xs:complexType&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="nombre" type="xs:string" /&gt;
+      &lt;xs:element name="edad" type="xs:integer" /&gt;
+      &lt;xs:element name="curso" type="xs:string" /&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:element&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-arrow-down-1-9"></i> La importancia del orden</h4>
+      <p><code>&lt;xs:sequence&gt;</code> indica que los elementos hijos deben aparecer en el mismo orden en el que se han declarado.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>XML</th>
+              <th>Resultado</th>
+              <th>Motivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;nombre&gt;</code>, <code>&lt;edad&gt;</code>, <code>&lt;curso&gt;</code></td>
+              <td>Válido</td>
+              <td>Respeta el orden del XSD.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;edad&gt;</code>, <code>&lt;nombre&gt;</code>, <code>&lt;curso&gt;</code></td>
+              <td>No válido</td>
+              <td>No respeta la secuencia definida.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-repeat"></i> Repeticiones y obligatoriedad</h4>
+      <p>Con <code>minOccurs</code> y <code>maxOccurs</code> podemos indicar cuántas veces puede aparecer un elemento.</p>
+      <pre><code>&lt;xs:element name="telefono" type="xs:string" minOccurs="0" maxOccurs="unbounded" /&gt;</code></pre>
+      <p>Este ejemplo indica que <code>&lt;telefono&gt;</code> puede no aparecer, aparecer una vez o aparecer muchas veces.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-teoria-05-restricciones-validacion" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-filter-circle-xmark"></i> 2.5 Restricciones y validación</h2>
+    <p class="lead">Las restricciones permiten limitar los valores aceptados por un elemento o atributo.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-ruler-combined"></i> Restricciones numéricas</h4>
+      <p>Podemos indicar valores mínimos y máximos. Por ejemplo, una edad entre 0 y 120:</p>
+      <pre><code>&lt;xs:element name="edad"&gt;
+  &lt;xs:simpleType&gt;
+    &lt;xs:restriction base="xs:integer"&gt;
+      &lt;xs:minInclusive value="0" /&gt;
+      &lt;xs:maxInclusive value="120" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:element&gt;</code></pre>
+      <p><code>&lt;edad&gt;17&lt;/edad&gt;</code> sería válido, pero <code>&lt;edad&gt;200&lt;/edad&gt;</code> no lo sería.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-ul"></i> Valores permitidos</h4>
+      <p>Con <code>&lt;xs:enumeration&gt;</code> podemos limitar un valor a una lista cerrada de opciones.</p>
+      <pre><code>&lt;xs:element name="modalidad"&gt;
+  &lt;xs:simpleType&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:enumeration value="DAM" /&gt;
+      &lt;xs:enumeration value="DAW" /&gt;
+      &lt;xs:enumeration value="ASIR" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:element&gt;</code></pre>
+      <p>En este caso, <code>&lt;modalidad&gt;DAM&lt;/modalidad&gt;</code> sería válido, pero <code>&lt;modalidad&gt;Bachillerato&lt;/modalidad&gt;</code> no.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Patrones</h4>
+      <p>Con <code>&lt;xs:pattern&gt;</code> podemos obligar a que un texto siga una forma concreta. Por ejemplo, un código de alumno formado por la letra <code>A</code> y tres dígitos:</p>
+      <pre><code>&lt;xs:element name="codigo"&gt;
+  &lt;xs:simpleType&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:pattern value="A[0-9][0-9][0-9]" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:element&gt;</code></pre>
+      <p><code>&lt;codigo&gt;A125&lt;/codigo&gt;</code> sería válido, pero <code>&lt;codigo&gt;AL125&lt;/codigo&gt;</code> no.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Cómo pensaremos la validación</h4>
+      <p>Para validar un XML frente a un XSD seguiremos siempre una idea sencilla:</p>
+      <ul>
+        <li>Leer el XSD para localizar la raíz esperada.</li>
+        <li>Comprobar qué elementos y atributos son obligatorios.</li>
+        <li>Revisar el orden definido por las secuencias.</li>
+        <li>Comprobar los tipos de datos.</li>
+        <li>Aplicar restricciones: rangos, enumeraciones, patrones y repeticiones.</li>
+      </ul>
+      <p>Durante la unidad trabajaremos mucho modificando XML para que cumplan un XSD dado, y también modificando XSD para expresar nuevas reglas.</p>
+    </div>
+  </div>
 </div>
 </section>
         </main>
@@ -89,7 +413,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790233139435"></script>
-    <script src="assets/js/course.js?v=1790233139435"></script>
+    <script src="assets/js/search-data.js?v=1790251483273"></script>
+    <script src="assets/js/course.js?v=1790251483273"></script>
   </body>
 </html>

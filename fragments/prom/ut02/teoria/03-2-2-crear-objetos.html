@@ -1,0 +1,57 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-cube"></i> 2.2. Crear objetos</h2>
+<p class="lead">Los objetos se crean a partir de clases y se accede a ellos mediante referencias.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-plus-circle"></i> Crear un nuevo objeto</h4>
+<p>Veamos una instrucción Java que crea un objeto:</p>
+<pre><code>Coche coche1 = new Coche();</code></pre>
+<p>Podemos interpretarla de esta forma:</p>
+<div class="table-responsive">
+<table class="table table-bordered text-center">
+<thead class="table-light">
+<tr>
+<th><code>Coche</code></th>
+<th><code>coche1</code></th>
+<th><code>new Coche()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tipo</td>
+<td>variable</td>
+<td>creación de un nuevo objeto</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La expresión <code>new Coche()</code> crea un nuevo objeto de la clase <code>Coche</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-link"></i> Referencias a objetos</h4>
+<p>La variable <code>coche1</code> no contiene directamente todos los datos del coche. Contiene una <strong>referencia</strong> que permite acceder al objeto creado.</p>
+<pre><code>coche1  ─────►  objeto Coche
+                   marca
+                   modelo
+                   color
+                   velocidad
+                   arrancado</code></pre>
+<p>Por eso podemos decir que <code>coche1</code> es una <strong>variable referencia</strong>.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/UT2.1.object.png" alt="Referencia a un objeto en Java Visualizer." width="339" height="197"></p>
+<p style="text-align: center;">Imagen 1. Referencia a un objeto con el plugin Java Visualizer en Intellij IDEA.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-copy"></i> Crear varios objetos</h4>
+<pre><code>Coche coche1 = new Coche();
+Coche coche2 = new Coche();
+Coche coche3 = new Coche();</code></pre>
+<p>Se han creado tres objetos independientes. Aunque pertenecen a la misma clase, cada uno mantiene su propio estado.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-font"></i> Convenciones de nombres</h4>
+<p>Los nombres de las clases empiezan por mayúscula: <code>Coche</code>, <code>Circuito</code>, <code>Estudiante</code>.</p>
+<p>Los nombres de variables empiezan por minúscula: <code>coche</code>, <code>circuito</code>, <code>estudiante</code>.</p>
+<p>Cuando el nombre contiene varias palabras utilizamos habitualmente <strong>camelCase</strong>: <code>miCoche</code>, <code>velocidadMaxima</code>, <code>nombreEstudiante</code>.</p>
+</div>
+</div>
+</div>
