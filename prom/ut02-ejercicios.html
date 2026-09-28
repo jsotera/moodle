@@ -7,7 +7,7 @@
     <title>UT 02 | Ejercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790594696163" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790596174436" rel="stylesheet">
   </head>
   <body data-page-id="ut02-ejercicios">
     <div class="app-shell">
@@ -66,23 +66,191 @@
   </div>
 </section>
 
-<section id="ut02-ejercicios-01-contenido-inicial" class="fragment-section section-anchor">
-<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<section id="ut02-ejercicios-01-comprender-clases" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-magnifying-glass"></i> 2.1 Comprender clases dadas</h2>
+    <p class="lead">Antes de utilizar objetos en <code>Main</code>, necesitamos aprender a <strong>leer una clase</strong> y reconocer sus partes principales.</p>
 
-<div class="card shadow p-4">
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> Objetivo</h4>
+      <p>En esta actividad no vamos a diseñar clases desde cero. Vamos a observar dos clases ya creadas, <code>Persona</code> y <code>Pelicula</code>, para entender cómo están compuestas.</p>
+      <p>Después responderemos preguntas sobre atributos, constructores, métodos, getters y setters. La idea es distinguir qué partes de la clase almacenan información, qué partes permiten crear objetos y qué partes permiten usar o modificar esos objetos.</p>
+    </div>
 
-<h2 class="text-primary mb-3"><i class="fas fa-laptop-code"></i> 2.1 Ejercicios sobre Objetos y clases</h2>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>Pelicula</code> ya creadas, además de una clase <code>Main</code> mínima para empezar a probar.</p>
+      <p>La estructura de paquetes es la siguiente:</p>
+      <ul>
+        <li><code>edu.masanz.da.ut2.modelo</code>: clases <code>Persona</code> y <code>Pelicula</code>.</li>
+        <li><code>edu.masanz.da.ut2.app</code>: clase <code>Main</code>.</li>
+      </ul>
+      <p>En este primer ejercicio no debes modificar las clases. Tu tarea principal es leerlas, entender sus partes y responder a las preguntas.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-comprender-clases.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
 
-<p class="lead">Práctica inicial de la unidad: Objetos y clases.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Preguntas de comprensión</h4>
+      <div class="mb-3">
+        <p><strong>1.</strong> ¿Qué sección de cada clase representa los <strong>atributos</strong>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Los atributos son las variables declaradas al inicio de cada clase con <code>private</code>. Representan el estado que guarda cada objeto.</p>
+          <pre><code>private String nombre;
+private int edad;
+private String profesion;</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>2.</strong> ¿Cuántos atributos tiene la clase <code>Persona</code>? ¿Y la clase <code>Pelicula</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p><code>Persona</code> tiene 3 atributos: <code>nombre</code>, <code>edad</code> y <code>profesion</code>.</p>
+          <p><code>Pelicula</code> tiene 7 atributos: <code>titulo</code>, <code>anioEstreno</code>, <code>director</code>, <code>actrizPrincipal</code>, <code>actorPrincipal</code>, <code>duracionMinutos</code> y <code>estrenada</code>.</p>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>3.</strong> ¿De cuántas maneras diferentes podemos crear una <code>Persona</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>De 2 maneras, porque la clase tiene 2 constructores.</p>
+          <pre><code>Persona persona1 = new Persona("Ane");
+Persona persona2 = new Persona("Ane", 32, "Directora");</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>4.</strong> ¿De cuántas maneras diferentes podemos crear una <code>Pelicula</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>De 2 maneras, porque la clase tiene 2 constructores.</p>
+          <pre><code>Persona directora = new Persona("Ane", 32, "Directora");
+Persona actriz = new Persona("Nerea", 28, "Actriz");
+Persona actor = new Persona("Iker", 30, "Actor");
 
-<div class="mb-4">
-  <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Práctica propuesta</h4>
-  <p>Crea una clase sencilla con atributos y muestra sus datos desde un programa principal.</p>
-  <p><strong>Nombre del proyecto del ejercicio:</strong> <code>PrimerasClases</code></p>
-</div>
+Pelicula pelicula1 = new Pelicula("La noche del código", directora);
+Pelicula pelicula2 = new Pelicula("La noche del código", 2026,
+        directora, actriz, actor, 120);</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>5.</strong> ¿Qué constructores piden menos información? ¿Qué valores se asignan por defecto en esos casos?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Los constructores cortos son <code>Persona(String nombre)</code> y <code>Pelicula(String titulo, Persona director)</code>.</p>
+          <p>En <code>Persona</code>, la edad queda en <code>0</code> y la profesión en <code>"Sin indicar"</code>. En <code>Pelicula</code>, el año y la duración quedan en <code>0</code>, y <code>estrenada</code> queda en <code>false</code>.</p>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>6.</strong> ¿Qué métodos sirven únicamente para obtener información de los atributos?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Son los getters: <code>getNombre</code>, <code>getEdad</code>, <code>getProfesion</code>, <code>getTitulo</code>, <code>getAnioEstreno</code>, <code>getDirector</code>, <code>getActrizPrincipal</code>, <code>getActorPrincipal</code>, <code>getDuracionMinutos</code> e <code>isEstrenada</code>.</p>
+          <pre><code>String titulo = pelicula.getTitulo();
+int edad = persona.getEdad();
+boolean yaEstrenada = pelicula.isEstrenada();</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>7.</strong> ¿Qué métodos sirven únicamente para modificar directamente atributos?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Son los setters, los métodos que empiezan por <code>set</code>. Asignan directamente un nuevo valor a un atributo.</p>
+          <pre><code>persona.setEdad(33);
+pelicula.setTitulo("Nuevo título");
+pelicula.setDuracionMinutos(125);</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>8.</strong> ¿Por qué en <code>Pelicula</code> aparece <code>isEstrenada()</code> en lugar de <code>getEstrenada()</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Porque <code>estrenada</code> es un atributo <code>boolean</code>. En Java es habitual que los getters de booleanos empiecen por <code>is</code>.</p>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>9.</strong> ¿Qué métodos realizan acciones o modifican el estado de los objetos?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p><code>cumplirAnios</code>, <code>presentarse</code>, <code>estrenar</code>, <code>retrasarEstreno</code> y <code>obtenerResumen</code> son métodos de acción o comportamiento.</p>
+          <pre><code>persona.cumplirAnios();
+pelicula.estrenar(2026);
+pelicula.retrasarEstreno();</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>10.</strong> ¿Qué atributos de <code>Pelicula</code> son de tipo <code>Persona</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Son <code>director</code>, <code>actrizPrincipal</code> y <code>actorPrincipal</code>.</p>
+          <pre><code>private Persona director;
+private Persona actrizPrincipal;
+private Persona actorPrincipal;</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>11.</strong> ¿Qué significa que una película tenga un <code>director</code>, una <code>actrizPrincipal</code> y un <code>actorPrincipal</code> de tipo <code>Persona</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Significa que la película no guarda solo textos para esas personas, sino referencias a objetos completos de la clase <code>Persona</code>.</p>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>12.</strong> ¿Qué método de <code>Pelicula</code> utiliza un método de la clase <code>Persona</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p><code>obtenerResumen()</code> utiliza <code>director.getNombre()</code>, es decir, llama a un método de un objeto <code>Persona</code>.</p>
+          <pre><code>return titulo + " es una película dirigida por "
+        + director.getNombre() + ".";</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>13.</strong> ¿Qué diferencia hay entre cambiar el título con <code>setTitulo(...)</code> y estrenar una película con <code>estrenar(...)</code>?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p><code>setTitulo(...)</code> solo cambia un atributo. <code>estrenar(...)</code> modifica dos partes del estado: el año de estreno y si la película está estrenada.</p>
+          <pre><code>pelicula.setTitulo("Otro título");
+pelicula.estrenar(2026);</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>14.</strong> ¿Qué información mínima necesitas para crear una película usando el constructor más corto?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Necesitas un <code>titulo</code> y un <code>director</code>.</p>
+          <pre><code>Persona directora = new Persona("Ane");
+Pelicula pelicula = new Pelicula("La noche del código", directora);</code></pre>
+        </details>
+      </div>
+      <div class="mb-3">
+        <p><strong>15.</strong> ¿Qué información mínima necesitas para crear una persona usando el constructor más corto?</p>
+        <details>
+          <summary><i class="fas fa-triangle-exclamation"></i> Cuidado, spoiler</summary>
+          <p>Necesitas un <code>nombre</code>.</p>
+          <pre><code>Persona persona = new Persona("Ane");</code></pre>
+        </details>
+      </div>
+    </div>
 
-</div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pista antes de mirar las respuestas</h4>
+      <p>Intenta clasificar cada parte de las clases en una de estas categorías:</p>
+      <ul>
+        <li><strong>Atributos:</strong> guardan el estado del objeto.</li>
+        <li><strong>Constructores:</strong> permiten crear objetos.</li>
+        <li><strong>Getters:</strong> devuelven información.</li>
+        <li><strong>Setters:</strong> modifican directamente atributos.</li>
+        <li><strong>Métodos de acción:</strong> hacen algo más significativo que devolver o asignar un valor.</li>
+      </ul>
+    </div>
 
+  </div>
 </div>
 </section>
         </main>
@@ -90,7 +258,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790594696163"></script>
-    <script src="assets/js/course.js?v=1790594696163"></script>
+    <script src="assets/js/search-data.js?v=1790596174436"></script>
+    <script src="assets/js/course.js?v=1790596174436"></script>
   </body>
 </html>
