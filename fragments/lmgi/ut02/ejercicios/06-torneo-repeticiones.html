@@ -1,0 +1,61 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-trophy"></i> 2.6 Torneo: repeticiones y estructuras anidadas</h2>
+    <p class="lead">Actividad para practicar <strong>elementos repetibles</strong>, atributos y estructuras internas sin usar tipos reutilizables.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> XSD de partida</h4>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="torneo"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="equipo" minOccurs="2" maxOccurs="8"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="nombre" type="xs:string" /&gt;
+              &lt;xs:element name="jugador" minOccurs="2" maxOccurs="5"&gt;
+                &lt;xs:complexType&gt;
+                  &lt;xs:sequence&gt;
+                    &lt;xs:element name="alias"&gt;
+                      &lt;xs:simpleType&gt;
+                        &lt;xs:restriction base="xs:string"&gt;
+                          &lt;xs:pattern value="[A-Za-z0-9_]+" /&gt;
+                        &lt;/xs:restriction&gt;
+                      &lt;/xs:simpleType&gt;
+                    &lt;/xs:element&gt;
+                    &lt;xs:element name="nivel"&gt;
+                      &lt;xs:simpleType&gt;
+                        &lt;xs:restriction base="xs:integer"&gt;
+                          &lt;xs:minInclusive value="1" /&gt;
+                          &lt;xs:maxInclusive value="100" /&gt;
+                        &lt;/xs:restriction&gt;
+                      &lt;/xs:simpleType&gt;
+                    &lt;/xs:element&gt;
+                  &lt;/xs:sequence&gt;
+                  &lt;xs:attribute name="capitan" type="xs:boolean" use="optional" /&gt;
+                &lt;/xs:complexType&gt;
+              &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+            &lt;xs:attribute name="codigo" use="required"&gt;
+              &lt;xs:simpleType&gt;
+                &lt;xs:restriction base="xs:string"&gt;
+                  &lt;xs:pattern value="EQ-[0-9][0-9]" /&gt;
+                &lt;/xs:restriction&gt;
+              &lt;/xs:simpleType&gt;
+            &lt;/xs:attribute&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+      &lt;xs:attribute name="nombre" type="xs:string" use="required" /&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Tarea</h4>
+      <p>Genera un XML válido con al menos dos equipos. Cada equipo debe tener entre dos y cinco jugadores. Usa al menos un atributo opcional <code>capitan</code>.</p>
+    </div>
+  </div>
+</div>

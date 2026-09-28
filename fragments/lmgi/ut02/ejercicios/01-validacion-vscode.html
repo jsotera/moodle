@@ -1,0 +1,81 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-code"></i> 2.1 Validar XML con XSD en Visual Studio Code</h2>
+    <p class="lead">Actividad para comprobar cómo un editor puede ayudarnos a detectar <strong>errores de validación</strong> cuando un XML está asociado a un esquema XSD.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Punto de partida</h4>
+      <p>Vamos a utilizar el ejemplo completo de XML y XSD que aparece en W3Schools:</p>
+      <p><a href="https://www.w3schools.com/xml/schema_example.asp" target="_blank" rel="noopener noreferrer">W3Schools - XML Schema Example</a></p>
+      <p>En esa página se trabaja con un pedido llamado <code>shiporder</code>. El XML contiene datos como la persona que realiza el pedido, la dirección de envío y varios productos. El XSD define qué estructura debe cumplir ese XML.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-plus"></i> Preparar los archivos</h4>
+      <ol>
+        <li>Crea una carpeta para la actividad.</li>
+        <li>Dentro de esa carpeta, crea un archivo llamado <code>shiporder.xml</code>.</li>
+        <li>Copia en ese archivo el XML de ejemplo que aparece en W3Schools.</li>
+        <li>Crea otro archivo llamado <code>shiporder.xsd</code>.</li>
+        <li>Copia en ese archivo el XSD de ejemplo de la misma página.</li>
+      </ol>
+      <p>Es importante que ambos archivos estén en la <strong>misma carpeta</strong>, porque el XML indica que su esquema se encuentra en <code>shiporder.xsd</code>.</p>
+      <pre><code>carpeta-actividad/
+  shiporder.xml
+  shiporder.xsd</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-link"></i> Relación entre XML y XSD</h4>
+      <p>Fíjate en que el XML contiene una referencia al esquema XSD:</p>
+      <pre><code>&lt;shiporder orderid="889923"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="shiporder.xsd"&gt;</code></pre>
+      <p>La parte <code>xsi:noNamespaceSchemaLocation="shiporder.xsd"</code> indica al editor y a las herramientas de validación qué archivo XSD deben utilizar para comprobar el XML.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Instalar extensiones en Visual Studio Code</h4>
+      <p>Abre Visual Studio Code y entra en la sección de extensiones. Instala estas extensiones:</p>
+      <ul>
+        <li><strong>XML</strong>, de <strong>Red Hat</strong>.</li>
+        <li><strong>XML Tools</strong>.</li>
+      </ul>
+      <p>Después, abre la carpeta completa de la actividad desde Visual Studio Code. No abras solo el archivo suelto: abre la carpeta para que el editor pueda encontrar correctamente el XML y el XSD.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Comprobar que todo funciona</h4>
+      <p>Si todo está bien configurado, Visual Studio Code debería mostrar el XML correctamente y no debería marcar errores de validación.</p>
+      <p>Comprueba también que puedes navegar cómodamente por el XML, ver las etiquetas coloreadas y detectar la estructura del documento.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bug"></i> Provocar errores de validación</h4>
+      <p>Ahora modifica el XML para comprobar si el IDE detecta los errores. Prueba, por ejemplo:</p>
+      <ul>
+        <li>Cambiar el nombre de una etiqueta, por ejemplo <code>&lt;orderperson&gt;</code> por <code>&lt;persona&gt;</code>.</li>
+        <li>Eliminar un elemento obligatorio.</li>
+        <li>Cambiar el orden de los elementos dentro de <code>&lt;shiporder&gt;</code>.</li>
+        <li>Quitar el atributo <code>orderid</code>.</li>
+        <li>Escribir texto donde el XSD espera un número, por ejemplo en <code>&lt;quantity&gt;</code> o <code>&lt;price&gt;</code>.</li>
+        <li>Cambiar el nombre del archivo XSD o modificar la ruta de <code>xsi:noNamespaceSchemaLocation</code>.</li>
+      </ul>
+      <p>Observa qué errores aparecen, dónde los marca Visual Studio Code y qué información ofrece para ayudarte a corregirlos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-rotate-left"></i> Volver a dejarlo válido</h4>
+      <p>Después de probar errores, corrige el XML hasta que vuelva a ser válido. La actividad termina cuando seas capaz de:</p>
+      <ul>
+        <li>Explicar qué archivo contiene los datos.</li>
+        <li>Explicar qué archivo contiene las reglas.</li>
+        <li>Identificar cómo se enlaza el XML con el XSD.</li>
+        <li>Provocar al menos tres errores distintos.</li>
+        <li>Corregir esos errores hasta que el editor deje de marcarlos.</li>
+      </ul>
+    </div>
+  </div>
+</div>

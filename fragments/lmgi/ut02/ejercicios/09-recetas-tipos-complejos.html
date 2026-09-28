@@ -1,0 +1,49 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-utensils"></i> 2.9 Recetas: tipos complejos que usan otros tipos</h2>
+    <p class="lead">Actividad para practicar un <strong>tipo complejo reutilizable</strong> que emplea tipos simples inventados previamente.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> XSD de partida</h4>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:simpleType name="tipoCantidad"&gt;
+    &lt;xs:restriction base="xs:decimal"&gt;
+      &lt;xs:minExclusive value="0" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;xs:simpleType name="tipoUnidad"&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:enumeration value="g" /&gt;
+      &lt;xs:enumeration value="ml" /&gt;
+      &lt;xs:enumeration value="unidad" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;xs:complexType name="tipoIngrediente"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="nombre" type="xs:string" /&gt;
+      &lt;xs:element name="cantidad" type="tipoCantidad" /&gt;
+      &lt;xs:element name="unidad" type="tipoUnidad" /&gt;
+    &lt;/xs:sequence&gt;
+    &lt;xs:attribute name="opcional" type="xs:boolean" use="optional" /&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:element name="receta"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="nombre" type="xs:string" /&gt;
+        &lt;xs:element name="ingrediente" type="tipoIngrediente" minOccurs="1" maxOccurs="unbounded" /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Tarea</h4>
+      <p>Genera un XML válido con una receta y al menos tres ingredientes. Usa el atributo opcional <code>opcional</code> en uno de ellos.</p>
+    </div>
+  </div>
+</div>

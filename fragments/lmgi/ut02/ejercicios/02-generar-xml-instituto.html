@@ -1,0 +1,89 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-school"></i> 2.2 Generar un XML válido a partir de un XSD</h2>
+    <p class="lead">Actividad para practicar la lectura de un <strong>esquema XSD</strong> y construir un documento XML que cumpla sus reglas.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> XSD de partida</h4>
+      <p>Dado el siguiente esquema XSD, genera un documento XML válido:</p>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;!-- Estructura principal y tipos referenciados --&gt;
+  &lt;xs:element name="instituto"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="aulas"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="aula" type="xs:string" maxOccurs="unbounded" /&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;xs:element name="profesores"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="profesor" type="xs:string" maxOccurs="unbounded" /&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;xs:element name="alumnos"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="alumno" type="xs:string" maxOccurs="unbounded" /&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+
+      &lt;xs:attribute name="nombreCentro" type="xs:string" use="optional" /&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Antes de escribir el XML</h4>
+      <p>Antes de empezar a escribir, analiza el XSD y responde mentalmente a estas preguntas:</p>
+      <ul>
+        <li>¿Cuál es el elemento raíz?</li>
+        <li>¿Qué elementos deben aparecer dentro de la raíz?</li>
+        <li>¿En qué orden deben aparecer?</li>
+        <li>¿Qué elementos pueden repetirse varias veces?</li>
+        <li>¿Hay algún atributo obligatorio u opcional?</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Requisitos que debe cumplir tu XML</h4>
+      <ul>
+        <li>El elemento raíz debe ser <code>&lt;instituto&gt;</code>.</li>
+        <li>Debe contener los elementos <code>&lt;aulas&gt;</code>, <code>&lt;profesores&gt;</code> y <code>&lt;alumnos&gt;</code>.</li>
+        <li>Los elementos deben aparecer en el orden indicado por <code>&lt;xs:sequence&gt;</code>.</li>
+        <li>Dentro de <code>&lt;aulas&gt;</code> debe haber uno o varios elementos <code>&lt;aula&gt;</code>.</li>
+        <li>Dentro de <code>&lt;profesores&gt;</code> debe haber uno o varios elementos <code>&lt;profesor&gt;</code>.</li>
+        <li>Dentro de <code>&lt;alumnos&gt;</code> debe haber uno o varios elementos <code>&lt;alumno&gt;</code>.</li>
+        <li>El atributo <code>nombreCentro</code> es opcional, pero puedes incluirlo.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-pen-to-square"></i> Tarea</h4>
+      <p>Crea un archivo XML válido que cumpla el XSD anterior. Utiliza nombres inventados para las aulas, profesores y alumnos.</p>
+      <p>Después, valida el XML en Visual Studio Code usando el XSD como hicimos en el ejercicio anterior.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bug"></i> Comprobación adicional</h4>
+      <p>Cuando tengas un XML válido, prueba a romperlo para comprobar que el validador detecta los errores:</p>
+      <ul>
+        <li>Cambia el orden de <code>&lt;profesores&gt;</code> y <code>&lt;aulas&gt;</code>.</li>
+        <li>Elimina todos los elementos <code>&lt;aula&gt;</code>.</li>
+        <li>Cambia <code>&lt;alumno&gt;</code> por <code>&lt;estudiante&gt;</code>.</li>
+        <li>Escribe el atributo <code>nombreCentro</code> en otro elemento que no sea <code>&lt;instituto&gt;</code>.</li>
+      </ul>
+    </div>
+  </div>
+</div>

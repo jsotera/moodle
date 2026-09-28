@@ -1,0 +1,209 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-school-circle-check"></i> 2.7 Instituto avanzado: generar un XML válido</h2>
+    <p class="lead">Actividad para construir un XML válido a partir de un <strong>XSD completo</strong>, mezclando restricciones, atributos, expresiones regulares y estructuras anidadas.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> Objetivo</h4>
+      <p>El esquema del instituto es más exigente que en el ejercicio anterior. El XML deberá respetar atributos obligatorios, valores restringidos, expresiones regulares, elementos repetibles y estructuras internas.</p>
+      <p>Lee el XSD con calma antes de escribir el XML. Primero identifica la estructura general y después completa cada parte.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> XSD de partida</h4>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="instituto"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="aulas"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="aula" maxOccurs="unbounded"&gt;
+                &lt;xs:complexType&gt;
+                  &lt;xs:sequence&gt;
+                    &lt;xs:element name="nombre" type="xs:string" /&gt;
+                    &lt;xs:element name="capacidad"&gt;
+                      &lt;xs:simpleType&gt;
+                        &lt;xs:restriction base="xs:integer"&gt;
+                          &lt;xs:minInclusive value="10" /&gt;
+                          &lt;xs:maxInclusive value="40" /&gt;
+                        &lt;/xs:restriction&gt;
+                      &lt;/xs:simpleType&gt;
+                    &lt;/xs:element&gt;
+                    &lt;xs:element name="profesoresAsignados"&gt;
+                      &lt;xs:complexType&gt;
+                        &lt;xs:sequence&gt;
+                          &lt;xs:element name="profesorAsignado" minOccurs="1" maxOccurs="unbounded"&gt;
+                            &lt;xs:complexType&gt;
+                              &lt;xs:sequence&gt;
+                                &lt;xs:element name="idProfesor"&gt;
+                                  &lt;xs:simpleType&gt;
+                                    &lt;xs:restriction base="xs:positiveInteger" /&gt;
+                                  &lt;/xs:simpleType&gt;
+                                &lt;/xs:element&gt;
+                                &lt;xs:element name="horasSemanales"&gt;
+                                  &lt;xs:simpleType&gt;
+                                    &lt;xs:restriction base="xs:integer"&gt;
+                                      &lt;xs:minInclusive value="1" /&gt;
+                                      &lt;xs:maxInclusive value="30" /&gt;
+                                    &lt;/xs:restriction&gt;
+                                  &lt;/xs:simpleType&gt;
+                                &lt;/xs:element&gt;
+                              &lt;/xs:sequence&gt;
+                              &lt;xs:attribute name="rol" use="required"&gt;
+                                &lt;xs:simpleType&gt;
+                                  &lt;xs:restriction base="xs:string"&gt;
+                                    &lt;xs:enumeration value="tutor" /&gt;
+                                    &lt;xs:enumeration value="docente" /&gt;
+                                    &lt;xs:enumeration value="apoyo" /&gt;
+                                  &lt;/xs:restriction&gt;
+                                &lt;/xs:simpleType&gt;
+                              &lt;/xs:attribute&gt;
+                            &lt;/xs:complexType&gt;
+                          &lt;/xs:element&gt;
+                        &lt;/xs:sequence&gt;
+                      &lt;/xs:complexType&gt;
+                    &lt;/xs:element&gt;
+                  &lt;/xs:sequence&gt;
+                  &lt;xs:attribute name="codigo" use="required"&gt;
+                    &lt;xs:simpleType&gt;
+                      &lt;xs:restriction base="xs:string"&gt;
+                        &lt;xs:pattern value="A[0-9][0-9][0-9]" /&gt;
+                      &lt;/xs:restriction&gt;
+                    &lt;/xs:simpleType&gt;
+                  &lt;/xs:attribute&gt;
+                  &lt;xs:attribute name="planta" type="xs:integer" use="optional" /&gt;
+                &lt;/xs:complexType&gt;
+              &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;xs:element name="profesores"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="profesor" maxOccurs="unbounded"&gt;
+                &lt;xs:complexType&gt;
+                  &lt;xs:sequence&gt;
+                    &lt;xs:element name="nombre" type="xs:string" /&gt;
+                    &lt;xs:element name="email"&gt;
+                      &lt;xs:simpleType&gt;
+                        &lt;xs:restriction base="xs:string"&gt;
+                          &lt;xs:pattern value=".+@.+" /&gt;
+                        &lt;/xs:restriction&gt;
+                      &lt;/xs:simpleType&gt;
+                    &lt;/xs:element&gt;
+                    &lt;xs:element name="departamento" type="xs:string" /&gt;
+                  &lt;/xs:sequence&gt;
+                  &lt;xs:attribute name="id" use="required"&gt;
+                    &lt;xs:simpleType&gt;
+                      &lt;xs:restriction base="xs:positiveInteger" /&gt;
+                    &lt;/xs:simpleType&gt;
+                  &lt;/xs:attribute&gt;
+                &lt;/xs:complexType&gt;
+              &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;xs:element name="alumnos"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="alumno" maxOccurs="unbounded"&gt;
+                &lt;xs:complexType&gt;
+                  &lt;xs:sequence&gt;
+                    &lt;xs:element name="nombre" type="xs:string" /&gt;
+                    &lt;xs:element name="curso"&gt;
+                      &lt;xs:simpleType&gt;
+                        &lt;xs:restriction base="xs:string"&gt;
+                          &lt;xs:enumeration value="1DAM" /&gt;
+                          &lt;xs:enumeration value="1DAW" /&gt;
+                          &lt;xs:enumeration value="2DAM" /&gt;
+                          &lt;xs:enumeration value="2DAW" /&gt;
+                        &lt;/xs:restriction&gt;
+                      &lt;/xs:simpleType&gt;
+                    &lt;/xs:element&gt;
+                    &lt;xs:element name="aulasAsignadas"&gt;
+                      &lt;xs:complexType&gt;
+                        &lt;xs:sequence&gt;
+                          &lt;xs:element name="aulaAsignada" minOccurs="1" maxOccurs="unbounded"&gt;
+                            &lt;xs:complexType&gt;
+                              &lt;xs:simpleContent&gt;
+                                &lt;xs:extension base="xs:string"&gt;
+                                  &lt;xs:attribute name="principal" type="xs:boolean" use="optional" /&gt;
+                                &lt;/xs:extension&gt;
+                              &lt;/xs:simpleContent&gt;
+                            &lt;/xs:complexType&gt;
+                          &lt;/xs:element&gt;
+                        &lt;/xs:sequence&gt;
+                      &lt;/xs:complexType&gt;
+                    &lt;/xs:element&gt;
+                  &lt;/xs:sequence&gt;
+                  &lt;xs:attribute name="codigo" use="required"&gt;
+                    &lt;xs:simpleType&gt;
+                      &lt;xs:restriction base="xs:string"&gt;
+                        &lt;xs:pattern value="ALU-[0-9][0-9][0-9]" /&gt;
+                      &lt;/xs:restriction&gt;
+                    &lt;/xs:simpleType&gt;
+                  &lt;/xs:attribute&gt;
+                  &lt;xs:attribute name="repetidor" type="xs:boolean" use="optional" /&gt;
+                &lt;/xs:complexType&gt;
+              &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+
+      &lt;xs:attribute name="nombreCentro" type="xs:string" use="required" /&gt;
+      &lt;xs:attribute name="cursoAcademico" type="xs:string" use="required" /&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Pistas para leer el esquema</h4>
+      <ul>
+        <li>La raíz debe ser <code>&lt;instituto&gt;</code>.</li>
+        <li><code>&lt;instituto&gt;</code> tiene dos atributos obligatorios: <code>nombreCentro</code> y <code>cursoAcademico</code>.</li>
+        <li>Dentro de <code>&lt;instituto&gt;</code> deben aparecer, en este orden: <code>&lt;aulas&gt;</code>, <code>&lt;profesores&gt;</code> y <code>&lt;alumnos&gt;</code>.</li>
+        <li>Cada profesor tiene un atributo <code>id</code> que debe ser un número entero positivo.</li>
+        <li>Las aulas tienen un atributo <code>codigo</code> con formato <code>A001</code>, <code>A002</code>, etc.</li>
+        <li>Los alumnos tienen un atributo <code>codigo</code> con formato <code>ALU-001</code>, <code>ALU-002</code>, etc.</li>
+        <li>Cada aula debe tener uno o varios profesores asignados.</li>
+        <li>Cada alumno debe tener una o varias aulas asignadas.</li>
+        <li>Los campos <code>curso</code>, <code>rol</code>, <code>capacidad</code>, <code>horasSemanales</code> y <code>email</code> tienen restricciones.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-pen-to-square"></i> Tarea</h4>
+      <p>Genera un XML válido que cumpla el XSD anterior. El XML debe incluir, como mínimo:</p>
+      <ul>
+        <li>Dos aulas.</li>
+        <li>Dos profesores.</li>
+        <li>Tres alumnos.</li>
+        <li>Al menos un aula con más de un profesor asignado.</li>
+        <li>Al menos un alumno asignado a más de un aula.</li>
+        <li>Al menos un atributo opcional utilizado, como <code>planta</code>, <code>principal</code> o <code>repetidor</code>.</li>
+      </ul>
+      <p>Valida el XML con Visual Studio Code y las extensiones instaladas en los ejercicios anteriores.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bug"></i> Pruebas de error</h4>
+      <p>Cuando tengas un XML válido, provoca algunos errores para comprobar que entiendes las reglas:</p>
+      <ul>
+        <li>Usa un código de aula como <code>101</code> en lugar de <code>A101</code>.</li>
+        <li>Usa un código de alumno como <code>ALUMNO-001</code> en lugar de <code>ALU-001</code>.</li>
+        <li>Escribe una capacidad menor que <code>10</code> o mayor que <code>40</code>.</li>
+        <li>Utiliza un rol de profesor asignado que no sea <code>tutor</code>, <code>docente</code> o <code>apoyo</code>.</li>
+        <li>Quita todos los profesores asignados de un aula.</li>
+        <li>Escribe un email sin <code>@</code>.</li>
+        <li>Cambia el orden de <code>&lt;aulas&gt;</code>, <code>&lt;profesores&gt;</code> y <code>&lt;alumnos&gt;</code>.</li>
+      </ul>
+    </div>
+  </div>
+</div>

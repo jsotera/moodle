@@ -1,0 +1,35 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-gamepad"></i> 2.3 Videojuego: complexType con una restricción</h2>
+    <p class="lead">Actividad para crear un XML válido a partir de un XSD con un <strong>complexType</strong> y una restricción sencilla.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> XSD de partida</h4>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="videojuego"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="titulo" type="xs:string" /&gt;
+        &lt;xs:element name="genero"&gt;
+          &lt;xs:simpleType&gt;
+            &lt;xs:restriction base="xs:string"&gt;
+              &lt;xs:enumeration value="aventura" /&gt;
+              &lt;xs:enumeration value="deportes" /&gt;
+              &lt;xs:enumeration value="estrategia" /&gt;
+              &lt;xs:enumeration value="puzle" /&gt;
+            &lt;/xs:restriction&gt;
+          &lt;/xs:simpleType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Tarea</h4>
+      <p>Genera un XML válido para este esquema. Después prueba a escribir un género que no esté en la enumeración y observa el error de validación.</p>
+    </div>
+  </div>
+</div>

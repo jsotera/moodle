@@ -1,0 +1,276 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-check-double"></i> 2.11 Soluciones orientativas</h2>
+    <p class="lead">Ejemplos de <strong>XML válidos</strong> para los ejercicios propuestos. No son la única solución posible, pero sirven como referencia para comprobar la estructura.</p>
+
+    <div class="alert alert-warning" role="alert">
+      <i class="fas fa-triangle-exclamation"></i>
+      Consulta estas soluciones después de haber intentado crear tus propios XML y validarlos con el XSD correspondiente.
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      <i class="fas fa-folder-open"></i>
+      En los ejemplos se da por hecho que el archivo XML y su archivo XSD están guardados en la misma carpeta. Por eso se utiliza directamente el nombre del XSD en <code>xsi:noNamespaceSchemaLocation</code>.
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-school"></i> Solución 2.2: instituto básico</h4>
+      <pre><code>&lt;instituto nombreCentro="María Ana Sanz"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="instituto-basico.xsd"&gt;
+  &lt;aulas&gt;
+    &lt;aula&gt;Aula 101&lt;/aula&gt;
+    &lt;aula&gt;Aula 102&lt;/aula&gt;
+  &lt;/aulas&gt;
+  &lt;profesores&gt;
+    &lt;profesor&gt;Ane Martínez&lt;/profesor&gt;
+    &lt;profesor&gt;Javier López&lt;/profesor&gt;
+  &lt;/profesores&gt;
+  &lt;alumnos&gt;
+    &lt;alumno&gt;Iker Pérez&lt;/alumno&gt;
+    &lt;alumno&gt;Nerea Ruiz&lt;/alumno&gt;
+    &lt;alumno&gt;Mikel García&lt;/alumno&gt;
+  &lt;/alumnos&gt;
+&lt;/instituto&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-gamepad"></i> Solución 2.3: videojuego</h4>
+      <pre><code>&lt;videojuego
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="videojuego.xsd"&gt;
+  &lt;titulo&gt;Puzzle Quest&lt;/titulo&gt;
+  &lt;genero&gt;puzle&lt;/genero&gt;
+&lt;/videojuego&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-city"></i> Solución 2.4: ciudad</h4>
+      <pre><code>&lt;ciudad
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="ciudad.xsd"&gt;
+  &lt;nombre&gt;Pamplona&lt;/nombre&gt;
+  &lt;habitantes&gt;203944&lt;/habitantes&gt;
+  &lt;temperaturaMedia&gt;13.5&lt;/temperaturaMedia&gt;
+&lt;/ciudad&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-book"></i> Solución 2.5: libro</h4>
+      <pre><code>&lt;libro idioma="es"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="libro.xsd"&gt;
+  &lt;titulo&gt;XML paso a paso&lt;/titulo&gt;
+  &lt;isbn&gt;123-456&lt;/isbn&gt;
+  &lt;formato&gt;ebook&lt;/formato&gt;
+&lt;/libro&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-trophy"></i> Solución 2.6: torneo</h4>
+      <pre><code>&lt;torneo nombre="Copa DAM"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="torneo.xsd"&gt;
+  &lt;equipo codigo="EQ-01"&gt;
+    &lt;nombre&gt;Null Pointers&lt;/nombre&gt;
+    &lt;jugador capitan="true"&gt;
+      &lt;alias&gt;ana_dev&lt;/alias&gt;
+      &lt;nivel&gt;82&lt;/nivel&gt;
+    &lt;/jugador&gt;
+    &lt;jugador&gt;
+      &lt;alias&gt;iker99&lt;/alias&gt;
+      &lt;nivel&gt;75&lt;/nivel&gt;
+    &lt;/jugador&gt;
+  &lt;/equipo&gt;
+  &lt;equipo codigo="EQ-02"&gt;
+    &lt;nombre&gt;Bug Hunters&lt;/nombre&gt;
+    &lt;jugador capitan="true"&gt;
+      &lt;alias&gt;nerea_7&lt;/alias&gt;
+      &lt;nivel&gt;88&lt;/nivel&gt;
+    &lt;/jugador&gt;
+    &lt;jugador&gt;
+      &lt;alias&gt;mikel42&lt;/alias&gt;
+      &lt;nivel&gt;64&lt;/nivel&gt;
+    &lt;/jugador&gt;
+  &lt;/equipo&gt;
+&lt;/torneo&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-school-circle-check"></i> Solución 2.7: instituto avanzado</h4>
+      <pre><code>&lt;instituto nombreCentro="María Ana Sanz" cursoAcademico="2026-2027"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="instituto-avanzado.xsd"&gt;
+  &lt;aulas&gt;
+    &lt;aula codigo="A101" planta="1"&gt;
+      &lt;nombre&gt;Laboratorio 101&lt;/nombre&gt;
+      &lt;capacidad&gt;25&lt;/capacidad&gt;
+      &lt;profesoresAsignados&gt;
+        &lt;profesorAsignado rol="tutor"&gt;
+          &lt;idProfesor&gt;1&lt;/idProfesor&gt;
+          &lt;horasSemanales&gt;10&lt;/horasSemanales&gt;
+        &lt;/profesorAsignado&gt;
+        &lt;profesorAsignado rol="docente"&gt;
+          &lt;idProfesor&gt;2&lt;/idProfesor&gt;
+          &lt;horasSemanales&gt;8&lt;/horasSemanales&gt;
+        &lt;/profesorAsignado&gt;
+      &lt;/profesoresAsignados&gt;
+    &lt;/aula&gt;
+    &lt;aula codigo="A102"&gt;
+      &lt;nombre&gt;Aula polivalente&lt;/nombre&gt;
+      &lt;capacidad&gt;30&lt;/capacidad&gt;
+      &lt;profesoresAsignados&gt;
+        &lt;profesorAsignado rol="apoyo"&gt;
+          &lt;idProfesor&gt;2&lt;/idProfesor&gt;
+          &lt;horasSemanales&gt;6&lt;/horasSemanales&gt;
+        &lt;/profesorAsignado&gt;
+      &lt;/profesoresAsignados&gt;
+    &lt;/aula&gt;
+  &lt;/aulas&gt;
+  &lt;profesores&gt;
+    &lt;profesor id="1"&gt;
+      &lt;nombre&gt;Ane Martínez&lt;/nombre&gt;
+      &lt;email&gt;ane@example.com&lt;/email&gt;
+      &lt;departamento&gt;Informática&lt;/departamento&gt;
+    &lt;/profesor&gt;
+    &lt;profesor id="2"&gt;
+      &lt;nombre&gt;Javier López&lt;/nombre&gt;
+      &lt;email&gt;javier@example.com&lt;/email&gt;
+      &lt;departamento&gt;Lenguajes&lt;/departamento&gt;
+    &lt;/profesor&gt;
+  &lt;/profesores&gt;
+  &lt;alumnos&gt;
+    &lt;alumno codigo="ALU-001" repetidor="false"&gt;
+      &lt;nombre&gt;Iker Pérez&lt;/nombre&gt;
+      &lt;curso&gt;1DAM&lt;/curso&gt;
+      &lt;aulasAsignadas&gt;
+        &lt;aulaAsignada principal="true"&gt;A101&lt;/aulaAsignada&gt;
+        &lt;aulaAsignada&gt;A102&lt;/aulaAsignada&gt;
+      &lt;/aulasAsignadas&gt;
+    &lt;/alumno&gt;
+    &lt;alumno codigo="ALU-002"&gt;
+      &lt;nombre&gt;Nerea Ruiz&lt;/nombre&gt;
+      &lt;curso&gt;1DAW&lt;/curso&gt;
+      &lt;aulasAsignadas&gt;
+        &lt;aulaAsignada principal="true"&gt;A102&lt;/aulaAsignada&gt;
+      &lt;/aulasAsignadas&gt;
+    &lt;/alumno&gt;
+    &lt;alumno codigo="ALU-003"&gt;
+      &lt;nombre&gt;Mikel García&lt;/nombre&gt;
+      &lt;curso&gt;2DAM&lt;/curso&gt;
+      &lt;aulasAsignadas&gt;
+        &lt;aulaAsignada principal="true"&gt;A101&lt;/aulaAsignada&gt;
+      &lt;/aulasAsignadas&gt;
+    &lt;/alumno&gt;
+  &lt;/alumnos&gt;
+&lt;/instituto&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-music"></i> Solución 2.8: canción</h4>
+      <pre><code>&lt;cancion
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="cancion.xsd"&gt;
+  &lt;titulo&gt;Código nocturno&lt;/titulo&gt;
+  &lt;genero&gt;electronica&lt;/genero&gt;
+  &lt;duracionSegundos&gt;245&lt;/duracionSegundos&gt;
+&lt;/cancion&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-utensils"></i> Solución 2.9: receta</h4>
+      <pre><code>&lt;receta
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="receta.xsd"&gt;
+  &lt;nombre&gt;Tortilla sencilla&lt;/nombre&gt;
+  &lt;ingrediente&gt;
+    &lt;nombre&gt;Huevos&lt;/nombre&gt;
+    &lt;cantidad&gt;4&lt;/cantidad&gt;
+    &lt;unidad&gt;unidad&lt;/unidad&gt;
+  &lt;/ingrediente&gt;
+  &lt;ingrediente&gt;
+    &lt;nombre&gt;Patata&lt;/nombre&gt;
+    &lt;cantidad&gt;500&lt;/cantidad&gt;
+    &lt;unidad&gt;g&lt;/unidad&gt;
+  &lt;/ingrediente&gt;
+  &lt;ingrediente opcional="true"&gt;
+    &lt;nombre&gt;Cebolla&lt;/nombre&gt;
+    &lt;cantidad&gt;150&lt;/cantidad&gt;
+    &lt;unidad&gt;g&lt;/unidad&gt;
+  &lt;/ingrediente&gt;
+&lt;/receta&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-school-circle-check"></i> Solución 2.10: instituto avanzado con tipos</h4>
+      <p>El XML puede ser el mismo que en la solución 2.7, porque el esquema valida la misma estructura general, pero está definido de forma más reutilizable mediante tipos propios.</p>
+      <pre><code>&lt;instituto nombreCentro="María Ana Sanz" cursoAcademico="2026-2027"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="instituto-avanzado-tipos.xsd"&gt;
+  &lt;aulas&gt;
+    &lt;aula codigo="A201" planta="2"&gt;
+      &lt;nombre&gt;Laboratorio 201&lt;/nombre&gt;
+      &lt;capacidad&gt;28&lt;/capacidad&gt;
+      &lt;profesoresAsignados&gt;
+        &lt;profesorAsignado rol="tutor"&gt;
+          &lt;idProfesor&gt;3&lt;/idProfesor&gt;
+          &lt;horasSemanales&gt;12&lt;/horasSemanales&gt;
+        &lt;/profesorAsignado&gt;
+        &lt;profesorAsignado rol="docente"&gt;
+          &lt;idProfesor&gt;4&lt;/idProfesor&gt;
+          &lt;horasSemanales&gt;6&lt;/horasSemanales&gt;
+        &lt;/profesorAsignado&gt;
+      &lt;/profesoresAsignados&gt;
+    &lt;/aula&gt;
+    &lt;aula codigo="A202"&gt;
+      &lt;nombre&gt;Aula de proyectos&lt;/nombre&gt;
+      &lt;capacidad&gt;20&lt;/capacidad&gt;
+      &lt;profesoresAsignados&gt;
+        &lt;profesorAsignado rol="apoyo"&gt;
+          &lt;idProfesor&gt;4&lt;/idProfesor&gt;
+          &lt;horasSemanales&gt;5&lt;/horasSemanales&gt;
+        &lt;/profesorAsignado&gt;
+      &lt;/profesoresAsignados&gt;
+    &lt;/aula&gt;
+  &lt;/aulas&gt;
+  &lt;profesores&gt;
+    &lt;profesor id="3"&gt;
+      &lt;nombre&gt;Maite Sánchez&lt;/nombre&gt;
+      &lt;email&gt;maite@example.com&lt;/email&gt;
+      &lt;departamento&gt;Informática&lt;/departamento&gt;
+    &lt;/profesor&gt;
+    &lt;profesor id="4"&gt;
+      &lt;nombre&gt;Unai Etxeberria&lt;/nombre&gt;
+      &lt;email&gt;unai@example.com&lt;/email&gt;
+      &lt;departamento&gt;Lenguaje de Marcas&lt;/departamento&gt;
+    &lt;/profesor&gt;
+  &lt;/profesores&gt;
+  &lt;alumnos&gt;
+    &lt;alumno codigo="ALU-010" repetidor="false"&gt;
+      &lt;nombre&gt;June Arana&lt;/nombre&gt;
+      &lt;curso&gt;2DAW&lt;/curso&gt;
+      &lt;aulasAsignadas&gt;
+        &lt;aulaAsignada principal="true"&gt;A201&lt;/aulaAsignada&gt;
+        &lt;aulaAsignada&gt;A202&lt;/aulaAsignada&gt;
+      &lt;/aulasAsignadas&gt;
+    &lt;/alumno&gt;
+    &lt;alumno codigo="ALU-011"&gt;
+      &lt;nombre&gt;Asier Molina&lt;/nombre&gt;
+      &lt;curso&gt;2DAM&lt;/curso&gt;
+      &lt;aulasAsignadas&gt;
+        &lt;aulaAsignada principal="true"&gt;A201&lt;/aulaAsignada&gt;
+      &lt;/aulasAsignadas&gt;
+    &lt;/alumno&gt;
+    &lt;alumno codigo="ALU-012"&gt;
+      &lt;nombre&gt;Leire Soto&lt;/nombre&gt;
+      &lt;curso&gt;1DAW&lt;/curso&gt;
+      &lt;aulasAsignadas&gt;
+        &lt;aulaAsignada principal="true"&gt;A202&lt;/aulaAsignada&gt;
+      &lt;/aulasAsignadas&gt;
+    &lt;/alumno&gt;
+  &lt;/alumnos&gt;
+&lt;/instituto&gt;</code></pre>
+    </div>
+  </div>
+</div>

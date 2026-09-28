@@ -1,0 +1,41 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-city"></i> 2.4 Ciudad: límites numéricos</h2>
+    <p class="lead">Actividad para crear un XML válido aplicando <strong>límites mínimos y máximos</strong> en valores numéricos.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> XSD de partida</h4>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="ciudad"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="nombre" type="xs:string" /&gt;
+        &lt;xs:element name="habitantes"&gt;
+          &lt;xs:simpleType&gt;
+            &lt;xs:restriction base="xs:integer"&gt;
+              &lt;xs:minInclusive value="1" /&gt;
+              &lt;xs:maxInclusive value="10000000" /&gt;
+            &lt;/xs:restriction&gt;
+          &lt;/xs:simpleType&gt;
+        &lt;/xs:element&gt;
+        &lt;xs:element name="temperaturaMedia"&gt;
+          &lt;xs:simpleType&gt;
+            &lt;xs:restriction base="xs:decimal"&gt;
+              &lt;xs:minInclusive value="-30" /&gt;
+              &lt;xs:maxInclusive value="50" /&gt;
+            &lt;/xs:restriction&gt;
+          &lt;/xs:simpleType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Tarea</h4>
+      <p>Genera un XML válido para una ciudad. Después prueba valores fuera de rango, como <code>0</code> habitantes o una temperatura media de <code>80</code>.</p>
+    </div>
+  </div>
+</div>
