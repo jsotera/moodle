@@ -56,8 +56,82 @@
     <div class="mb-4">
       <h4 class="text-primary mb-3"><i class="fas fa-repeat"></i> Repeticiones y obligatoriedad</h4>
       <p>Con <code>minOccurs</code> y <code>maxOccurs</code> podemos indicar cuántas veces puede aparecer un elemento.</p>
+      <p>Si no escribimos estos atributos, XSD entiende que el elemento debe aparecer <strong>exactamente una vez</strong>.</p>
       <pre><code>&lt;xs:element name="telefono" type="xs:string" minOccurs="0" maxOccurs="unbounded" /&gt;</code></pre>
       <p>Este ejemplo indica que <code>&lt;telefono&gt;</code> puede no aparecer, aparecer una vez o aparecer muchas veces.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Atributo</th>
+              <th>Qué controla</th>
+              <th>Valores habituales</th>
+              <th>Valor por defecto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>minOccurs</code></td>
+              <td>Número mínimo de veces que debe aparecer el elemento.</td>
+              <td><code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>...</td>
+              <td><code>1</code></td>
+            </tr>
+            <tr>
+              <td><code>maxOccurs</code></td>
+              <td>Número máximo de veces que puede aparecer el elemento.</td>
+              <td><code>1</code>, <code>2</code>, <code>3</code>..., <code>unbounded</code></td>
+              <td><code>1</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La palabra <code>unbounded</code> significa que no hay un límite máximo concreto: el elemento puede repetirse tantas veces como sea necesario.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Definición</th>
+              <th>Cómo se interpreta</th>
+              <th>Ejemplo de uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>minOccurs="1" maxOccurs="1"</code></td>
+              <td>Debe aparecer exactamente una vez.</td>
+              <td>Un nombre obligatorio.</td>
+            </tr>
+            <tr>
+              <td><code>minOccurs="0" maxOccurs="1"</code></td>
+              <td>Puede no aparecer, pero si aparece solo puede hacerlo una vez.</td>
+              <td>Un segundo apellido opcional.</td>
+            </tr>
+            <tr>
+              <td><code>minOccurs="0" maxOccurs="unbounded"</code></td>
+              <td>Puede no aparecer o puede aparecer muchas veces.</td>
+              <td>Una lista opcional de teléfonos.</td>
+            </tr>
+            <tr>
+              <td><code>minOccurs="1" maxOccurs="unbounded"</code></td>
+              <td>Debe aparecer al menos una vez y puede repetirse.</td>
+              <td>Una lista de módulos matriculados.</td>
+            </tr>
+            <tr>
+              <td><code>minOccurs="2" maxOccurs="4"</code></td>
+              <td>Debe aparecer como mínimo dos veces y como máximo cuatro.</td>
+              <td>Entre dos y cuatro ejercicios entregados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <pre><code>&lt;xs:element name="nombre" type="xs:string" /&gt;
+&lt;!-- Equivale a minOccurs="1" maxOccurs="1" --&gt;
+
+&lt;xs:element name="segundoApellido" type="xs:string" minOccurs="0" maxOccurs="1" /&gt;
+&lt;!-- Opcional: puede no salir --&gt;
+
+&lt;xs:element name="telefono" type="xs:string" minOccurs="0" maxOccurs="unbounded" /&gt;
+&lt;!-- Opcional y repetible --&gt;</code></pre>
     </div>
   </div>
 </div>

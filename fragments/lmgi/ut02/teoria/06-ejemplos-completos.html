@@ -1,0 +1,201 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-puzzle-piece"></i> 2.6 Ejemplos completos: mezclando reglas XSD</h2>
+    <p class="lead">En un XSD real es habitual mezclar <strong>elementos simples, restricciones, atributos, tipos complejos y elementos anidados</strong>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> Por qué necesitamos ejemplos completos</h4>
+      <p>Hasta ahora hemos visto las piezas por separado: elementos, atributos, secuencias, tipos de datos y restricciones. En la práctica, un esquema XSD suele combinar varias de estas piezas al mismo tiempo.</p>
+      <p>La idea es leer el XSD como si fuera un contrato: indica qué etiquetas puede tener el XML, en qué orden, con qué atributos y qué valores se consideran válidos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user-graduate"></i> Ejemplo 1: alumno con restricciones y atributos</h4>
+      <p>Este XML representa un alumno. Tiene un atributo obligatorio <code>id</code>, elementos simples y varios valores restringidos.</p>
+      <pre><code>&lt;alumno id="A125"&gt;
+  &lt;nombre&gt;Nerea&lt;/nombre&gt;
+  &lt;edad&gt;17&lt;/edad&gt;
+  &lt;modalidad&gt;DAM&lt;/modalidad&gt;
+  &lt;notaMedia&gt;8.4&lt;/notaMedia&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>Un posible XSD para validarlo sería:</p>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="alumno"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="nombre" type="xs:string" /&gt;
+
+        &lt;xs:element name="edad"&gt;
+          &lt;xs:simpleType&gt;
+            &lt;xs:restriction base="xs:integer"&gt;
+              &lt;xs:minInclusive value="16" /&gt;
+              &lt;xs:maxInclusive value="65" /&gt;
+            &lt;/xs:restriction&gt;
+          &lt;/xs:simpleType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;xs:element name="modalidad"&gt;
+          &lt;xs:simpleType&gt;
+            &lt;xs:restriction base="xs:string"&gt;
+              &lt;xs:enumeration value="DAM" /&gt;
+              &lt;xs:enumeration value="DAW" /&gt;
+            &lt;/xs:restriction&gt;
+          &lt;/xs:simpleType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;xs:element name="notaMedia"&gt;
+          &lt;xs:simpleType&gt;
+            &lt;xs:restriction base="xs:decimal"&gt;
+              &lt;xs:minInclusive value="0" /&gt;
+              &lt;xs:maxInclusive value="10" /&gt;
+            &lt;/xs:restriction&gt;
+          &lt;/xs:simpleType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+
+      &lt;xs:attribute name="id" use="required"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"&gt;
+            &lt;xs:pattern value="A[0-9][0-9][0-9]" /&gt;
+          &lt;/xs:restriction&gt;
+        &lt;/xs:simpleType&gt;
+      &lt;/xs:attribute&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+      <p>En este ejemplo se mezclan varias reglas: el atributo <code>id</code> es obligatorio, la edad tiene rango, la modalidad tiene valores permitidos y la nota media debe estar entre 0 y 10.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-boxes-stacked"></i> Ejemplo 2: tipo complejo dentro de otro tipo complejo</h4>
+      <p>Un tipo complejo puede contener otro elemento que, a su vez, también tenga estructura interna. Por ejemplo, una matrícula contiene los datos de un alumno y los datos de un módulo.</p>
+      <pre><code>&lt;matricula curso="2026-2027"&gt;
+  &lt;alumno&gt;
+    &lt;nombre&gt;Iker&lt;/nombre&gt;
+    &lt;email&gt;iker@example.com&lt;/email&gt;
+  &lt;/alumno&gt;
+  &lt;modulo codigo="LMSGI"&gt;
+    &lt;nombre&gt;Lenguaje de Marcas&lt;/nombre&gt;
+    &lt;horas&gt;128&lt;/horas&gt;
+  &lt;/modulo&gt;
+&lt;/matricula&gt;</code></pre>
+      <p>El XSD puede definir una estructura anidada:</p>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="matricula"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="alumno"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="nombre" type="xs:string" /&gt;
+              &lt;xs:element name="email"&gt;
+                &lt;xs:simpleType&gt;
+                  &lt;xs:restriction base="xs:string"&gt;
+                    &lt;xs:pattern value=".+@.+" /&gt;
+                  &lt;/xs:restriction&gt;
+                &lt;/xs:simpleType&gt;
+              &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;xs:element name="modulo"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="nombre" type="xs:string" /&gt;
+              &lt;xs:element name="horas"&gt;
+                &lt;xs:simpleType&gt;
+                  &lt;xs:restriction base="xs:integer"&gt;
+                    &lt;xs:minInclusive value="1" /&gt;
+                  &lt;/xs:restriction&gt;
+                &lt;/xs:simpleType&gt;
+              &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+            &lt;xs:attribute name="codigo" type="xs:string" use="required" /&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:sequence&gt;
+
+      &lt;xs:attribute name="curso" type="xs:string" use="required" /&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+      <p>Aquí aparecen dos niveles de estructura: <code>&lt;matricula&gt;</code> contiene <code>&lt;alumno&gt;</code> y <code>&lt;modulo&gt;</code>, y ambos tienen sus propios elementos internos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tag"></i> Ejemplo 3: contenido simple con atributo</h4>
+      <p>A veces un elemento no tiene hijos, solo texto, pero además necesita atributos. Por ejemplo, una nota puede tener como contenido el valor numérico y como atributo la convocatoria.</p>
+      <pre><code>&lt;nota convocatoria="ordinaria"&gt;8.5&lt;/nota&gt;</code></pre>
+      <p>Este caso tiene un poco más de miga: no basta con declarar un <code>&lt;xs:simpleType&gt;</code>, porque los tipos simples no pueden tener atributos. Para tener texto y atributos a la vez necesitamos un <code>&lt;xs:complexType&gt;</code> con <code>&lt;xs:simpleContent&gt;</code>.</p>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="nota"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:simpleContent&gt;
+        &lt;xs:extension base="tipoNota"&gt;
+          &lt;xs:attribute name="convocatoria" use="required"&gt;
+            &lt;xs:simpleType&gt;
+              &lt;xs:restriction base="xs:string"&gt;
+                &lt;xs:enumeration value="ordinaria" /&gt;
+                &lt;xs:enumeration value="extraordinaria" /&gt;
+              &lt;/xs:restriction&gt;
+            &lt;/xs:simpleType&gt;
+          &lt;/xs:attribute&gt;
+        &lt;/xs:extension&gt;
+      &lt;/xs:simpleContent&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+
+  &lt;xs:simpleType name="tipoNota"&gt;
+    &lt;xs:restriction base="xs:decimal"&gt;
+      &lt;xs:minInclusive value="0" /&gt;
+      &lt;xs:maxInclusive value="10" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:schema&gt;</code></pre>
+      <p>En este ejemplo, el contenido de <code>&lt;nota&gt;</code> debe cumplir el tipo <code>tipoNota</code>, pero además el elemento debe tener un atributo <code>convocatoria</code> con uno de los valores permitidos.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>XML</th>
+              <th>Resultado</th>
+              <th>Motivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;nota convocatoria="ordinaria"&gt;8.5&lt;/nota&gt;</code></td>
+              <td>Válido</td>
+              <td>La nota está entre 0 y 10, y la convocatoria está permitida.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;nota convocatoria="final"&gt;8.5&lt;/nota&gt;</code></td>
+              <td>No válido</td>
+              <td><code>final</code> no aparece en la enumeración.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;nota convocatoria="ordinaria"&gt;12&lt;/nota&gt;</code></td>
+              <td>No válido</td>
+              <td>El contenido no respeta el rango definido en <code>tipoNota</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-magnifying-glass"></i> Cómo leer estos ejemplos</h4>
+      <ul>
+        <li>Primero localiza el elemento raíz del XML.</li>
+        <li>Después busca en el XSD el <code>&lt;xs:element&gt;</code> con ese nombre.</li>
+        <li>Si tiene <code>&lt;xs:complexType&gt;</code>, revisa qué elementos hijos permite.</li>
+        <li>Si aparece <code>&lt;xs:sequence&gt;</code>, respeta el orden indicado.</li>
+        <li>Comprueba atributos obligatorios con <code>use="required"</code>.</li>
+        <li>Por último, revisa restricciones como rangos, enumeraciones o patrones.</li>
+      </ul>
+    </div>
+  </div>
+</div>

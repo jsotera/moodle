@@ -1,0 +1,126 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-recycle"></i> 2.7 Definir tipos propios y reutilizarlos</h2>
+    <p class="lead">XSD permite crear <strong>tipos propios</strong> para reutilizar reglas en distintas partes del esquema.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> Por qué crear tipos propios</h4>
+      <p>Si una misma regla aparece varias veces, no tiene sentido escribirla una y otra vez. En XSD podemos definir un tipo una sola vez y reutilizarlo después.</p>
+      <p>Esto hace que el esquema sea más claro, más fácil de mantener y menos propenso a errores.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-font"></i> Tipos simples propios</h4>
+      <p>Un tipo simple propio sirve para dar nombre a una restricción. Por ejemplo, podemos definir un tipo para notas entre 0 y 10.</p>
+      <pre><code>&lt;xs:simpleType name="tipoNota"&gt;
+  &lt;xs:restriction base="xs:decimal"&gt;
+    &lt;xs:minInclusive value="0" /&gt;
+    &lt;xs:maxInclusive value="10" /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</code></pre>
+      <p>Después, podemos reutilizarlo en varios elementos:</p>
+      <pre><code>&lt;xs:element name="notaProgramacion" type="tipoNota" /&gt;
+&lt;xs:element name="notaMarcas" type="tipoNota" /&gt;
+&lt;xs:element name="notaBasesDatos" type="tipoNota" /&gt;</code></pre>
+      <p>Si más adelante cambiamos el rango de notas, solo tendremos que modificar <code>tipoNota</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-id-card"></i> Otro tipo simple: código de alumno</h4>
+      <p>También podemos crear un tipo propio para un patrón concreto:</p>
+      <pre><code>&lt;xs:simpleType name="tipoCodigoAlumno"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:pattern value="A[0-9][0-9][0-9]" /&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</code></pre>
+      <p>Y usarlo, por ejemplo, en un atributo:</p>
+      <pre><code>&lt;xs:attribute name="id" type="tipoCodigoAlumno" use="required" /&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Tipos complejos propios</h4>
+      <p>Los tipos complejos propios sirven para reutilizar estructuras completas. Por ejemplo, podemos definir una dirección una vez:</p>
+      <pre><code>&lt;xs:complexType name="tipoDireccion"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="calle" type="xs:string" /&gt;
+    &lt;xs:element name="numero" type="xs:string" /&gt;
+    &lt;xs:element name="codigoPostal"&gt;
+      &lt;xs:simpleType&gt;
+        &lt;xs:restriction base="xs:string"&gt;
+          &lt;xs:pattern value="[0-9][0-9][0-9][0-9][0-9]" /&gt;
+        &lt;/xs:restriction&gt;
+      &lt;/xs:simpleType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="localidad" type="xs:string" /&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</code></pre>
+      <p>Y después usarla en distintos elementos:</p>
+      <pre><code>&lt;xs:element name="direccionAlumno" type="tipoDireccion" /&gt;
+&lt;xs:element name="direccionCentro" type="tipoDireccion" /&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Ejemplo completo con tipos reutilizables</h4>
+      <p>Este XML utiliza una estructura de alumno con dirección y notas:</p>
+      <pre><code>&lt;alumno id="A125"&gt;
+  &lt;nombre&gt;Nerea&lt;/nombre&gt;
+  &lt;direccion&gt;
+    &lt;calle&gt;Calle Mayor&lt;/calle&gt;
+    &lt;numero&gt;12&lt;/numero&gt;
+    &lt;codigoPostal&gt;31001&lt;/codigoPostal&gt;
+    &lt;localidad&gt;Pamplona&lt;/localidad&gt;
+  &lt;/direccion&gt;
+  &lt;notaProgramacion&gt;8.5&lt;/notaProgramacion&gt;
+  &lt;notaMarcas&gt;9&lt;/notaMarcas&gt;
+&lt;/alumno&gt;</code></pre>
+      <p>Un esquema XSD con tipos propios podría ser:</p>
+      <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:simpleType name="tipoCodigoAlumno"&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+      &lt;xs:pattern value="A[0-9][0-9][0-9]" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;xs:simpleType name="tipoNota"&gt;
+    &lt;xs:restriction base="xs:decimal"&gt;
+      &lt;xs:minInclusive value="0" /&gt;
+      &lt;xs:maxInclusive value="10" /&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+
+  &lt;xs:complexType name="tipoDireccion"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="calle" type="xs:string" /&gt;
+      &lt;xs:element name="numero" type="xs:string" /&gt;
+      &lt;xs:element name="codigoPostal" type="xs:string" /&gt;
+      &lt;xs:element name="localidad" type="xs:string" /&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:element name="alumno"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="nombre" type="xs:string" /&gt;
+        &lt;xs:element name="direccion" type="tipoDireccion" /&gt;
+        &lt;xs:element name="notaProgramacion" type="tipoNota" /&gt;
+        &lt;xs:element name="notaMarcas" type="tipoNota" /&gt;
+      &lt;/xs:sequence&gt;
+      &lt;xs:attribute name="id" type="tipoCodigoAlumno" use="required" /&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-double"></i> Reglas prácticas</h4>
+      <ul>
+        <li>Usa <code>&lt;xs:simpleType&gt;</code> propio cuando quieras reutilizar una restricción sobre texto, números, fechas, patrones o enumeraciones.</li>
+        <li>Usa <code>&lt;xs:complexType&gt;</code> propio cuando quieras reutilizar una estructura con elementos hijos o atributos.</li>
+        <li>Los tipos propios se declaran normalmente dentro de <code>&lt;xs:schema&gt;</code>, antes de utilizarlos.</li>
+        <li>Para usar un tipo propio, escribe su nombre en el atributo <code>type</code>.</li>
+      </ul>
+    </div>
+  </div>
+</div>
