@@ -1,0 +1,92 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-user-group"></i> 2.4 Red social simple</h2>
+    <p class="lead">Desarrolla una pequeña simulación de red social utilizando dos clases dadas: <code>Usuario</code> y <code>RedSocial</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Usuario</code> y <code>RedSocial</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar el ejercicio.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-red-social-simple.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar el uso de objetos relacionados entre sí, llamadas a métodos con parámetros de tipo objeto y lectura de documentación Javadoc.</p>
+      <p>En este ejercicio todavía no se utilizan listas, arrays ni colecciones. Cada usuario puede seguir como máximo a tres usuarios mediante los atributos <code>sigoA1</code>, <code>sigoA2</code> y <code>sigoA3</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>La clase <code>Usuario</code> representa los datos de cada usuario: <code>nick</code>, <code>muro</code> y hasta tres usuarios seguidos.</li>
+        <li>La clase <code>RedSocial</code> es la encargada de publicar mensajes, asignar seguidores y consultar muros.</li>
+        <li>Siempre que se usa la red social, el primer parámetro de sus métodos es el usuario que está realizando la acción.</li>
+        <li>No debes modificar directamente los atributos internos de seguimiento desde <code>Main</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación que simule una red social sencilla con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea una instancia de <code>RedSocial</code>.</li>
+        <li>Crea al menos <strong>5 usuarios</strong> con distintos nicks.</li>
+        <li>Publica varios mensajes en los muros de diferentes usuarios.</li>
+        <li>Haz que algunos usuarios sigan a otros usuarios.</li>
+        <li>Consulta el muro propio de al menos un usuario.</li>
+        <li>Consulta el muro de seguidos de al menos dos usuarios distintos.</li>
+        <li>Muestra por consola a quién sigue cada usuario principal que hayas utilizado.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas obligatorias</h4>
+      <p>Además del funcionamiento normal, comprueba los siguientes casos:</p>
+      <ul>
+        <li>Un usuario intenta seguir a <strong>más de 3 usuarios</strong>.</li>
+        <li>Un usuario intenta seguirse a sí mismo.</li>
+        <li>Un usuario intenta seguir dos veces a la misma persona.</li>
+        <li>Un usuario deja de seguir a otra persona y después consulta de nuevo su muro de seguidos.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar según los usuarios y mensajes que crees, pero debería ser clara y parecida a esta:</p>
+      <pre><code>ane sigue a:
+- markel
+- june
+- irati
+
+Muro de usuarios seguidos por ane
+--- markel ---
+markel: Hoy estoy repasando clases en Java.
+
+--- june ---
+june: Me falta entender bien los objetos como parametros.
+
+ane no puede seguir a mas usuarios.
+ane no puede seguirse a si mismo.</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Lee el Javadoc de cada método antes de utilizarlo.</li>
+        <li>Recuerda que una variable de tipo <code>Usuario</code> guarda una referencia a un objeto.</li>
+        <li>No necesitas crear clases nuevas ni modificar <code>Usuario</code> o <code>RedSocial</code>.</li>
+        <li>Para ver mejor el resultado, separa las pruebas con mensajes de consola.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>RedSocialSimple</code></p>
+    </div>
+  </div>
+</div>
