@@ -7,7 +7,7 @@
     <title>UT 02 | Ejercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790596174436" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790673402428" rel="stylesheet">
   </head>
   <body data-page-id="ut02-ejercicios">
     <div class="app-shell">
@@ -65,6 +65,24 @@
     <p class="lead mb-0">Objetos y clases</p>
   </div>
 </section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de ejercicios">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Ejercicios
+  </h2>
+  <div class="section-nav-list">
+
+        <a class="section-nav-link" href="#ut02-ejercicios-01-comprender-clases">
+          2.1 Comprender clases dadas
+        </a>
+        <a class="section-nav-link" href="#ut02-ejercicios-02-carrera-coches-tiempos">
+          2.2 Carrera de coches y tiempos
+        </a>
+        <a class="section-nav-link" href="#ut02-ejercicios-03-arena-robots">
+          2.3 Arena de robots
+        </a>
+  </div>
+</nav>
 
 <section id="ut02-ejercicios-01-comprender-clases" class="fragment-section section-anchor">
 <div class="container mt-4 p-4"
@@ -253,12 +271,150 @@ Pelicula pelicula = new Pelicula("La noche del código", directora);</code></pre
   </div>
 </div>
 </section>
+
+
+<section id="ut02-ejercicios-02-carrera-coches-tiempos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-flag-checkered"></i> 2.2 Carrera de coches y tiempos</h2>
+    <p class="lead">Desarrolla una aplicación Java que simule una pequeña prueba en circuito utilizando las clases del paquete <code>modelo</code> vistas en clase.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo de este ejercicio es practicar la creación de objetos, la llamada a métodos y la consulta del estado de las instancias desde la clase <code>Main</code>.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica del ejercicio se debe escribir en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación que simule una carrera sencilla con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea <strong>1 circuito</strong> y <strong>2 coches</strong>.</li>
+        <li>Cada coche debe entrar en el circuito.</li>
+        <li>Cada coche debe acelerar <strong>3 veces consecutivas</strong>.</li>
+        <li>En cada aceleración se debe aplicar una velocidad aleatoria de entre <code>1</code> y <code>50</code> km/h.</li>
+        <li>Calcula y muestra por consola el tiempo total, en segundos, que ha permanecido cada coche en el circuito.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida no tiene por qué ser exactamente igual, ya que las velocidades serán aleatorias, pero debe mostrar información clara sobre cada coche:</p>
+      <pre><code>Coche 1
+Velocidades aplicadas: 32 km/h, 14 km/h, 47 km/h
+Tiempo total en el circuito: 125 segundos
+
+Coche 2
+Velocidades aplicadas: 21 km/h, 50 km/h, 18 km/h
+Tiempo total en el circuito: 139 segundos</code></pre>
+      <p>Si las clases del modelo ya ofrecen métodos para mostrar esta información, utilízalos. Si no, combina llamadas a métodos y mensajes con <code>System.out.println</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Recuerda importar las clases necesarias del paquete <code>modelo</code>.</li>
+        <li>Puedes generar números aleatorios con <code>Math.random()</code> o con la clase <code>Random</code>.</li>
+        <li>Comprueba qué constructores tiene cada clase antes de crear los objetos.</li>
+        <li>Revisa qué métodos modifican el estado del coche y cuáles devuelven información.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CarreraCoches</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-ejercicios-03-arena-robots" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-robot"></i> 2.3 Arena de robots</h2>
+    <p class="lead">Desarrolla una simulación de combates utilizando dos clases dadas: <code>Robot</code> y <code>Arena</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Robot</code> y <code>Arena</code> ya creadas en el paquete <code>modelo</code>, además de una clase <code>Main</code> preparada para completar el ejercicio.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-arena-robots.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar la creación de objetos, el uso de constructores, la llamada a métodos y el trabajo con objetos que se pasan como parámetro a otros métodos.</p>
+      <p>No debes modificar las clases <code>Robot</code> ni <code>Arena</code>. Toda la lógica del ejercicio debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación que simule una arena de combate con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea una instancia de <code>Arena</code>.</li>
+        <li>Crea <strong>6 robots</strong> utilizando los constructores disponibles.</li>
+        <li>Inscribe los 6 robots en la arena.</li>
+        <li>Realiza varias rondas de combate llamando al método <code>comenzarCombate</code>.</li>
+        <li>Muestra por consola el podio actual de la arena.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Parte avanzada</h4>
+      <p>Después de mostrar el primer podio, realiza una segunda fase:</p>
+      <ul>
+        <li>Guarda en variables los tres robots que van primero, segundo y tercero en la clasificación.</li>
+        <li>Restablece la arena con el método <code>restablecer</code>.</li>
+        <li>Inscribe únicamente esos tres robots ganadores.</li>
+        <li>Realiza <strong>10 rondas de combate</strong> nuevas.</li>
+        <li>Muestra el podio final.</li>
+      </ul>
+      <p>No debes modificar manualmente la vida de los robots. Los tres robots clasificados deben continuar con la vida que tenían al terminar la primera fase.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar porque algunos valores y combates son aleatorios, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Comienza el combate entre Ares y Neko.
+Ares ataca a Neko y causa 8 puntos de danio.
+Neko ataca a Ares y causa 3 puntos de danio.
+
+Podio actual:
+1. Robot{nombre='Ares', vida=97, fuerza=6, defensa=8}
+2. Robot{nombre='Neko', vida=92, fuerza=4, defensa=5}
+3. Robot{nombre='Luna', vida=88, fuerza=9, defensa=3}</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Revisa los constructores de <code>Robot</code> antes de crear los objetos.</li>
+        <li>Si utilizas el constructor vacío, recuerda asignar después valores válidos con los setters antes de combatir.</li>
+        <li>Utiliza variables para conservar la referencia a los robots que quieras reutilizar.</li>
+        <li>Para repetir combates, puedes usar varias llamadas seguidas o un bucle <code>for</code>.</li>
+        <li>Recuerda que <code>restablecer</code> vacía la arena, pero no crea robots nuevos ni cambia la vida de los robots existentes.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ArenaRobots</code></p>
+    </div>
+  </div>
+</div>
+</section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790596174436"></script>
-    <script src="assets/js/course.js?v=1790596174436"></script>
+    <script src="assets/js/search-data.js?v=1790673402428"></script>
+    <script src="assets/js/course.js?v=1790673402428"></script>
   </body>
 </html>

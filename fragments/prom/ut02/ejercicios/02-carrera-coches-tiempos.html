@@ -1,0 +1,53 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-flag-checkered"></i> 2.2 Carrera de coches y tiempos</h2>
+    <p class="lead">Desarrolla una aplicación Java que simule una pequeña prueba en circuito utilizando las clases del paquete <code>modelo</code> vistas en clase.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo de este ejercicio es practicar la creación de objetos, la llamada a métodos y la consulta del estado de las instancias desde la clase <code>Main</code>.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica del ejercicio se debe escribir en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación que simule una carrera sencilla con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea <strong>1 circuito</strong> y <strong>2 coches</strong>.</li>
+        <li>Cada coche debe entrar en el circuito.</li>
+        <li>Cada coche debe acelerar <strong>3 veces consecutivas</strong>.</li>
+        <li>En cada aceleración se debe aplicar una velocidad aleatoria de entre <code>1</code> y <code>50</code> km/h.</li>
+        <li>Calcula y muestra por consola el tiempo total, en segundos, que ha permanecido cada coche en el circuito.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida no tiene por qué ser exactamente igual, ya que las velocidades serán aleatorias, pero debe mostrar información clara sobre cada coche:</p>
+      <pre><code>Coche 1
+Velocidades aplicadas: 32 km/h, 14 km/h, 47 km/h
+Tiempo total en el circuito: 125 segundos
+
+Coche 2
+Velocidades aplicadas: 21 km/h, 50 km/h, 18 km/h
+Tiempo total en el circuito: 139 segundos</code></pre>
+      <p>Si las clases del modelo ya ofrecen métodos para mostrar esta información, utilízalos. Si no, combina llamadas a métodos y mensajes con <code>System.out.println</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Recuerda importar las clases necesarias del paquete <code>modelo</code>.</li>
+        <li>Puedes generar números aleatorios con <code>Math.random()</code> o con la clase <code>Random</code>.</li>
+        <li>Comprueba qué constructores tiene cada clase antes de crear los objetos.</li>
+        <li>Revisa qué métodos modifican el estado del coche y cuáles devuelven información.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CarreraCoches</code></p>
+    </div>
+  </div>
+</div>

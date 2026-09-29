@@ -1,0 +1,77 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-robot"></i> 2.3 Arena de robots</h2>
+    <p class="lead">Desarrolla una simulación de combates utilizando dos clases dadas: <code>Robot</code> y <code>Arena</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Robot</code> y <code>Arena</code> ya creadas en el paquete <code>modelo</code>, además de una clase <code>Main</code> preparada para completar el ejercicio.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-arena-robots.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar la creación de objetos, el uso de constructores, la llamada a métodos y el trabajo con objetos que se pasan como parámetro a otros métodos.</p>
+      <p>No debes modificar las clases <code>Robot</code> ni <code>Arena</code>. Toda la lógica del ejercicio debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación que simule una arena de combate con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea una instancia de <code>Arena</code>.</li>
+        <li>Crea <strong>6 robots</strong> utilizando los constructores disponibles.</li>
+        <li>Inscribe los 6 robots en la arena.</li>
+        <li>Realiza varias rondas de combate llamando al método <code>comenzarCombate</code>.</li>
+        <li>Muestra por consola el podio actual de la arena.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Parte avanzada</h4>
+      <p>Después de mostrar el primer podio, realiza una segunda fase:</p>
+      <ul>
+        <li>Guarda en variables los tres robots que van primero, segundo y tercero en la clasificación.</li>
+        <li>Restablece la arena con el método <code>restablecer</code>.</li>
+        <li>Inscribe únicamente esos tres robots ganadores.</li>
+        <li>Realiza <strong>10 rondas de combate</strong> nuevas.</li>
+        <li>Muestra el podio final.</li>
+      </ul>
+      <p>No debes modificar manualmente la vida de los robots. Los tres robots clasificados deben continuar con la vida que tenían al terminar la primera fase.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar porque algunos valores y combates son aleatorios, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Comienza el combate entre Ares y Neko.
+Ares ataca a Neko y causa 8 puntos de danio.
+Neko ataca a Ares y causa 3 puntos de danio.
+
+Podio actual:
+1. Robot{nombre='Ares', vida=97, fuerza=6, defensa=8}
+2. Robot{nombre='Neko', vida=92, fuerza=4, defensa=5}
+3. Robot{nombre='Luna', vida=88, fuerza=9, defensa=3}</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Revisa los constructores de <code>Robot</code> antes de crear los objetos.</li>
+        <li>Si utilizas el constructor vacío, recuerda asignar después valores válidos con los setters antes de combatir.</li>
+        <li>Utiliza variables para conservar la referencia a los robots que quieras reutilizar.</li>
+        <li>Para repetir combates, puedes usar varias llamadas seguidas o un bucle <code>for</code>.</li>
+        <li>Recuerda que <code>restablecer</code> vacía la arena, pero no crea robots nuevos ni cambia la vida de los robots existentes.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ArenaRobots</code></p>
+    </div>
+  </div>
+</div>
