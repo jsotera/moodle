@@ -1,0 +1,98 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-gamepad"></i> 2.6 Consolas prestadas y referencias</h2>
+    <p class="lead">Trabaja con tres modelos relacionados entre sí: <code>Persona</code>, <code>Consola</code> y <code>VideoJuego</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code>, <code>Consola</code> y <code>VideoJuego</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-consolas-prestadas.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es observar cómo varios objetos pueden quedar conectados entre sí mediante referencias: una persona usa una consola, la consola tiene un propietario fijo y la consola ejecuta un videojuego concreto.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Persona</code> tiene <code>nombre</code>, <code>estado</code> y una <code>consolaEnUso</code>.</li>
+        <li>Una <code>Consola</code> tiene un <strong>propietario fijo</strong>, un modelo, un estado operativo y un videojuego insertado.</li>
+        <li>El propietario de una consola no cambia aunque la consola se preste a otra persona.</li>
+        <li>Una consola solo puede utilizarse a través de métodos de una <code>Persona</code>.</li>
+        <li>Para utilizar una consola, primero debe tener un videojuego insertado.</li>
+        <li>Cada vez que se usa un juego, aumenta su contador de usos.</li>
+        <li>Cada uso tiene un 50% de probabilidad de estropear la consola.</li>
+        <li>Si un mismo videojuego se utiliza más de 3 veces, la consola se estropea automáticamente.</li>
+        <li>Cuando una consola se estropea, su propietario pasa a tener el estado <code>enfadado</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea al menos <strong>3 personas</strong>.</li>
+        <li>Crea una consola cuyo propietario sea una de esas personas.</li>
+        <li>Crea al menos <strong>2 videojuegos</strong>.</li>
+        <li>Haz que el propietario reciba su consola, inserte un videojuego y la utilice.</li>
+        <li>Presta la consola a otra persona y vuelve a utilizarla desde esa persona.</li>
+        <li>Comprueba que la consola sigue perteneciendo a la persona propietaria original.</li>
+        <li>Utiliza varias veces el mismo videojuego hasta provocar que la consola se estropee.</li>
+        <li>Consulta el estado de la persona propietaria desde su variable original del <code>Main</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La trampa importante</h4>
+      <p>La persona que usa la consola no tiene por qué ser su propietaria. Si la consola se rompe mientras la está usando otra persona, quien se enfada es la persona propietaria original.</p>
+      <p>Ese cambio se verá también si consultas el objeto <code>Persona</code> original que creaste en <code>Main</code>, porque es la misma referencia que guarda la consola como propietaria.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Intenta utilizar una consola sin haber insertado ningún videojuego.</li>
+        <li>Inserta un videojuego, presta la consola y comprueba que el videojuego insertado sigue dentro.</li>
+        <li>Usa el mismo videojuego desde distintas personas y observa que su contador de usos sigue aumentando.</li>
+        <li>Crea una segunda consola y compara qué propietario se enfada cuando se estropea cada una.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar porque existe probabilidad de avería, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Ane tiene ahora en uso la consola RetroBox.
+Se ha insertado Pixel Kart en RetroBox.
+Ejecutando Pixel Kart en RetroBox. Uso numero 1.
+Ane ha prestado la consola a Markel.
+Ejecutando Pixel Kart en RetroBox. Uso numero 2.
+La consola se ha roto por mala suerte.
+La consola RetroBox se ha estropeado.
+Ane se ha enfadado.
+Ane esta enfadado.</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Lee el Javadoc antes de utilizar cada método.</li>
+        <li>Utiliza <code>toString</code> para observar el estado de personas, consolas y videojuegos.</li>
+        <li>No confundas <code>propietario</code> con <code>consolaEnUso</code>.</li>
+        <li>Si la consola se rompe demasiado pronto por probabilidad, vuelve a ejecutar el programa.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ConsolasPrestadas</code></p>
+    </div>
+  </div>
+</div>
