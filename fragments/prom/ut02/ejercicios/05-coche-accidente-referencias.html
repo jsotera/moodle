@@ -1,64 +1,85 @@
 <div class="container mt-4 p-4"
   style="padding-top: 0 !important; margin-top: 0 !important;">
   <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i
-        class="fas fa-car-burst"></i> 2.5 Coche, accidente y referencias</h2>
-    <p class="lead">Trabaja con objetos relacionados entre sí y observa una de las ideas más importantes de la programación orientada a objetos: las variables guardan referencias a objetos.</p>
-
+    <h2 class="text-primary mb-3"><i class="fas fa-car-burst"></i> 2.5 Coche,
+      accidente y referencias</h2>
+    <p class="lead">Trabaja con objetos relacionados entre sí y observa una de
+      las ideas más importantes de la programación orientada a objetos: las
+      variables guardan referencias a objetos.</p>
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>Coche</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
-      <p>
-        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-coche-accidente-referencias.zip" download>
-          <i class="fas fa-file-archive"></i> Descargar proyecto base
-        </a>
-      </p>
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto
+        base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto
+        contiene las clases <code>Persona</code> y <code>Coche</code>
+        documentadas con Javadoc, además de una clase <code>Main</code>
+        preparada para completar la actividad.</p>
+      <p><a class="btn btn-primary"
+          href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-coche-accidente-referencias.zip"
+          download=""> <i class="fas fa-file-archive"></i> Descargar proyecto
+          base </a></p>
     </div>
-
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
-      <p>El objetivo es utilizar objetos de tipo <code>Persona</code> dentro de un objeto de tipo <code>Coche</code> y comprobar que, cuando el coche modifica una persona, también cambia el objeto que teníamos guardado en una variable del <code>Main</code>.</p>
-      <p>No debes modificar las clases <code>Persona</code> ni <code>Coche</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>.</p>
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo
+      </h4>
+      <p>El objetivo es utilizar objetos de tipo <code>Persona</code> dentro de
+        un objeto de tipo <code>Coche</code> y comprobar que, cuando el coche
+        modifica una persona, también cambia el objeto que teníamos guardado en
+        una variable del <code>Main</code>.</p>
+      <p>No debes modificar las clases <code>Persona</code> ni
+        <code>Coche</code>. Toda la lógica de prueba debe escribirse en el
+        método <code>main</code>.</p>
     </div>
-
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i>
+        Reglas del modelo</h4>
       <ul>
-        <li>Una <code>Persona</code> tiene <code>nombre</code> y <code>lesion</code>.</li>
-        <li>Un <code>Coche</code> puede tener conductor, copiloto, pasajero 1 y pasajero 2.</li>
+        <li>Una <code>Persona</code> tiene <code>nombre</code> y
+          <code>lesion</code>.</li>
+        <li>Un <code>Coche</code> puede tener conductor, copiloto, pasajero 1 y
+          pasajero 2.</li>
         <li>El conductor no puede entrar también como pasajero.</li>
-        <li>Los pasajeros se van colocando por orden: copiloto, pasajero 1 y pasajero 2.</li>
+        <li>Los pasajeros se van colocando por orden: copiloto, pasajero 1 y
+          pasajero 2.</li>
         <li>Si el coche no está arrancado, no puede acelerar.</li>
-        <li>Cuando ocurre un accidente, el coche asigna lesiones a las personas que van dentro.</li>
+        <li>Cuando ocurre un accidente, el coche asigna lesiones a las personas
+          que van dentro.</li>
       </ul>
     </div>
-
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado
+      </h4>
       <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
       <ul>
         <li>Crea al menos <strong>5 personas</strong>.</li>
         <li>Crea un coche indicando su modelo.</li>
         <li>Asigna una persona como conductor.</li>
-        <li>Intenta asignar al conductor también como pasajero y observa qué ocurre.</li>
+        <li>Intenta asignar al conductor también como pasajero y observa qué
+          ocurre.</li>
         <li>Asigna varios pasajeros hasta llenar el coche.</li>
         <li>Intenta añadir una persona más cuando el coche ya esté lleno.</li>
         <li>Muestra la descripción del coche por consola.</li>
         <li>Intenta acelerar antes de arrancar el coche.</li>
         <li>Arranca el coche, acelera varias veces y provoca un accidente.</li>
-        <li>Consulta las lesiones desde las variables de tipo <code>Persona</code> creadas en <code>Main</code>.</li>
+        <li>Consulta las lesiones desde las variables de tipo
+          <code>Persona</code> creadas en <code>Main</code>.</li>
       </ul>
     </div>
-
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La trampa importante</h4>
-      <p>Después del accidente, no consultes únicamente la descripción del coche. Llama también al método <code>informarSobreLesion</code> desde las variables originales de cada persona.</p>
-      <p>Si una persona estaba dentro del coche, su lesión habrá cambiado aunque la estés consultando desde una variable del <code>Main</code>. Eso ocurre porque el coche y el <code>Main</code> están trabajando con el mismo objeto.</p>
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i>
+        La trampa importante</h4>
+      <p>Después del accidente, no consultes únicamente la descripción del
+        coche. Llama también al método <code>informarSobreLesion</code> desde
+        las variables originales de cada persona.</p>
+      <p>Si una persona estaba dentro del coche, su lesión habrá cambiado aunque
+        la estés consultando desde una variable del <code>Main</code>. Eso
+        ocurre porque el coche y el <code>Main</code> están trabajando con el
+        mismo objeto.</p>
     </div>
-
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
-      <p>La salida puede variar según los nombres y velocidades que utilices, pero debería mostrar mensajes similares a estos:</p>
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida
+        esperada</h4>
+      <p>La salida puede variar según los nombres y velocidades que utilices,
+        pero debería mostrar mensajes similares a estos:</p>
       <pre><code>No se puede acelerar porque el coche no esta arrancado.
 El coche ha arrancado.
 El coche acelera hasta 40 km/h.
@@ -68,19 +89,31 @@ El coche se ha detenido.
 Ane sufre la siguiente lesion: fractura leve.
 Markel sufre la siguiente lesion: fractura leve.</code></pre>
     </div>
-
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <h4 class="text-primary mb-3">Parte avanzada</h4>
+      <p>Después de tener un accidente:</p>
+      <ul>
+        <li>Prueba a curar alguno de los pasajeros (restableciendo las
+          lesiones).</li>
+        <li>Muestra la descripción del coche por persona.</li>
+        <li>¿Qué ha ocurrido?</li>
+        <li>Realiza una depuración paso a paso para visualizar mediante el
+          plugin <strong>Java Visualizer</strong> lo que está ocurriendo.</li>
+      </ul>
+      <h4 class="text-primary mb-3">Pistas</h4>
       <ul>
         <li>Lee el Javadoc de cada método antes de utilizarlo.</li>
-        <li>Guarda cada persona en una variable distinta para poder consultarla después del accidente.</li>
-        <li>Utiliza <code>descripcion</code> antes y después de asignar pasajeros para comprobar el estado del coche.</li>
-        <li>Prueba diferentes velocidades para ver cómo cambia el tipo de lesión.</li>
+        <li>Guarda cada persona en una variable distinta para poder consultarla
+          después del accidente.</li>
+        <li>Utiliza <code>descripcion</code> antes y después de asignar
+          pasajeros para comprobar el estado del coche.</li>
+        <li>Prueba diferentes velocidades para ver cómo cambia el tipo de
+          lesión.</li>
       </ul>
     </div>
-
     <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CocheAccidenteReferencias</code></p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong>
+        <code>CocheAccidente</code></p>
     </div>
   </div>
 </div>
