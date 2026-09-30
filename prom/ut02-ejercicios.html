@@ -7,7 +7,7 @@
     <title>UT 02 | Ejercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790763020624" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790763723795" rel="stylesheet">
   </head>
   <body data-page-id="ut02-ejercicios">
     <div class="app-shell">
@@ -89,6 +89,9 @@
         </a>
         <a class="section-nav-link" href="#ut02-ejercicios-06-consolas-prestadas">
           2.6 Consolas prestadas y referencias
+        </a>
+        <a class="section-nav-link" href="#ut02-ejercicios-07-piedra-papel-tijera">
+          2.7 Piedra, papel o tijera
         </a>
   </div>
 </nav>
@@ -739,12 +742,106 @@ Ane esta enfadado.</code></pre>
   </div>
 </div>
 </section>
+
+
+<section id="ut02-ejercicios-07-piedra-papel-tijera" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-hand-scissors"></i> 2.7 Piedra, papel o tijera</h2>
+    <p class="lead">Desarrolla una simulación sencilla de piedra, papel o tijera utilizando dos clases dadas: <code>Persona</code> y <code>Juego</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>Juego</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-piedra-papel-tijera.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar el uso de objetos relacionados de una forma más sencilla: dos personas participan en un juego, y la clase <code>Juego</code> se encarga de asignar jugadas, decidir el resultado y actualizar los marcadores.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Persona</code> tiene nombre, jugada actual, partidas ganadas, partidas perdidas y partidas empatadas.</li>
+        <li>Un <code>Juego</code> tiene dos personas participantes.</li>
+        <li>Cada vez que se llama a <code>jugar</code>, el juego asigna automáticamente una jugada a cada persona.</li>
+        <li>La clase <code>Juego</code> decide quién gana y actualiza los contadores de ambas personas.</li>
+        <li>Desde <code>Main</code> no debes modificar directamente los marcadores.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea dos personas con nombres distintos.</li>
+        <li>Crea una instancia de <code>Juego</code> con esas dos personas.</li>
+        <li>Ejecuta varias partidas llamando al método <code>jugar</code>.</li>
+        <li>Muestra el marcador utilizando el método <code>obtenerMarcador</code>.</li>
+        <li>Muestra también por consola las dos variables originales de tipo <code>Persona</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
+      <p>La clase <code>Juego</code> modifica los contadores de las personas que recibió en el constructor. Cuando después imprimas las variables originales de <code>Main</code>, verás esos cambios porque son los mismos objetos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Ejecuta 10 partidas usando un bucle <code>for</code>.</li>
+        <li>Crea un segundo juego reutilizando una de las personas anteriores contra una persona nueva.</li>
+        <li>Comprueba si el marcador de la persona reutilizada conserva las partidas anteriores.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida cambiará porque las jugadas son aleatorias, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Ane juega piedra.
+Markel juega tijera.
+Gana Ane.
+
+Ane juega papel.
+Markel juega papel.
+La partida termina en empate.
+
+Persona{nombre='Ane', jugadaActual='papel', ganadas=1, perdidas=0, empatadas=1}
+Persona{nombre='Markel', jugadaActual='papel', ganadas=0, perdidas=1, empatadas=1}</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Lee el Javadoc de <code>jugar</code> y <code>obtenerMarcador</code>.</li>
+        <li>No necesitas pedir datos por teclado.</li>
+        <li>Recuerda que cada llamada a <code>jugar</code> representa una partida completa.</li>
+        <li>Observa cómo cambian los objetos <code>Persona</code> aunque los cambios los haga la clase <code>Juego</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>PiedraPapelTijera</code></p>
+    </div>
+  </div>
+</div>
+</section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790763020624"></script>
-    <script src="assets/js/course.js?v=1790763020624"></script>
+    <script src="assets/js/search-data.js?v=1790763723795"></script>
+    <script src="assets/js/course.js?v=1790763723795"></script>
   </body>
 </html>
