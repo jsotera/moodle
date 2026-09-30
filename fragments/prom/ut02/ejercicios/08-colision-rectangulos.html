@@ -1,0 +1,80 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-vector-square"></i> 2.8 Colisión de rectángulos</h2>
+    <p class="lead">Crea dos objetos de tipo <code>Rectangulo</code> y analiza desde <code>Main</code> si ocupan una zona común.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene la clase <code>Rectangulo</code> documentada con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-colision-rectangulos.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar la creación de objetos, el acceso a sus propiedades mediante getters y el uso de expresiones booleanas para resolver un problema geométrico sencillo.</p>
+      <p>No debes modificar la clase <code>Rectangulo</code>. Toda la lógica para comprobar la colisión debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Un <code>Rectangulo</code> tiene coordenadas <code>x</code> e <code>y</code>.</li>
+        <li>También tiene <code>altura</code> y <code>anchura</code>.</li>
+        <li>Las coordenadas representan la esquina superior izquierda del rectángulo.</li>
+        <li>La colisión no la calcula la clase <code>Rectangulo</code>; debe calcularse desde <code>Main</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea dos rectángulos con coordenadas, altura y anchura diferentes.</li>
+        <li>Muestra por consola la información de ambos rectángulos.</li>
+        <li>Calcula el borde izquierdo, derecho, superior e inferior de cada rectángulo.</li>
+        <li>Comprueba si los dos rectángulos colisionan.</li>
+        <li>Muestra un mensaje indicando si existe colisión o no.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pista de razonamiento</h4>
+      <p>Dos rectángulos no colisionan si uno está completamente a la izquierda, a la derecha, por encima o por debajo del otro.</p>
+      <pre><code>derecha1 = x1 + anchura1
+abajo1 = y1 + altura1
+
+derecha2 = x2 + anchura2
+abajo2 = y2 + altura2</code></pre>
+      <p>A partir de esos límites, puedes construir una expresión booleana para saber si hay colisión.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Prueba con rectángulos que claramente colisionen.</li>
+        <li>Prueba con rectángulos separados horizontalmente.</li>
+        <li>Prueba con rectángulos separados verticalmente.</li>
+        <li>Prueba con rectángulos que solo se toquen por un borde y decide si quieres considerarlo colisión o no.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar según los valores que utilices, pero debería ser similar a esta:</p>
+      <pre><code>Rectangulo{x=10, y=10, altura=40, anchura=80}
+Rectangulo{x=50, y=20, altura=30, anchura=60}
+
+Los rectangulos colisionan.</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ColisionRectangulos</code></p>
+    </div>
+  </div>
+</div>
