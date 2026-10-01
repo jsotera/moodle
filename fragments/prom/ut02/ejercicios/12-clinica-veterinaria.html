@@ -1,0 +1,97 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-stethoscope"></i> 2.12 Clínica veterinaria: static y objetos como parámetro</h2>
+    <p class="lead">Trabaja con un ejercicio completo donde varios métodos reciben objetos como parámetro, modifican sus propiedades y actualizan estadísticas estáticas compartidas.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Mascota</code>, <code>Veterinario</code> y <code>ClinicaVeterinaria</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-clinica-veterinaria.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es comprobar que, cuando un método recibe un objeto como parámetro, puede modificar el estado de ese mismo objeto. Después, al consultar la variable original desde <code>Main</code>, los cambios siguen ahí.</p>
+      <p>Además, el ejercicio introduce estadísticas compartidas mediante elementos <code>static</code> en la clase <code>ClinicaVeterinaria</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Mascota</code> tiene nombre, tipo, salud, vacunación y estado.</li>
+        <li>Un <code>Veterinario</code> tiene nombre, especialidad y un contador propio de mascotas atendidas.</li>
+        <li>Los métodos <code>atender</code>, <code>vacunar</code> y <code>operar</code> reciben una <code>Mascota</code> como parámetro.</li>
+        <li>Esos métodos modifican la mascota recibida.</li>
+        <li>La clase <code>ClinicaVeterinaria</code> tiene estadísticas estáticas compartidas por toda la clínica.</li>
+        <li>Las estadísticas globales no pertenecen a un veterinario concreto.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Reinicia las estadísticas de la clínica.</li>
+        <li>Configura los precios de consulta, vacuna y operación.</li>
+        <li>Crea al menos <strong>3 mascotas</strong> con tipos y salud diferentes.</li>
+        <li>Crea al menos <strong>2 veterinarios</strong>.</li>
+        <li>Muestra la información inicial de las mascotas.</li>
+        <li>Haz que distintos veterinarios atiendan, vacunen u operen a varias mascotas.</li>
+        <li>Muestra de nuevo la información de las mascotas desde las variables originales del <code>Main</code>.</li>
+        <li>Muestra la información de cada veterinario.</li>
+        <li>Muestra las estadísticas globales de la clínica.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
+      <p>Cuando escribes una llamada como <code>veterinario.atender(mascota)</code>, el método recibe una referencia al mismo objeto mascota que habías creado en <code>Main</code>.</p>
+      <p>Por eso, si el método cambia su salud, vacunación o estado, esos cambios se ven después al imprimir la variable original.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Atiende a la misma mascota con dos veterinarios diferentes.</li>
+        <li>Vacuna una mascota y después opérela.</li>
+        <li>Compara el contador propio de cada veterinario con las estadísticas globales de la clínica.</li>
+        <li>Cambia los precios antes de realizar nuevas acciones y observa cómo cambian los ingresos globales.</li>
+        <li>Reinicia las estadísticas al final y vuelve a mostrarlas.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar según los nombres y acciones que utilices, pero debería mostrar cambios visibles en mascotas, veterinarios y estadísticas:</p>
+      <pre><code>Mascota{nombre='Nala', tipo='gato', salud=80, vacunada=false, estado='sin revisar'}
+Ane ha atendido a Nala.
+Ane ha vacunado a Nala.
+Mascota{nombre='Nala', tipo='gato', salud=85, vacunada=true, estado='vacunada por Ane'}
+Veterinario{nombre='Ane', especialidad='general', mascotasAtendidas=2}
+Mascotas atendidas: 1
+Vacunas aplicadas: 1
+Operaciones realizadas: 0
+Ingresos totales: 4800 centimos</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Los métodos estáticos de la clínica se invocan desde <code>ClinicaVeterinaria</code>.</li>
+        <li>Los métodos de atención se invocan desde un objeto <code>Veterinario</code>.</li>
+        <li>Las mascotas se pasan como argumento a los métodos del veterinario.</li>
+        <li>No necesitas utilizar arrays, listas ni pedir datos por teclado.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ClinicaVeterinaria</code></p>
+    </div>
+  </div>
+</div>
