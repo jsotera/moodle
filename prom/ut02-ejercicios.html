@@ -7,7 +7,7 @@
     <title>UT 02 | Ejercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790765995529" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790836694416" rel="stylesheet">
   </head>
   <body data-page-id="ut02-ejercicios">
     <div class="app-shell">
@@ -101,6 +101,9 @@
         </a>
         <a class="section-nav-link" href="#ut02-ejercicios-10-maquina-expendedora">
           2.10 Máquina expendedora, Random y static
+        </a>
+        <a class="section-nav-link" href="#ut02-ejercicios-11-lanzamiento-bola-math-random">
+          2.11 Lanzamiento de bola con Math y Random
         </a>
   </div>
 </nav>
@@ -1119,12 +1122,146 @@ Ventas globales: 2</code></pre>
   </div>
 </div>
 </section>
+
+
+<section id="ut02-ejercicios-11-lanzamiento-bola-math-random" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-bowling-ball"></i> 2.11 Lanzamiento de bola con Math y Random</h2>
+    <p class="lead">Crea una simulación sencilla en un único eje para practicar <code>Random</code>, métodos estáticos de <code>Math</code> y expresiones booleanas.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es simular una competición de lanzamiento de bola en línea recta. Habrá una diana colocada en una posición aleatoria y varias personas lanzarán su bola intentando quedarse lo más cerca posible.</p>
+      <p>Todo el ejercicio debe resolverse en el método <code>main</code>. No debes crear clases propias, ni utilizar <code>if</code>, <code>for</code>, <code>while</code> ni pedir datos por teclado.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-table"></i> Métodos necesarios</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Clase</th>
+              <th>Método o uso</th>
+              <th>Para qué lo usarás</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Random</code></td>
+              <td><code>new Random()</code></td>
+              <td>Crear el generador de números aleatorios.</td>
+            </tr>
+            <tr>
+              <td><code>Random</code></td>
+              <td><code>nextInt(limite)</code></td>
+              <td>Generar posiciones aleatorias para la diana y los lanzamientos.</td>
+            </tr>
+            <tr>
+              <td><code>Math</code></td>
+              <td><code>Math.abs(valor)</code></td>
+              <td>Calcular la distancia entre un lanzamiento y la diana sin importar si queda antes o después.</td>
+            </tr>
+            <tr>
+              <td><code>Math</code></td>
+              <td><code>Math.min(valor1, valor2)</code></td>
+              <td>Obtener la distancia más pequeña o el lanzamiento más corto.</td>
+            </tr>
+            <tr>
+              <td><code>Math</code></td>
+              <td><code>Math.max(valor1, valor2)</code></td>
+              <td>Obtener la distancia más grande o el lanzamiento más largo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea un proyecto llamado <code>LanzamientoBola</code>.</li>
+        <li>Todo el código debe estar dentro del método <code>main</code>.</li>
+        <li>Genera aleatoriamente la posición de una diana en una línea de metros.</li>
+        <li>Genera aleatoriamente el lanzamiento de tres participantes.</li>
+        <li>Calcula la distancia de cada lanzamiento respecto a la diana.</li>
+        <li>Calcula cuál es la distancia ganadora.</li>
+        <li>Calcula cuál es la distancia más lejana.</li>
+        <li>Crea variables booleanas para saber si gana cada participante.</li>
+        <li>Crea variables booleanas para saber si cada participante ha sido el más lejano.</li>
+        <li>Muestra todos los datos por consola de forma ordenada.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Datos mínimos</h4>
+      <p>Como mínimo, tu programa debe manejar estos datos:</p>
+      <ul>
+        <li>Una variable para la posición de la diana.</li>
+        <li>Una variable para el lanzamiento de cada participante.</li>
+        <li>Una variable para la distancia de cada participante a la diana.</li>
+        <li>Una variable para la distancia ganadora.</li>
+        <li>Una variable para la distancia más lejana.</li>
+        <li>Variables booleanas para indicar quién gana.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> Condiciones</h4>
+      <ul>
+        <li>No utilices <code>if</code>.</li>
+        <li>No utilices bucles.</li>
+        <li>No pidas datos por teclado.</li>
+        <li>No crees clases propias.</li>
+        <li>Utiliza expresiones booleanas para mostrar si una persona gana o no.</li>
+        <li>Ten en cuenta que puede haber empates.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Añade un cuarto participante.</li>
+        <li>Haz que la diana esté entre los metros <code>50</code> y <code>150</code>.</li>
+        <li>Haz que los lanzamientos estén entre los metros <code>0</code> y <code>200</code>.</li>
+        <li>Calcula el lanzamiento más corto y el lanzamiento más largo.</li>
+        <li>Calcula el rango total entre el lanzamiento más corto y el más largo.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida cambiará en cada ejecución porque los datos son aleatorios, pero debe tener un formato similar a este:</p>
+      <pre><code>La diana esta en el metro: 63
+
+Ane lanza hasta el metro 70. Distancia: 7
+Markel lanza hasta el metro 42. Distancia: 21
+June lanza hasta el metro 65. Distancia: 2
+
+Distancia ganadora: 2
+Distancia mas lejana: 21
+
+Gana Ane: false
+Gana Markel: false
+Gana June: true</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>LanzamientoBola</code></p>
+    </div>
+  </div>
+</div>
+</section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790765995529"></script>
-    <script src="assets/js/course.js?v=1790765995529"></script>
+    <script src="assets/js/search-data.js?v=1790836694416"></script>
+    <script src="assets/js/course.js?v=1790836694416"></script>
   </body>
 </html>
