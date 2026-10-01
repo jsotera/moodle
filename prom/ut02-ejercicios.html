@@ -7,7 +7,7 @@
     <title>UT 02 | Ejercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1790836694416" rel="stylesheet">
+    <link href="assets/css/course.css?v=1790837063372" rel="stylesheet">
   </head>
   <body data-page-id="ut02-ejercicios">
     <div class="app-shell">
@@ -78,32 +78,32 @@
         <a class="section-nav-link" href="#ut02-ejercicios-02-carrera-coches-tiempos">
           2.2 Carrera de coches y tiempos
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-03-arena-robots">
-          2.3 Arena de robots
+        <a class="section-nav-link" href="#ut02-ejercicios-03-colision-rectangulos">
+          2.3 Colisión de rectángulos
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-04-red-social-simple">
-          2.4 Red social simple
+        <a class="section-nav-link" href="#ut02-ejercicios-04-lanzamiento-bola-math-random">
+          2.4 Lanzamiento de bola con Math y Random
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-05-colision-rectangulos">
-          2.5 Colisión de rectángulos
+        <a class="section-nav-link" href="#ut02-ejercicios-05-piedra-papel-tijera">
+          2.5 Piedra, papel o tijera
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-06-piedra-papel-tijera">
-          2.6 Piedra, papel o tijera
+        <a class="section-nav-link" href="#ut02-ejercicios-06-carnets-biblioteca">
+          2.6 Carnets de biblioteca y elementos estáticos
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-07-coche-accidente-referencias">
-          2.7 Coche, accidente y referencias
+        <a class="section-nav-link" href="#ut02-ejercicios-07-arena-robots">
+          2.7 Arena de robots
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-08-consolas-prestadas">
-          2.8 Consolas prestadas y referencias
+        <a class="section-nav-link" href="#ut02-ejercicios-08-red-social-simple">
+          2.8 Red social simple
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-09-carnets-biblioteca">
-          2.9 Carnets de biblioteca y elementos estáticos
+        <a class="section-nav-link" href="#ut02-ejercicios-09-coche-accidente-referencias">
+          2.9 Coche, accidente y referencias
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-10-maquina-expendedora">
-          2.10 Máquina expendedora, Random y static
+        <a class="section-nav-link" href="#ut02-ejercicios-10-consolas-prestadas">
+          2.10 Consolas prestadas y referencias
         </a>
-        <a class="section-nav-link" href="#ut02-ejercicios-11-lanzamiento-bola-math-random">
-          2.11 Lanzamiento de bola con Math y Random
+        <a class="section-nav-link" href="#ut02-ejercicios-11-maquina-expendedora">
+          2.11 Máquina expendedora, Random y static
         </a>
   </div>
 </nav>
@@ -354,189 +354,12 @@ Tiempo total en el circuito: 139 segundos</code></pre>
 </section>
 
 
-<section id="ut02-ejercicios-03-arena-robots" class="fragment-section section-anchor">
+<section id="ut02-ejercicios-03-colision-rectangulos" class="fragment-section section-anchor">
 <div class="container mt-4 p-4"
   style="padding-top: 0 !important; margin-top: 0 !important;">
   <div class="card shadow p-4">
     <h2 class="text-primary mb-3"><i
-        class="fas fa-robot"></i> 2.3 Arena de robots</h2>
-    <p class="lead">Desarrolla una simulación de combates utilizando dos clases dadas: <code>Robot</code> y <code>Arena</code>.</p>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Robot</code> y <code>Arena</code> ya creadas en el paquete <code>modelo</code>, además de una clase <code>Main</code> preparada para completar el ejercicio.</p>
-      <p>
-        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-arena-robots.zip" download>
-          <i class="fas fa-file-archive"></i> Descargar proyecto base
-        </a>
-      </p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
-      <p>El objetivo es practicar la creación de objetos, el uso de constructores, la llamada a métodos y el trabajo con objetos que se pasan como parámetro a otros métodos.</p>
-      <p>No debes modificar las clases <code>Robot</code> ni <code>Arena</code>. Toda la lógica del ejercicio debe escribirse en el método <code>main</code>.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
-      <p>Crea una aplicación que simule una arena de combate con las siguientes condiciones:</p>
-      <ul>
-        <li>Crea una instancia de <code>Arena</code>.</li>
-        <li>Crea <strong>6 robots</strong> utilizando los constructores disponibles.</li>
-        <li>Inscribe los 6 robots en la arena.</li>
-        <li>Realiza varias rondas de combate llamando al método <code>comenzarCombate</code>.</li>
-        <li>Muestra por consola el podio actual de la arena.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Parte avanzada</h4>
-      <p>Después de mostrar el primer podio, realiza una segunda fase:</p>
-      <ul>
-        <li>Guarda en variables los tres robots que van primero, segundo y tercero en la clasificación.</li>
-        <li>Restablece la arena con el método <code>restablecer</code>.</li>
-        <li>Inscribe únicamente esos tres robots ganadores.</li>
-        <li>Realiza <strong>10 rondas de combate</strong> nuevas.</li>
-        <li>Muestra el podio final.</li>
-      </ul>
-      <p>No debes modificar manualmente la vida de los robots. Los tres robots clasificados deben continuar con la vida que tenían al terminar la primera fase.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
-      <p>La salida puede variar porque algunos valores y combates son aleatorios, pero debería mostrar mensajes similares a estos:</p>
-      <pre><code>Comienza el combate entre Ares y Neko.
-Ares ataca a Neko y causa 8 puntos de danio.
-Neko ataca a Ares y causa 3 puntos de danio.
-
-Podio actual:
-1. Robot{nombre='Ares', vida=97, fuerza=6, defensa=8}
-2. Robot{nombre='Neko', vida=92, fuerza=4, defensa=5}
-3. Robot{nombre='Luna', vida=88, fuerza=9, defensa=3}</code></pre>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
-      <ul>
-        <li>Revisa los constructores de <code>Robot</code> antes de crear los objetos.</li>
-        <li>Si utilizas el constructor vacío, recuerda asignar después valores válidos con los setters antes de combatir.</li>
-        <li>Utiliza variables para conservar la referencia a los robots que quieras reutilizar.</li>
-        <li>Para repetir combates, puedes usar varias llamadas seguidas o un bucle <code>for</code>.</li>
-        <li>Recuerda que <code>restablecer</code> vacía la arena, pero no crea robots nuevos ni cambia la vida de los robots existentes.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ArenaRobots</code></p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<section id="ut02-ejercicios-04-red-social-simple" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-  <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i
-        class="fas fa-user-group"></i> 2.4 Red social simple</h2>
-    <p class="lead">Desarrolla una pequeña simulación de red social utilizando dos clases dadas: <code>Usuario</code> y <code>RedSocial</code>.</p>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Usuario</code> y <code>RedSocial</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar el ejercicio.</p>
-      <p>
-        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-red-social-simple.zip" download>
-          <i class="fas fa-file-archive"></i> Descargar proyecto base
-        </a>
-      </p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
-      <p>El objetivo es practicar el uso de objetos relacionados entre sí, llamadas a métodos con parámetros de tipo objeto y lectura de documentación Javadoc.</p>
-      <p>En este ejercicio todavía no se utilizan listas, arrays ni colecciones. Cada usuario puede seguir como máximo a tres usuarios mediante los atributos <code>sigoA1</code>, <code>sigoA2</code> y <code>sigoA3</code>.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
-      <ul>
-        <li>La clase <code>Usuario</code> representa los datos de cada usuario: <code>nick</code>, <code>muro</code> y hasta tres usuarios seguidos.</li>
-        <li>La clase <code>RedSocial</code> es la encargada de publicar mensajes, asignar seguidores y consultar muros.</li>
-        <li>Siempre que se usa la red social, el primer parámetro de sus métodos es el usuario que está realizando la acción.</li>
-        <li>No debes modificar directamente los atributos internos de seguimiento desde <code>Main</code>.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
-      <p>Crea una aplicación que simule una red social sencilla con las siguientes condiciones:</p>
-      <ul>
-        <li>Crea una instancia de <code>RedSocial</code>.</li>
-        <li>Crea al menos <strong>5 usuarios</strong> con distintos nicks.</li>
-        <li>Publica varios mensajes en los muros de diferentes usuarios.</li>
-        <li>Haz que algunos usuarios sigan a otros usuarios.</li>
-        <li>Consulta el muro propio de al menos un usuario.</li>
-        <li>Consulta el muro de seguidos de al menos dos usuarios distintos.</li>
-        <li>Muestra por consola a quién sigue cada usuario principal que hayas utilizado.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas obligatorias</h4>
-      <p>Además del funcionamiento normal, comprueba los siguientes casos:</p>
-      <ul>
-        <li>Un usuario intenta seguir a <strong>más de 3 usuarios</strong>.</li>
-        <li>Un usuario intenta seguirse a sí mismo.</li>
-        <li>Un usuario intenta seguir dos veces a la misma persona.</li>
-        <li>Un usuario deja de seguir a otra persona y después consulta de nuevo su muro de seguidos.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
-      <p>La salida puede variar según los usuarios y mensajes que crees, pero debería ser clara y parecida a esta:</p>
-      <pre><code>ane sigue a:
-- markel
-- june
-- irati
-
-Muro de usuarios seguidos por ane
---- markel ---
-markel: Hoy estoy repasando clases en Java.
-
---- june ---
-june: Me falta entender bien los objetos como parametros.
-
-ane no puede seguir a mas usuarios.
-ane no puede seguirse a si mismo.</code></pre>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
-      <ul>
-        <li>Lee el Javadoc de cada método antes de utilizarlo.</li>
-        <li>Recuerda que una variable de tipo <code>Usuario</code> guarda una referencia a un objeto.</li>
-        <li>No necesitas crear clases nuevas ni modificar <code>Usuario</code> o <code>RedSocial</code>.</li>
-        <li>Para ver mejor el resultado, separa las pruebas con mensajes de consola.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>RedSocialSimple</code></p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<section id="ut02-ejercicios-05-colision-rectangulos" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-  <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i
-        class="fas fa-vector-square"></i> 2.5 Colisión de rectángulos</h2>
+        class="fas fa-vector-square"></i> 2.3 Colisión de rectángulos</h2>
     <p class="lead">Crea dos objetos de tipo <code>Rectangulo</code> y analiza desde <code>Main</code> si ocupan una zona común.</p>
 
     <div class="mb-4">
@@ -615,521 +438,12 @@ Los rectangulos colisionan.</code></pre>
 </section>
 
 
-<section id="ut02-ejercicios-06-piedra-papel-tijera" class="fragment-section section-anchor">
+<section id="ut02-ejercicios-04-lanzamiento-bola-math-random" class="fragment-section section-anchor">
 <div class="container mt-4 p-4"
   style="padding-top: 0 !important; margin-top: 0 !important;">
   <div class="card shadow p-4">
     <h2 class="text-primary mb-3"><i
-        class="fas fa-hand-scissors"></i> 2.6 Piedra, papel o tijera</h2>
-    <p class="lead">Desarrolla una simulación sencilla de piedra, papel o tijera utilizando dos clases dadas: <code>Persona</code> y <code>Juego</code>.</p>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>Juego</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
-      <p>
-        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-piedra-papel-tijera.zip" download>
-          <i class="fas fa-file-archive"></i> Descargar proyecto base
-        </a>
-      </p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
-      <p>El objetivo es practicar el uso de objetos relacionados de una forma más sencilla: dos personas participan en un juego, y la clase <code>Juego</code> se encarga de asignar jugadas, decidir el resultado y actualizar los marcadores.</p>
-      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
-      <ul>
-        <li>Una <code>Persona</code> tiene nombre, jugada actual, partidas ganadas, partidas perdidas y partidas empatadas.</li>
-        <li>Un <code>Juego</code> tiene dos personas participantes.</li>
-        <li>Cada vez que se llama a <code>jugar</code>, el juego asigna automáticamente una jugada a cada persona.</li>
-        <li>La clase <code>Juego</code> decide quién gana y actualiza los contadores de ambas personas.</li>
-        <li>Desde <code>Main</code> no debes modificar directamente los marcadores.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
-      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
-      <ul>
-        <li>Crea dos personas con nombres distintos.</li>
-        <li>Crea una instancia de <code>Juego</code> con esas dos personas.</li>
-        <li>Ejecuta varias partidas llamando al método <code>jugar</code>.</li>
-        <li>Muestra el marcador utilizando el método <code>obtenerMarcador</code>.</li>
-        <li>Muestra también por consola las dos variables originales de tipo <code>Persona</code>.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
-      <p>La clase <code>Juego</code> modifica los contadores de las personas que recibió en el constructor. Cuando después imprimas las variables originales de <code>Main</code>, verás esos cambios porque son los mismos objetos.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
-      <ul>
-        <li>Ejecuta 10 partidas usando un bucle <code>for</code>.</li>
-        <li>Crea un segundo juego reutilizando una de las personas anteriores contra una persona nueva.</li>
-        <li>Comprueba si el marcador de la persona reutilizada conserva las partidas anteriores.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
-      <p>La salida cambiará porque las jugadas son aleatorias, pero debería mostrar mensajes similares a estos:</p>
-      <pre><code>Ane juega piedra.
-Markel juega tijera.
-Gana Ane.
-
-Ane juega papel.
-Markel juega papel.
-La partida termina en empate.
-
-Persona{nombre='Ane', jugadaActual='papel', ganadas=1, perdidas=0, empatadas=1}
-Persona{nombre='Markel', jugadaActual='papel', ganadas=0, perdidas=1, empatadas=1}</code></pre>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
-      <ul>
-        <li>Lee el Javadoc de <code>jugar</code> y <code>obtenerMarcador</code>.</li>
-        <li>No necesitas pedir datos por teclado.</li>
-        <li>Recuerda que cada llamada a <code>jugar</code> representa una partida completa.</li>
-        <li>Observa cómo cambian los objetos <code>Persona</code> aunque los cambios los haga la clase <code>Juego</code>.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>PiedraPapelTijera</code></p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<section id="ut02-ejercicios-07-coche-accidente-referencias" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-  <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i class="fas fa-car-burst"></i> 2.7 Coche,
-      accidente y referencias</h2>
-    <p class="lead">Trabaja con objetos relacionados entre sí y observa una de
-      las ideas más importantes de la programación orientada a objetos: las
-      variables guardan referencias a objetos.</p>
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto
-        base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto
-        contiene las clases <code>Persona</code> y <code>Coche</code>
-        documentadas con Javadoc, además de una clase <code>Main</code>
-        preparada para completar la actividad.</p>
-      <p><a class="btn btn-primary"
-          href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-coche-accidente-referencias.zip"
-          download=""> <i class="fas fa-file-archive"></i> Descargar proyecto
-          base </a></p>
-    </div>
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo
-      </h4>
-      <p>El objetivo es utilizar objetos de tipo <code>Persona</code> dentro de
-        un objeto de tipo <code>Coche</code> y comprobar que, cuando el coche
-        modifica una persona, también cambia el objeto que teníamos guardado en
-        una variable del <code>Main</code>.</p>
-      <p>No debes modificar las clases <code>Persona</code> ni
-        <code>Coche</code>. Toda la lógica de prueba debe escribirse en el
-        método <code>main</code>.</p>
-    </div>
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i>
-        Reglas del modelo</h4>
-      <ul>
-        <li>Una <code>Persona</code> tiene <code>nombre</code> y
-          <code>lesion</code>.</li>
-        <li>Un <code>Coche</code> puede tener conductor, copiloto, pasajero 1 y
-          pasajero 2.</li>
-        <li>El conductor no puede entrar también como pasajero.</li>
-        <li>Los pasajeros se van colocando por orden: copiloto, pasajero 1 y
-          pasajero 2.</li>
-        <li>Si el coche no está arrancado, no puede acelerar.</li>
-        <li>Cuando ocurre un accidente, el coche asigna lesiones a las personas
-          que van dentro.</li>
-      </ul>
-    </div>
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado
-      </h4>
-      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
-      <ul>
-        <li>Crea al menos <strong>5 personas</strong>.</li>
-        <li>Crea un coche indicando su modelo.</li>
-        <li>Asigna una persona como conductor.</li>
-        <li>Intenta asignar al conductor también como pasajero y observa qué
-          ocurre.</li>
-        <li>Asigna varios pasajeros hasta llenar el coche.</li>
-        <li>Intenta añadir una persona más cuando el coche ya esté lleno.</li>
-        <li>Muestra la descripción del coche por consola.</li>
-        <li>Intenta acelerar antes de arrancar el coche.</li>
-        <li>Arranca el coche, acelera varias veces y provoca un accidente.</li>
-        <li>Consulta las lesiones desde las variables de tipo
-          <code>Persona</code> creadas en <code>Main</code>.</li>
-      </ul>
-    </div>
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i>
-        La trampa importante</h4>
-      <p>Después del accidente, no consultes únicamente la descripción del
-        coche. Llama también al método <code>informarSobreLesion</code> desde
-        las variables originales de cada persona.</p>
-      <p>Si una persona estaba dentro del coche, su lesión habrá cambiado aunque
-        la estés consultando desde una variable del <code>Main</code>. Eso
-        ocurre porque el coche y el <code>Main</code> están trabajando con el
-        mismo objeto.</p>
-    </div>
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida
-        esperada</h4>
-      <p>La salida puede variar según los nombres y velocidades que utilices,
-        pero debería mostrar mensajes similares a estos:</p>
-      <pre><code>No se puede acelerar porque el coche no esta arrancado.
-El coche ha arrancado.
-El coche acelera hasta 40 km/h.
-El coche acelera hasta 75 km/h.
-El coche ha tenido un accidente a 75 km/h.
-El coche se ha detenido.
-Ane sufre la siguiente lesion: fractura leve.
-Markel sufre la siguiente lesion: fractura leve.</code></pre>
-    </div>
-    <div class="mb-4">
-      <h4 class="text-primary mb-3">Parte avanzada</h4>
-      <p>Después de tener un accidente:</p>
-      <ul>
-        <li>Prueba a curar alguno de los pasajeros (restableciendo las
-          lesiones).</li>
-        <li>Muestra la descripción del coche por persona.</li>
-        <li>¿Qué ha ocurrido?</li>
-        <li>Realiza una depuración paso a paso para visualizar mediante el
-          plugin <strong>Java Visualizer</strong> lo que está ocurriendo.</li>
-      </ul>
-      <h4 class="text-primary mb-3">Pistas</h4>
-      <ul>
-        <li>Lee el Javadoc de cada método antes de utilizarlo.</li>
-        <li>Guarda cada persona en una variable distinta para poder consultarla
-          después del accidente.</li>
-        <li>Utiliza <code>descripcion</code> antes y después de asignar
-          pasajeros para comprobar el estado del coche.</li>
-        <li>Prueba diferentes velocidades para ver cómo cambia el tipo de
-          lesión.</li>
-      </ul>
-    </div>
-    <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong>
-        <code>CocheAccidente</code></p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<section id="ut02-ejercicios-08-consolas-prestadas" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-  <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i
-        class="fas fa-gamepad"></i> 2.8 Consolas prestadas y referencias</h2>
-    <p class="lead">Trabaja con tres modelos relacionados entre sí: <code>Persona</code>, <code>Consola</code> y <code>VideoJuego</code>.</p>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code>, <code>Consola</code> y <code>VideoJuego</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
-      <p>
-        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-consolas-prestadas.zip" download>
-          <i class="fas fa-file-archive"></i> Descargar proyecto base
-        </a>
-      </p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
-      <p>El objetivo es observar cómo varios objetos pueden quedar conectados entre sí mediante referencias: una persona usa una consola, la consola tiene un propietario fijo y la consola ejecuta un videojuego concreto.</p>
-      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
-      <ul>
-        <li>Una <code>Persona</code> tiene <code>nombre</code>, <code>estado</code> y una <code>consolaEnUso</code>.</li>
-        <li>Una <code>Consola</code> tiene un <strong>propietario fijo</strong>, un modelo, un estado operativo y un videojuego insertado.</li>
-        <li>El propietario de una consola no cambia aunque la consola se preste a otra persona.</li>
-        <li>Una consola solo puede utilizarse a través de métodos de una <code>Persona</code>.</li>
-        <li>Para utilizar una consola, primero debe tener un videojuego insertado.</li>
-        <li>Cada vez que se usa un juego, aumenta su contador de usos.</li>
-        <li>Cada uso tiene un 50% de probabilidad de estropear la consola.</li>
-        <li>Si un mismo videojuego se utiliza más de 3 veces, la consola se estropea automáticamente.</li>
-        <li>Cuando una consola se estropea, su propietario pasa a tener el estado <code>enfadado</code>.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
-      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
-      <ul>
-        <li>Crea al menos <strong>3 personas</strong>.</li>
-        <li>Crea una consola cuyo propietario sea una de esas personas.</li>
-        <li>Crea al menos <strong>2 videojuegos</strong>.</li>
-        <li>Haz que el propietario reciba su consola, inserte un videojuego y la utilice.</li>
-        <li>Presta la consola a otra persona y vuelve a utilizarla desde esa persona.</li>
-        <li>Comprueba que la consola sigue perteneciendo a la persona propietaria original.</li>
-        <li>Utiliza varias veces el mismo videojuego hasta provocar que la consola se estropee.</li>
-        <li>Consulta el estado de la persona propietaria desde su variable original del <code>Main</code>.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La trampa importante</h4>
-      <p>La persona que usa la consola no tiene por qué ser su propietaria. Si la consola se rompe mientras la está usando otra persona, quien se enfada es la persona propietaria original.</p>
-      <p>Ese cambio se verá también si consultas el objeto <code>Persona</code> original que creaste en <code>Main</code>, porque es la misma referencia que guarda la consola como propietaria.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
-      <ul>
-        <li>Intenta utilizar una consola sin haber insertado ningún videojuego.</li>
-        <li>Inserta un videojuego, presta la consola y comprueba que el videojuego insertado sigue dentro.</li>
-        <li>Usa el mismo videojuego desde distintas personas y observa que su contador de usos sigue aumentando.</li>
-        <li>Crea una segunda consola y compara qué propietario se enfada cuando se estropea cada una.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
-      <p>La salida puede variar porque existe probabilidad de avería, pero debería mostrar mensajes similares a estos:</p>
-      <pre><code>Ane tiene ahora en uso la consola RetroBox.
-Se ha insertado Pixel Kart en RetroBox.
-Ejecutando Pixel Kart en RetroBox. Uso numero 1.
-Ane ha prestado la consola a Markel.
-Ejecutando Pixel Kart en RetroBox. Uso numero 2.
-La consola se ha roto por mala suerte.
-La consola RetroBox se ha estropeado.
-Ane se ha enfadado.
-Ane esta enfadado.</code></pre>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
-      <ul>
-        <li>Lee el Javadoc antes de utilizar cada método.</li>
-        <li>Utiliza <code>toString</code> para observar el estado de personas, consolas y videojuegos.</li>
-        <li>No confundas <code>propietario</code> con <code>consolaEnUso</code>.</li>
-        <li>Si la consola se rompe demasiado pronto por probabilidad, vuelve a ejecutar el programa.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ConsolasPrestadas</code></p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<section id="ut02-ejercicios-09-carnets-biblioteca" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-  <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i
-        class="fas fa-id-card"></i> 2.9 Carnets de biblioteca y elementos estáticos</h2>
-    <p class="lead">Trabaja con un contador compartido por toda una clase utilizando <code>static</code>.</p>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>CarnetBiblioteca</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
-      <p>
-        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-carnets-biblioteca.zip" download>
-          <i class="fas fa-file-archive"></i> Descargar proyecto base
-        </a>
-      </p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
-      <p>El objetivo es diferenciar entre atributos de instancia y atributos de clase. Cada carnet tiene su propio <code>numero</code>, <code>titular</code> y estado <code>activo</code>, pero todos comparten el contador <code>siguienteNumero</code>.</p>
-      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>, sin bucles ni condicionales.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
-      <ul>
-        <li>Una <code>Persona</code> tiene nombre y un carnet de biblioteca.</li>
-        <li>Un <code>CarnetBiblioteca</code> tiene número, titular y estado activo.</li>
-        <li>El número del carnet se asigna automáticamente al construirlo.</li>
-        <li>El atributo estático <code>siguienteNumero</code> pertenece a la clase, no a cada carnet.</li>
-        <li>El método estático <code>consultarSiguienteNumero</code> se invoca desde la clase, no desde un objeto concreto.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
-      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
-      <ul>
-        <li>Consulta y muestra el siguiente número de carnet antes de crear ningún carnet.</li>
-        <li>Crea al menos <strong>3 personas</strong>.</li>
-        <li>Crea un carnet para cada persona utilizando el constructor que recibe una <code>Persona</code>.</li>
-        <li>Muestra la información de cada persona y de cada carnet.</li>
-        <li>Consulta de nuevo el siguiente número de carnet.</li>
-        <li>Desactiva uno de los carnets y comprueba que los demás siguen activos.</li>
-        <li>Crea una cuarta persona y un nuevo carnet al final.</li>
-        <li>Comprueba que el nuevo carnet continúa la numeración anterior.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
-      <p>No existe un contador distinto para cada carnet. El contador <code>siguienteNumero</code> es compartido por toda la clase <code>CarnetBiblioteca</code>.</p>
-      <p>Por eso, cuando creas un carnet nuevo, cambia el valor que verá cualquier llamada posterior a <code>CarnetBiblioteca.consultarSiguienteNumero()</code>.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
-      <ul>
-        <li>Consulta <code>CarnetBiblioteca.consultarSiguienteNumero()</code> antes y después de cada constructor.</li>
-        <li>Crea un carnet sin titular y asígnale después una persona con <code>setTitular</code>.</li>
-        <li>Utiliza <code>CarnetBiblioteca.reiniciarSiguienteNumero</code> al principio del programa y observa cómo cambia la numeración.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
-      <p>La salida puede variar según los nombres que utilices, pero debería mostrar una numeración progresiva:</p>
-      <pre><code>Siguiente numero antes de crear carnets: 1000
-CarnetBiblioteca{numero=1000, titular=Ane, activo=true}
-CarnetBiblioteca{numero=1001, titular=Markel, activo=true}
-CarnetBiblioteca{numero=1002, titular=June, activo=true}
-Siguiente numero despues de crear carnets: 1003</code></pre>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
-      <ul>
-        <li>Los métodos estáticos se llaman desde el nombre de la clase.</li>
-        <li>Los métodos de instancia se llaman desde un objeto concreto.</li>
-        <li>No necesitas usar <code>if</code>, <code>for</code> ni pedir datos por teclado.</li>
-        <li>Usa varios <code>System.out.println</code> para observar cómo cambia el contador compartido.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CarnetsBiblioteca</code></p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<section id="ut02-ejercicios-10-maquina-expendedora" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-  <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i
-        class="fas fa-store"></i> 2.10 Máquina expendedora, Random y static</h2>
-    <p class="lead">Trabaja con una simulación de ventas donde varias máquinas comparten estadísticas globales mediante elementos <code>static</code> y cada venta puede fallar utilizando <code>Random</code>.</p>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
-      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Producto</code> y <code>MaquinaExpendedora</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
-      <p>
-        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-maquina-expendedora.zip" download>
-          <i class="fas fa-file-archive"></i> Descargar proyecto base
-        </a>
-      </p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
-      <p>El objetivo es combinar objetos normales con datos compartidos por toda una clase. Cada producto tiene su propio precio y stock, cada máquina tiene su ubicación y productos, pero todas las máquinas comparten la misma caja global, las ventas globales y la probabilidad de fallo.</p>
-      <p>En el <code>Main</code> no necesitas usar bucles ni condicionales. Solo debes crear objetos, invocar constructores, llamar a métodos de instancia y llamar a métodos estáticos.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
-      <ul>
-        <li>Un <code>Producto</code> tiene nombre, precio en céntimos y stock.</li>
-        <li>Una <code>MaquinaExpendedora</code> tiene ubicación y hasta tres productos.</li>
-        <li>La caja global y el número total de ventas son estáticos: pertenecen a la clase, no a una máquina concreta.</li>
-        <li>La probabilidad de fallo también es estática y afecta a todas las máquinas.</li>
-        <li>Cada venta utiliza <code>Random</code> para decidir si la máquina falla.</li>
-        <li>Si la venta falla, no se reduce el stock y no aumenta la caja global.</li>
-        <li>Si la venta funciona, se reduce el stock del producto, aumenta la caja global y aumenta el contador de ventas globales.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
-      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
-      <ul>
-        <li>Reinicia las estadísticas globales de la clase <code>MaquinaExpendedora</code>.</li>
-        <li>Configura una probabilidad de fallo inicial.</li>
-        <li>Crea al menos <strong>3 productos</strong> con distinto precio y stock.</li>
-        <li>Crea al menos <strong>2 máquinas expendedoras</strong> con ubicaciones diferentes.</li>
-        <li>Coloca productos en las máquinas.</li>
-        <li>Realiza varias ventas invocando métodos de instancia.</li>
-        <li>Consulta la caja global y las ventas globales invocando métodos estáticos.</li>
-        <li>Cambia la probabilidad de fallo y realiza nuevas ventas.</li>
-        <li>Muestra la información de las máquinas y productos para observar cómo cambia el stock.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
-      <p>Si dos máquinas venden productos diferentes, ambas suman dinero a la misma caja global. Esa caja no está dentro de cada objeto máquina: pertenece a la clase <code>MaquinaExpendedora</code>.</p>
-      <p>Además, si modificas la probabilidad de fallo desde la clase, todas las máquinas pasan a usar ese nuevo valor.</p>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
-      <ul>
-        <li>Configura la probabilidad de fallo a <code>0</code> y comprueba que las ventas siempre pueden funcionar si hay stock.</li>
-        <li>Configura la probabilidad de fallo a <code>100</code> y comprueba que ninguna venta se completa.</li>
-        <li>Agota el stock de un producto vendiéndolo varias veces.</li>
-        <li>Crea una segunda máquina y comprueba que sus ventas también aumentan la caja global.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
-      <p>La salida puede variar porque algunas ventas dependen de <code>Random</code>, pero debería mostrar mensajes similares a estos:</p>
-      <pre><code>Venta correcta en Entrada: Agua.
-La maquina de Pasillo ha fallado al vender Cafe.
-Venta correcta en Entrada: Galletas.
-Caja global: 270
-Ventas globales: 2</code></pre>
-    </div>
-
-    <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
-      <ul>
-        <li>Los métodos estáticos se invocan desde <code>MaquinaExpendedora</code>.</li>
-        <li>Los métodos de venta se invocan desde una máquina concreta.</li>
-        <li>No necesitas usar <code>if</code>, <code>for</code> ni pedir datos por teclado.</li>
-        <li>Ejecuta el programa varias veces para observar el efecto de <code>Random</code>.</li>
-      </ul>
-    </div>
-
-    <div class="mb-4">
-      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>MaquinaExpendedora</code></p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<section id="ut02-ejercicios-11-lanzamiento-bola-math-random" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-  <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i
-        class="fas fa-bowling-ball"></i> 2.11 Lanzamiento de bola con Math y Random</h2>
+        class="fas fa-bowling-ball"></i> 2.4 Lanzamiento de bola con Math y Random</h2>
     <p class="lead">Crea una simulación sencilla en un único eje para practicar <code>Random</code>, métodos estáticos de <code>Math</code> y expresiones booleanas.</p>
 
     <div class="mb-4">
@@ -1256,12 +570,698 @@ Gana June: true</code></pre>
   </div>
 </div>
 </section>
+
+
+<section id="ut02-ejercicios-05-piedra-papel-tijera" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-hand-scissors"></i> 2.5 Piedra, papel o tijera</h2>
+    <p class="lead">Desarrolla una simulación sencilla de piedra, papel o tijera utilizando dos clases dadas: <code>Persona</code> y <code>Juego</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>Juego</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-piedra-papel-tijera.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar el uso de objetos relacionados de una forma más sencilla: dos personas participan en un juego, y la clase <code>Juego</code> se encarga de asignar jugadas, decidir el resultado y actualizar los marcadores.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Persona</code> tiene nombre, jugada actual, partidas ganadas, partidas perdidas y partidas empatadas.</li>
+        <li>Un <code>Juego</code> tiene dos personas participantes.</li>
+        <li>Cada vez que se llama a <code>jugar</code>, el juego asigna automáticamente una jugada a cada persona.</li>
+        <li>La clase <code>Juego</code> decide quién gana y actualiza los contadores de ambas personas.</li>
+        <li>Desde <code>Main</code> no debes modificar directamente los marcadores.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea dos personas con nombres distintos.</li>
+        <li>Crea una instancia de <code>Juego</code> con esas dos personas.</li>
+        <li>Ejecuta varias partidas llamando al método <code>jugar</code>.</li>
+        <li>Muestra el marcador utilizando el método <code>obtenerMarcador</code>.</li>
+        <li>Muestra también por consola las dos variables originales de tipo <code>Persona</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
+      <p>La clase <code>Juego</code> modifica los contadores de las personas que recibió en el constructor. Cuando después imprimas las variables originales de <code>Main</code>, verás esos cambios porque son los mismos objetos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Ejecuta 10 partidas usando un bucle <code>for</code>.</li>
+        <li>Crea un segundo juego reutilizando una de las personas anteriores contra una persona nueva.</li>
+        <li>Comprueba si el marcador de la persona reutilizada conserva las partidas anteriores.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida cambiará porque las jugadas son aleatorias, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Ane juega piedra.
+Markel juega tijera.
+Gana Ane.
+
+Ane juega papel.
+Markel juega papel.
+La partida termina en empate.
+
+Persona{nombre='Ane', jugadaActual='papel', ganadas=1, perdidas=0, empatadas=1}
+Persona{nombre='Markel', jugadaActual='papel', ganadas=0, perdidas=1, empatadas=1}</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Lee el Javadoc de <code>jugar</code> y <code>obtenerMarcador</code>.</li>
+        <li>No necesitas pedir datos por teclado.</li>
+        <li>Recuerda que cada llamada a <code>jugar</code> representa una partida completa.</li>
+        <li>Observa cómo cambian los objetos <code>Persona</code> aunque los cambios los haga la clase <code>Juego</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>PiedraPapelTijera</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-ejercicios-06-carnets-biblioteca" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-id-card"></i> 2.6 Carnets de biblioteca y elementos estáticos</h2>
+    <p class="lead">Trabaja con un contador compartido por toda una clase utilizando <code>static</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>CarnetBiblioteca</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-carnets-biblioteca.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es diferenciar entre atributos de instancia y atributos de clase. Cada carnet tiene su propio <code>numero</code>, <code>titular</code> y estado <code>activo</code>, pero todos comparten el contador <code>siguienteNumero</code>.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>, sin bucles ni condicionales.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Persona</code> tiene nombre y un carnet de biblioteca.</li>
+        <li>Un <code>CarnetBiblioteca</code> tiene número, titular y estado activo.</li>
+        <li>El número del carnet se asigna automáticamente al construirlo.</li>
+        <li>El atributo estático <code>siguienteNumero</code> pertenece a la clase, no a cada carnet.</li>
+        <li>El método estático <code>consultarSiguienteNumero</code> se invoca desde la clase, no desde un objeto concreto.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Consulta y muestra el siguiente número de carnet antes de crear ningún carnet.</li>
+        <li>Crea al menos <strong>3 personas</strong>.</li>
+        <li>Crea un carnet para cada persona utilizando el constructor que recibe una <code>Persona</code>.</li>
+        <li>Muestra la información de cada persona y de cada carnet.</li>
+        <li>Consulta de nuevo el siguiente número de carnet.</li>
+        <li>Desactiva uno de los carnets y comprueba que los demás siguen activos.</li>
+        <li>Crea una cuarta persona y un nuevo carnet al final.</li>
+        <li>Comprueba que el nuevo carnet continúa la numeración anterior.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
+      <p>No existe un contador distinto para cada carnet. El contador <code>siguienteNumero</code> es compartido por toda la clase <code>CarnetBiblioteca</code>.</p>
+      <p>Por eso, cuando creas un carnet nuevo, cambia el valor que verá cualquier llamada posterior a <code>CarnetBiblioteca.consultarSiguienteNumero()</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Consulta <code>CarnetBiblioteca.consultarSiguienteNumero()</code> antes y después de cada constructor.</li>
+        <li>Crea un carnet sin titular y asígnale después una persona con <code>setTitular</code>.</li>
+        <li>Utiliza <code>CarnetBiblioteca.reiniciarSiguienteNumero</code> al principio del programa y observa cómo cambia la numeración.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar según los nombres que utilices, pero debería mostrar una numeración progresiva:</p>
+      <pre><code>Siguiente numero antes de crear carnets: 1000
+CarnetBiblioteca{numero=1000, titular=Ane, activo=true}
+CarnetBiblioteca{numero=1001, titular=Markel, activo=true}
+CarnetBiblioteca{numero=1002, titular=June, activo=true}
+Siguiente numero despues de crear carnets: 1003</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Los métodos estáticos se llaman desde el nombre de la clase.</li>
+        <li>Los métodos de instancia se llaman desde un objeto concreto.</li>
+        <li>No necesitas usar <code>if</code>, <code>for</code> ni pedir datos por teclado.</li>
+        <li>Usa varios <code>System.out.println</code> para observar cómo cambia el contador compartido.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CarnetsBiblioteca</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-ejercicios-07-arena-robots" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-robot"></i> 2.7 Arena de robots</h2>
+    <p class="lead">Desarrolla una simulación de combates utilizando dos clases dadas: <code>Robot</code> y <code>Arena</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Robot</code> y <code>Arena</code> ya creadas en el paquete <code>modelo</code>, además de una clase <code>Main</code> preparada para completar el ejercicio.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-arena-robots.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar la creación de objetos, el uso de constructores, la llamada a métodos y el trabajo con objetos que se pasan como parámetro a otros métodos.</p>
+      <p>No debes modificar las clases <code>Robot</code> ni <code>Arena</code>. Toda la lógica del ejercicio debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación que simule una arena de combate con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea una instancia de <code>Arena</code>.</li>
+        <li>Crea <strong>6 robots</strong> utilizando los constructores disponibles.</li>
+        <li>Inscribe los 6 robots en la arena.</li>
+        <li>Realiza varias rondas de combate llamando al método <code>comenzarCombate</code>.</li>
+        <li>Muestra por consola el podio actual de la arena.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Parte avanzada</h4>
+      <p>Después de mostrar el primer podio, realiza una segunda fase:</p>
+      <ul>
+        <li>Guarda en variables los tres robots que van primero, segundo y tercero en la clasificación.</li>
+        <li>Restablece la arena con el método <code>restablecer</code>.</li>
+        <li>Inscribe únicamente esos tres robots ganadores.</li>
+        <li>Realiza <strong>10 rondas de combate</strong> nuevas.</li>
+        <li>Muestra el podio final.</li>
+      </ul>
+      <p>No debes modificar manualmente la vida de los robots. Los tres robots clasificados deben continuar con la vida que tenían al terminar la primera fase.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar porque algunos valores y combates son aleatorios, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Comienza el combate entre Ares y Neko.
+Ares ataca a Neko y causa 8 puntos de danio.
+Neko ataca a Ares y causa 3 puntos de danio.
+
+Podio actual:
+1. Robot{nombre='Ares', vida=97, fuerza=6, defensa=8}
+2. Robot{nombre='Neko', vida=92, fuerza=4, defensa=5}
+3. Robot{nombre='Luna', vida=88, fuerza=9, defensa=3}</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Revisa los constructores de <code>Robot</code> antes de crear los objetos.</li>
+        <li>Si utilizas el constructor vacío, recuerda asignar después valores válidos con los setters antes de combatir.</li>
+        <li>Utiliza variables para conservar la referencia a los robots que quieras reutilizar.</li>
+        <li>Para repetir combates, puedes usar varias llamadas seguidas o un bucle <code>for</code>.</li>
+        <li>Recuerda que <code>restablecer</code> vacía la arena, pero no crea robots nuevos ni cambia la vida de los robots existentes.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ArenaRobots</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-ejercicios-08-red-social-simple" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-user-group"></i> 2.8 Red social simple</h2>
+    <p class="lead">Desarrolla una pequeña simulación de red social utilizando dos clases dadas: <code>Usuario</code> y <code>RedSocial</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Usuario</code> y <code>RedSocial</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar el ejercicio.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-red-social-simple.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es practicar el uso de objetos relacionados entre sí, llamadas a métodos con parámetros de tipo objeto y lectura de documentación Javadoc.</p>
+      <p>En este ejercicio todavía no se utilizan listas, arrays ni colecciones. Cada usuario puede seguir como máximo a tres usuarios mediante los atributos <code>sigoA1</code>, <code>sigoA2</code> y <code>sigoA3</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>La clase <code>Usuario</code> representa los datos de cada usuario: <code>nick</code>, <code>muro</code> y hasta tres usuarios seguidos.</li>
+        <li>La clase <code>RedSocial</code> es la encargada de publicar mensajes, asignar seguidores y consultar muros.</li>
+        <li>Siempre que se usa la red social, el primer parámetro de sus métodos es el usuario que está realizando la acción.</li>
+        <li>No debes modificar directamente los atributos internos de seguimiento desde <code>Main</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación que simule una red social sencilla con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea una instancia de <code>RedSocial</code>.</li>
+        <li>Crea al menos <strong>5 usuarios</strong> con distintos nicks.</li>
+        <li>Publica varios mensajes en los muros de diferentes usuarios.</li>
+        <li>Haz que algunos usuarios sigan a otros usuarios.</li>
+        <li>Consulta el muro propio de al menos un usuario.</li>
+        <li>Consulta el muro de seguidos de al menos dos usuarios distintos.</li>
+        <li>Muestra por consola a quién sigue cada usuario principal que hayas utilizado.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas obligatorias</h4>
+      <p>Además del funcionamiento normal, comprueba los siguientes casos:</p>
+      <ul>
+        <li>Un usuario intenta seguir a <strong>más de 3 usuarios</strong>.</li>
+        <li>Un usuario intenta seguirse a sí mismo.</li>
+        <li>Un usuario intenta seguir dos veces a la misma persona.</li>
+        <li>Un usuario deja de seguir a otra persona y después consulta de nuevo su muro de seguidos.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar según los usuarios y mensajes que crees, pero debería ser clara y parecida a esta:</p>
+      <pre><code>ane sigue a:
+- markel
+- june
+- irati
+
+Muro de usuarios seguidos por ane
+--- markel ---
+markel: Hoy estoy repasando clases en Java.
+
+--- june ---
+june: Me falta entender bien los objetos como parametros.
+
+ane no puede seguir a mas usuarios.
+ane no puede seguirse a si mismo.</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Lee el Javadoc de cada método antes de utilizarlo.</li>
+        <li>Recuerda que una variable de tipo <code>Usuario</code> guarda una referencia a un objeto.</li>
+        <li>No necesitas crear clases nuevas ni modificar <code>Usuario</code> o <code>RedSocial</code>.</li>
+        <li>Para ver mejor el resultado, separa las pruebas con mensajes de consola.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>RedSocialSimple</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-ejercicios-09-coche-accidente-referencias" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-car-burst"></i> 2.9 Coche,
+      accidente y referencias</h2>
+    <p class="lead">Trabaja con objetos relacionados entre sí y observa una de
+      las ideas más importantes de la programación orientada a objetos: las
+      variables guardan referencias a objetos.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto
+        base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto
+        contiene las clases <code>Persona</code> y <code>Coche</code>
+        documentadas con Javadoc, además de una clase <code>Main</code>
+        preparada para completar la actividad.</p>
+      <p><a class="btn btn-primary"
+          href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-coche-accidente-referencias.zip"
+          download=""> <i class="fas fa-file-archive"></i> Descargar proyecto
+          base </a></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo
+      </h4>
+      <p>El objetivo es utilizar objetos de tipo <code>Persona</code> dentro de
+        un objeto de tipo <code>Coche</code> y comprobar que, cuando el coche
+        modifica una persona, también cambia el objeto que teníamos guardado en
+        una variable del <code>Main</code>.</p>
+      <p>No debes modificar las clases <code>Persona</code> ni
+        <code>Coche</code>. Toda la lógica de prueba debe escribirse en el
+        método <code>main</code>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i>
+        Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Persona</code> tiene <code>nombre</code> y
+          <code>lesion</code>.</li>
+        <li>Un <code>Coche</code> puede tener conductor, copiloto, pasajero 1 y
+          pasajero 2.</li>
+        <li>El conductor no puede entrar también como pasajero.</li>
+        <li>Los pasajeros se van colocando por orden: copiloto, pasajero 1 y
+          pasajero 2.</li>
+        <li>Si el coche no está arrancado, no puede acelerar.</li>
+        <li>Cuando ocurre un accidente, el coche asigna lesiones a las personas
+          que van dentro.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado
+      </h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea al menos <strong>5 personas</strong>.</li>
+        <li>Crea un coche indicando su modelo.</li>
+        <li>Asigna una persona como conductor.</li>
+        <li>Intenta asignar al conductor también como pasajero y observa qué
+          ocurre.</li>
+        <li>Asigna varios pasajeros hasta llenar el coche.</li>
+        <li>Intenta añadir una persona más cuando el coche ya esté lleno.</li>
+        <li>Muestra la descripción del coche por consola.</li>
+        <li>Intenta acelerar antes de arrancar el coche.</li>
+        <li>Arranca el coche, acelera varias veces y provoca un accidente.</li>
+        <li>Consulta las lesiones desde las variables de tipo
+          <code>Persona</code> creadas en <code>Main</code>.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i>
+        La trampa importante</h4>
+      <p>Después del accidente, no consultes únicamente la descripción del
+        coche. Llama también al método <code>informarSobreLesion</code> desde
+        las variables originales de cada persona.</p>
+      <p>Si una persona estaba dentro del coche, su lesión habrá cambiado aunque
+        la estés consultando desde una variable del <code>Main</code>. Eso
+        ocurre porque el coche y el <code>Main</code> están trabajando con el
+        mismo objeto.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida
+        esperada</h4>
+      <p>La salida puede variar según los nombres y velocidades que utilices,
+        pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>No se puede acelerar porque el coche no esta arrancado.
+El coche ha arrancado.
+El coche acelera hasta 40 km/h.
+El coche acelera hasta 75 km/h.
+El coche ha tenido un accidente a 75 km/h.
+El coche se ha detenido.
+Ane sufre la siguiente lesion: fractura leve.
+Markel sufre la siguiente lesion: fractura leve.</code></pre>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3">Parte avanzada</h4>
+      <p>Después de tener un accidente:</p>
+      <ul>
+        <li>Prueba a curar alguno de los pasajeros (restableciendo las
+          lesiones).</li>
+        <li>Muestra la descripción del coche por persona.</li>
+        <li>¿Qué ha ocurrido?</li>
+        <li>Realiza una depuración paso a paso para visualizar mediante el
+          plugin <strong>Java Visualizer</strong> lo que está ocurriendo.</li>
+      </ul>
+      <h4 class="text-primary mb-3">Pistas</h4>
+      <ul>
+        <li>Lee el Javadoc de cada método antes de utilizarlo.</li>
+        <li>Guarda cada persona en una variable distinta para poder consultarla
+          después del accidente.</li>
+        <li>Utiliza <code>descripcion</code> antes y después de asignar
+          pasajeros para comprobar el estado del coche.</li>
+        <li>Prueba diferentes velocidades para ver cómo cambia el tipo de
+          lesión.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong>
+        <code>CocheAccidente</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-ejercicios-10-consolas-prestadas" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-gamepad"></i> 2.10 Consolas prestadas y referencias</h2>
+    <p class="lead">Trabaja con tres modelos relacionados entre sí: <code>Persona</code>, <code>Consola</code> y <code>VideoJuego</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code>, <code>Consola</code> y <code>VideoJuego</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-consolas-prestadas.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es observar cómo varios objetos pueden quedar conectados entre sí mediante referencias: una persona usa una consola, la consola tiene un propietario fijo y la consola ejecuta un videojuego concreto.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Persona</code> tiene <code>nombre</code>, <code>estado</code> y una <code>consolaEnUso</code>.</li>
+        <li>Una <code>Consola</code> tiene un <strong>propietario fijo</strong>, un modelo, un estado operativo y un videojuego insertado.</li>
+        <li>El propietario de una consola no cambia aunque la consola se preste a otra persona.</li>
+        <li>Una consola solo puede utilizarse a través de métodos de una <code>Persona</code>.</li>
+        <li>Para utilizar una consola, primero debe tener un videojuego insertado.</li>
+        <li>Cada vez que se usa un juego, aumenta su contador de usos.</li>
+        <li>Cada uso tiene un 50% de probabilidad de estropear la consola.</li>
+        <li>Si un mismo videojuego se utiliza más de 3 veces, la consola se estropea automáticamente.</li>
+        <li>Cuando una consola se estropea, su propietario pasa a tener el estado <code>enfadado</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Crea al menos <strong>3 personas</strong>.</li>
+        <li>Crea una consola cuyo propietario sea una de esas personas.</li>
+        <li>Crea al menos <strong>2 videojuegos</strong>.</li>
+        <li>Haz que el propietario reciba su consola, inserte un videojuego y la utilice.</li>
+        <li>Presta la consola a otra persona y vuelve a utilizarla desde esa persona.</li>
+        <li>Comprueba que la consola sigue perteneciendo a la persona propietaria original.</li>
+        <li>Utiliza varias veces el mismo videojuego hasta provocar que la consola se estropee.</li>
+        <li>Consulta el estado de la persona propietaria desde su variable original del <code>Main</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La trampa importante</h4>
+      <p>La persona que usa la consola no tiene por qué ser su propietaria. Si la consola se rompe mientras la está usando otra persona, quien se enfada es la persona propietaria original.</p>
+      <p>Ese cambio se verá también si consultas el objeto <code>Persona</code> original que creaste en <code>Main</code>, porque es la misma referencia que guarda la consola como propietaria.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Intenta utilizar una consola sin haber insertado ningún videojuego.</li>
+        <li>Inserta un videojuego, presta la consola y comprueba que el videojuego insertado sigue dentro.</li>
+        <li>Usa el mismo videojuego desde distintas personas y observa que su contador de usos sigue aumentando.</li>
+        <li>Crea una segunda consola y compara qué propietario se enfada cuando se estropea cada una.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar porque existe probabilidad de avería, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Ane tiene ahora en uso la consola RetroBox.
+Se ha insertado Pixel Kart en RetroBox.
+Ejecutando Pixel Kart en RetroBox. Uso numero 1.
+Ane ha prestado la consola a Markel.
+Ejecutando Pixel Kart en RetroBox. Uso numero 2.
+La consola se ha roto por mala suerte.
+La consola RetroBox se ha estropeado.
+Ane se ha enfadado.
+Ane esta enfadado.</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Lee el Javadoc antes de utilizar cada método.</li>
+        <li>Utiliza <code>toString</code> para observar el estado de personas, consolas y videojuegos.</li>
+        <li>No confundas <code>propietario</code> con <code>consolaEnUso</code>.</li>
+        <li>Si la consola se rompe demasiado pronto por probabilidad, vuelve a ejecutar el programa.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ConsolasPrestadas</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut02-ejercicios-11-maquina-expendedora" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-store"></i> 2.11 Máquina expendedora, Random y static</h2>
+    <p class="lead">Trabaja con una simulación de ventas donde varias máquinas comparten estadísticas globales mediante elementos <code>static</code> y cada venta puede fallar utilizando <code>Random</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Producto</code> y <code>MaquinaExpendedora</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-maquina-expendedora.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es combinar objetos normales con datos compartidos por toda una clase. Cada producto tiene su propio precio y stock, cada máquina tiene su ubicación y productos, pero todas las máquinas comparten la misma caja global, las ventas globales y la probabilidad de fallo.</p>
+      <p>En el <code>Main</code> no necesitas usar bucles ni condicionales. Solo debes crear objetos, invocar constructores, llamar a métodos de instancia y llamar a métodos estáticos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Un <code>Producto</code> tiene nombre, precio en céntimos y stock.</li>
+        <li>Una <code>MaquinaExpendedora</code> tiene ubicación y hasta tres productos.</li>
+        <li>La caja global y el número total de ventas son estáticos: pertenecen a la clase, no a una máquina concreta.</li>
+        <li>La probabilidad de fallo también es estática y afecta a todas las máquinas.</li>
+        <li>Cada venta utiliza <code>Random</code> para decidir si la máquina falla.</li>
+        <li>Si la venta falla, no se reduce el stock y no aumenta la caja global.</li>
+        <li>Si la venta funciona, se reduce el stock del producto, aumenta la caja global y aumenta el contador de ventas globales.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Reinicia las estadísticas globales de la clase <code>MaquinaExpendedora</code>.</li>
+        <li>Configura una probabilidad de fallo inicial.</li>
+        <li>Crea al menos <strong>3 productos</strong> con distinto precio y stock.</li>
+        <li>Crea al menos <strong>2 máquinas expendedoras</strong> con ubicaciones diferentes.</li>
+        <li>Coloca productos en las máquinas.</li>
+        <li>Realiza varias ventas invocando métodos de instancia.</li>
+        <li>Consulta la caja global y las ventas globales invocando métodos estáticos.</li>
+        <li>Cambia la probabilidad de fallo y realiza nuevas ventas.</li>
+        <li>Muestra la información de las máquinas y productos para observar cómo cambia el stock.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
+      <p>Si dos máquinas venden productos diferentes, ambas suman dinero a la misma caja global. Esa caja no está dentro de cada objeto máquina: pertenece a la clase <code>MaquinaExpendedora</code>.</p>
+      <p>Además, si modificas la probabilidad de fallo desde la clase, todas las máquinas pasan a usar ese nuevo valor.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Configura la probabilidad de fallo a <code>0</code> y comprueba que las ventas siempre pueden funcionar si hay stock.</li>
+        <li>Configura la probabilidad de fallo a <code>100</code> y comprueba que ninguna venta se completa.</li>
+        <li>Agota el stock de un producto vendiéndolo varias veces.</li>
+        <li>Crea una segunda máquina y comprueba que sus ventas también aumentan la caja global.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar porque algunas ventas dependen de <code>Random</code>, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Venta correcta en Entrada: Agua.
+La maquina de Pasillo ha fallado al vender Cafe.
+Venta correcta en Entrada: Galletas.
+Caja global: 270
+Ventas globales: 2</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Los métodos estáticos se invocan desde <code>MaquinaExpendedora</code>.</li>
+        <li>Los métodos de venta se invocan desde una máquina concreta.</li>
+        <li>No necesitas usar <code>if</code>, <code>for</code> ni pedir datos por teclado.</li>
+        <li>Ejecuta el programa varias veces para observar el efecto de <code>Random</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>MaquinaExpendedora</code></p>
+    </div>
+  </div>
+</div>
+</section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1790836694416"></script>
-    <script src="assets/js/course.js?v=1790836694416"></script>
+    <script src="assets/js/search-data.js?v=1790837063372"></script>
+    <script src="assets/js/course.js?v=1790837063372"></script>
   </body>
 </html>
