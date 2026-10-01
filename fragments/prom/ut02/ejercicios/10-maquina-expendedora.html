@@ -1,0 +1,93 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-store"></i> 2.10 Máquina expendedora, Random y static</h2>
+    <p class="lead">Trabaja con una simulación de ventas donde varias máquinas comparten estadísticas globales mediante elementos <code>static</code> y cada venta puede fallar utilizando <code>Random</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Producto</code> y <code>MaquinaExpendedora</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-maquina-expendedora.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es combinar objetos normales con datos compartidos por toda una clase. Cada producto tiene su propio precio y stock, cada máquina tiene su ubicación y productos, pero todas las máquinas comparten la misma caja global, las ventas globales y la probabilidad de fallo.</p>
+      <p>En el <code>Main</code> no necesitas usar bucles ni condicionales. Solo debes crear objetos, invocar constructores, llamar a métodos de instancia y llamar a métodos estáticos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Un <code>Producto</code> tiene nombre, precio en céntimos y stock.</li>
+        <li>Una <code>MaquinaExpendedora</code> tiene ubicación y hasta tres productos.</li>
+        <li>La caja global y el número total de ventas son estáticos: pertenecen a la clase, no a una máquina concreta.</li>
+        <li>La probabilidad de fallo también es estática y afecta a todas las máquinas.</li>
+        <li>Cada venta utiliza <code>Random</code> para decidir si la máquina falla.</li>
+        <li>Si la venta falla, no se reduce el stock y no aumenta la caja global.</li>
+        <li>Si la venta funciona, se reduce el stock del producto, aumenta la caja global y aumenta el contador de ventas globales.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Reinicia las estadísticas globales de la clase <code>MaquinaExpendedora</code>.</li>
+        <li>Configura una probabilidad de fallo inicial.</li>
+        <li>Crea al menos <strong>3 productos</strong> con distinto precio y stock.</li>
+        <li>Crea al menos <strong>2 máquinas expendedoras</strong> con ubicaciones diferentes.</li>
+        <li>Coloca productos en las máquinas.</li>
+        <li>Realiza varias ventas invocando métodos de instancia.</li>
+        <li>Consulta la caja global y las ventas globales invocando métodos estáticos.</li>
+        <li>Cambia la probabilidad de fallo y realiza nuevas ventas.</li>
+        <li>Muestra la información de las máquinas y productos para observar cómo cambia el stock.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
+      <p>Si dos máquinas venden productos diferentes, ambas suman dinero a la misma caja global. Esa caja no está dentro de cada objeto máquina: pertenece a la clase <code>MaquinaExpendedora</code>.</p>
+      <p>Además, si modificas la probabilidad de fallo desde la clase, todas las máquinas pasan a usar ese nuevo valor.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Configura la probabilidad de fallo a <code>0</code> y comprueba que las ventas siempre pueden funcionar si hay stock.</li>
+        <li>Configura la probabilidad de fallo a <code>100</code> y comprueba que ninguna venta se completa.</li>
+        <li>Agota el stock de un producto vendiéndolo varias veces.</li>
+        <li>Crea una segunda máquina y comprueba que sus ventas también aumentan la caja global.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar porque algunas ventas dependen de <code>Random</code>, pero debería mostrar mensajes similares a estos:</p>
+      <pre><code>Venta correcta en Entrada: Agua.
+La maquina de Pasillo ha fallado al vender Cafe.
+Venta correcta en Entrada: Galletas.
+Caja global: 270
+Ventas globales: 2</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Los métodos estáticos se invocan desde <code>MaquinaExpendedora</code>.</li>
+        <li>Los métodos de venta se invocan desde una máquina concreta.</li>
+        <li>No necesitas usar <code>if</code>, <code>for</code> ni pedir datos por teclado.</li>
+        <li>Ejecuta el programa varias veces para observar el efecto de <code>Random</code>.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>MaquinaExpendedora</code></p>
+    </div>
+  </div>
+</div>

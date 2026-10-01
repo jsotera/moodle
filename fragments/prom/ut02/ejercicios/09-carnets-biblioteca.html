@@ -1,0 +1,89 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-id-card"></i> 2.9 Carnets de biblioteca y elementos estáticos</h2>
+    <p class="lead">Trabaja con un contador compartido por toda una clase utilizando <code>static</code>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p>Descarga el proyecto Maven base y ábrelo con IntelliJ IDEA. El proyecto contiene las clases <code>Persona</code> y <code>CarnetBiblioteca</code> documentadas con Javadoc, además de una clase <code>Main</code> preparada para completar la actividad.</p>
+      <p>
+        <a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut02-carnets-biblioteca.zip" download>
+          <i class="fas fa-file-archive"></i> Descargar proyecto base
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-bullseye"></i> Objetivo</h4>
+      <p>El objetivo es diferenciar entre atributos de instancia y atributos de clase. Cada carnet tiene su propio <code>numero</code>, <code>titular</code> y estado <code>activo</code>, pero todos comparten el contador <code>siguienteNumero</code>.</p>
+      <p>No debes modificar las clases del paquete <code>modelo</code>. Toda la lógica de prueba debe escribirse en el método <code>main</code>, sin bucles ni condicionales.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> Reglas del modelo</h4>
+      <ul>
+        <li>Una <code>Persona</code> tiene nombre y un carnet de biblioteca.</li>
+        <li>Un <code>CarnetBiblioteca</code> tiene número, titular y estado activo.</li>
+        <li>El número del carnet se asigna automáticamente al construirlo.</li>
+        <li>El atributo estático <code>siguienteNumero</code> pertenece a la clase, no a cada carnet.</li>
+        <li>El método estático <code>consultarSiguienteNumero</code> se invoca desde la clase, no desde un objeto concreto.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Enunciado</h4>
+      <p>Crea una aplicación de prueba con las siguientes condiciones:</p>
+      <ul>
+        <li>Consulta y muestra el siguiente número de carnet antes de crear ningún carnet.</li>
+        <li>Crea al menos <strong>3 personas</strong>.</li>
+        <li>Crea un carnet para cada persona utilizando el constructor que recibe una <code>Persona</code>.</li>
+        <li>Muestra la información de cada persona y de cada carnet.</li>
+        <li>Consulta de nuevo el siguiente número de carnet.</li>
+        <li>Desactiva uno de los carnets y comprueba que los demás siguen activos.</li>
+        <li>Crea una cuarta persona y un nuevo carnet al final.</li>
+        <li>Comprueba que el nuevo carnet continúa la numeración anterior.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> La idea importante</h4>
+      <p>No existe un contador distinto para cada carnet. El contador <code>siguienteNumero</code> es compartido por toda la clase <code>CarnetBiblioteca</code>.</p>
+      <p>Por eso, cuando creas un carnet nuevo, cambia el valor que verá cualquier llamada posterior a <code>CarnetBiblioteca.consultarSiguienteNumero()</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pruebas avanzadas</h4>
+      <ul>
+        <li>Consulta <code>CarnetBiblioteca.consultarSiguienteNumero()</code> antes y después de cada constructor.</li>
+        <li>Crea un carnet sin titular y asígnale después una persona con <code>setTitular</code>.</li>
+        <li>Utiliza <code>CarnetBiblioteca.reiniciarSiguienteNumero</code> al principio del programa y observa cómo cambia la numeración.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Salida esperada</h4>
+      <p>La salida puede variar según los nombres que utilices, pero debería mostrar una numeración progresiva:</p>
+      <pre><code>Siguiente numero antes de crear carnets: 1000
+CarnetBiblioteca{numero=1000, titular=Ane, activo=true}
+CarnetBiblioteca{numero=1001, titular=Markel, activo=true}
+CarnetBiblioteca{numero=1002, titular=June, activo=true}
+Siguiente numero despues de crear carnets: 1003</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Los métodos estáticos se llaman desde el nombre de la clase.</li>
+        <li>Los métodos de instancia se llaman desde un objeto concreto.</li>
+        <li>No necesitas usar <code>if</code>, <code>for</code> ni pedir datos por teclado.</li>
+        <li>Usa varios <code>System.out.println</code> para observar cómo cambia el contador compartido.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>CarnetsBiblioteca</code></p>
+    </div>
+  </div>
+</div>
