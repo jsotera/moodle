@@ -8,6 +8,17 @@ Repositorio de materiales didácticos para publicar en GitHub Pages y reutilizar
 
 ### [LMGI · Lenguaje de Marcas](https://jsotera.github.io/moodle/lmgi/)
 
+## Instalar como aplicacion
+
+Este sitio puede instalarse como PWA desde un navegador compatible, como Chrome o Edge.
+
+1. Abre <https://jsotera.github.io/moodle/>.
+2. Pulsa el icono de instalacion que aparece en la barra de direcciones.
+3. Si no aparece, abre el menu del navegador y busca la opcion de instalar la pagina como aplicacion.
+4. Acepta la instalacion.
+
+Una vez instalada, la aplicacion puede abrirse desde el menu de inicio del sistema. Para que funcione sin conexion, abre la web al menos una vez con internet; el navegador guardara en cache las paginas, estilos, scripts e imagenes.
+
 ## Estructura
 
 - `index.html`: portada raíz con enlaces a los módulos.
