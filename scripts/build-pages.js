@@ -95,6 +95,51 @@ function copyDirectory(sourceDir, targetDir) {
   }
 }
 
+function toPosixPath(filePath) {
+  return filePath.split(path.sep).join("/");
+}
+
+function isCacheablePwaFile(filePath) {
+  const normalized = toPosixPath(path.relative(root, filePath));
+  const extension = path.extname(filePath).toLowerCase();
+  const cacheableExtensions = new Set([".html", ".css", ".js", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif", ".ico", ".webmanifest"]);
+
+  if (!cacheableExtensions.has(extension)) {
+    return false;
+  }
+
+  if (
+    normalized.includes("/downloads/")
+    || normalized.startsWith("projects/")
+    || normalized.startsWith("questions/")
+    || normalized.startsWith("fragments/")
+    || normalized.startsWith("templates/")
+    || normalized.startsWith("scripts/")
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
+function collectCacheableFiles(dirPath) {
+  if (!existsDirectory(dirPath)) {
+    return [];
+  }
+
+  return fs.readdirSync(dirPath, { withFileTypes: true }).flatMap((entry) => {
+    const currentPath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      return collectCacheableFiles(currentPath);
+    }
+
+    return isCacheablePwaFile(currentPath)
+      ? [`./${toPosixPath(path.relative(root, currentPath))}`]
+      : [];
+  });
+}
+
 function stripHtml(html) {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
@@ -343,7 +388,12 @@ function buildRootIndex() {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Materiales de ProgramaciÃ³n y Lenguaje de Marcas.">
+    <meta name="theme-color" content="#0f5d8f">
     <title>Materiales Moodle</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/img/logo.png">
+    <link rel="apple-touch-icon" href="assets/pwa/icon-192.png">
     <style>
       body {
         margin: 0;
@@ -397,6 +447,7 @@ function buildRootIndex() {
 ${moduleCards}
       </div>
     </main>
+    <script src="assets/js/pwa-register.js?v=${Date.now()}" data-service-worker="./sw.js" data-scope="./"></script>
   </body>
 </html>
 `);
@@ -407,4 +458,106 @@ for (const moduleConfig of modules) {
 }
 
 buildRootIndex();
+buildPwaFiles();
+
+function buildPwaFiles() {
+  const manifest = {
+    name: "PROM - LMGI",
+    short_name: "PROM - LMGI",
+    description: "Materiales de ProgramaciÃ³n y Lenguaje de Marcas.",
+    lang: "es",
+    start_url: "./",
+    scope: "./",
+    display: "standalone",
+    background_color: "#f3f6f9",
+    theme_color: "#0f5d8f",
+    icons: [
+      {
+        src: "assets/pwa/icon-192.png",
+        sizes: "192x192",
+        type: "image/png"
+      },
+      {
+        src: "assets/pwa/icon-512.png",
+        sizes: "512x512",
+        type: "image/png"
+      },
+      {
+        src: "assets/pwa/maskable-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any maskable"
+      }
+    ]
+  };
+
+  write(path.join(root, "manifest.webmanifest"), `${JSON.stringify(manifest, null, 2)}\n`);
+
+  const cacheVersion = Date.now().toString();
+  const precacheUrls = Array.from(new Set([
+    "./",
+    ...collectCacheableFiles(root)
+  ])).sort();
+
+  write(path.join(root, "sw.js"), `const CACHE_NAME = "prom-lmgi-${cacheVersion}";
+const PRECACHE_URLS = ${JSON.stringify(precacheUrls, null, 2)};
+const CACHEABLE_DESTINATIONS = new Set(["document", "style", "script", "image", "font"]);
+
+function shouldSkip(request) {
+  const url = new URL(request.url);
+  return url.pathname.includes("/assets/downloads/")
+    || url.pathname.endsWith(".zip")
+    || url.pathname.includes("/projects/")
+    || url.pathname.includes("/questions/");
+}
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then((keys) => Promise.all(keys
+        .filter((key) => key !== CACHE_NAME)
+        .map((key) => caches.delete(key))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
+
+  if (request.method !== "GET" || shouldSkip(request)) {
+    return;
+  }
+
+  const url = new URL(request.url);
+  const sameOrigin = url.origin === self.location.origin;
+  const cacheable = sameOrigin || CACHEABLE_DESTINATIONS.has(request.destination);
+
+  if (!cacheable) {
+    return;
+  }
+
+  event.respondWith(
+    caches.open(CACHE_NAME).then((cache) => (
+      fetch(request)
+        .then((response) => {
+          if (response && (response.ok || response.type === "opaque")) {
+            cache.put(request, response.clone());
+          }
+          return response;
+        })
+        .catch(() => cache.match(request)
+          .then((cachedResponse) => cachedResponse || cache.match("./index.html")))
+    ))
+  );
+});
+`);
+}
 console.log("Módulos generados correctamente.");
