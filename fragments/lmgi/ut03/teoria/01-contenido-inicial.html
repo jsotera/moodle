@@ -1,16 +1,109 @@
-<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-globe"></i> 3.1 Introducción a HTML</h2>
+    <p class="lead">HTML es el lenguaje de marcas que utilizamos para <strong>estructurar el contenido de una página web</strong>.</p>
 
-<div class="card shadow p-4">
+    <div class="alert alert-info" role="alert">
+      <i class="fas fa-book-open"></i>
+      Además de esta documentación de clase, puedes consultar la introducción completa de HTML en
+      <a href="https://www.w3schools.com/html/html_intro.asp" target="_blank" rel="noopener noreferrer">W3Schools HTML Introduction</a>.
+    </div>
 
-<h2 class="text-primary mb-3"><i class="fas fa-globe"></i> 3.1 Introducción a los lenguajes de marcas en entornos WEB (HTML)</h2>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> ¿Qué es HTML?</h4>
+      <p><strong>HTML</strong> significa <em>HyperText Markup Language</em>, es decir, lenguaje de marcado de hipertexto.</p>
+      <p>No es un lenguaje de programación como Java. HTML no se utiliza para definir algoritmos, condiciones o bucles, sino para indicar al navegador <strong>qué elementos forman una página</strong>: títulos, párrafos, enlaces, imágenes, listas, tablas, formularios, etc.</p>
+      <p>La idea principal es sencilla: escribimos texto rodeado de <strong>etiquetas</strong>, y esas etiquetas describen el significado o la función de cada parte del contenido.</p>
+    </div>
 
-<p class="lead">Primer contacto con HTML y con la estructura básica de documentos web.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tags"></i> Etiquetas y elementos</h4>
+      <p>Una etiqueta HTML se escribe utilizando los símbolos <code>&lt;</code> y <code>&gt;</code>. Muchas etiquetas tienen una etiqueta de apertura y otra de cierre:</p>
+      <pre><code class="language-html">&lt;p&gt;Este es un párrafo.&lt;/p&gt;</code></pre>
+      <p>En ese ejemplo:</p>
+      <ul>
+        <li><code>&lt;p&gt;</code> es la etiqueta de apertura.</li>
+        <li><code>Este es un párrafo.</code> es el contenido.</li>
+        <li><code>&lt;/p&gt;</code> es la etiqueta de cierre.</li>
+      </ul>
+      <p>Al conjunto formado por apertura, contenido y cierre lo llamamos <strong>elemento HTML</strong>.</p>
+    </div>
 
-<div class="mb-4">
-  <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Contenidos</h4>
-  <p>Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible.</p>
-</div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Documento HTML mínimo</h4>
+      <p>Una página HTML sencilla suele tener esta estructura:</p>
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Título de la página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Mi primer encabezado&lt;/h1&gt;
+    &lt;p&gt;Mi primer párrafo.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>Esta estructura será nuestra base durante toda la unidad. Más adelante iremos añadiendo nuevas etiquetas y atributos.</p>
+    </div>
 
-</div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-layer-group"></i> Partes principales de la estructura</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Elemento</th>
+              <th>Función</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;!DOCTYPE html&gt;</code></td>
+              <td>Indica al navegador que el documento usa HTML moderno.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;html&gt;</code></td>
+              <td>Es el elemento raíz del documento HTML.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;head&gt;</code></td>
+              <td>Contiene información sobre la página, como el título o la codificación.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;title&gt;</code></td>
+              <td>Define el título que aparece en la pestaña del navegador.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;body&gt;</code></td>
+              <td>Contiene el contenido visible de la página.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;h1&gt;</code></td>
+              <td>Representa un encabezado principal.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;p&gt;</code></td>
+              <td>Representa un párrafo de texto.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-eye"></i> Lo que interpreta el navegador</h4>
+      <p>El navegador no muestra las etiquetas tal cual. Lee el documento HTML, interpreta su estructura y representa el contenido de forma visual.</p>
+      <p>Por ejemplo, este código:</p>
+      <pre><code class="language-html">&lt;h1&gt;Bienvenida&lt;/h1&gt;
+&lt;p&gt;Esta es mi primera página web.&lt;/p&gt;</code></pre>
+      <p>no se muestra como texto con símbolos <code>&lt;</code> y <code>&gt;</code>, sino como un título grande y un párrafo debajo.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> HTML no decide el aspecto final completo</h4>
+      <p>HTML describe la <strong>estructura</strong> y el significado del contenido. El aspecto visual, como colores, tamaños, márgenes o disposición, se trabajará principalmente con <strong>CSS</strong>.</p>
+      <p>Por eso, en esta unidad nos centraremos primero en escribir documentos HTML correctos y bien organizados. Más adelante veremos cómo darles estilo.</p>
+    </div>
+  </div>
 </div>
