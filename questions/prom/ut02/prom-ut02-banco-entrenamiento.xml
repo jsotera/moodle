@@ -1,0 +1,4667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Banco Java - Objetos y clases</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Banco Java - Objetos y clases/UT2 - Bloque I - Clases, objetos y constructores</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 200001  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 01 Identificar una clase</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En el fragmento <pre><code>class Coche {
+  String modelo;
+}</code></pre> ¿qué representa <code>Coche</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Una clase define la plantilla a partir de la cual se crean objetos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Una clase]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un objeto ya creado]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un método]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una variable local]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200002  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 02 Crear objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué línea crea realmente un objeto en memoria?<pre><code>Coche coche1;
+coche1 = new Coche();
+Coche coche2 = coche1;</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La expresión <code>new Coche()</code> construye el objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>coche1 = new Coche();</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Coche coche1;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Coche coche2 = coche1;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>System.out.println(coche2);</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200003  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 03 Atributo</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En este código, ¿qué es <code>edad</code>?<pre><code>class Persona {
+  int edad;
+  void cumplirAnios() {
+    int nuevaEdad = edad + 1;
+    edad = nuevaEdad;
+  }
+}</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Está declarado dentro de la clase y fuera de los métodos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Un atributo de la clase <code>Persona</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una variable local]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un parámetro]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una constante]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200004  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 04 Variable local</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En el código anterior, ¿qué es <code>nuevaEdad</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Solo existe dentro de la ejecución del método.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Una variable local]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un atributo]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un constructor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un objeto]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200005  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 05 Constructor</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál es el constructor?<pre><code>class Robot {
+  String nombre;
+  Robot() {
+    nombre = "Sin nombre";
+  }
+}</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El constructor se llama igual que la clase y no declara tipo de retorno.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>Robot()</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>String nombre</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>class Robot</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>nombre = "Sin nombre"</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200006  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 06 Constructor con parámetro</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona {
+  String nombre;
+  Persona(String nuevoNombre) {
+    nombre = nuevoNombre;
+  }
+}
+Persona p = new Persona("Ane");
+System.out.println(p.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El argumento se guarda en el atributo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Ane]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[nuevoNombre]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200007  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 07 Atributo String sin inicializar</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+Persona p = new Persona();
+System.out.println(p.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Los atributos de tipo referencia quedan a <code>null</code> si no se inicializan.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una cadena vacía]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200008  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 08 Atributo int sin inicializar</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Cuenta { int saldo; }
+Cuenta c = new Cuenta();
+System.out.println(c.saldo);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Los atributos enteros quedan a <code>0</code> por defecto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200009  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 09 Variable local sin inicializar</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>int edad = 0;
+System.out.println(edad);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La variable local se inicializa con <code>0</code> antes de mostrarse.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Muestra 1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Muestra <code>null</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Muestra un valor aleatorio]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200010  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 10 Dos constructores</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuántas formas válidas hay de crear <code>Libro</code>?<pre><code>class Libro {
+  Libro() {}
+  Libro(String titulo) {}
+}</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Hay un constructor vacío y otro con un <code>String</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Dos formas]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una forma]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Ninguna]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Tres formas]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200011  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 11 Constructor no disponible</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué línea no es una forma válida de crear un <code>Robot</code> con esta clase? <span class="text-muted">(es decir, no compilaría)</span><pre><code>class Robot {
+  Robot(String nombre) {}
+}</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La clase solo define un constructor que recibe un <code>String</code>; por tanto, la creación sin argumentos no es válida.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>Robot r = new Robot();</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Robot r = new Robot("R2");</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Robot r;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Robot r = null;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200012  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 12 Estado inicial</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Caja {
+  int cantidad;
+  Caja(int inicial) { cantidad = inicial; }
+}
+Caja c = new Caja(7);
+System.out.println(c.cantidad);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El constructor inicializa el atributo con el argumento recibido.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[7]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[inicial]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200013  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 13 Clase como tipo</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En <code>Persona p = new Persona();</code>, ¿qué papel tiene el primer <code>Persona</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Las clases también se usan como tipos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Es el tipo de la variable <code>p</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Es el constructor que se ejecuta]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Es el nombre del objeto]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Es un método estático]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200014  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 14 Constructor frente a método</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál es correcta sobre un constructor?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Esa es la forma de reconocer constructores.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Tiene el mismo nombre que la clase y no declara tipo de retorno]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Siempre devuelve <code>void</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Siempre debe llamarse <code>main</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Solo modifica variables locales]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200015  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 15 Número de objetos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuántos objetos <code>Persona</code> se crean?<pre><code>Persona p1 = new Persona();
+Persona p2 = p1;
+Persona p3 = p2;</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Solo aparece una expresión <code>new Persona()</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[1]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[2]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200016  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 16 Reasignar referencia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuántos objetos se crean?<pre><code>Persona p1 = new Persona();
+Persona p2 = new Persona();
+p2 = p1;</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Hay dos llamadas a <code>new Persona()</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[2]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200017  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 17 Sobrecarga</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Selecciona la afirmación correcta sobre los constructores de una clase.]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Una clase puede tener varios constructores si se diferencian por sus parámetros.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Una clase puede tener varios constructores si no tienen exactamente los mismos parámetros]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una clase está obligada a tener un único constructor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Dos constructores iguales pueden repetirse sin problema]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un constructor siempre debe llamarse <code>main</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200018  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 18 Nombre de objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál es la mejor lectura de <code>Coche coche = new Coche();</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El nombre pertenece a la variable, no al objeto en memoria.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[La variable <code>coche</code> guarda una referencia a un objeto <code>Coche</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[El objeto se llama obligatoriamente <code>coche</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Coche</code> es una variable local]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>new</code> declara una clase]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200019  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 19 Referencia null</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>Persona p = null;
+System.out.println(p);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La variable <code>p</code> no apunta a ningún objeto, por eso al mostrar directamente la referencia aparece <code>null</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>null</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Muestra el nombre de la clase <code>Persona</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Muestra una cadena vacía]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Crea una persona automáticamente]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200020  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque I - 20 Atributo final</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué implica <code>final</code>?<pre><code>class Consola {
+  final Persona propietario;
+  Consola(Persona p) { propietario = p; }
+}</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>final</code> impide reasignar la referencia, no congela el objeto referenciado.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[El atributo <code>propietario</code> no podrá apuntar a otra persona después de inicializarse]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[La persona no podrá cambiar su estado]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[La clase no podrá tener objetos]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[El constructor no se podrá ejecutar]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Banco Java - Objetos y clases/UT2 - Bloque II - Métodos, parámetros, retorno y estado</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 200021  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 01 Método de instancia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué línea invoca un método de instancia sobre <code>coche</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Un método de instancia se invoca sobre un objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>coche.arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Coche.arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>new arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>void arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200022  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 02 Método con parámetro</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Contador {
+  int valor;
+  void sumar(int cantidad) { valor = valor + cantidad; }
+}
+Contador c = new Contador();
+c.sumar(4);
+c.sumar(3);
+System.out.println(c.valor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Las dos llamadas modifican el mismo atributo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[7]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[4]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200023  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 03 Argumento</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En <code>robot.recibirDanio(15);</code>, ¿qué es <code>15</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El argumento es el valor concreto enviado al método.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Un argumento]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un parámetro]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un atributo]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un constructor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200024  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 04 Parámetro</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En <code>void sumar(int cantidad)</code>, ¿qué es <code>cantidad</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El parámetro se declara en la cabecera del método.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Un parámetro]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un atributo]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un objeto]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una llamada a método]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200025  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 05 Método que devuelve</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Caja {
+  int valor = 5;
+  int doble() { return valor * 2; }
+}
+Caja c = new Caja();
+System.out.println(c.doble());</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El método devuelve <code>valor * 2</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[10]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[5]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200026  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 06 Retorno no guardado</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Caja {
+  int valor = 4;
+  int doble() { return valor * 2; }
+}
+Caja c = new Caja();
+c.doble();
+System.out.println(c.valor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El método devuelve 8, pero no cambia el atributo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[4]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[8]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200027  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 07 Void</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Un método <code>void</code>...]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>void</code> significa que no hay valor de retorno.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[No devuelve un valor utilizable como resultado]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Siempre es estático]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[No puede modificar atributos]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Debe llamarse desde la clase]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200028  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 08 Modificar estado</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Lampara {
+  boolean encendida;
+  void encender() { encendida = true; }
+}
+Lampara l = new Lampara();
+l.encender();
+System.out.println(l.encendida);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El método cambia el atributo del objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[true]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[false]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200029  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 09 Orden de llamadas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Robot {
+  int energia = 10;
+  void gastar(int cantidad) { energia = energia - cantidad; }
+}
+Robot r = new Robot();
+r.gastar(3);
+r.gastar(4);
+System.out.println(r.energia);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[10 - 3 - 4 = 3.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[7]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[6]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[10]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200030  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 10 Varios parámetros</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Calc {
+  int sumar(int a, int b) { return a + b; }
+}
+System.out.println((new Calc()).sumar(2, 5));</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Los argumentos se asignan por posición.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[7]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[25]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[2]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[5]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200031  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 11 Sombra de nombres</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona {
+  String nombre = "Sin nombre";
+  void cambiarNombre(String nombre) { nombre = nombre; }
+}
+Persona p = new Persona();
+p.cambiarNombre("Ane");
+System.out.println(p.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La asignación afecta al parámetro, no al atributo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Sin nombre]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Ane]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200032  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 12 Asignación correcta</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona {
+  String nombre = "Sin nombre";
+  void cambiarNombre(String nuevoNombre) { nombre = nuevoNombre; }
+}
+Persona p = new Persona();
+p.cambiarNombre("Ane");
+System.out.println(p.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Se asigna el argumento al atributo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Ane]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Sin nombre]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[nuevoNombre]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200033  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 13 Retorno en expresión</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Dado { int valor() { return 4; } }
+Dado d = new Dado();
+System.out.println(d.valor() + 2);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El retorno se usa dentro de una expresión.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[6]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[42]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[4]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200034  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 14 Consultar tras modificar</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Marcador {
+  int puntos;
+  void anotar(int p) { puntos = puntos + p; }
+  int obtenerPuntos() { return puntos; }
+}
+Marcador m = new Marcador();
+m.anotar(3);
+System.out.println(m.obtenerPuntos());</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Primero se modifica el estado y luego se consulta.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[puntos]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200035  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 15 Invocar método</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál es la forma correcta de invocar <code>obtenerVida</code> de <code>robot</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Los métodos se invocan con paréntesis.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>robot.obtenerVida()</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>robot.obtenerVida</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Robot.obtenerVida</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>new obtenerVida()</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200036  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 16 Tipo de argumento</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué llamada no es válida para este método? <span class="text-muted">(es decir, no compilaría)</span><pre><code>class Persona {
+  void cumplirAnios(int cantidad) { }
+}</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El método espera un argumento de tipo <code>int</code>, no un texto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>p.cumplirAnios("dos");</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>p.cumplirAnios(2);</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>p.cumplirAnios(0);</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>p.cumplirAnios(18);</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200037  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 17 Devolver boolean</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Robot {
+  int vida = 0;
+  boolean estaVivo() { return vida > 0; }
+}
+System.out.println((new Robot()).estaVivo());</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>0 > 0</code> es falso.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[false]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[true]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200038  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 18 Modifica y devuelve</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Robot {
+  int vida = 10;
+  boolean perderVida(int puntos) {
+    vida = vida - puntos;
+    return vida > 0;
+  }
+}
+Robot r = new Robot();
+System.out.println(r.perderVida(4));
+System.out.println(r.vida);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La vida queda en 6 y el método devuelve <code>true</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[true y después 6]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[false y después 6]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[true y después 10]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[6 y después true]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200039  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 19 Parámetro independiente</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Caja {
+  int valor = 5;
+  void probar(int valor) { valor = valor + 10; }
+}
+Caja c = new Caja();
+c.probar(1);
+System.out.println(c.valor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Cambia el parámetro local, no el atributo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[5]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[11]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[15]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200040  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque II - 20 Secuencia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Cuenta {
+  int saldo = 20;
+  void ingresar(int c) { saldo = saldo + c; }
+  void retirar(int c) { saldo = saldo - c; }
+}
+Cuenta c = new Cuenta();
+c.retirar(5);
+c.ingresar(2);
+c.retirar(4);
+System.out.println(c.saldo);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[20 - 5 + 2 - 4 = 13.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[13]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[17]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[11]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[20]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Banco Java - Objetos y clases/UT2 - Bloque III - Referencias, relaciones y objetos como argumentos</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 200041  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 01 Misma referencia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+Persona p1 = new Persona();
+Persona p2 = p1;
+p1.nombre = "Ane";
+System.out.println(p2.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Ambas variables apuntan al mismo objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Ane]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[p1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200042  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 02 Reasignar y modificar</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Caja { int valor; }
+Caja a = new Caja();
+Caja b = new Caja();
+a.valor = 3;
+b.valor = 8;
+b = a;
+b.valor = 10;
+System.out.println(a.valor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Después de <code>b = a</code>, ambas referencias apuntan a la misma caja.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[10]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[8]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200043  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 03 Objeto como atributo</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En <code>class Consola { Persona propietario; }</code>, <code>propietario</code> es...]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Una clase puede usarse como tipo de atributo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Un atributo de tipo <code>Persona</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un método de clase]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un constructor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una variable local]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200044  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 04 Acceso encadenado</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+class Coche { Persona conductor; }
+Persona p = new Persona();
+p.nombre = "Iker";
+Coche c = new Coche();
+c.conductor = p;
+System.out.println(c.conductor.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Se accede al conductor y después a su nombre.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Iker]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[conductor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200045  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 05 Objeto como argumento</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String estado = "normal"; }
+class Medico { void curar(Persona p) { p.estado = "curada"; } }
+Persona ana = new Persona();
+(new Medico()).curar(ana);
+System.out.println(ana.estado);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El método modifica el objeto recibido.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[curada]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[normal]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200046  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 06 Reasignar parámetro</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+class Prueba {
+  void cambiar(Persona p) {
+    p = new Persona();
+    p.nombre = "Nueva";
+  }
+}
+Persona persona = new Persona();
+persona.nombre = "Original";
+(new Prueba()).cambiar(persona);
+System.out.println(persona.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Reasignar el parámetro no cambia la variable original.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Original]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Nueva]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200047  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 07 Modificar objeto recibido</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+class Prueba { void cambiar(Persona p) { p.nombre = "Nueva"; } }
+Persona persona = new Persona();
+persona.nombre = "Original";
+(new Prueba()).cambiar(persona);
+System.out.println(persona.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Se modifica el objeto apuntado por la referencia.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Nueva]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Original]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200048  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 08 Relación compartida</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String lesion = "ninguna"; }
+class Coche {
+  Persona conductor;
+  void accidente() { conductor.lesion = "leve"; }
+}
+Persona p = new Persona();
+Coche c = new Coche();
+c.conductor = p;
+c.accidente();
+System.out.println(p.lesion);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El coche tiene una referencia a la misma persona.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[leve]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[ninguna]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200049  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 09 Comparar referencias iguales</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona {}
+Persona a = new Persona();
+Persona b = a;
+System.out.println(a == b);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>==</code> comprueba si apuntan al mismo objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[true]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[false]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200050  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 10 Comparar objetos distintos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona {}
+Persona a = new Persona();
+Persona b = new Persona();
+System.out.println(a == b);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Son dos objetos distintos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[false]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[true]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200051  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 11 Atributo objeto sin inicializar</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+class Coche { Persona conductor; }
+Coche c = new Coche();
+System.out.println(c.conductor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El atributo <code>conductor</code> no apunta a ningún objeto, por eso al mostrar directamente la referencia aparece <code>null</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>null</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Muestra una persona vacía]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Muestra una cadena vacía]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Crea una persona automáticamente]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200052  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 12 Relación del mismo tipo</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué significa <code>Usuario sigoA1;</code> dentro de <code>class Usuario</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Una clase puede tener atributos de su mismo tipo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Un usuario puede guardar una referencia a otro usuario]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un usuario hereda de otro usuario]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se crea automáticamente otro usuario]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[El atributo debe ser estático]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200053  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 13 Devolver objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+class Coche {
+  Persona conductor;
+  Persona obtenerConductor() { return conductor; }
+}
+Persona p = new Persona();
+p.nombre = "Nerea";
+Coche c = new Coche();
+c.conductor = p;
+System.out.println(c.obtenerConductor().nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Un método puede devolver una referencia a un objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Nerea]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[conductor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200054  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 14 Objeto y número como argumentos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Robot { int vida = 10; }
+class Arena { void golpear(Robot r, int fuerza) { r.vida = r.vida - fuerza; } }
+Robot robot = new Robot();
+Arena arena = new Arena();
+arena.golpear(robot, 3);
+arena.golpear(robot, 4);
+System.out.println(robot.vida);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Se resta al mismo robot dos veces.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[7]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[6]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[10]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200055  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 15 Objeto no referenciado</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Tras <pre><code>Persona p = new Persona();
+p = new Persona();</code></pre> el primer objeto...]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Una variable solo puede apuntar a un objeto cada vez.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Deja de estar referenciado por <code>p</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se copia al segundo objeto]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se convierte en constructor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Queda referenciado por ambos objetos]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200056  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 16 Alias</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Mascota { String nombre; }
+Mascota m1 = new Mascota();
+Mascota m2 = m1;
+m2.nombre = "Luna";
+m1.nombre = "Kira";
+System.out.println(m2.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Las dos variables son alias del mismo objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Kira]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Luna]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200057  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 17 Conectar objetos</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona {
+  String nombre;
+  Persona amigo;
+  void hacerseAmigoDe(Persona otra) { amigo = otra; }
+}
+Persona a = new Persona();
+Persona b = new Persona();
+b.nombre = "Jon";
+a.hacerseAmigoDe(b);
+System.out.println(a.amigo.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El método guarda la referencia recibida.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Jon]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[a]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200058  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 18 Constructor con objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona { String nombre; }
+class Consola {
+  Persona propietario;
+  Consola(Persona p) { propietario = p; }
+}
+Persona p = new Persona();
+p.nombre = "Ane";
+Consola c = new Consola(p);
+p.nombre = "Iraia";
+System.out.println(c.propietario.nombre);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La consola guarda referencia al mismo objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Iraia]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Ane]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200059  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 19 Método sobre objeto relacionado</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Persona {
+  String estado = "tranquila";
+  void enfadar() { estado = "enfadada"; }
+}
+class Consola {
+  Persona propietario;
+  void romper() { propietario.enfadar(); }
+}
+Persona p = new Persona();
+Consola c = new Consola();
+c.propietario = p;
+c.romper();
+System.out.println(p.estado);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Se invoca un método sobre el objeto relacionado.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[enfadada]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[tranquila]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200060  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque III - 20 Primitivo frente a objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Caja { int valor; }
+class Prueba {
+  void cambiar(int numero, Caja caja) {
+    numero = 99;
+    caja.valor = 99;
+  }
+}
+int n = 1;
+Caja c = new Caja();
+c.valor = 1;
+(new Prueba()).cambiar(n, c);
+System.out.println(n + "-" + c.valor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El primitivo no cambia fuera, pero el objeto sí queda modificado.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[1-99]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[99-99]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1-1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[99-1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/Banco Java - Objetos y clases/UT2 - Bloque IV - Librerías, Random, Math, static e integración</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 200061  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 01 Importar Random</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Si queremos usar <code>Random</code> escribiendo solo el nombre de la clase, ¿qué idea es correcta?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>Random</code> es una clase de las librerías de Java y normalmente necesitaremos importarla para usarla con su nombre corto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Necesitamos importar la clase o escribir su nombre completo]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[No hace falta crear ningún objeto <code>Random</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se puede usar cualquier clase de Java sin importar nada]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[El import se escribe dentro del método <code>main</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200062  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 02 nextInt</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué valores puede devolver <code>random.nextInt(10)</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El límite superior queda excluido.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Enteros desde 0 hasta 9]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Enteros desde 1 hasta 10]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Enteros desde 0 hasta 10]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Solo el número 10]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200063  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 03 Aleatorio 1 a 10</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué expresión genera un entero de 1 a 10 incluidos?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[0..9 más 1 produce 1..10.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>random.nextInt(10) + 1</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>random.nextInt(10)</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>random.nextInt(11) + 1</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>random.nextInt(9) + 1</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200064  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 04 Math.abs</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál es correcta?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>Math</code> ofrece métodos estáticos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>Math.abs(-5)</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>new Math().abs(-5)</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>abs.Math(-5)</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Math m = new Math(); m.abs(-5)</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200065  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 05 Valor absoluto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>System.out.println(Math.abs(3 - 10));</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>3 - 10</code> es -7; su valor absoluto es 7.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[7]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[-7]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[13]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200066  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 06 Min y max</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>int a = 8;
+int b = 3;
+System.out.println(Math.min(a, b) + "-" + Math.max(a, b));</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>min</code> devuelve el menor y <code>max</code> el mayor.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[3-8]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[8-3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[11]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[5]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200067  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 07 Atributo static</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En <code>class Clinica { static int total; }</code>, <code>total</code> es...]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Pertenece a la clase y se comparte.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Un atributo estático de la clase]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una variable local]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un constructor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un parámetro]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200068  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 08 Compartir static</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Contador {
+  static int total;
+  Contador() { total++; }
+}
+new Contador();
+new Contador();
+System.out.println(Contador.total);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>total</code> es común a todos los objetos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[2]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200069  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 09 Instancia y static</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Jugador {
+  static int total;
+  int puntos;
+  Jugador() { total++; puntos++; }
+}
+Jugador a = new Jugador();
+Jugador b = new Jugador();
+System.out.println(Jugador.total + "-" + a.puntos + "-" + b.puntos);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>total</code> es compartido; <code>puntos</code> es de cada objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[2-1-1]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[2-2-2]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1-1-1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0-1-1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200070  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 10 Método static</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cómo se invoca correctamente?<pre><code>class Utilidades {
+  static int doble(int n) { return n * 2; }
+}</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Los métodos estáticos se pueden invocar desde la clase.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>Utilidades.doble(4)</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>new doble(4)</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Utilidades().doble(4)</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>doble.Utilidades(4)</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200071  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 11 Random como objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En <code>Random random = new Random();</code>...]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Se crea un objeto de una clase de biblioteca.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>random</code> es una referencia a un objeto de la clase <code>Random</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>Random</code> es un método estático]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>new Random()</code> declara una variable local]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>random</code> es una constante]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200072  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 12 Random calculado</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Si <code>random.nextInt(5)</code> devuelve 3, ¿qué se muestra?<pre><code>int lanzamiento = random.nextInt(5) + 1;
+System.out.println(lanzamiento);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Al resultado 3 se le suma 1.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[4]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[5]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200073  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 13 Static modifica objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Mascota { String estado = "normal"; }
+class Clinica { static void vacunar(Mascota m) { m.estado = "vacunada"; } }
+Mascota mascota = new Mascota();
+Clinica.vacunar(mascota);
+System.out.println(mascota.estado);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Un método estático puede recibir y modificar objetos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[vacunada]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[normal]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[null]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200074  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 14 Contador static</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Clinica {
+  static int vacunas;
+  static void registrarVacuna() { vacunas++; }
+}
+Clinica.registrarVacuna();
+Clinica.registrarVacuna();
+System.out.println(Clinica.vacunas);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[No hace falta crear objeto para usar miembros estáticos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[2]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Se muestra otro valor]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200075  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 15 Math con objeto</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Bola { int posicion; }
+Bola b = new Bola();
+b.posicion = 12;
+int objetivo = 20;
+System.out.println(Math.abs(objetivo - b.posicion));</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Calcula la distancia absoluta al objetivo.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[8]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[32]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[-8]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[12]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200076  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 16 Leer llamada compleja</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[En <code>System.out.println(Math.max(j1.obtenerPuntos(), j2.obtenerPuntos()));</code>, ¿qué debe obtenerse para llamar a <code>Math.max</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Los retornos se usan como argumentos de <code>Math.max</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Los dos valores devueltos por <code>obtenerPuntos()</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Una nueva instancia de <code>Math</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[El texto literal de la llamada]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Dos constructores]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200077  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 17 java.lang</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Para qué utilizarías normalmente la clase <code>Math</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>Math</code> agrupa utilidades matemáticas como valor absoluto, mínimo, máximo o redondeos.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Para usar utilidades matemáticas como <code>abs</code>, <code>min</code> o <code>max</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Para crear objetos propios de nuestro modelo]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Para definir constructores de una clase]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Para sustituir siempre a los métodos de instancia]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200078  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 18 Static vs instancia</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuál es correcta?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Esa distinción es esencial en Java.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Un atributo estático es compartido por la clase; uno de instancia pertenece a cada objeto]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Todos los atributos son compartidos]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un método estático solo existe dentro de <code>main</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Un atributo de instancia se consulta siempre con la clase]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200079  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 19 Instancia desde main</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Dentro de <code>main</code>, ¿cómo se invoca normalmente <code>arrancar</code> de <code>Coche</code> si no es estático?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Los métodos de instancia necesitan un objeto.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[Con un objeto: <code>coche.arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Directamente: <code>arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Siempre desde la clase: <code>Coche.arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[Con <code>static arrancar();</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 200080  -->
+  <question type="multichoice">
+    <name>
+      <text>UT2 - Bloque IV - 20 Integración</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué se muestra?<pre><code>class Marcador {
+  static int totalPartidas;
+  int ganadas;
+  void ganar() { ganadas++; totalPartidas++; }
+}
+Marcador a = new Marcador();
+Marcador b = new Marcador();
+a.ganar();
+b.ganar();
+b.ganar();
+System.out.println(a.ganadas + "-" + b.ganadas + "-" + Marcador.totalPartidas);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<code>ganadas</code> es individual y <code>totalPartidas</code> compartido.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[1-2-3]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[3-3-3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[1-2-0]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[2-1-3]]></text>
+      <feedback format="html">
+        <text>Revisa el código paso a paso y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>
+

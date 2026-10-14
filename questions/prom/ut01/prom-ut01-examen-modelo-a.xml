@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/UT1 - Examen A</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/UT1 - Examen A/UT1 - Examen A - Bloque I - Fundamentos de Java</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 83381  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque I - 01 Proceso de ejecución</text>
+    </name>
+    <questiontext format="html">
+      <text>¿Cuál representa correctamente el proceso habitual de ejecución de un programa Java?</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>El compilador transforma el código fuente en bytecode y la JVM ejecuta ese bytecode.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text>Código fuente → compilación → bytecode → JVM</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>Bytecode → código fuente → JVM → compilación</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>JVM → compilación → código fuente</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>Código fuente → String → bytecode</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83382  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque I - 02 Salida con print y println</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué salida produce este código?</p>
+<pre><code>System.out.println("Hola");
+System.out.println("Java");
+System.out.println("Fin");</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><code>println</code> añade texto a la consola separado por saltos de línea.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre>Hola<br>Java
+Fin</pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre>Fin</pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el concepto y vuelve a intentarlo.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre>HolaJavaFin</pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el concepto y vuelve a intentarlo.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre>Hola</pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el concepto y vuelve a intentarlo.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83383  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque I - 03 Corrección sintáctica</text>
+    </name>
+    <questiontext format="html">
+      <text>¿Cuál de estos fragmentos está escrito correctamente?</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Java distingue mayúsculas y la instrucción debe terminar en punto y coma.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>System.out.println("Bienvenido");</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>system.out.println("Bienvenido");</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>System.out.println("Bienvenido")</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>System.out.println('Bienvenido');</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83384  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque I - 04 Archivo de una clase pública</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Una clase se declara como <code>public class Calculadora</code>. ¿Cuál debe ser el nombre del archivo fuente?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El archivo de una clase pública usa el mismo nombre exacto que la clase y la extensión <code>.java</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text>Calculadora.java</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>calculadora.java</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>Calculadora.class</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>Main.java</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83385  -->
+  <question type="truefalse">
+    <name>
+      <text>UT1 - Examen A - Bloque I - 05 Sensibilidad a mayúsculas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>En Java, <code>System</code> y <code>system</code> (diferencia de S mayus/minus) se consideran lo mismo.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Java distingue entre letras mayúsculas y minúsculas.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Incorrecto.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/UT1 - Examen A/UT1 - Examen A - Bloque II - Variables, tipos y constantes</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 83386  -->
+  <question type="matching">
+    <name>
+      <text>UT1 - Examen A - Bloque II - 05 Tipos y datos</text>
+    </name>
+    <questiontext format="html">
+      <text>Relaciona cada dato con el tipo más adecuado.</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Cada dato debe almacenarse en un tipo compatible con su naturaleza.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>true</shuffleanswers>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <subquestion format="html">
+      <text>Número de alumnos</text>
+      <answer>
+        <text>int</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text>Precio de una entrada</text>
+      <answer>
+        <text>double</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text>Nombre del módulo</text>
+      <answer>
+        <text>String</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text>Curso superado</text>
+      <answer>
+        <text>boolean</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text>Inicial del grupo</text>
+      <answer>
+        <text>char</text>
+      </answer>
+    </subquestion>
+  </question>
+
+<!-- question: 83387  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque II - 02 Tipo para una medida</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué declaración es más apropiada para almacenar una temperatura de <code>21.6</code> grados?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Un valor con parte decimal puede almacenarse en una variable <code>double</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>double temperatura = 21.6;</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>int temperatura = 21.6;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>boolean temperatura = 21.6;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>char temperatura = '21.6';</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83388  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque II - 03 Constante final</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Después de ejecutar <code>final int VIDAS_INICIALES = 3;</code>, ¿qué instrucción provocaría un error?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Una variable declarada con <code>final</code> no puede recibir otro valor.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>VIDAS_INICIALES = 5;</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>System.out.println(VIDAS_INICIALES);</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>int vidas = VIDAS_INICIALES;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>boolean activo = true;</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83389  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque II - 04 Literal de carácter</text>
+    </name>
+    <questiontext format="html">
+      <text>¿Cuál de las siguientes declaraciones almacena correctamente una inicial?</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[Un <code>char</code> contiene un único carácter entre comillas simples.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>char inicial = 'R';</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>char inicial = "R";</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>String inicial = 'R';</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>char inicial = 'Ra';</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83390  -->
+  <question type="numerical">
+    <name>
+      <text>UT1 - Examen A - Bloque II - 01 Reasignación de una variable</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué valor muestra este código?<pre><code>int nivel = 4;
+nivel = 7;
+System.out.println(nivel);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La segunda asignación sustituye el valor anterior.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>7</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/UT1 - Examen A/UT1 - Examen A - Bloque III - Operadores y expresiones</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 83391  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque III - 03 Expresión lógica combinada</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Si <code>edad = 19</code> y <code>tieneEntrada = false</code>, ¿qué valor produce <code>edad &gt;= 18 &amp;&amp; tieneEntrada</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[AND solo produce <code>true</code> cuando las dos condiciones son verdaderas.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text>false</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>true</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>19</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text>Se produce un error</text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83392  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque III - 05 Uso del módulo</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué expresión comprueba que <code>numero</code> es múltiplo de 3?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Un múltiplo de 3 deja resto cero al dividirse entre 3.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<code>numero % 3 == 0</code>]]></text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>numero / 3 == 0</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>numero % 3 == 1</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<code>numero = 3</code>]]></text>
+      <feedback format="html">
+        <text>Revisa el concepto y vuelve a intentarlo.</text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83393  -->
+  <question type="numerical">
+    <name>
+      <text>UT1 - Examen A - Bloque III - 01 Prioridad de operaciones</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué resultado produce <code>7 + 2 * 5</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La multiplicación se realiza antes que la suma.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>17</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 83394  -->
+  <question type="numerical">
+    <name>
+      <text>UT1 - Examen A - Bloque III - 02 División entre enteros</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué resultado entero produce <code>17 / 5</code> cuando ambos operandos son <code>int</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>La división entre enteros elimina la parte decimal.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>3</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 83395  -->
+  <question type="numerical">
+    <name>
+      <text>UT1 - Examen A - Bloque III - 04 Asignaciones abreviadas</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Cuánto vale <code>saldo</code> después de ejecutar <code>int saldo = 12; saldo += 8; saldo /= 4;</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Primero vale 20 y después la división entre 4 produce 5.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>5</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$module$/top/UT1 - Examen A/UT1 - Examen A - Bloque IV - Conversiones y documentación</text>
+    </category>
+    <info format="moodle_auto_format">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- question: 83396  -->
+  <question type="matching">
+    <name>
+      <text>UT1 - Examen A - Bloque IV - 05 Sintaxis de comentarios</text>
+    </name>
+    <questiontext format="html">
+      <text>Relaciona cada comienzo de comentario con su finalidad.</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Java distingue comentarios de línea, de bloque y de documentación.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <shuffleanswers>true</shuffleanswers>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <subquestion format="html">
+      <text><![CDATA[<code>//</code>]]></text>
+      <answer>
+        <text>Comentario de una línea</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<code>/*</code>]]></text>
+      <answer>
+        <text>Comentario de varias líneas</text>
+      </answer>
+    </subquestion>
+    <subquestion format="html">
+      <text><![CDATA[<code>/**</code>]]></text>
+      <answer>
+        <text>Documentación Javadoc</text>
+      </answer>
+    </subquestion>
+  </question>
+
+<!-- question: 83397  -->
+  <question type="multichoice">
+    <name>
+      <text>UT1 - Examen A - Bloque IV - 04 Comentario con intención</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Cuál es el comentario más útil para acompañar <code>int limite = 5;</code>?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El mejor comentario aporta el motivo de la decisión, no repite literalmente el código.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>// Variable de tipo int para definir un límite</code> </p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<p><code>// Esto es una variable</code></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el concepto y vuelve a intentarlo.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<p><code>// Guardamos un número</code></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el concepto y vuelve a intentarlo.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<p><code>// Esta es una línea de código que seguro sirve para algo</code></p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el concepto y vuelve a intentarlo.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 83398  -->
+  <question type="numerical">
+    <name>
+      <text>UT1 - Examen A - Bloque IV - 01 Conversión explícita</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué valor almacena <code>int unidades = (int) 12.75;</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[El casting a <code>int</code> elimina la parte decimal sin redondear.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>12</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 83399  -->
+  <question type="numerical">
+    <name>
+      <text>UT1 - Examen A - Bloque IV - 02 Conversión después de dividir</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué valor almacena <code>double media = 7 / 2;</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[La división entera produce 3 antes de convertir el resultado a <code>double</code>.]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>3</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 83400  -->
+  <question type="numerical">
+    <name>
+      <text>UT1 - Examen A - Bloque IV - 03 Casting antes de dividir</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[¿Qué valor almacena <code>double media = (double) 7 / 2;</code>?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>Al convertir un operando antes de dividir, la operación conserva la parte decimal.</text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>3.5</text>
+      <feedback format="html">
+        <text>Correcto.</text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+</quiz>
