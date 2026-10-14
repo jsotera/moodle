@@ -153,7 +153,26 @@
     </div>
 
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-sliders"></i> Atributos útiles en etiquetas de texto</h4>
+      <h4 class="text-primary mb-3"><i class="fas fa-image"></i> Imágenes: img</h4>
+      <p>La etiqueta <code>&lt;img&gt;</code> se utiliza para mostrar imágenes dentro de una página HTML.</p>
+      <p>A diferencia de otras etiquetas, <code>&lt;img&gt;</code> es una <strong>etiqueta vacía</strong>: no tiene contenido entre una apertura y un cierre. La información importante se indica mediante atributos.</p>
+      <pre><code class="language-html">&lt;img src="paisaje.jpg" alt="Paisaje de montaña"&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='140' viewBox='0 0 260 140'%3E%3Crect width='260' height='140' fill='%23d9eef7'/%3E%3Ccircle cx='210' cy='34' r='18' fill='%23f2a900'/%3E%3Cpolygon points='0,140 82,58 138,140' fill='%2376a96b'/%3E%3Cpolygon points='70,140 158,42 260,140' fill='%234b8350'/%3E%3C/svg%3E" alt="Paisaje de montaña" width="260" height="140">
+      </div>
+      <p>Los dos atributos más importantes son:</p>
+      <ul>
+        <li><code>src</code>: indica la ruta o dirección de la imagen que queremos mostrar.</li>
+        <li><code>alt</code>: describe la imagen si no se puede cargar o si la persona utiliza un lector de pantalla.</li>
+      </ul>
+      <p>El atributo <code>alt</code> no es un adorno: ayuda a que la página sea más accesible y comprensible.</p>
+      <pre><code class="language-html">&lt;img src="logo.png" alt="Logo del centro" width="180"&gt;</code></pre>
+      <p>Los atributos <code>width</code> y <code>height</code> permiten indicar el tamaño de la imagen. Más adelante veremos que normalmente controlaremos mejor el tamaño con CSS.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sliders"></i> Atributos útiles en estas etiquetas</h4>
       <p>Algunas etiquetas admiten atributos que modifican o completan su comportamiento. En esta unidad todavía no vamos a usar estilos CSS propios, pero sí conviene conocer algunos atributos básicos.</p>
       <div class="table-responsive">
         <table class="table table-bordered align-middle">
@@ -201,6 +220,30 @@
               <td>Cualquier etiqueta</td>
               <td>Añade información adicional que el navegador puede mostrar al pasar el ratón.</td>
               <td><code>&lt;p title="Texto de ayuda"&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>src</code></td>
+              <td><code>&lt;img&gt;</code></td>
+              <td>Indica la ruta o URL de la imagen que se va a mostrar.</td>
+              <td><code>&lt;img src="foto.jpg"&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>alt</code></td>
+              <td><code>&lt;img&gt;</code></td>
+              <td>Describe la imagen cuando no se puede ver o no se carga correctamente.</td>
+              <td><code>&lt;img alt="Foto de perfil"&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>width</code></td>
+              <td><code>&lt;img&gt;</code></td>
+              <td>Indica la anchura de la imagen.</td>
+              <td><code>&lt;img width="200"&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>height</code></td>
+              <td><code>&lt;img&gt;</code></td>
+              <td>Indica la altura de la imagen.</td>
+              <td><code>&lt;img height="120"&gt;</code></td>
             </tr>
           </tbody>
         </table>
@@ -261,6 +304,7 @@
   &lt;body&gt;
     &lt;h1&gt;Mi primera página HTML&lt;/h1&gt;
     &lt;p&gt;Estoy aprendiendo &lt;strong&gt;etiquetas básicas&lt;/strong&gt;.&lt;/p&gt;
+    &lt;img src="logo.png" alt="Logo de ejemplo" width="180"&gt;
 
     &lt;h2&gt;Lenguajes que veremos&lt;/h2&gt;
     &lt;ul&gt;
@@ -274,6 +318,7 @@
         <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual del contenido del body:</p>
         <h1>Mi primera página HTML</h1>
         <p>Estoy aprendiendo <strong>etiquetas básicas</strong>.</p>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='80' viewBox='0 0 180 80'%3E%3Crect width='180' height='80' rx='8' fill='%23eaf4fa'/%3E%3Ctext x='90' y='47' text-anchor='middle' font-family='Arial' font-size='22' fill='%230f5d8f'%3ELOGO%3C/text%3E%3C/svg%3E" alt="Logo de ejemplo" width="180" height="80">
 
         <h2>Lenguajes que veremos</h2>
         <ul>
