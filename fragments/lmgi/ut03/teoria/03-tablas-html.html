@@ -1,0 +1,412 @@
+﻿<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-table"></i> 3.3 Tablas en HTML</h2>
+    <p class="lead">Las tablas permiten organizar información en <strong>filas y columnas</strong> cuando los datos tienen una estructura tabular.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-border-all"></i> Estructura básica de una tabla</h4>
+      <p>Una tabla HTML se crea con la etiqueta <code>&lt;table&gt;</code>. Dentro de ella se definen filas con <code>&lt;tr&gt;</code> y celdas con <code>&lt;td&gt;</code>.</p>
+      <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Nombre&lt;/td&gt;
+    &lt;td&gt;Edad&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ane&lt;/td&gt;
+    &lt;td&gt;18&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <table>
+          <tr>
+            <td>Nombre</td>
+            <td>Edad</td>
+          </tr>
+          <tr>
+            <td>Ane</td>
+            <td>18</td>
+          </tr>
+        </table>
+      </div>
+      <p>En este ejemplo hay dos filas. Cada fila contiene dos celdas.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Etiquetas principales</h4>
+      <p>Las etiquetas más habituales para construir tablas son las siguientes:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Etiqueta</th>
+              <th>Uso</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;table&gt;</code></td>
+              <td>Define la tabla completa.</td>
+              <td><code>&lt;table&gt;...&lt;/table&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>&lt;tr&gt;</code></td>
+              <td>Define una fila.</td>
+              <td><code>&lt;tr&gt;...&lt;/tr&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>&lt;td&gt;</code></td>
+              <td>Define una celda normal.</td>
+              <td><code>&lt;td&gt;Dato&lt;/td&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>&lt;th&gt;</code></td>
+              <td>Define una celda de cabecera.</td>
+              <td><code>&lt;th&gt;Nombre&lt;/th&gt;</code></td>
+            </tr>
+            <tr>
+              <td><code>&lt;caption&gt;</code></td>
+              <td>Añade un título descriptivo a la tabla.</td>
+              <td><code>&lt;caption&gt;Listado&lt;/caption&gt;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-paintbrush"></i> Mostrar las líneas de la tabla</h4>
+      <p>Por defecto, una tabla HTML puede verse sin líneas entre filas y columnas. Para trabajar en clase, nos interesa que esas líneas se vean claramente.</p>
+      <p>Antiguamente era habitual usar atributos HTML como <code>border</code> directamente en la etiqueta <code>&lt;table&gt;</code>, pero actualmente es mejor separar la estructura de la apariencia visual. La estructura la escribimos con HTML y el aspecto visual lo definimos con CSS.</p>
+      <p>De momento no hace falta entender todos los detalles de este CSS. Lo estudiaremos con calma en la siguiente unidad. Por ahora, podéis copiar este fragmento dentro de la cabecera del documento, es decir, dentro de <code>&lt;head&gt;</code>:</p>
+      <pre><code class="language-html">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Tabla con bordes&lt;/title&gt;
+  &lt;style&gt;
+    table {
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+      <p>Con este fragmento, las celdas de la tabla tendrán borde y algo de espacio interior para que los datos se lean mejor.</p>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual con ese CSS aplicado:</p>
+        <table style="border-collapse: collapse;">
+          <tr>
+            <th style="border: 1px solid black; padding: 8px;">Módulo</th>
+            <th style="border: 1px solid black; padding: 8px;">Horas</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black; padding: 8px;">Lenguaje de marcas</td>
+            <td style="border: 1px solid black; padding: 8px;">132</td>
+          </tr>
+        </table>
+      </div>
+      <div class="alert alert-warning" role="alert">
+        <i class="fas fa-triangle-exclamation"></i>
+        Aunque aquí veas estilos escritos dentro del ejemplo, en esta unidad lo importante sigue siendo construir bien la tabla con HTML. El CSS lo usaremos solo como ayuda visual.
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-heading"></i> Cabeceras con th</h4>
+      <p>Cuando una celda representa el título de una columna o de una fila, es mejor usar <code>&lt;th&gt;</code> en lugar de <code>&lt;td&gt;</code>.</p>
+      <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Módulo&lt;/th&gt;
+    &lt;th&gt;Horas&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Lenguaje de marcas&lt;/td&gt;
+    &lt;td&gt;132&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <table class="table table-bordered w-auto mb-0">
+          <tr>
+            <th>Módulo</th>
+            <th>Horas</th>
+          </tr>
+          <tr>
+            <td>Lenguaje de marcas</td>
+            <td>132</td>
+          </tr>
+        </table>
+      </div>
+      <p>Visualmente, muchos navegadores muestran <code>&lt;th&gt;</code> en negrita y centrado, pero su valor principal es que indica que esa celda funciona como cabecera.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-layer-group"></i> thead, tbody y tfoot</h4>
+      <p>En tablas algo más completas, podemos separar la cabecera, el cuerpo y el pie de la tabla.</p>
+      <pre><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Notas de la evaluación&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Alumno/a&lt;/th&gt;
+      &lt;th&gt;Prueba 1&lt;/th&gt;
+      &lt;th&gt;Prueba 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;June&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Iker&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Media&lt;/th&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <table class="table table-bordered w-auto mb-0">
+          <caption>Notas de la evaluación</caption>
+          <thead>
+            <tr>
+              <th>Alumno/a</th>
+              <th>Prueba 1</th>
+              <th>Prueba 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>June</td>
+              <td>8</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>Iker</td>
+              <td>6</td>
+              <td>9</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Media</th>
+              <td>7</td>
+              <td>8</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p>Estas etiquetas no son obligatorias en tablas pequeñas, pero ayudan a que el documento sea más claro y fácil de interpretar.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-arrows-left-right"></i> Combinar columnas con colspan</h4>
+      <p>El atributo <code>colspan</code> permite que una celda ocupe varias columnas.</p>
+      <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th colspan="3"&gt;Horario del lunes&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Hora&lt;/th&gt;
+    &lt;th&gt;Módulo&lt;/th&gt;
+    &lt;th&gt;Aula&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;08:15&lt;/td&gt;
+    &lt;td&gt;Lenguaje de marcas&lt;/td&gt;
+    &lt;td&gt;Aula 204&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <table class="table table-bordered w-auto mb-0">
+          <tr>
+            <th colspan="3">Horario del lunes</th>
+          </tr>
+          <tr>
+            <th>Hora</th>
+            <th>Módulo</th>
+            <th>Aula</th>
+          </tr>
+          <tr>
+            <td>08:15</td>
+            <td>Lenguaje de marcas</td>
+            <td>Aula 204</td>
+          </tr>
+        </table>
+      </div>
+      <p>En este caso, la primera celda ocupa el espacio de tres columnas.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-arrows-up-down"></i> Combinar filas con rowspan</h4>
+      <p>El atributo <code>rowspan</code> permite que una celda ocupe varias filas.</p>
+      <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Turno&lt;/th&gt;
+    &lt;th&gt;Módulo&lt;/th&gt;
+    &lt;th&gt;Profesor/a&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td rowspan="2"&gt;Mañana&lt;/td&gt;
+    &lt;td&gt;HTML&lt;/td&gt;
+    &lt;td&gt;Ane&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;CSS&lt;/td&gt;
+    &lt;td&gt;Ane&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <table class="table table-bordered w-auto mb-0">
+          <tr>
+            <th>Turno</th>
+            <th>Módulo</th>
+            <th>Profesor/a</th>
+          </tr>
+          <tr>
+            <td rowspan="2">Mañana</td>
+            <td>HTML</td>
+            <td>Ane</td>
+          </tr>
+          <tr>
+            <td>CSS</td>
+            <td>Ane</td>
+          </tr>
+        </table>
+      </div>
+      <p>La celda <code>Mañana</code> ocupa dos filas, por eso en la segunda fila ya no se escribe otra celda para el turno.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-puzzle-piece"></i> colspan y rowspan juntos</h4>
+      <p>Los atributos <code>colspan</code> y <code>rowspan</code> pueden combinarse, pero hay que tener cuidado para que todas las filas mantengan una estructura coherente.</p>
+      <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th rowspan="2"&gt;Alumno/a&lt;/th&gt;
+    &lt;th colspan="2"&gt;Evaluación 1&lt;/th&gt;
+    &lt;th colspan="2"&gt;Evaluación 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Teoría&lt;/th&gt;
+    &lt;th&gt;Práctica&lt;/th&gt;
+    &lt;th&gt;Teoría&lt;/th&gt;
+    &lt;th&gt;Práctica&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Nora&lt;/td&gt;
+    &lt;td&gt;7&lt;/td&gt;
+    &lt;td&gt;8&lt;/td&gt;
+    &lt;td&gt;6&lt;/td&gt;
+    &lt;td&gt;9&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <table class="table table-bordered w-auto mb-0">
+          <tr>
+            <th rowspan="2">Alumno/a</th>
+            <th colspan="2">Evaluación 1</th>
+            <th colspan="2">Evaluación 2</th>
+          </tr>
+          <tr>
+            <th>Teoría</th>
+            <th>Práctica</th>
+            <th>Teoría</th>
+            <th>Práctica</th>
+          </tr>
+          <tr>
+            <td>Nora</td>
+            <td>7</td>
+            <td>8</td>
+            <td>6</td>
+            <td>9</td>
+          </tr>
+        </table>
+      </div>
+      <p>Una buena forma de construir este tipo de tablas es dibujar primero la tabla en papel y después convertir cada fila a HTML.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-info"></i> Otros atributos útiles</h4>
+      <p>Además de <code>colspan</code> y <code>rowspan</code>, en tablas pueden aparecer otros atributos generales de HTML.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Atributo</th>
+              <th>Dónde puede aparecer</th>
+              <th>Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>id</code></td>
+              <td>Cualquier etiqueta</td>
+              <td>Identifica un elemento concreto de forma única.</td>
+            </tr>
+            <tr>
+              <td><code>class</code></td>
+              <td>Cualquier etiqueta</td>
+              <td>Permite agrupar elementos para aplicar estilos o comportamiento.</td>
+            </tr>
+            <tr>
+              <td><code>title</code></td>
+              <td>Cualquier etiqueta</td>
+              <td>Añade información adicional que puede mostrarse al pasar el ratón.</td>
+            </tr>
+            <tr>
+              <td><code>scope</code></td>
+              <td><code>&lt;th&gt;</code></td>
+              <td>Indica si una cabecera corresponde a una columna, una fila o un grupo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <pre><code class="language-html">&lt;table class="table"&gt;
+  &lt;tr&gt;
+    &lt;th scope="col"&gt;Producto&lt;/th&gt;
+    &lt;th scope="col"&gt;Precio&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Teclado&lt;/td&gt;
+    &lt;td&gt;25 €&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <table class="table table-bordered w-auto mb-0">
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+          </tr>
+          <tr>
+            <td>Teclado</td>
+            <td>25 €</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-triangle-exclamation"></i> Tablas para datos, no para maquetar</h4>
+      <p>Las tablas deben utilizarse cuando la información realmente tiene forma de tabla: listados, horarios, notas, comparativas, resultados, etc.</p>
+      <p>No es recomendable usar tablas para colocar visualmente partes de una página. Para organizar el diseño de una web se utilizarán otras técnicas con HTML y CSS.</p>
+    </div>
+  </div>
+</div>
