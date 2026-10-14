@@ -80,15 +80,20 @@ function cleanDirectory(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
 
-function copyDirectory(sourceDir, targetDir) {
+function copyDirectory(sourceDir, targetDir, options = {}) {
   fs.mkdirSync(targetDir, { recursive: true });
 
   for (const entry of fs.readdirSync(sourceDir, { withFileTypes: true })) {
     const source = path.join(sourceDir, entry.name);
     const target = path.join(targetDir, entry.name);
+    const relativeSource = toPosixPath(path.relative(root, source));
+
+    if (options.exclude?.has(relativeSource)) {
+      continue;
+    }
 
     if (entry.isDirectory()) {
-      copyDirectory(source, target);
+      copyDirectory(source, target, options);
     } else {
       fs.copyFileSync(source, target);
     }
@@ -293,7 +298,9 @@ function addSearchEntries(pages, unit, kind, fragments) {
 
 function prepareModuleOutput(moduleConfig) {
   cleanDirectory(moduleConfig.outputDir);
-  copyDirectory(path.join(root, "assets"), path.join(moduleConfig.outputDir, "assets"));
+  copyDirectory(path.join(root, "assets"), path.join(moduleConfig.outputDir, "assets"), {
+    exclude: new Set(["assets/ejemplos"])
+  });
 }
 
 function buildModule(moduleConfig) {

@@ -77,6 +77,29 @@ Esos subfragmentos son los que pueden reutilizarse en Moodle.
 
 Cada fragmento debe seguir la estructura visual Moodle documentada en `INSTRUCCIONES.md`: `div.container.mt-4.p-4` exterior, `div.card.shadow.p-4` interior, título `h2.text-primary.mb-3` con icono, introducción `p.lead` y bloques internos `div.mb-4` con subsecciones `h4`.
 
+## Libros Moodle
+
+Se pueden generar copias de seguridad `.mbz` en formato libro de Moodle a partir de los fragmentos HTML:
+
+```bash
+node scripts/build-moodle-books.js
+```
+
+Para generar solo una unidad concreta:
+
+```bash
+node scripts/build-moodle-books.js --module lmgi --unit 03 --kind teoria
+node scripts/build-moodle-books.js --module lmgi --unit 03 --kind ejercicios
+```
+
+Los archivos se generan en:
+
+```text
+moodle-books/{modulo}/utXX/{modulo}-utXX-{teoria|ejercicios}-book.mbz
+```
+
+La carpeta `moodle-books/` no se versiona porque contiene archivos generados. La teoría y los ejercicios se generan como libros separados para poder restaurarlos en Moodle de forma independiente.
+
 ## Publicación
 
 Cada módulo genera su propio espacio público:

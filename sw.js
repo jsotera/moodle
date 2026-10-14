@@ -1,4 +1,4 @@
-const CACHE_NAME = "prom-lmgi-1791973827628";
+const CACHE_NAME = "prom-lmgi-1791975706929";
 const PRECACHE_URLS = [
   "./",
   "./assets/css/course.css",
