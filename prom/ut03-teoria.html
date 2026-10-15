@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../assets/pwa/icon-192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1791975992438" rel="stylesheet">
+    <link href="assets/css/course.css?v=1792047116597" rel="stylesheet">
   </head>
   <body data-page-id="ut03-teoria">
     <div class="app-shell">
@@ -69,23 +69,2414 @@
     <p class="lead mb-0">Programación estructurada</p>
   </div>
 </section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de teoría">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Teoría
+  </h2>
+  <div class="section-nav-list">
 
-<section id="ut03-teoria-01-contenido-inicial" class="fragment-section section-anchor">
-<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+        <a class="section-nav-link" href="#ut03-teoria-01-decisiones-estructuras-seleccion">
+          3.1. Decisiones y estructuras de selección
+        </a>
+        <a class="section-nav-link" href="#ut03-teoria-02-estructuras-repeticion">
+          3.2. Estructuras de repetición
+        </a>
+        <a class="section-nav-link" href="#ut03-teoria-03-control-creacion-excepciones">
+          3.3. Control y creación de excepciones
+        </a>
+        <a class="section-nav-link" href="#ut03-teoria-04-aserciones-prueba-depuracion">
+          3.4. Aserciones, prueba y depuración
+        </a>
+  </div>
+</nav>
 
-<div class="card shadow p-4">
+<section id="ut03-teoria-01-decisiones-estructuras-seleccion" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-code-branch"></i> 3.1. Decisiones y estructuras de selección</h2>
+    <p class="lead">Un programa no siempre ejecuta todas sus instrucciones. En este bloque aprenderás a seguir su flujo y a decidir qué instrucciones deben ejecutarse en cada situación.</p>
 
-<h2 class="text-primary mb-3"><i class="fas fa-code-branch"></i> 3.1 Programación estructurada</h2>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1. Decisiones y estructuras de selección</h4>
+<p>Un programa no siempre ejecuta todas sus instrucciones. En este bloque aprenderás a seguir su flujo y a decidir qué instrucciones deben ejecutarse en cada situación.</p>
+    </div>
 
-<p class="lead">Organización del código mediante secuencias, decisiones, bucles y métodos sencillos.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1.1. Flujo de ejecución</h4>
+<p>Para comprender un programa hay que saber qué instrucción se ejecuta en cada momento y cómo se elige la siguiente.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Distinguir entre ejecución secuencial y ejecución controlada por una condición.</li>
+<li>Reconocer sentencias, bloques y estructuras de control.</li>
+<li>Seguir manualmente el valor de las variables mediante una traza.</li>
+<li>Detectar código que nunca llega a ejecutarse o que se ejecuta en un orden inesperado.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Observa este fragmento:</p>
 
-<div class="mb-4">
-  <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Contenidos</h4>
-  <p>Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible.</p>
+<pre><code class="language-java">int saldo = 40;
+int precio = 25;
+
+saldo = saldo - precio;
+System.out.println("Saldo restante: " + saldo);</code></pre>
+<p>Java ejecuta las instrucciones en el orden en el que aparecen. Primero crea las variables, después calcula el nuevo saldo y finalmente muestra el resultado. Este comportamiento recibe el nombre de ejecución secuencial.</p>
+<p>Sin embargo, el código descuenta el precio incluso cuando no hay saldo suficiente. Para evitarlo necesitamos que el programa tome una decisión:</p>
+
+<pre><code class="language-java">if (saldo &gt;= precio) {
+    saldo = saldo - precio;
+    System.out.println("Saldo restante: " + saldo);
+}</code></pre>
+<p>La condición cambia el flujo: las instrucciones del bloque solo se ejecutan cuando su resultado es <code>true</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Cómo funciona el flujo</h5>
+<p>Durante la ejecución, Java mantiene un punto que podemos imaginar como una flecha situada sobre la próxima sentencia. Normalmente la flecha avanza hacia abajo, pero una estructura de control puede desviarla, repetir un bloque o finalizar una parte del programa.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Tipo de flujo</th>
+<th>Qué ocurre</th>
+<th>Estructuras habituales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Secuencial</td>
+<td>Las sentencias se ejecutan una después de otra.</td>
+<td>Asignaciones, cálculos y llamadas a métodos</td>
+</tr>
+<tr>
+<td>Selección</td>
+<td>Se elige qué bloque debe ejecutarse.</td>
+<td><code>if</code>, <code>if-else</code>, <code>switch</code></td>
+</tr>
+<tr>
+<td>Repetición</td>
+<td>Un bloque se ejecuta varias veces.</td>
+<td><code>while</code>, <code>do-while</code>, <code>for</code></td>
+</tr>
+<tr>
+<td>Salto</td>
+<td>Se abandona o se interrumpe una parte del flujo.</td>
+<td><code>return</code>, <code>break</code>, <code>continue</code></td>
+</tr>
+</tbody>
+</table>
 </div>
-
+<h5 class="text-primary mt-3 mb-2">Sentencias y bloques</h5>
+<p>Una sentencia representa una acción. Las sentencias terminan con punto y coma:</p>
+<pre><code class="language-java">saldo = saldo - precio;
+System.out.println(saldo);</code></pre>
+<p>Un bloque agrupa cero o más sentencias entre llaves. Las estructuras de control utilizan bloques para indicar qué instrucciones dependen de ellas:</p>
+<pre><code class="language-java">{
+    saldo = saldo - precio;
+    System.out.println(saldo);
+}</code></pre>
+<div><strong>Convención de estilo.</strong> Aunque Java permite omitir las llaves cuando hay una sola sentencia, en estos apuntes las utilizaremos siempre. Las llaves hacen visible la estructura y evitan errores al añadir nuevas instrucciones.</div>
+<h5 class="text-primary mt-3 mb-2">Una primera traza</h5>
+<p>Una traza registra el valor de las variables después de cada sentencia relevante. Permite razonar sin ejecutar el programa.</p>
+<pre><code class="language-java">int puntos = 10;
+puntos = puntos + 5;
+int bonus = puntos / 3;
+puntos = puntos + bonus;</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Paso</th>
+<th>Sentencia ejecutada</th>
+<th><code>puntos</code></th>
+<th><code>bonus</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>int puntos = 10;</code></td>
+<td>10</td>
+<td>No existe todavía</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>puntos = puntos + 5;</code></td>
+<td>15</td>
+<td>No existe todavía</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>int bonus = puntos / 3;</code></td>
+<td>15</td>
+<td>5</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>puntos = puntos + bonus;</code></td>
+<td>20</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>La división es entera porque los dos operandos son de tipo <code>int</code>. La traza debe aplicar las reglas reales de Java, no el resultado que esperamos intuitivamente.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Leer el código como un texto completo.</strong> El programa solo conoce los valores alcanzados en el punto actual de la ejecución.</li>
+<li><strong>Confundir una asignación con una igualdad.</strong> En <code>puntos = puntos + 5</code>, Java calcula primero la derecha y guarda después el resultado.</li>
+<li><strong>Ignorar las llaves.</strong> La indentación ayuda a leer, pero son las llaves las que delimitan realmente un bloque.</li>
+<li><strong>Suponer valores no inicializados.</strong> Una variable local debe recibir un valor antes de poder leerse.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Predice el resultado antes de ejecutar.</li>
+<li>Coloca un punto de ruptura en la primera sentencia.</li>
+<li>Avanza sentencia a sentencia con la ejecución paso a paso del IDE.</li>
+<li>Observa cuándo cambia cada variable.</li>
+<li>Compara esos valores con tu traza manual.</li>
+</ol>
+<p>Cuando la predicción y la ejecución no coinciden, no cambies el código de inmediato. Localiza primero el paso exacto en el que aparece la diferencia.</p>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>Sin ejecutar el código, determina qué se muestra:</p>
+<pre><code class="language-java">int unidades = 3;
+int precio = 4;
+int total = unidades * precio;
+unidades++;
+System.out.println(total + " - " + unidades);</code></pre>
+<details>
+<summary>Ver la solución razonada</summary>
+<p>Se muestra <code>12 - 4</code>. La modificación de <code>unidades</code> ocurre después de calcular <code>total</code>, por lo que no modifica retroactivamente el valor ya guardado.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>El flujo secuencial ejecuta las sentencias en orden.</li>
+<li>Las estructuras de control pueden seleccionar, repetir o interrumpir partes del programa.</li>
+<li>Las llaves delimitan bloques de sentencias.</li>
+<li>Una traza registra los cambios de las variables y ayuda a detectar el primer punto en el que el comportamiento se desvía de lo esperado.</li>
+</ul>
+    </div>
 
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1.2. Condiciones e if</h4>
+<p>Una condición permite que el programa elija entre distintos caminos a partir de datos concretos.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Construir y evaluar expresiones booleanas.</li>
+<li>Utilizar <code>if</code>, <code>if-else</code> y cadenas <code>else if</code>.</li>
+<li>Combinar condiciones con <code>&&</code>, <code>||</code> y <code>!</code>.</li>
+<li>Ordenar correctamente condiciones que se solapan.</li>
+<li>Simplificar decisiones innecesariamente complejas.</li>
+<li>Probar cada camino posible y sus valores límite.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Un programa calcula el precio de una entrada. Las personas menores de 12 años tienen tarifa reducida. El programa necesita seleccionar uno de dos precios:</p>
+<pre><code class="language-java">int edad = 10;
+double precio;
+
+if (edad &lt; 12) {
+    precio = 4.50;
+} else {
+    precio = 7.00;
+}
+
+System.out.println("Precio: " + precio);</code></pre>
+<p>La expresión <code>edad < 12</code> solo puede producir dos resultados: <code>true</code> o <code>false</code>. Java ejecuta exactamente uno de los dos bloques.</p>
+<h5 class="text-primary mt-3 mb-2">Expresiones booleanas</h5>
+<p>Una expresión booleana tiene como resultado un valor de tipo <code>boolean</code>. Puede proceder de una variable, una comparación, una llamada a un método o una combinación de varias condiciones.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Operador</th>
+<th>Significado</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Igual a</td>
+<td><code>intentos == 3</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Distinto de</td>
+<td><code>estado != 0</code></td>
+</tr>
+<tr>
+<td><code><</code>, <code><=</code></td>
+<td>Menor que, menor o igual que</td>
+<td><code>edad < 18</code></td>
+</tr>
+<tr>
+<td><code>></code>, <code>>=</code></td>
+<td>Mayor que, mayor o igual que</td>
+<td><code>saldo >= precio</code></td>
+</tr>
+<tr>
+<td><code>&&</code></td>
+<td>Se cumplen las dos condiciones</td>
+<td><code>edad >= 12 && edad < 18</code></td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>Se cumple al menos una condición</td>
+<td><code>dia == 6 || dia == 7</code></td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>Niega una condición</td>
+<td><code>!bloqueado</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Atención a <code>=</code> y <code>==</code>.</strong> Un solo signo <code>=</code> asigna un valor. Dos signos <code>==</code> comparan valores primitivos. Para comparar el contenido de objetos como <code>String</code> se utiliza normalmente el método <code>equals</code>.</div>
+<pre><code class="language-java">String opcion = "guardar";
+
+if (opcion.equals("guardar")) {
+    System.out.println("Datos guardados");
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Evaluación de cortocircuito</h5>
+<p>Los operadores <code>&&</code> y <code>||</code> evalúan de izquierda a derecha y se detienen cuando ya conocen el resultado:</p>
+<pre><code class="language-java">if (divisor != 0 &amp;&amp; numero / divisor &gt; 2) {
+    System.out.println("Cociente mayor que 2");
+}</code></pre>
+<p>Si <code>divisor != 0</code> es falso, Java no evalúa la división. La segunda condición no puede convertir una condición falsa en verdadera y así se evita dividir entre cero.</p>
+<h5 class="text-primary mt-3 mb-2">Alternativa simple con if</h5>
+<p>La alternativa simple ejecuta un bloque únicamente cuando se cumple la condición:</p>
+<pre><code class="language-java">if (temperatura &lt; 0) {
+    System.out.println("Riesgo de hielo");
+}</code></pre>
+<p>Cuando la condición es falsa, el programa continúa en la primera sentencia situada después del bloque.</p>
+<h5 class="text-primary mt-3 mb-2">Alternativa doble con if-else</h5>
+<p>La alternativa doble garantiza que se ejecutará uno de los dos bloques, pero nunca ambos:</p>
+<pre><code class="language-java">if (nota &gt;= 5) {
+    System.out.println("Superado");
+} else {
+    System.out.println("No superado");
+}</code></pre>
+<p>Conviene leerlo como una única estructura: «si se cumple la condición, ejecuta el primer bloque; en caso contrario, ejecuta el segundo».</p>
+<h5 class="text-primary mt-3 mb-2">Varias alternativas con else if</h5>
+<p>Cuando las alternativas son excluyentes se puede construir una cadena. Java comprueba las condiciones en orden y se detiene en la primera verdadera:</p>
+<pre><code class="language-java">if (nota &gt;= 9) {
+    calificacion = "Sobresaliente";
+} else if (nota &gt;= 7) {
+    calificacion = "Notable";
+} else if (nota &gt;= 5) {
+    calificacion = "Aprobado";
+} else {
+    calificacion = "Suspenso";
+}</code></pre>
+<p>El orden es decisivo. Si se comprobara primero <code>nota >= 5</code>, una nota de 9 cumpliría esa condición y nunca alcanzaría la condición de sobresaliente.</p>
+<h5 class="text-primary mt-3 mb-2">Traza de una cadena de condiciones</h5>
+<p>Para <code>nota = 8</code>:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Paso</th>
+<th>Condición</th>
+<th>Resultado</th>
+<th>Consecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>nota >= 9</code></td>
+<td><code>false</code></td>
+<td>Continúa con el siguiente <code>else if</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>nota >= 7</code></td>
+<td><code>true</code></td>
+<td>Asigna <code>"Notable"</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>nota >= 5</code></td>
+<td>No se evalúa</td>
+<td>La cadena ya ha elegido una rama</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Condiciones anidadas e independientes</h5>
+<p>Un <code>if</code> puede contener otro. El anidamiento resulta útil cuando la segunda decisión solo tiene sentido después de la primera:</p>
+<pre><code class="language-java">if (usuarioValido) {
+    if (claveCorrecta) {
+        System.out.println("Acceso permitido");
+    } else {
+        System.out.println("Clave incorrecta");
+    }
+} else {
+    System.out.println("Usuario inexistente");
+}</code></pre>
+<p>En cambio, se utilizan varios <code>if</code> independientes cuando pueden ejecutarse varias acciones:</p>
+<pre><code class="language-java">if (temperatura &lt; 5) {
+    System.out.println("Hace frío");
+}
+
+if (llueve) {
+    System.out.println("Lleva paraguas");
+}</code></pre>
+<p>Si hace frío y llueve, se muestran los dos mensajes. Una cadena <code>if-else if</code> solo habría elegido uno.</p>
+<h5 class="text-primary mt-3 mb-2">Simplificación de condiciones</h5>
+<p>Cuando una expresión ya produce un booleano, no hace falta convertirla de nuevo en <code>true</code> o <code>false</code>.</p>
+<div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Código innecesariamente largo</h5>
+<pre><code class="language-java">public boolean esMayorDeEdad(int edad) {
+    if (edad &gt;= 18) {
+        return true;
+    } else {
+        return false;
+    }
+}</code></pre>
+</div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Código simplificado</h5>
+<pre><code class="language-java">public boolean esMayorDeEdad(int edad) {
+    return edad &gt;= 18;
+}</code></pre>
+</div>
+</div>
+<p>La versión breve expresa directamente la regla y reduce los caminos que hay que leer y comprobar.</p>
+<h5 class="text-primary mt-3 mb-2">Prueba de valores límite</h5>
+<p>Una condición suele fallar en los límites. Para <code>edad < 12</code> no basta con probar una edad claramente menor y otra claramente mayor:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Caso</th>
+<th>Edad</th>
+<th>Resultado esperado</th>
+<th>Qué comprueba</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Por debajo del límite</td>
+<td>11</td>
+<td>Tarifa reducida</td>
+<td>La rama verdadera</td>
+</tr>
+<tr>
+<td>En el límite</td>
+<td>12</td>
+<td>Tarifa general</td>
+<td>La diferencia entre <code><</code> y <code><=</code></td>
+</tr>
+<tr>
+<td>Por encima del límite</td>
+<td>13</td>
+<td>Tarifa general</td>
+<td>La rama falsa</td>
+</tr>
+<tr>
+<td>Dato no válido</td>
+<td>-1</td>
+<td>Debe rechazarse</td>
+<td>La validación del dominio</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Idea clave.</strong> Un programa puede ejecutar correctamente una condición y seguir siendo incorrecto si acepta datos que no tienen sentido. La selección también se utiliza para validar los datos antes de procesarlos.</div>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ol>
+<li><strong>Escribir un punto y coma después del <code>if</code>.</strong>
+<pre><code class="language-java">if (saldo &gt;= precio); {   // El punto y coma termina el if
+    saldo = saldo - precio;
+}</code></pre>
+</li>
+<li><strong>Comparar textos con <code>==</code>.</strong> Para comparar su contenido se utiliza normalmente <code>equals</code>.</li>
+<li><strong>Confundir <code>&&</code> con <code>||</code>.</strong> «Debe cumplir ambas» y «basta con una» son reglas diferentes.</li>
+<li><strong>Dejar huecos entre intervalos.</strong> Por ejemplo, comprobar <code>edad < 12</code> y después <code>edad > 12</code> deja sin clasificar la edad 12.</li>
+<li><strong>Solapar condiciones en un orden incorrecto.</strong> La primera condición verdadera impide comprobar las siguientes ramas de una cadena.</li>
+<li><strong>Anidar sin necesidad.</strong> Un anidamiento profundo dificulta seguir el flujo y detectar qué <code>else</code> corresponde a cada <code>if</code>.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<p>Para depurar una selección, no basta con detenerse dentro del bloque. Coloca el punto de ruptura antes de la condición y sigue este proceso:</p>
+<ol>
+<li>Anota los valores de las variables utilizadas por la condición.</li>
+<li>Calcula manualmente el resultado de cada comparación.</li>
+<li>Comprueba qué operadores lógicos llegan a evaluarse.</li>
+<li>Avanza una sentencia y observa qué rama elige Java.</li>
+<li>Repite la prueba con datos que obliguen a recorrer cada rama.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué mensaje se muestra cuando <code>edad</code> vale 17?</p>
+<pre><code class="language-java">if (edad &lt; 12) {
+    System.out.println("Infancia");
+} else if (edad &lt; 18) {
+    System.out.println("Adolescencia");
+} else {
+    System.out.println("Edad adulta");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se muestra <code>Adolescencia</code>. La primera condición es falsa y la segunda es verdadera.</p>
+</details>
+<p><strong>2.</strong> ¿Qué cambio necesita la condición para aceptar únicamente valores entre 1 y 10, ambos incluidos?</p>
+<pre><code class="language-java">if (valor &gt;= 1 || valor &lt;= 10) {
+    System.out.println("Valor válido");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Debe utilizarse <code>&&</code>:</p>
+<pre><code class="language-java">if (valor &gt;= 1 &amp;&amp; valor &lt;= 10) {
+    System.out.println("Valor válido");
+}</code></pre>
+<p>El valor debe cumplir simultáneamente los dos límites.</p>
+</details>
+<p><strong>3.</strong> ¿Por qué pueden mostrarse dos mensajes?</p>
+<pre><code class="language-java">int temperatura = 2;
+
+if (temperatura &lt; 10) {
+    System.out.println("Temperatura baja");
+}
+if (temperatura &lt; 5) {
+    System.out.println("Riesgo de hielo");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Son dos estructuras independientes y las dos condiciones son verdaderas. Si solo debiera aparecer el aviso más específico, habría que reorganizar la selección.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>La condición de un <code>if</code> debe producir un valor booleano.</li>
+<li><code>if</code> representa una alternativa simple y <code>if-else</code> una alternativa doble.</li>
+<li>Una cadena <code>else if</code> comprueba condiciones en orden y ejecuta la primera rama válida.</li>
+<li>Los <code>if</code> independientes pueden ejecutar varias ramas.</li>
+<li>Las pruebas deben cubrir cada camino, los valores límite y los datos no válidos.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1.3. Selección con switch</h4>
+<p>Cuando una decisión compara el mismo valor con varias opciones concretas, <code>switch</code> puede expresar la selección con mayor claridad.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Reconocer cuándo una selección se adapta a un <code>switch</code>.</li>
+<li>Utilizar el <code>switch</code> clásico con <code>case</code>, <code>break</code> y <code>default</code>.</li>
+<li>Comprender la caída entre casos y evitarla cuando no es intencionada.</li>
+<li>Agrupar varios casos que comparten una acción.</li>
+<li>Utilizar etiquetas con flecha y expresiones <code>switch</code>.</li>
+<li>Elegir entre <code>if</code> y <code>switch</code> según la forma del problema.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Una aplicación recibe un número del 1 al 3 y debe mostrar el nivel seleccionado. Una cadena de condiciones puede resolverlo:</p>
+<pre><code class="language-java">if (nivel == 1) {
+    descripcion = "Inicial";
+} else if (nivel == 2) {
+    descripcion = "Intermedio";
+} else if (nivel == 3) {
+    descripcion = "Avanzado";
+} else {
+    descripcion = "Nivel desconocido";
+}</code></pre>
+<p>Todas las condiciones comparan la misma variable con valores concretos. Esa forma encaja con un <code>switch</code>.</p>
+<h5 class="text-primary mt-3 mb-2">El switch clásico</h5>
+<pre><code class="language-java">switch (nivel) {
+    case 1:
+        descripcion = "Inicial";
+        break;
+    case 2:
+        descripcion = "Intermedio";
+        break;
+    case 3:
+        descripcion = "Avanzado";
+        break;
+    default:
+        descripcion = "Nivel desconocido";
+        break;
+}</code></pre>
+<p>Java evalúa una vez la expresión situada entre paréntesis. Después busca una etiqueta <code>case</code> coincidente. Si no existe, entra en <code>default</code>, cuando está presente.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Elemento</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>switch (nivel)</code></td>
+<td>Evalúa el selector de la decisión.</td>
+</tr>
+<tr>
+<td><code>case 1:</code></td>
+<td>Marca el punto de entrada para ese valor.</td>
+</tr>
+<tr>
+<td><code>break;</code></td>
+<td>Finaliza el <code>switch</code> clásico y continúa después de él.</td>
+</tr>
+<tr>
+<td><code>default:</code></td>
+<td>Recoge los valores no tratados por ningún <code>case</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Tipos habituales del selector</h5>
+<p>En el uso no experimental el selector puede trabajar con tipos enteros compatibles, <code>char</code>, <code>String</code> y tipos enumerados. En este bloque utilizaremos principalmente números, caracteres y textos.</p>
+<h5 class="text-primary mt-3 mb-2">La caída entre casos</h5>
+<p>En el <code>switch</code> clásico, encontrar una etiqueta indica dónde comienza la ejecución, pero no dónde termina. Sin un <code>break</code>, la ejecución continúa por los casos siguientes:</p>
+<pre><code class="language-java">int opcion = 2;
+
+switch (opcion) {
+    case 1:
+        System.out.println("Uno");
+    case 2:
+        System.out.println("Dos");
+    case 3:
+        System.out.println("Tres");
+    default:
+        System.out.println("Fin");
+}</code></pre>
+<p>La ejecución comienza en <code>case 2</code> y, como no hay ningún <code>break</code>, muestra:</p>
+<pre><code class="language-java">Dos
+Tres
+Fin</code></pre>
+<div><strong>Error habitual.</strong> La caída accidental produce resultados aparentemente inexplicables. En la sintaxis clásica, revisa que cada camino termine de forma consciente, normalmente con <code>break</code>.</div>
+<h5 class="text-primary mt-3 mb-2">Agrupación de casos</h5>
+<p>La caída puede utilizarse deliberadamente para agrupar valores que comparten una acción:</p>
+<pre><code class="language-java">switch (diaSemana) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        tipoDia = "Laborable";
+        break;
+    case 6:
+    case 7:
+        tipoDia = "Fin de semana";
+        break;
+    default:
+        tipoDia = "Día no válido";
+        break;
+}</code></pre>
+<p>Los primeros casos no tienen instrucciones. Todos conducen al mismo bloque y comparten el mismo <code>break</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Etiquetas con flecha</h5>
+<p>Las versiones nuevas de Java permiten una sintaxis que evita la caída entre casos. Cada flecha define las instrucciones de una alternativa:</p>
+<pre><code class="language-java">switch (diaSemana) {
+    case 1, 2, 3, 4, 5 -&gt; tipoDia = "Laborable";
+    case 6, 7 -&gt; tipoDia = "Fin de semana";
+    default -&gt; tipoDia = "Día no válido";
+}</code></pre>
+<p>No se añade <code>break</code>. Una vez ejecutada la alternativa seleccionada, el <code>switch</code> termina.</p>
+<p>Cuando una alternativa necesita varias sentencias, se utiliza un bloque:</p>
+<pre><code class="language-java">switch (opcion) {
+    case 1 -&gt; {
+        System.out.println("Guardando...");
+        guardado = true;
+    }
+    case 2 -&gt; {
+        System.out.println("Cancelando...");
+        guardado = false;
+    }
+    default -&gt; System.out.println("Opción desconocida");
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">El switch como expresión</h5>
+<p>Un <code>switch</code> moderno puede producir directamente un valor. Así se evita declarar una variable y asignarla por separado en cada rama:</p>
+<pre><code class="language-java">String tipoDia = switch (diaSemana) {
+    case 1, 2, 3, 4, 5 -&gt; "Laborable";
+    case 6, 7 -&gt; "Fin de semana";
+    default -&gt; "Día no válido";
+};</code></pre>
+<p>El punto y coma final pertenece a la asignación completa. Como el <code>switch</code> produce un valor, todas las posibilidades deben quedar cubiertas.</p>
+<h5 class="text-primary mt-3 mb-2">Bloques y yield</h5>
+<p>Si una alternativa necesita varias sentencias antes de producir el resultado, utiliza <code>yield</code>:</p>
+<pre><code class="language-java">double precioFinal = switch (tipoCliente) {
+    case "NORMAL" -&gt; precioBase;
+    case "SOCIO" -&gt; precioBase * 0.90;
+    case "PROMOCION" -&gt; {
+        double descuento = precioBase * 0.20;
+        System.out.println("Descuento: " + descuento);
+        yield precioBase - descuento;
+    }
+    default -&gt; precioBase;
+};</code></pre>
+<p><code>yield</code> entrega el valor de esa alternativa a la expresión <code>switch</code>. No equivale a devolver un valor desde el método.</p>
+<h5 class="text-primary mt-3 mb-2">Elegir entre if y switch</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Situación</th>
+<th>Estructura más natural</th>
+<th>Motivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comparar una variable con varios valores concretos</td>
+<td><code>switch</code></td>
+<td>Hace visibles las opciones disponibles.</td>
+</tr>
+<tr>
+<td>Comprobar intervalos</td>
+<td><code>if-else if</code></td>
+<td>Los casos de un <code>switch</code> no representan directamente rangos.</td>
+</tr>
+<tr>
+<td>Combinar varias variables</td>
+<td><code>if</code></td>
+<td>Permite escribir cualquier expresión booleana.</td>
+</tr>
+<tr>
+<td>Asignar un valor según una opción</td>
+<td>Expresión <code>switch</code></td>
+<td>Evita repetir asignaciones.</td>
+</tr>
+<tr>
+<td>Ejecutar varias condiciones independientes</td>
+<td>Varios <code>if</code></td>
+<td>Pueden cumplirse varias condiciones a la vez.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La elección no depende de cuál estructura tenga menos líneas, sino de cuál representa la regla de forma más clara y permite probarla con facilidad.</p>
+<h5 class="text-primary mt-3 mb-2">Traza de un switch</h5>
+<p>Para <code>codigo = 'B'</code>:</p>
+<pre><code class="language-java">int puntos = switch (codigo) {
+    case 'A' -&gt; 100;
+    case 'B' -&gt; 75;
+    case 'C' -&gt; 50;
+    default -&gt; 0;
+};</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Paso</th>
+<th>Acción</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Evalúa <code>codigo</code></td>
+<td><code>'B'</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Busca una etiqueta coincidente</td>
+<td><code>case 'B'</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Evalúa la expresión situada tras la flecha</td>
+<td><code>75</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Asigna el resultado</td>
+<td><code>puntos = 75</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Olvidar un <code>break</code> en la sintaxis clásica.</strong> La ejecución continúa en los casos siguientes.</li>
+<li><strong>Escribir casos duplicados.</strong> Dos etiquetas no pueden representar el mismo valor.</li>
+<li><strong>Utilizar variables como etiquetas.</strong> Los casos tradicionales deben ser valores constantes compatibles.</li>
+<li><strong>Olvidar valores inesperados.</strong> <code>default</code> permite definir qué ocurre fuera de las opciones previstas.</li>
+<li><strong>Mezclar estilos sin una razón clara.</strong> En código inicial conviene elegir sintaxis clásica o sintaxis con flechas y mantenerla de forma coherente.</li>
+<li><strong>Usar <code>switch</code> para intervalos.</strong> Una cadena de condiciones suele expresar mejor rangos como «menor de 18» o «entre 1 y 10».</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Prepara al menos un dato para cada caso.</li>
+<li>Añade un dato que obligue a ejecutar <code>default</code>.</li>
+<li>En la sintaxis clásica, comprueba el punto exacto en el que termina cada camino.</li>
+<li>Si aparece la salida de varios casos, busca un <code>break</code> ausente.</li>
+<li>En una expresión <code>switch</code>, verifica que cada alternativa produce un valor del tipo esperado.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué muestra el código cuando <code>opcion</code> vale 1?</p>
+<pre><code class="language-java">switch (opcion) {
+    case 1:
+        System.out.println("Consultar");
+    case 2:
+        System.out.println("Modificar");
+        break;
+    default:
+        System.out.println("Salir");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Muestra <code>Consultar</code> y <code>Modificar</code>. Falta un <code>break</code> después del primer mensaje, por lo que la ejecución cae al caso siguiente.</p>
+</details>
+<p><strong>2.</strong> Convierte mentalmente esta cadena en una expresión <code>switch</code>:</p>
+<pre><code class="language-java">String nombre;
+if (mes == 1) {
+    nombre = "Enero";
+} else if (mes == 2) {
+    nombre = "Febrero";
+} else {
+    nombre = "Otro mes";
+}</code></pre>
+<details>
+<summary>Ver una posible solución</summary>
+<pre><code class="language-java">String nombre = switch (mes) {
+    case 1 -&gt; "Enero";
+    case 2 -&gt; "Febrero";
+    default -&gt; "Otro mes";
+};</code></pre>
+</details>
+<p><strong>3.</strong> ¿Elegirías <code>if</code> o <code>switch</code> para comprobar si una temperatura está por debajo de 0, entre 0 y 25 o por encima de 25?</p>
+<details>
+<summary>Ver la solución razonada</summary>
+<p>Una cadena <code>if-else if</code>, porque la decisión utiliza intervalos y no valores concretos aislados.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>switch</code> resulta adecuado cuando se compara un selector con varias opciones concretas.</li>
+<li>El <code>switch</code> clásico utiliza normalmente <code>break</code> para evitar la caída entre casos.</li>
+<li>Las etiquetas con flecha no producen caída y permiten agrupar casos con comas.</li>
+<li>Una expresión <code>switch</code> produce un valor y puede utilizar <code>yield</code> en alternativas con bloque.</li>
+<li><code>if</code> sigue siendo la opción natural para intervalos, condiciones compuestas y decisiones basadas en varias variables.</li>
+</ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut03-teoria-02-estructuras-repeticion" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-repeat"></i> 3.2. Estructuras de repetición</h2>
+    <p class="lead">Los bucles permiten ejecutar un bloque varias veces sin duplicar código. Para utilizarlos correctamente hay que controlar condiciones, contadores y acumuladores.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2. Estructuras de repetición</h4>
+<p>Los bucles permiten ejecutar un bloque varias veces sin duplicar código. Para utilizarlos correctamente hay que controlar su inicio, su continuación y su finalización.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.1. while y do-while</h4>
+<p>Un bucle repite un bloque mientras se cumpla una condición. La posición de esa condición determina si el bloque puede ejecutarse cero veces o debe ejecutarse al menos una.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Identificar las partes que controlan una repetición.</li>
+<li>Utilizar <code>while</code> cuando la repetición depende de una condición.</li>
+<li>Utilizar <code>do-while</code> cuando el bloque debe ejecutarse antes de comprobar la condición.</li>
+<li>Realizar la traza de un bucle.</li>
+<li>Prevenir bucles infinitos y errores en los límites.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>El siguiente código muestra una cuenta atrás, pero repite manualmente la misma operación:</p>
+
+<pre><code class="language-java">int numero = 3;
+System.out.println(numero);
+numero--;
+System.out.println(numero);
+numero--;
+System.out.println(numero);</code></pre>
+<p>La misma regla puede expresarse mediante un bucle. Así, cambiar el valor inicial no obliga a copiar más instrucciones:</p>
+
+<pre><code class="language-java">int numero = 3;
+
+while (numero &gt;= 1) {
+    System.out.println(numero);
+    numero--;
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Las partes de una repetición</h5>
+<p>Para razonar sobre un bucle conviene localizar cuatro elementos:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Elemento</th>
+<th>Pregunta que responde</th>
+<th>En el ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicialización</td>
+<td>¿Con qué valores comienza?</td>
+<td><code>int numero = 3;</code></td>
+</tr>
+<tr>
+<td>Condición de continuación</td>
+<td>¿Cuándo se ejecuta otra vuelta?</td>
+<td><code>numero >= 1</code></td>
+</tr>
+<tr>
+<td>Cuerpo</td>
+<td>¿Qué se repite?</td>
+<td>Mostrar el número</td>
+</tr>
+<tr>
+<td>Actualización</td>
+<td>¿Qué acerca el bucle a su final?</td>
+<td><code>numero--;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Idea clave.</strong> La actualización no siempre es un incremento o decremento. Puede ser una nueva lectura, el resultado de un cálculo o cualquier cambio que permita que la condición llegue a ser falsa.</div>
+<h5 class="text-primary mt-3 mb-2">La sentencia while</h5>
+<p><code>while</code> comprueba la condición antes de cada vuelta:</p>
+<pre><code class="language-java">while (condicion) {
+    // Instrucciones que se repiten
+}</code></pre>
+<p>La condición debe producir un valor booleano. Si es falsa desde el principio, el cuerpo no se ejecuta ninguna vez.</p>
+<h5 class="text-primary mt-3 mb-2">Traza de un while</h5>
+<pre><code class="language-java">int numero = 1;
+int suma = 0;
+
+while (numero &lt;= 4) {
+    suma = suma + numero;
+    numero++;
+}</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Comprobación</th>
+<th><code>numero</code> al entrar</th>
+<th><code>suma</code> tras el cuerpo</th>
+<th>¿Continúa?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>6</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>10</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>No cambia</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La condición se comprueba cinco veces, aunque el cuerpo solo se ejecuta cuatro. La última comprobación es la que permite salir.</p>
+<h5 class="text-primary mt-3 mb-2">La sentencia do-while</h5>
+<p><code>do-while</code> ejecuta primero el cuerpo y comprueba después si debe repetirlo:</p>
+<pre><code class="language-java">do {
+    // Instrucciones que se repiten
+} while (condicion);</code></pre>
+<div><strong>Atención.</strong> La sentencia termina con punto y coma después del paréntesis de <code>while</code>.</div>
+<p>Este comportamiento resulta natural cuando hay que realizar una primera acción antes de decidir si se repite, por ejemplo al solicitar un dato:</p>
+<pre><code class="language-java">int valor;
+
+do {
+    System.out.print("Introduce un valor entre 1 y 10: ");
+    valor = teclado.nextInt();
+} while (valor &lt; 1 || valor &gt; 10);
+
+System.out.println("Valor aceptado: " + valor);</code></pre>
+<p>La petición debe ejecutarse al menos una vez. El bucle continúa mientras el dato sea incorrecto y termina cuando el valor pertenece al intervalo permitido.</p>
+<h5 class="text-primary mt-3 mb-2">Elegir entre while y do-while</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Pregunta</th>
+<th><code>while</code></th>
+<th><code>do-while</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Cuándo se comprueba la condición?</td>
+<td>Antes del cuerpo</td>
+<td>Después del cuerpo</td>
+</tr>
+<tr>
+<td>Mínimo de ejecuciones</td>
+<td>Cero</td>
+<td>Una</td>
+</tr>
+<tr>
+<td>Uso habitual</td>
+<td>Repetir mientras se mantenga un estado</td>
+<td>Lecturas, menús y validaciones con una primera ejecución obligatoria</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>No modificar el estado de la condición.</strong> Si nada puede volverla falsa, el bucle no termina.</li>
+<li><strong>Actualizar en la dirección equivocada.</strong> Si la condición es <code>numero <= 10</code> y el número disminuye, se aleja del final.</li>
+<li><strong>Equivocarse en el límite.</strong> <code><</code> y <code><=</code> producen una cantidad diferente de vueltas.</li>
+<li><strong>Colocar un punto y coma tras <code>while</code>.</strong> En un <code>while</code> normal crea un cuerpo vacío.</li>
+<li><strong>Invertir la validación.</strong> Para repetir hasta obtener un dato válido, la condición suele expresar cuándo el dato todavía es incorrecto.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Prueba un valor que no permita entrar en el bucle.</li>
+<li>Prueba un valor que produzca exactamente una vuelta.</li>
+<li>Prueba un valor que produzca varias vueltas.</li>
+<li>Coloca un punto de ruptura en la condición y observa el estado antes de cada iteración.</li>
+<li>Comprueba que cada vuelta acerca el programa a la finalización.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Cuántas veces se muestra el mensaje?</p>
+<pre><code class="language-java">int numero = 5;
+
+while (numero &lt; 5) {
+    System.out.println("Mensaje");
+    numero++;
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Ninguna. La condición es falsa en la primera comprobación.</p>
+</details>
+<p><strong>2.</strong> Localiza el motivo por el que este bucle no termina:</p>
+<pre><code class="language-java">int numero = 1;
+
+while (numero &lt;= 5) {
+    System.out.println(numero);
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p><code>numero</code> nunca cambia. Falta una actualización, como <code>numero++;</code>, dentro del cuerpo.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>while</code> comprueba la condición antes y puede no ejecutar el cuerpo.</li>
+<li><code>do-while</code> comprueba la condición después y ejecuta el cuerpo al menos una vez.</li>
+<li>Todo bucle necesita una inicialización, una condición, un cuerpo y algún cambio que permita finalizar.</li>
+<li>Las pruebas deben incluir cero, una y varias iteraciones, además de los límites.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.2. for y bucles anidados</h4>
+<p>La sentencia <code>for</code> reúne en una misma línea la inicialización, la condición y la actualización de una repetición controlada.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Reconocer las tres partes de la cabecera de un <code>for</code>.</li>
+<li>Crear recorridos ascendentes, descendentes y con distintos pasos.</li>
+<li>Comprender el ámbito de la variable de control.</li>
+<li>Realizar la traza completa de un <code>for</code>.</li>
+<li>Construir y analizar bucles anidados.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Cuando conocemos de antemano el intervalo que debe recorrer una variable, las cuatro partes de un <code>while</code> quedan separadas:</p>
+<pre><code class="language-java">int numero = 1;
+
+while (numero &lt;= 5) {
+    System.out.println(numero);
+    numero++;
+}</code></pre>
+<p>La misma repetición puede expresarse de forma compacta con <code>for</code>:</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 5; numero++) {
+    System.out.println(numero);
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Anatomía de un for</h5>
+<pre><code class="language-java">for (inicializacion; condicion; actualizacion) {
+    // Cuerpo del bucle
+}</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Parte</th>
+<th>Cuándo se ejecuta</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicialización</td>
+<td>Una sola vez, al comenzar</td>
+<td><code>int numero = 1</code></td>
+</tr>
+<tr>
+<td>Condición</td>
+<td>Antes de cada posible vuelta</td>
+<td><code>numero <= 5</code></td>
+</tr>
+<tr>
+<td>Cuerpo</td>
+<td>Cuando la condición es verdadera</td>
+<td>Mostrar el número</td>
+</tr>
+<tr>
+<td>Actualización</td>
+<td>Después de cada ejecución del cuerpo</td>
+<td><code>numero++</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Orden real.</strong> Inicialización, condición, cuerpo, actualización, condición, cuerpo, actualización... La actualización no se ejecuta antes de la primera vuelta.</div>
+<h5 class="text-primary mt-3 mb-2">Traza de un for</h5>
+<pre><code class="language-java">int suma = 0;
+
+for (int numero = 1; numero &lt;= 4; numero++) {
+    suma += numero;
+}</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Momento</th>
+<th><code>numero</code></th>
+<th>Condición</th>
+<th><code>suma</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primera entrada</td>
+<td>1</td>
+<td><code>true</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>Segunda entrada</td>
+<td>2</td>
+<td><code>true</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td>Tercera entrada</td>
+<td>3</td>
+<td><code>true</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td>Cuarta entrada</td>
+<td>4</td>
+<td><code>true</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td>Comprobación final</td>
+<td>5</td>
+<td><code>false</code></td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Recorridos habituales</h5>
+<h5 class="text-primary mt-3 mb-2">Recorrido ascendente</h5>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 10; numero++) {
+    System.out.println(numero);
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Recorrido descendente</h5>
+<pre><code class="language-java">for (int numero = 10; numero &gt;= 1; numero--) {
+    System.out.println(numero);
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Recorrido con un paso distinto de uno</h5>
+<pre><code class="language-java">for (int numero = 0; numero &lt;= 20; numero += 2) {
+    System.out.println(numero);
+}</code></pre>
+<p>La inicialización, la condición y la actualización deben describir juntas el recorrido. En un recorrido descendente, por ejemplo, una condición creciente como <code>numero <= 10</code> no representa el final esperado.</p>
+<h5 class="text-primary mt-3 mb-2">Bucles anidados</h5>
+<p>Un bucle puede contener otro. Por cada vuelta del bucle exterior, el interior realiza todas sus vueltas:</p>
+<pre><code class="language-java">for (int fila = 1; fila &lt;= 3; fila++) {
+    for (int columna = 1; columna &lt;= 4; columna++) {
+        System.out.print("(" + fila + "," + columna + ") ");
+    }
+    System.out.println();
+}</code></pre>
+<p>El cuerpo interior se ejecuta 4 veces por cada una de las 3 filas: en total, 12 veces.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Vuelta exterior</th>
+<th>Valores de <code>columna</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fila = 1</code></td>
+<td>1, 2, 3, 4</td>
+</tr>
+<tr>
+<td><code>fila = 2</code></td>
+<td>1, 2, 3, 4</td>
+</tr>
+<tr>
+<td><code>fila = 3</code></td>
+<td>1, 2, 3, 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Coste de la repetición.</strong> Si el bucle exterior se ejecuta <em>f</em> veces y el interior <em>c</em> veces por cada fila, el cuerpo interior se ejecuta <em>f × c</em> veces.</div>
+<h5 class="text-primary mt-3 mb-2">Ámbito de la variable de control</h5>
+<p>Cuando la variable se declara en la cabecera, solo existe dentro del <code>for</code>:</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 3; numero++) {
+    System.out.println(numero);
+}
+
+// System.out.println(numero); // Error: numero ya no existe aquí</code></pre>
+<p>Limitar su ámbito evita que otras partes del método modifiquen por accidente una variable utilizada únicamente para controlar el bucle.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Error de una posición.</strong> Confundir <code><</code> con <code><=</code> añade o elimina una vuelta.</li>
+<li><strong>Incrementar en un recorrido descendente.</strong> La variable se aleja del límite y el bucle puede no terminar.</li>
+<li><strong>Modificar la variable de control dentro del cuerpo.</strong> El recorrido deja de ser predecible.</li>
+<li><strong>Usar la misma variable en dos bucles anidados.</strong> Cada nivel debe tener su propio control.</li>
+<li><strong>Olvidar que el bucle interior comienza de nuevo.</strong> Su inicialización se ejecuta en cada vuelta exterior.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Escribe los primeros valores que debería tomar la variable de control.</li>
+<li>Comprueba por separado el primer valor y el último.</li>
+<li>Calcula cuántas veces debe ejecutarse el cuerpo.</li>
+<li>En bucles anidados, observa las dos variables en el depurador.</li>
+<li>Verifica que la variable interior recupera su valor inicial en cada vuelta exterior.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué valores se muestran?</p>
+<pre><code class="language-java">for (int numero = 8; numero &gt;= 2; numero -= 2) {
+    System.out.println(numero);
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se muestran 8, 6, 4 y 2. Después la variable pasa a 0 y la condición es falsa.</p>
+</details>
+<p><strong>2.</strong> ¿Cuántas veces se ejecuta el mensaje?</p>
+<pre><code class="language-java">for (int fila = 1; fila &lt;= 2; fila++) {
+    for (int columna = 1; columna &lt;= 3; columna++) {
+        System.out.println("Mensaje");
+    }
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se ejecuta 6 veces: 3 vueltas interiores por cada una de las 2 exteriores.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>for</code> reúne la inicialización, la condición y la actualización.</li>
+<li>La condición sigue comprobándose antes de cada vuelta.</li>
+<li>El sentido de la actualización debe ser coherente con el límite.</li>
+<li>En un anidamiento, el bucle interior completa su recorrido por cada vuelta exterior.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.3. Patrones con bucles</h4>
+<p>Muchos problemas diferentes comparten la misma estructura. Reconocer patrones permite elegir variables, valores iniciales y actualizaciones con mayor seguridad.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Diferenciar contadores y acumuladores.</li>
+<li>Calcular totales y medias.</li>
+<li>Mantener máximos y mínimos.</li>
+<li>Controlar búsquedas con indicadores booleanos.</li>
+<li>Procesar datos hasta encontrar un centinela.</li>
+<li>Construir validaciones y menús repetitivos.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Contadores</h5>
+<p>Un contador registra cuántas veces ocurre algo. Suele comenzar en cero y aumentar en una unidad cuando se cumple la situación que queremos contar:</p>
+<pre><code class="language-java">int cantidadPares = 0;
+
+for (int numero = 1; numero &lt;= 10; numero++) {
+    if (numero % 2 == 0) {
+        cantidadPares++;
+    }
+}
+
+System.out.println("Pares: " + cantidadPares);</code></pre>
+<p>La variable de control <code>numero</code> indica qué valor se está procesando. <code>cantidadPares</code> tiene otra función: cuenta los valores que cumplen la condición.</p>
+<h5 class="text-primary mt-3 mb-2">Acumuladores</h5>
+<p>Un acumulador combina sucesivamente los valores procesados. Para una suma comienza normalmente en cero:</p>
+<pre><code class="language-java">int suma = 0;
+
+for (int numero = 1; numero &lt;= 5; numero++) {
+    suma += numero;
+}
+
+System.out.println("Suma: " + suma);</code></pre>
+<p>Para un producto, el valor neutro es uno:</p>
+<pre><code class="language-java">long producto = 1;
+
+for (int numero = 1; numero &lt;= 10; numero++) {
+    producto *= numero;
+}</code></pre>
+<div><strong>Desbordamiento.</strong> Los productos crecen rápidamente. Utilizar <code>long</code> amplía el intervalo respecto a <code>int</code>, pero también tiene un límite.</div>
+<h5 class="text-primary mt-3 mb-2">Cálculo de una media</h5>
+<p>Una media necesita dos datos: la suma y la cantidad de valores. La división se realiza después del bucle:</p>
+<pre><code class="language-java">double suma = 0;
+int cantidad = 0;
+int valor = teclado.nextInt();
+
+while (valor != -1) {
+    suma += valor;
+    cantidad++;
+    valor = teclado.nextInt();
+}
+
+if (cantidad &gt; 0) {
+    double media = suma / cantidad;
+    System.out.println("Media: " + media);
+} else {
+    System.out.println("No se introdujeron valores");
+}</code></pre>
+<p>La comprobación final evita una división entre cero cuando el primer valor introducido es el centinela.</p>
+<h5 class="text-primary mt-3 mb-2">Valores centinela</h5>
+<p>Un centinela es un valor reservado para indicar que no quedan más datos. No forma parte de los datos que se procesan.</p>
+<pre><code class="language-java">System.out.print("Edad (-1 para terminar): ");
+int edad = teclado.nextInt();
+
+while (edad != -1) {
+    System.out.println("Edad registrada: " + edad);
+
+    System.out.print("Edad (-1 para terminar): ");
+    edad = teclado.nextInt();
+}</code></pre>
+<p>La primera lectura se realiza antes del bucle y las siguientes al final del cuerpo. Si se olvida la segunda lectura, el programa procesa indefinidamente el mismo valor.</p>
+<div><strong>Elección del centinela.</strong> Debe quedar fuera del conjunto de valores válidos. Si cualquier número entero fuese válido, habría que utilizar otra forma de indicar el final.</div>
+<h5 class="text-primary mt-3 mb-2">Máximos y mínimos</h5>
+<p>Para calcular un máximo no siempre es correcto comenzar en cero. Si todos los valores son negativos, cero sería un resultado que nunca apareció.</p>
+<p>Una solución segura consiste en inicializar el máximo con el primer dato válido y procesar después los restantes:</p>
+<pre><code class="language-java">System.out.print("Primer valor: ");
+int maximo = teclado.nextInt();
+
+for (int posicion = 2; posicion &lt;= 5; posicion++) {
+    System.out.print("Siguiente valor: ");
+    int valor = teclado.nextInt();
+
+    if (valor &gt; maximo) {
+        maximo = valor;
+    }
+}
+
+System.out.println("Máximo: " + maximo);</code></pre>
+<p>Para calcular un mínimo se mantiene la misma estructura y se cambia la comparación a <code>valor < minimo</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Búsqueda e indicadores booleanos</h5>
+<p>Un indicador booleano recuerda si ya ha ocurrido una situación. Este ejemplo determina si un número mayor que 1 tiene algún divisor distinto de 1 y de sí mismo:</p>
+<pre><code class="language-java">boolean encontrado = false;
+int divisor = 2;
+
+while (divisor &lt; numero &amp;&amp; !encontrado) {
+    if (numero % divisor == 0) {
+        encontrado = true;
+    } else {
+        divisor++;
+    }
+}
+
+if (encontrado) {
+    System.out.println("Tiene un divisor: " + divisor);
+} else {
+    System.out.println("No tiene divisores propios");
+}</code></pre>
+<p>La condición combina dos motivos para continuar: quedan candidatos y todavía no se ha encontrado un divisor. Cuando cualquiera deja de cumplirse, la búsqueda termina.</p>
+<h5 class="text-primary mt-3 mb-2">Validación de datos</h5>
+<p>Validar significa impedir que el programa continúe con un dato que no cumple las reglas. La condición de repetición debe expresar cuándo hay que volver a pedirlo:</p>
+<pre><code class="language-java">double nota;
+
+do {
+    System.out.print("Introduce una nota entre 0 y 10: ");
+    nota = teclado.nextDouble();
+
+    if (nota &lt; 0 || nota &gt; 10) {
+        System.out.println("La nota no es válida");
+    }
+} while (nota &lt; 0 || nota &gt; 10);</code></pre>
+<p>La condición aparece dos veces porque una decide si se muestra el aviso y la otra si se repite la lectura. Ambas deben representar exactamente la misma regla de invalidez.</p>
+<h5 class="text-primary mt-3 mb-2">Menús repetitivos</h5>
+<p>Un menú suele mostrarse al menos una vez y repetirse hasta seleccionar la opción de salida:</p>
+<pre><code class="language-java">int opcion;
+
+do {
+    System.out.println("1. Consultar");
+    System.out.println("2. Modificar");
+    System.out.println("0. Salir");
+    System.out.print("Opción: ");
+    opcion = teclado.nextInt();
+
+    switch (opcion) {
+        case 1 -&gt; System.out.println("Consulta seleccionada");
+        case 2 -&gt; System.out.println("Modificación seleccionada");
+        case 0 -&gt; System.out.println("Fin del programa");
+        default -&gt; System.out.println("Opción no válida");
+    }
+} while (opcion != 0);</code></pre>
+<p>La selección decide qué operación se realiza en cada vuelta y el bucle decide si el menú vuelve a aparecer.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Inicializar una suma en uno.</strong> El resultado queda desplazado una unidad.</li>
+<li><strong>Inicializar un producto en cero.</strong> Cualquier multiplicación posterior seguirá dando cero.</li>
+<li><strong>Contar el centinela.</strong> La comprobación debe hacerse antes de procesarlo.</li>
+<li><strong>Calcular la media dentro del bucle.</strong> La media definitiva solo se conoce al terminar la entrada.</li>
+<li><strong>Inicializar un máximo o mínimo con un valor arbitrario.</strong> Puede producir un resultado que no pertenece a los datos.</li>
+<li><strong>Olvidar actualizar un indicador.</strong> La condición de búsqueda nunca detectará que el elemento ya se encontró.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<p>Prepara los datos según el patrón:</p>
+<ul>
+<li><strong>Contador:</strong> ningún caso, un caso y varios casos que cumplan la condición.</li>
+<li><strong>Media:</strong> entrada vacía, un único dato y varios datos.</li>
+<li><strong>Máximo o mínimo:</strong> valores positivos, negativos, repetidos y ordenados de distintas formas.</li>
+<li><strong>Búsqueda:</strong> coincidencia al principio, en medio, al final y ausencia de coincidencia.</li>
+<li><strong>Validación:</strong> dato válido en el primer intento y varios datos inválidos antes del válido.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué error tiene este producto?</p>
+<pre><code class="language-java">int producto = 0;
+
+for (int numero = 1; numero &lt;= 5; numero++) {
+    producto *= numero;
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Debe comenzar en 1. Cero multiplicado por cualquier número siempre produce cero.</p>
+</details>
+<p><strong>2.</strong> ¿Por qué conviene comprobar que <code>cantidad > 0</code> antes de calcular una media?</p>
+<details>
+<summary>Ver la solución</summary>
+<p>Porque puede no haberse procesado ningún dato. En ese caso la división no representa una media y, con operandos enteros, provocaría además una división entre cero.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>Un contador registra cuántas veces ocurre algo.</li>
+<li>Un acumulador combina los valores procesados y debe partir del valor neutro adecuado.</li>
+<li>Una media combina suma y cantidad, y exige tratar la ausencia de datos.</li>
+<li>Los máximos y mínimos deben inicializarse a partir de un dato válido.</li>
+<li>Los centinelas, indicadores y validaciones permiten controlar repeticiones cuyo número de vueltas no se conoce de antemano.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.4. Sentencias de salto</h4>
+<p>Las sentencias <code>break</code>, <code>continue</code> y <code>return</code> transfieren el control a otro punto y pueden terminar anticipadamente una iteración, un bucle o un método.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Interrumpir un bucle con <code>break</code>.</li>
+<li>Omitir el resto de una iteración con <code>continue</code>.</li>
+<li>Finalizar un método y, cuando corresponda, devolver un valor con <code>return</code>.</li>
+<li>Reconocer el destino exacto de cada salto.</li>
+<li>Valorar cuándo un salto aclara el código y cuándo dificulta su lectura.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">break: terminar el bucle</h5>
+<p>Un <code>break</code> sin etiqueta finaliza el bucle más cercano que lo contiene. La ejecución continúa en la primera sentencia situada después del bucle.</p>
+<pre><code class="language-java">int divisorEncontrado = 0;
+
+for (int divisor = 2; divisor &lt; numero; divisor++) {
+    if (numero % divisor == 0) {
+        divisorEncontrado = divisor;
+        break;
+    }
+}
+
+if (divisorEncontrado != 0) {
+    System.out.println("Divisor: " + divisorEncontrado);
+}</code></pre>
+<p>Cuando se encuentra un divisor, seguir comprobando candidatos no aporta información. <code>break</code> termina la búsqueda.</p>
+<div><strong>Uso natural.</strong> <code>break</code> resulta claro cuando una búsqueda ha cumplido su objetivo o cuando aparece una condición excepcional de finalización.</div>
+<p>En un <code>switch</code> clásico, <code>break</code> finaliza el <code>switch</code>. No abandona el método ni cualquier bloque de llaves.</p>
+<h5 class="text-primary mt-3 mb-2">continue: pasar a la siguiente iteración</h5>
+<p><code>continue</code> omite las instrucciones restantes de la iteración actual, pero no finaliza el bucle:</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 6; numero++) {
+    if (numero % 2 != 0) {
+        continue;
+    }
+
+    System.out.println(numero);
+}</code></pre>
+<p>Los valores impares ejecutan <code>continue</code> y no llegan al mensaje. Se muestran 2, 4 y 6.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th><code>numero</code></th>
+<th>¿Es impar?</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sí</td>
+<td>Salta el mensaje</td>
+</tr>
+<tr>
+<td>2</td>
+<td>No</td>
+<td>Muestra 2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sí</td>
+<td>Salta el mensaje</td>
+</tr>
+<tr>
+<td>4</td>
+<td>No</td>
+<td>Muestra 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En un <code>for</code>, tras <code>continue</code> se ejecuta la actualización de la cabecera y después vuelve a comprobarse la condición. En un <code>while</code>, el control vuelve directamente a su condición.</p>
+<div><strong>Riesgo en while.</strong> Si <code>continue</code> impide ejecutar la actualización de la variable de control, el bucle puede quedar atrapado en la misma iteración.</div>
+<pre><code class="language-java">int numero = 1;
+
+while (numero &lt;= 5) {
+    if (numero == 3) {
+        continue; // numero sigue valiendo 3 indefinidamente
+    }
+    numero++;
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">return: terminar el método</h5>
+<p><code>return</code> finaliza el método completo. Si el método declara un tipo de retorno, debe entregar un valor compatible:</p>
+<pre><code class="language-java">public boolean esPar(int numero) {
+    return numero % 2 == 0;
+}</code></pre>
+<p>También puede utilizarse para terminar anticipadamente cuando ya se conoce la respuesta:</p>
+<pre><code class="language-java">public boolean tieneDivisorPropio(int numero) {
+    for (int divisor = 2; divisor &lt; numero; divisor++) {
+        if (numero % divisor == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}</code></pre>
+<p>Si el bucle encuentra un divisor, devuelve <code>true</code> inmediatamente. Solo se llega al último <code>return</code> cuando se han probado todos los candidatos sin encontrar ninguno.</p>
+<h5 class="text-primary mt-3 mb-2">Return en métodos void</h5>
+<p>Un método <code>void</code> no devuelve un valor, pero puede utilizar <code>return;</code> para finalizar:</p>
+<pre><code class="language-java">public void mostrarDivision(int dividendo, int divisor) {
+    if (divisor == 0) {
+        System.out.println("No se puede dividir entre cero");
+        return;
+    }
+
+    System.out.println(dividendo / divisor);
+}</code></pre>
+<p>Esta salida temprana evita introducir todo el comportamiento normal dentro de un <code>else</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Destino de cada salto</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Sentencia</th>
+<th>Qué termina</th>
+<th>Dónde continúa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>break</code></td>
+<td>El bucle o <code>switch</code> más cercano</td>
+<td>Después de esa estructura</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>La iteración actual</td>
+<td>En el punto de continuación del bucle</td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>El método completo</td>
+<td>En el código que llamó al método</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Saltos con etiqueta</h5>
+<p>Java permite asociar una etiqueta a un bucle y utilizarla con <code>break</code> o <code>continue</code>. Puede resultar útil para salir de varios bucles anidados:</p>
+<pre><code class="language-java">busqueda:
+for (int fila = 1; fila &lt;= 3; fila++) {
+    for (int columna = 1; columna &lt;= 3; columna++) {
+        if (fila * columna == objetivo) {
+            System.out.println("Encontrado");
+            break busqueda;
+        }
+    }
+}</code></pre>
+<p><code>break busqueda;</code> termina el bucle que lleva esa etiqueta, no solo el interior. Las etiquetas deben reservarse para situaciones en las que hagan el flujo más claro; con frecuencia puede extraerse la búsqueda a un método y utilizar <code>return</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Salto o condición de control</h5>
+<p>Una búsqueda puede terminarse con <code>break</code> o incorporando el estado a la condición del bucle. Las dos soluciones pueden ser correctas:</p>
+<div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Salida con break</h5>
+<pre><code class="language-java">while (hayCandidatos) {
+    if (coincide) {
+        encontrado = true;
+        break;
+    }
+    avanzar();
+}</code></pre>
+</div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Estado en la condición</h5>
+<pre><code class="language-java">while (hayCandidatos &amp;&amp; !encontrado) {
+    if (coincide) {
+        encontrado = true;
+    } else {
+        avanzar();
+    }
+}</code></pre>
+</div>
+</div>
+<p>La mejor elección es la que permite comprender con más facilidad por qué termina el bucle. Deben evitarse cadenas de saltos que obliguen a reconstruir mentalmente numerosos destinos.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Creer que <code>break</code> termina el método.</strong> Solo termina su estructura de destino.</li>
+<li><strong>Creer que <code>continue</code> termina el bucle.</strong> Solo termina la iteración actual.</li>
+<li><strong>Colocar código necesario después de <code>continue</code>.</strong> Esa parte no se ejecuta en las iteraciones que saltan.</li>
+<li><strong>Olvidar devolver un valor en algún camino.</strong> Un método no <code>void</code> debe entregar un valor en todos los recorridos que puedan completarse.</li>
+<li><strong>Abusar de salidas anticipadas.</strong> Demasiados puntos de salida dificultan seguir el flujo.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Marca cada sentencia de salto y escribe su destino.</li>
+<li>Prueba un caso que no ejecute el salto.</li>
+<li>Prueba un caso que lo ejecute en la primera iteración.</li>
+<li>Prueba otro que lo ejecute después de varias iteraciones.</li>
+<li>En un <code>continue</code>, comprueba qué actualización ocurre antes de la siguiente condición.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué valores se muestran?</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 5; numero++) {
+    if (numero == 3) {
+        continue;
+    }
+    System.out.println(numero);
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se muestran 1, 2, 4 y 5. La iteración de 3 omite el mensaje, pero el bucle continúa.</p>
+</details>
+<p><strong>2.</strong> ¿Qué diferencia habría si se sustituyera <code>continue</code> por <code>break</code>?</p>
+<details>
+<summary>Ver la solución</summary>
+<p>Se mostrarían únicamente 1 y 2. Al llegar a 3, <code>break</code> terminaría el bucle completo.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>break</code> termina el bucle o <code>switch</code> que actúa como destino.</li>
+<li><code>continue</code> omite el resto de la iteración actual y comienza la siguiente.</li>
+<li><code>return</code> termina el método completo y puede devolver un valor.</li>
+<li>Las etiquetas permiten dirigir el salto en bucles anidados, pero deben utilizarse con moderación.</li>
+<li>Antes de utilizar un salto hay que identificar con precisión su destino y comprobar todos los caminos.</li>
+</ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut03-teoria-03-control-creacion-excepciones" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-triangle-exclamation"></i> 3.3. Control y creación de excepciones</h2>
+    <p class="lead">Las excepciones permiten avisar de que una operación no puede continuar con normalidad. En este bloque aprenderás a tratarlas y a crear tus propias excepciones.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3. Control y creación de excepciones</h4>
+<p>Las excepciones permiten avisar de que una operación no puede continuar con normalidad. En este bloque aprenderás a reconocerlas, tratarlas y crear una excepción propia sencilla.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3.1. El modelo de excepciones</h4>
+<p>Una excepción es un objeto que informa de un problema producido durante la ejecución.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Distinguir una excepción de un error de compilación o un resultado incorrecto.</li>
+<li>Reconocer algunas excepciones frecuentes.</li>
+<li>Comprender cómo se propaga una excepción.</li>
+<li>Leer la información principal de una traza.</li>
+<li>Diferenciar de forma básica excepciones comprobadas y no comprobadas.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Una excepción durante la ejecución</h5>
+<p>Este programa compila, pero no puede completar la división:</p>
+<pre><code class="language-java">int dividendo = 12;
+int divisor = 0;
+int cociente = dividendo / divisor;
+
+System.out.println(cociente);</code></pre>
+<p>Al ejecutar la tercera línea, Java crea una <code>ArithmeticException</code>. Las instrucciones posteriores no se ejecutan por el camino normal.</p>
+<h5 class="text-primary mt-3 mb-2">No todos los problemas son excepciones</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Problema</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error de compilación</td>
+<td>Falta un punto y coma. El programa no llega a ejecutarse.</td>
+</tr>
+<tr>
+<td>Error lógico</td>
+<td>El programa calcula mal un descuento, pero continúa.</td>
+</tr>
+<tr>
+<td>Excepción</td>
+<td>Se intenta convertir <code>"hola"</code> en un número.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Excepciones frecuentes</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Excepción</th>
+<th>Cuándo puede aparecer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NumberFormatException</code></td>
+<td>Un texto no representa el número esperado.</td>
+</tr>
+<tr>
+<td><code>ArithmeticException</code></td>
+<td>Se realiza una operación entera no válida, como dividir entre cero.</td>
+</tr>
+<tr>
+<td><code>NullPointerException</code></td>
+<td>Se intenta usar una referencia <code>null</code> como si contuviera un objeto.</td>
+</tr>
+<tr>
+<td><code>IllegalArgumentException</code></td>
+<td>Un argumento no cumple las reglas de un método.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Primero hay que comprender la causa.</strong> Capturar una excepción no siempre es la solución. Por ejemplo, una referencia sin inicializar suele indicar que hay que corregir el programa.</div>
+<h5 class="text-primary mt-3 mb-2">Propagación</h5>
+<p>Si un método no trata una excepción, esta vuelve al método que lo llamó:</p>
+<pre><code class="language-java">public static int convertir(String texto) {
+    return Integer.parseInt(texto);
+}
+
+public static void main(String[] args) {
+    int numero = convertir("doce");
+    System.out.println(numero);
+}</code></pre>
+<p>La excepción se produce dentro de <code>parseInt</code>, pasa por <code>convertir</code> y llega a <code>main</code>. Si ningún método la trata, el programa termina y Java muestra una traza.</p>
+<h5 class="text-primary mt-3 mb-2">Cómo leer una traza</h5>
+<pre><code class="language-java">java.lang.NumberFormatException: For input string: "doce"
+    at java.lang.Integer.parseInt(Integer.java:...)
+    at Conversor.convertir(Conversor.java:4)
+    at Conversor.main(Conversor.java:8)</code></pre>
+<ol>
+<li><strong>Tipo:</strong> <code>NumberFormatException</code>.</li>
+<li><strong>Mensaje:</strong> el texto problemático es <code>"doce"</code>.</li>
+<li><strong>Primera línea de nuestro código:</strong> <code>Conversor.java:4</code>.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Dos grupos que debemos conocer</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Grupo</th>
+<th>Qué exige Java</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprobadas</td>
+<td>Capturarlas o declararlas con <code>throws</code>.</td>
+<td><code>IOException</code></td>
+</tr>
+<tr>
+<td>No comprobadas</td>
+<td>El compilador no obliga a capturarlas o declararlas.</td>
+<td><code>NumberFormatException</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Por ahora basta con recordar esta diferencia. En el último capítulo veremos por qué afecta a las excepciones que creemos.</p>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ul>
+<li>Ejecuta primero un caso correcto.</li>
+<li>Provoca después la excepción con un dato sencillo.</li>
+<li>Lee el tipo, el mensaje y la primera línea de tu código.</li>
+<li>Utiliza el depurador para observar en qué sentencia se interrumpe el flujo.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>¿Por qué capturar una <code>NullPointerException</code> no suele arreglar una variable que nunca se inicializó?</p>
+<details>
+<summary>Ver la solución</summary>
+<p>Porque ocultaría el defecto. Lo adecuado es inicializar correctamente la variable o revisar si <code>null</code> debería estar permitido.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>Una excepción aparece durante la ejecución y altera el flujo normal.</li>
+<li>Si no se trata, se propaga por las llamadas activas.</li>
+<li>La traza indica el tipo, el mensaje y la cadena de llamadas.</li>
+<li>Las excepciones comprobadas deben capturarse o declararse.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3.2. Tratamiento de excepciones</h4>
+<p>Un bloque <code>try-catch</code> permite responder cuando una operación no puede completarse.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Utilizar <code>try</code> y <code>catch</code>.</li>
+<li>Tratar distintos tipos con varios bloques <code>catch</code>.</li>
+<li>Comprender el uso básico de <code>finally</code>.</li>
+<li>Evitar capturas que oculten el problema.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Estructura try-catch</h5>
+<pre><code class="language-java">try {
+    // Operación que puede lanzar una excepción
+} catch (TipoDeExcepcion e) {
+    // Respuesta al problema
+}</code></pre>
+<p>Si se lanza una excepción compatible, Java abandona el resto del <code>try</code> y ejecuta el <code>catch</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Permitir otro intento</h5>
+<pre><code class="language-java">boolean valido = false;
+int numero = 0;
+
+while (!valido) {
+    System.out.print("Introduce un entero: ");
+    String texto = teclado.nextLine();
+
+    try {
+        numero = Integer.parseInt(texto);
+        valido = true;
+    } catch (NumberFormatException e) {
+        System.out.println("El dato no es un entero");
+    }
+}
+
+System.out.println("Número aceptado: " + numero);</code></pre>
+<p>La captura tiene una finalidad concreta: informar y repetir. No asigna un valor falso ni continúa como si la conversión hubiera funcionado.</p>
+<h5 class="text-primary mt-3 mb-2">Varios catch</h5>
+<p>Una operación puede tener problemas diferentes:</p>
+<pre><code class="language-java">try {
+    int dividendo = Integer.parseInt(textoDividendo);
+    int divisor = Integer.parseInt(textoDivisor);
+    System.out.println(dividendo / divisor);
+} catch (NumberFormatException e) {
+    System.out.println("Los datos deben ser enteros");
+} catch (ArithmeticException e) {
+    System.out.println("El divisor no puede ser cero");
+}</code></pre>
+<p>Java ejecuta el primer <code>catch</code> compatible. Si se utilizan clases relacionadas, la más específica debe aparecer antes que la más general.</p>
+<div><strong>Multicaptura.</strong> Si dos excepciones necesitan exactamente la misma respuesta, pueden agruparse: <code>catch (NumberFormatException | ArithmeticException e)</code>.</div>
+<h5 class="text-primary mt-3 mb-2">El bloque finally</h5>
+<p><code>finally</code> contiene instrucciones que se ejecutan al finalizar el intento, haya ocurrido o no una excepción:</p>
+<pre><code class="language-java">try {
+    int numero = Integer.parseInt(texto);
+    System.out.println("Número: " + numero);
+} catch (NumberFormatException e) {
+    System.out.println("Formato incorrecto");
+} finally {
+    System.out.println("Fin del intento");
+}</code></pre>
+<p>En programas reales suele emplearse para liberar recursos o restaurar un estado temporal. En los primeros programas basta con comprender su posición en el flujo.</p>
+<h5 class="text-primary mt-3 mb-2">Tratar o propagar</h5>
+<p>Un método debería capturar una excepción cuando sabe cómo responder correctamente. Por ejemplo, puede pedir otro dato o mostrar un mensaje en la interfaz.</p>
+<p>Si no sabe cómo continuar, es preferible que la excepción se propague. Capturarla únicamente para que no se vea elimina información necesaria para encontrar el problema.</p>
+<h5 class="text-primary mt-3 mb-2">Dos capturas incorrectas</h5>
+<h5 class="text-primary mt-3 mb-2">Ignorar la excepción</h5>
+<pre><code class="language-java">try {
+    procesar();
+} catch (Exception e) {
+    // No hace nada
+}</code></pre>
+<p>El programa sigue sin haber realizado la operación y sin explicar lo sucedido.</p>
+<h5 class="text-primary mt-3 mb-2">Inventar un resultado</h5>
+<pre><code class="language-java">try {
+    return calcularPrecio();
+} catch (Exception e) {
+    return 0;
+}</code></pre>
+<p>El llamador no puede saber si cero es un precio real o una operación fallida.</p>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ul>
+<li>Prueba el camino sin excepción.</li>
+<li>Provoca cada excepción capturada.</li>
+<li>Comprueba que no se ejecutan las instrucciones posteriores al fallo dentro del <code>try</code>.</li>
+<li>Observa qué <code>catch</code> recibe la excepción.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>¿Qué letras se muestran?</p>
+<pre><code class="language-java">try {
+    System.out.println("A");
+    Integer.parseInt("x");
+    System.out.println("B");
+} catch (NumberFormatException e) {
+    System.out.println("C");
+} finally {
+    System.out.println("D");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se muestran A, C y D. La excepción impide llegar a B.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>try</code> contiene las operaciones que pueden fallar.</li>
+<li><code>catch</code> responde a un tipo concreto de excepción.</li>
+<li>Puede haber varios manejadores para problemas diferentes.</li>
+<li><code>finally</code> contiene tareas de finalización.</li>
+<li>No deben ocultarse las excepciones con capturas vacías o valores inventados.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3.3. Lanzamiento y creación</h4>
+<p>Un método puede lanzar una excepción cuando detecta que no puede realizar correctamente la operación solicitada.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Lanzar una excepción con <code>throw</code>.</li>
+<li>Declarar una excepción con <code>throws</code>.</li>
+<li>Crear una excepción propia sencilla.</li>
+<li>Capturarla desde el código que llama al método.</li>
+<li>Comprobar que una operación fallida no modifica el estado.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Lanzar con throw</h5>
+<p>Un método puede comprobar sus argumentos y lanzar una excepción estándar si no cumplen sus reglas:</p>
+<pre><code class="language-java">public static double calcularPrecioUnitario(
+        double total, int unidades) {
+
+    if (unidades &lt;= 0) {
+        throw new IllegalArgumentException(
+                "Las unidades deben ser mayores que cero");
+    }
+
+    return total / unidades;
+}</code></pre>
+<p><code>throw</code> crea el salto en el flujo. Cuando se ejecuta, el método no continúa por las sentencias siguientes.</p>
+<h5 class="text-primary mt-3 mb-2">Diferencia entre throw y throws</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Palabra</th>
+<th>Qué hace</th>
+<th>Dónde aparece</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>throw</code></td>
+<td>Lanza un objeto concreto.</td>
+<td>Dentro del método.</td>
+</tr>
+<tr>
+<td><code>throws</code></td>
+<td>Declara que un tipo puede propagarse.</td>
+<td>En la cabecera del método.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Crear una excepción propia</h5>
+<p>Supongamos que una cuenta no permite retirar más dinero del disponible. Podemos representar esa situación con una clase propia:</p>
+<div>SaldoInsuficienteException.java</div>
+<pre><code class="language-java">public class SaldoInsuficienteException extends Exception {
+
+    public SaldoInsuficienteException(String mensaje) {
+        super(mensaje);
+    }
+}</code></pre>
+<p>La nueva clase hereda de <code>Exception</code>. Su constructor recibe un mensaje y lo entrega a la clase base mediante <code>super</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Lanzarla desde la operación</h5>
+<pre><code class="language-java">public void retirar(double cantidad)
+        throws SaldoInsuficienteException {
+
+    if (cantidad &lt;= 0) {
+        throw new IllegalArgumentException(
+                "La cantidad debe ser positiva");
+    }
+
+    if (cantidad &gt; saldo) {
+        throw new SaldoInsuficienteException(
+                "No hay saldo suficiente");
+    }
+
+    saldo -= cantidad;
+}</code></pre>
+<p>Primero se realizan todas las comprobaciones. El saldo solo cambia cuando la operación es válida.</p>
+<div><strong>Estado coherente.</strong> Si el método lanza una excepción, el saldo conserva su valor anterior.</div>
+<h5 class="text-primary mt-3 mb-2">Capturarla en el llamador</h5>
+<pre><code class="language-java">try {
+    cuenta.retirar(120.0);
+    System.out.println("Retirada realizada");
+} catch (SaldoInsuficienteException e) {
+    System.out.println(e.getMessage());
+}</code></pre>
+<p>La clase de la cuenta comunica el problema. El código que interactúa con el usuario decide cómo mostrarlo.</p>
+<h5 class="text-primary mt-3 mb-2">Casos que hay que probar</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Caso</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cantidad menor que el saldo</td>
+<td>Se realiza la retirada.</td>
+</tr>
+<tr>
+<td>Cantidad igual al saldo</td>
+<td>El saldo queda a cero.</td>
+</tr>
+<tr>
+<td>Cantidad mayor que el saldo</td>
+<td>Se lanza <code>SaldoInsuficienteException</code> y el saldo no cambia.</td>
+</tr>
+<tr>
+<td>Cantidad cero o negativa</td>
+<td>Se lanza <code>IllegalArgumentException</code> y el saldo no cambia.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li>Confundir <code>throw</code> con <code>throws</code>.</li>
+<li>Modificar el saldo antes de comprobar si la retirada es posible.</li>
+<li>Escribir mensajes genéricos como «Error».</li>
+<li>Declarar la excepción con <code>throws</code> y creer que ya se ha tratado.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>¿Qué diferencia existe entre lanzar una excepción y declararla?</p>
+<details>
+<summary>Ver la solución</summary>
+<p><code>throw</code> lanza un objeto en un punto concreto. <code>throws</code> avisa en la cabecera de que ese tipo puede salir del método.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>throw</code> lanza una excepción y <code>throws</code> declara su posible propagación.</li>
+<li>Una excepción propia permite representar un problema concreto.</li>
+<li>Al heredar de <code>Exception</code>, debe capturarse o declararse.</li>
+<li>Las validaciones deben realizarse antes de modificar el estado.</li>
+</ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut03-teoria-04-aserciones-prueba-depuracion" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-bug"></i> 3.4. Aserciones, prueba y depuración</h2>
+    <p class="lead">Programar también consiste en comprobar lo que hemos hecho. En este bloque aprenderás a detectar errores con aserciones, pruebas, depuración y documentación.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4. Aserciones, prueba y depuración</h4>
+<p>Programar también consiste en comprobar lo que hemos hecho. En este bloque aprenderás a detectar errores con aserciones, probar casos diferentes, usar el depurador y documentar el código con claridad.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.1. Aserciones</h4>
+<p>Una aserción comprueba una condición que el programador considera verdadera en ese punto del programa.</p>
+<h5 class="text-primary mt-3 mb-2">Sintaxis</h5>
+<pre><code class="language-java">assert condicion;
+assert condicion : "Mensaje si la condición es falsa";</code></pre>
+<p>Si la condición es falsa y las aserciones están activadas, el programa se detiene y muestra un <code>AssertionError</code>. El mensaje ayuda a localizar el problema.</p>
+<h5 class="text-primary mt-3 mb-2">Un primer ejemplo</h5>
+<pre><code class="language-java">int stock = 5;
+int unidadesVendidas = 2;
+
+stock = stock - unidadesVendidas;
+assert stock &gt;= 0 : "El stock no puede ser negativo";
+
+System.out.println("Stock restante: " + stock);</code></pre>
+<p>Con estos datos la condición es verdadera. Si durante las pruebas cambiamos <code>unidadesVendidas</code> a <code>8</code>, la aserción descubre que el programa ha dejado el stock en un estado imposible.</p>
+<h5 class="text-primary mt-3 mb-2">Activar las aserciones</h5>
+<p>Java las desactiva normalmente. Para utilizarlas durante el desarrollo hay que añadir la opción <code>-ea</code> a la ejecución.</p>
+<pre><code class="language-java">java -ea MiPrograma</code></pre>
+<p>En el IDE, esta opción se escribe en las opciones de la máquina virtual de la configuración de ejecución. Después hay que volver a ejecutar el programa.</p>
+<div><strong>Atención.</strong> Si olvidamos <code>-ea</code>, Java ignora las aserciones. No debemos interpretar que una prueba ha sido correcta sin comprobar antes que están activadas.</div>
+<h5 class="text-primary mt-3 mb-2">Activar las aserciones en Intellij IDEA</h5>
+<p>En un IDE como Intellij podremos definir las opciones de la máquina virtual (VM) mediante ventanas. Para ello accederemos a editar la configuración de la ejecución y agregaremos la posibilidad de editar las opciones de la VM si no está activa.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/edit_execution_Intellij.png" alt="Intellij Configuration Edit"></p>
+<p> Imagen 1. Selecciona "Edit..." en el menú superior derecho para ejecutar la clase.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/Modify_run_options_Intellij.png" alt="Java Add VM options"></p>
+<p> Imagen 2. La opción "Add VM options" debe estar seleccionada.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/VM_options_Intellij.png" alt="-ea"></p>
+<p> Imagen 3. Junto a la versión de Java se pueden escribir las opciones de la VM. Para usar los asserts escribir:  <code>-ea</code></p>
+<p>Ahora al ejecutarse el programa funcionarán los asserts.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/Assert_Intellij.png" alt="assert con mensaje"></p>
+<p> Imagen 4. Si el stock no es mayor o igual que cero se parará la ejecución y nos mostrará el mensaje indicado: "El stock no puede ser negativo"</p>
+<h5 class="text-primary mt-3 mb-2">Aserción o validación</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Situación</th>
+<th>Qué utilizar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprobar una idea interna del programa durante el desarrollo.</td>
+<td><code>assert</code></td>
+</tr>
+<tr>
+<td>Comprobar un dato introducido por una persona.</td>
+<td><code>if</code> y un mensaje o una excepción</td>
+</tr>
+<tr>
+<td>Comprobar un argumento de un método público.</td>
+<td><code>if</code> y una excepción</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las validaciones deben funcionar siempre. Las aserciones son una ayuda para encontrar defectos mientras construimos y probamos el programa.</p>
+<h5 class="text-primary mt-3 mb-2">No modificar datos dentro de una aserción</h5>
+<pre><code class="language-java">// Incorrecto: cambia el valor de contador
+assert contador++ &lt; 10;
+
+// Correcto: solo comprueba
+assert contador &lt; 10 : "Contador fuera de rango";</code></pre>
+<p>El programa debe comportarse igual con las aserciones activadas o desactivadas. Por eso la condición solo debe comprobar, nunca realizar una operación necesaria.</p>
+<h5 class="text-primary mt-3 mb-2">Detectar y corregir un error</h5>
+<ol>
+<li>Activa las aserciones con <code>-ea</code>.</li>
+<li>Ejecuta un caso que muestre el fallo.</li>
+<li>Lee el mensaje y la línea señalada.</li>
+<li>Observa los valores de las variables.</li>
+<li>Corrige la causa, no la aserción.</li>
+<li>Vuelve a ejecutar el caso.</li>
+</ol>
+<div><strong>Idea clave.</strong> Una aserción que falla no suele ser el problema: es la alarma que permite encontrarlo.</div>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>Queremos comprobar que el saldo calculado nunca es negativo por un defecto interno. Completa la instrucción:</p>
+<pre><code class="language-java">assert __________________ : "Saldo negativo inesperado";</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<pre><code class="language-java">assert saldo &gt;= 0 : "Saldo negativo inesperado";</code></pre>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>assert</code> comprueba una condición interna.</li>
+<li>Las aserciones se activan con <code>-ea</code>.</li>
+<li>No sustituyen la validación de entradas ni el uso de excepciones.</li>
+<li>Su condición no debe modificar el estado del programa.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.2. Prueba y depuración</h4>
+<p>Probar es buscar casos que puedan descubrir fallos. Depurar es observar la ejecución para localizar su causa.</p>
+<h5 class="text-primary mt-3 mb-2">Elegir casos de prueba</h5>
+<p>Para probar un método conviene combinar casos normales, límites e incorrectos. Por ejemplo, para un método que recibe una edad entre 0 y 120:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Tipo</th>
+<th>Dato</th>
+<th>Qué comprobamos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td><code>25</code></td>
+<td>El caso habitual.</td>
+</tr>
+<tr>
+<td>Límite</td>
+<td><code>0</code> y <code>120</code></td>
+<td>Los extremos permitidos.</td>
+</tr>
+<tr>
+<td>Incorrecto</td>
+<td><code>-1</code> y <code>121</code></td>
+<td>La respuesta ante datos no válidos.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Antes de ejecutar, escribe el resultado esperado. Después compáralo con el resultado obtenido.</p>
+<h5 class="text-primary mt-3 mb-2">Usar el depurador</h5>
+<ol>
+<li><strong>Punto de ruptura:</strong> marca una línea en la que quieres detener el programa.</li>
+<li><strong>Depurar:</strong> inicia el programa con la opción de depuración del IDE.</li>
+<li><strong>Paso a paso:</strong> ejecuta una línea cada vez.</li>
+<li><strong>Variables:</strong> observa cómo cambian sus valores.</li>
+<li><strong>Continuar:</strong> reanuda la ejecución hasta el siguiente punto de ruptura.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Ejemplo para seguir paso a paso</h5>
+<pre><code class="language-java">int suma = 0;
+
+for (int numero = 1; numero &lt;= 3; numero++) {
+    suma = suma + numero;
+    assert suma &gt;= 0 : "Suma negativa inesperada";
+}
+
+System.out.println(suma);</code></pre>
+<p>Coloca un punto de ruptura en la asignación a <code>suma</code>. Sus valores serán <code>1</code>, <code>3</code> y <code>6</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Qué herramienta elegir</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Herramienta</th>
+<th>Utilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mensaje por consola</td>
+<td>Comprobar rápidamente por dónde pasa el programa.</td>
+</tr>
+<tr>
+<td>Depurador</td>
+<td>Seguir el flujo y examinar variables.</td>
+</tr>
+<tr>
+<td><code>assert</code></td>
+<td>Avisar cuando una condición interna deja de cumplirse.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Ciclo de corrección</h5>
+<p><strong>Reproducir el fallo → localizarlo → corregir la causa → repetir las pruebas.</strong></p>
+<p>Una corrección puede crear otro problema. Por eso hay que volver a ejecutar tanto el caso que fallaba como los que ya funcionaban.</p>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>Un método acepta notas entre 0 y 10. Indica un caso normal, dos casos límite y dos incorrectos.</p>
+<details>
+<summary>Ver una posible solución</summary>
+<p>Normal: <code>6</code>. Límites: <code>0</code> y <code>10</code>. Incorrectos: <code>-1</code> y <code>11</code>.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>Incluye casos normales, límites e incorrectos.</li>
+<li>Compara siempre el resultado esperado con el obtenido.</li>
+<li>El depurador permite seguir instrucciones y variables.</li>
+<li>Después de corregir, repite todas las pruebas importantes.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.3. Comentarios y documentación</h4>
+<p>Un código claro facilita encontrar errores y permite que otras personas comprendan nuestras decisiones.</p>
+<h5 class="text-primary mt-3 mb-2">Tipos de comentario</h5>
+<pre><code class="language-java">// Comentario de una línea
+
+/* Comentario que puede
+   ocupar varias líneas */
+
+/** Documentación de una clase o un método. */</code></pre>
+<p>Los comentarios deben explicar una regla o una decisión que no resulta evidente. No deben repetir literalmente la instrucción.</p>
+<pre><code class="language-java">// Poco útil: suma uno a intentos
+intentos++;
+
+// Útil: el primer intento también cuenta para el bloqueo
+intentos++;</code></pre>
+<h5 class="text-primary mt-3 mb-2">Documentar un método</h5>
+<pre><code class="language-java">/**
+ * Calcula el precio después de aplicar un descuento.
+ *
+ * @param precio precio original, no negativo
+ * @param descuento porcentaje entre 0 y 100
+ * @return precio con el descuento aplicado
+ * @throws IllegalArgumentException si los datos no son válidos
+ */
+public static double calcularPrecio(double precio, double descuento) {
+    if (precio &lt; 0 || descuento &lt; 0 || descuento &gt; 100) {
+        throw new IllegalArgumentException("Datos no válidos");
+    }
+
+    double resultado = precio - precio * descuento / 100;
+    assert resultado &gt;= 0 : "Precio final negativo";
+    return resultado;
+}</code></pre>
+<p><code>@param</code> explica los parámetros, <code>@return</code> el resultado y <code>@throws</code> la excepción que puede producirse.</p>
+<h5 class="text-primary mt-3 mb-2">El código también comunica</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Evita</th>
+<th>Prefiere</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int x;</code></td>
+<td><code>int intentosRestantes;</code></td>
+</tr>
+<tr>
+<td>Un método muy largo</td>
+<td>Métodos pequeños con una finalidad clara</td>
+</tr>
+<tr>
+<td>Comentarios desactualizados</td>
+<td>Revisar el comentario al cambiar el código</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>¿Qué aporta el comentario <code>// incrementa i</code> junto a <code>i++</code>?</p>
+<details>
+<summary>Ver la solución</summary>
+<p>No aporta información nueva. Es mejor eliminarlo o explicar por qué se incrementa, si esa decisión necesita aclaración.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>Comenta el motivo o la regla, no lo evidente.</li>
+<li>Documenta qué recibe, devuelve y puede lanzar un método.</li>
+<li>Utiliza nombres descriptivos y una presentación ordenada.</li>
+<li>Mantén los comentarios de acuerdo con el código.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.4. Integración</h4>
+<p>Las mismas herramientas sirven en programas de temas diferentes: validar, decidir, repetir, comprobar y probar.</p>
+<h5 class="text-primary mt-3 mb-2">Ejemplo integrado: puntuación de una partida</h5>
+<pre><code class="language-java">/**
+ * Calcula la puntuación de una partida.
+ * Cada tercera ronda añade 5 puntos extra.
+ *
+ * @param rondas número de rondas jugadas
+ * @param puntosPorRonda puntos obtenidos en cada ronda
+ * @return puntuación total
+ * @throws IllegalArgumentException si un dato es negativo
+ */
+public static int calcularPuntuacion(int rondas, int puntosPorRonda) {
+    if (rondas &lt; 0 || puntosPorRonda &lt; 0) {
+        throw new IllegalArgumentException("Los datos no pueden ser negativos");
+    }
+
+    int total = 0;
+
+    for (int ronda = 1; ronda &lt;= rondas; ronda++) {
+        total = total + puntosPorRonda;
+
+        if (ronda % 3 == 0) {
+            total = total + 5;
+        }
+
+        assert total &gt;= 0 : "Puntuación negativa inesperada";
+    }
+
+    return total;
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Qué aparece en el ejemplo</h5>
+<ul>
+<li><code>if</code> y una excepción para rechazar argumentos incorrectos.</li>
+<li><code>for</code> para repetir el cálculo de cada ronda.</li>
+<li><code>if</code> para aplicar el premio cada tres rondas.</li>
+<li><code>assert</code> para vigilar un estado interno inesperado.</li>
+<li>Documentación para explicar el uso del método.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Casos para probar</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Rondas</th>
+<th>Puntos</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10</td>
+<td>35</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>10</td>
+<td><code>IllegalArgumentException</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Cambia el contexto, conserva el proceso</h5>
+<p>En una tienda, una biblioteca o un juego cambiarán los nombres y las reglas, pero el trabajo será parecido:</p>
+<ol>
+<li>Comprender los datos y el resultado.</li>
+<li>Validar lo que puede llegar incorrecto.</li>
+<li>Construir las decisiones y repeticiones.</li>
+<li>Añadir aserciones para condiciones internas importantes.</li>
+<li>Probar casos normales, límites e incorrectos.</li>
+<li>Depurar y corregir los fallos encontrados.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Práctica guiada</h5>
+<p>Adapta el método para una tarjeta de fidelización: cada compra aporta una cantidad fija de puntos y cada quinta compra añade 10 puntos extra.</p>
+<ul>
+<li>Rechaza cantidades negativas mediante una excepción.</li>
+<li>Usa un bucle y una decisión.</li>
+<li>Añade una aserción que compruebe que el total no es negativo.</li>
+<li>Activa las aserciones y prueba 0, 1 y 5 compras, además de un dato negativo.</li>
+<li>Coloca un punto de ruptura dentro del bucle y observa el total.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Lista final de revisión</h5>
+<ul>
+<li>El programa compila y sus nombres son claros.</li>
+<li>Los datos incorrectos reciben una respuesta adecuada.</li>
+<li>Las aserciones están activadas durante las pruebas.</li>
+<li>Se han probado casos normales, límites e incorrectos.</li>
+<li>Los comentarios explican decisiones útiles y siguen siendo correctos.</li>
+</ul>
+    </div>
+  </div>
 </div>
 </section>
         </main>
@@ -93,8 +2484,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1791975992438"></script>
-    <script src="assets/js/course.js?v=1791975992438"></script>
-    <script src="assets/js/pwa-register.js?v=1791975992438" data-service-worker="../sw.js" data-scope="../"></script>
+    <script src="assets/js/search-data.js?v=1792047116597"></script>
+    <script src="assets/js/course.js?v=1792047116597"></script>
+    <script src="assets/js/pwa-register.js?v=1792047116597" data-service-worker="../sw.js" data-scope="../"></script>
   </body>
 </html>

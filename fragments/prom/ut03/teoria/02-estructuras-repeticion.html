@@ -1,0 +1,840 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-repeat"></i> 3.2. Estructuras de repetición</h2>
+    <p class="lead">Los bucles permiten ejecutar un bloque varias veces sin duplicar código. Para utilizarlos correctamente hay que controlar condiciones, contadores y acumuladores.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2. Estructuras de repetición</h4>
+<p>Los bucles permiten ejecutar un bloque varias veces sin duplicar código. Para utilizarlos correctamente hay que controlar su inicio, su continuación y su finalización.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.1. while y do-while</h4>
+<p>Un bucle repite un bloque mientras se cumpla una condición. La posición de esa condición determina si el bloque puede ejecutarse cero veces o debe ejecutarse al menos una.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Identificar las partes que controlan una repetición.</li>
+<li>Utilizar <code>while</code> cuando la repetición depende de una condición.</li>
+<li>Utilizar <code>do-while</code> cuando el bloque debe ejecutarse antes de comprobar la condición.</li>
+<li>Realizar la traza de un bucle.</li>
+<li>Prevenir bucles infinitos y errores en los límites.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>El siguiente código muestra una cuenta atrás, pero repite manualmente la misma operación:</p>
+
+<pre><code class="language-java">int numero = 3;
+System.out.println(numero);
+numero--;
+System.out.println(numero);
+numero--;
+System.out.println(numero);</code></pre>
+<p>La misma regla puede expresarse mediante un bucle. Así, cambiar el valor inicial no obliga a copiar más instrucciones:</p>
+
+<pre><code class="language-java">int numero = 3;
+
+while (numero &gt;= 1) {
+    System.out.println(numero);
+    numero--;
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Las partes de una repetición</h5>
+<p>Para razonar sobre un bucle conviene localizar cuatro elementos:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Elemento</th>
+<th>Pregunta que responde</th>
+<th>En el ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicialización</td>
+<td>¿Con qué valores comienza?</td>
+<td><code>int numero = 3;</code></td>
+</tr>
+<tr>
+<td>Condición de continuación</td>
+<td>¿Cuándo se ejecuta otra vuelta?</td>
+<td><code>numero >= 1</code></td>
+</tr>
+<tr>
+<td>Cuerpo</td>
+<td>¿Qué se repite?</td>
+<td>Mostrar el número</td>
+</tr>
+<tr>
+<td>Actualización</td>
+<td>¿Qué acerca el bucle a su final?</td>
+<td><code>numero--;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Idea clave.</strong> La actualización no siempre es un incremento o decremento. Puede ser una nueva lectura, el resultado de un cálculo o cualquier cambio que permita que la condición llegue a ser falsa.</div>
+<h5 class="text-primary mt-3 mb-2">La sentencia while</h5>
+<p><code>while</code> comprueba la condición antes de cada vuelta:</p>
+<pre><code class="language-java">while (condicion) {
+    // Instrucciones que se repiten
+}</code></pre>
+<p>La condición debe producir un valor booleano. Si es falsa desde el principio, el cuerpo no se ejecuta ninguna vez.</p>
+<h5 class="text-primary mt-3 mb-2">Traza de un while</h5>
+<pre><code class="language-java">int numero = 1;
+int suma = 0;
+
+while (numero &lt;= 4) {
+    suma = suma + numero;
+    numero++;
+}</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Comprobación</th>
+<th><code>numero</code> al entrar</th>
+<th><code>suma</code> tras el cuerpo</th>
+<th>¿Continúa?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>6</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>10</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>No cambia</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La condición se comprueba cinco veces, aunque el cuerpo solo se ejecuta cuatro. La última comprobación es la que permite salir.</p>
+<h5 class="text-primary mt-3 mb-2">La sentencia do-while</h5>
+<p><code>do-while</code> ejecuta primero el cuerpo y comprueba después si debe repetirlo:</p>
+<pre><code class="language-java">do {
+    // Instrucciones que se repiten
+} while (condicion);</code></pre>
+<div><strong>Atención.</strong> La sentencia termina con punto y coma después del paréntesis de <code>while</code>.</div>
+<p>Este comportamiento resulta natural cuando hay que realizar una primera acción antes de decidir si se repite, por ejemplo al solicitar un dato:</p>
+<pre><code class="language-java">int valor;
+
+do {
+    System.out.print("Introduce un valor entre 1 y 10: ");
+    valor = teclado.nextInt();
+} while (valor &lt; 1 || valor &gt; 10);
+
+System.out.println("Valor aceptado: " + valor);</code></pre>
+<p>La petición debe ejecutarse al menos una vez. El bucle continúa mientras el dato sea incorrecto y termina cuando el valor pertenece al intervalo permitido.</p>
+<h5 class="text-primary mt-3 mb-2">Elegir entre while y do-while</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Pregunta</th>
+<th><code>while</code></th>
+<th><code>do-while</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Cuándo se comprueba la condición?</td>
+<td>Antes del cuerpo</td>
+<td>Después del cuerpo</td>
+</tr>
+<tr>
+<td>Mínimo de ejecuciones</td>
+<td>Cero</td>
+<td>Una</td>
+</tr>
+<tr>
+<td>Uso habitual</td>
+<td>Repetir mientras se mantenga un estado</td>
+<td>Lecturas, menús y validaciones con una primera ejecución obligatoria</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>No modificar el estado de la condición.</strong> Si nada puede volverla falsa, el bucle no termina.</li>
+<li><strong>Actualizar en la dirección equivocada.</strong> Si la condición es <code>numero <= 10</code> y el número disminuye, se aleja del final.</li>
+<li><strong>Equivocarse en el límite.</strong> <code><</code> y <code><=</code> producen una cantidad diferente de vueltas.</li>
+<li><strong>Colocar un punto y coma tras <code>while</code>.</strong> En un <code>while</code> normal crea un cuerpo vacío.</li>
+<li><strong>Invertir la validación.</strong> Para repetir hasta obtener un dato válido, la condición suele expresar cuándo el dato todavía es incorrecto.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Prueba un valor que no permita entrar en el bucle.</li>
+<li>Prueba un valor que produzca exactamente una vuelta.</li>
+<li>Prueba un valor que produzca varias vueltas.</li>
+<li>Coloca un punto de ruptura en la condición y observa el estado antes de cada iteración.</li>
+<li>Comprueba que cada vuelta acerca el programa a la finalización.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Cuántas veces se muestra el mensaje?</p>
+<pre><code class="language-java">int numero = 5;
+
+while (numero &lt; 5) {
+    System.out.println("Mensaje");
+    numero++;
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Ninguna. La condición es falsa en la primera comprobación.</p>
+</details>
+<p><strong>2.</strong> Localiza el motivo por el que este bucle no termina:</p>
+<pre><code class="language-java">int numero = 1;
+
+while (numero &lt;= 5) {
+    System.out.println(numero);
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p><code>numero</code> nunca cambia. Falta una actualización, como <code>numero++;</code>, dentro del cuerpo.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>while</code> comprueba la condición antes y puede no ejecutar el cuerpo.</li>
+<li><code>do-while</code> comprueba la condición después y ejecuta el cuerpo al menos una vez.</li>
+<li>Todo bucle necesita una inicialización, una condición, un cuerpo y algún cambio que permita finalizar.</li>
+<li>Las pruebas deben incluir cero, una y varias iteraciones, además de los límites.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.2. for y bucles anidados</h4>
+<p>La sentencia <code>for</code> reúne en una misma línea la inicialización, la condición y la actualización de una repetición controlada.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Reconocer las tres partes de la cabecera de un <code>for</code>.</li>
+<li>Crear recorridos ascendentes, descendentes y con distintos pasos.</li>
+<li>Comprender el ámbito de la variable de control.</li>
+<li>Realizar la traza completa de un <code>for</code>.</li>
+<li>Construir y analizar bucles anidados.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Cuando conocemos de antemano el intervalo que debe recorrer una variable, las cuatro partes de un <code>while</code> quedan separadas:</p>
+<pre><code class="language-java">int numero = 1;
+
+while (numero &lt;= 5) {
+    System.out.println(numero);
+    numero++;
+}</code></pre>
+<p>La misma repetición puede expresarse de forma compacta con <code>for</code>:</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 5; numero++) {
+    System.out.println(numero);
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Anatomía de un for</h5>
+<pre><code class="language-java">for (inicializacion; condicion; actualizacion) {
+    // Cuerpo del bucle
+}</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Parte</th>
+<th>Cuándo se ejecuta</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicialización</td>
+<td>Una sola vez, al comenzar</td>
+<td><code>int numero = 1</code></td>
+</tr>
+<tr>
+<td>Condición</td>
+<td>Antes de cada posible vuelta</td>
+<td><code>numero <= 5</code></td>
+</tr>
+<tr>
+<td>Cuerpo</td>
+<td>Cuando la condición es verdadera</td>
+<td>Mostrar el número</td>
+</tr>
+<tr>
+<td>Actualización</td>
+<td>Después de cada ejecución del cuerpo</td>
+<td><code>numero++</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Orden real.</strong> Inicialización, condición, cuerpo, actualización, condición, cuerpo, actualización... La actualización no se ejecuta antes de la primera vuelta.</div>
+<h5 class="text-primary mt-3 mb-2">Traza de un for</h5>
+<pre><code class="language-java">int suma = 0;
+
+for (int numero = 1; numero &lt;= 4; numero++) {
+    suma += numero;
+}</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Momento</th>
+<th><code>numero</code></th>
+<th>Condición</th>
+<th><code>suma</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primera entrada</td>
+<td>1</td>
+<td><code>true</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>Segunda entrada</td>
+<td>2</td>
+<td><code>true</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td>Tercera entrada</td>
+<td>3</td>
+<td><code>true</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td>Cuarta entrada</td>
+<td>4</td>
+<td><code>true</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td>Comprobación final</td>
+<td>5</td>
+<td><code>false</code></td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Recorridos habituales</h5>
+<h5 class="text-primary mt-3 mb-2">Recorrido ascendente</h5>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 10; numero++) {
+    System.out.println(numero);
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Recorrido descendente</h5>
+<pre><code class="language-java">for (int numero = 10; numero &gt;= 1; numero--) {
+    System.out.println(numero);
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Recorrido con un paso distinto de uno</h5>
+<pre><code class="language-java">for (int numero = 0; numero &lt;= 20; numero += 2) {
+    System.out.println(numero);
+}</code></pre>
+<p>La inicialización, la condición y la actualización deben describir juntas el recorrido. En un recorrido descendente, por ejemplo, una condición creciente como <code>numero <= 10</code> no representa el final esperado.</p>
+<h5 class="text-primary mt-3 mb-2">Bucles anidados</h5>
+<p>Un bucle puede contener otro. Por cada vuelta del bucle exterior, el interior realiza todas sus vueltas:</p>
+<pre><code class="language-java">for (int fila = 1; fila &lt;= 3; fila++) {
+    for (int columna = 1; columna &lt;= 4; columna++) {
+        System.out.print("(" + fila + "," + columna + ") ");
+    }
+    System.out.println();
+}</code></pre>
+<p>El cuerpo interior se ejecuta 4 veces por cada una de las 3 filas: en total, 12 veces.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Vuelta exterior</th>
+<th>Valores de <code>columna</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fila = 1</code></td>
+<td>1, 2, 3, 4</td>
+</tr>
+<tr>
+<td><code>fila = 2</code></td>
+<td>1, 2, 3, 4</td>
+</tr>
+<tr>
+<td><code>fila = 3</code></td>
+<td>1, 2, 3, 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Coste de la repetición.</strong> Si el bucle exterior se ejecuta <em>f</em> veces y el interior <em>c</em> veces por cada fila, el cuerpo interior se ejecuta <em>f × c</em> veces.</div>
+<h5 class="text-primary mt-3 mb-2">Ámbito de la variable de control</h5>
+<p>Cuando la variable se declara en la cabecera, solo existe dentro del <code>for</code>:</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 3; numero++) {
+    System.out.println(numero);
+}
+
+// System.out.println(numero); // Error: numero ya no existe aquí</code></pre>
+<p>Limitar su ámbito evita que otras partes del método modifiquen por accidente una variable utilizada únicamente para controlar el bucle.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Error de una posición.</strong> Confundir <code><</code> con <code><=</code> añade o elimina una vuelta.</li>
+<li><strong>Incrementar en un recorrido descendente.</strong> La variable se aleja del límite y el bucle puede no terminar.</li>
+<li><strong>Modificar la variable de control dentro del cuerpo.</strong> El recorrido deja de ser predecible.</li>
+<li><strong>Usar la misma variable en dos bucles anidados.</strong> Cada nivel debe tener su propio control.</li>
+<li><strong>Olvidar que el bucle interior comienza de nuevo.</strong> Su inicialización se ejecuta en cada vuelta exterior.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Escribe los primeros valores que debería tomar la variable de control.</li>
+<li>Comprueba por separado el primer valor y el último.</li>
+<li>Calcula cuántas veces debe ejecutarse el cuerpo.</li>
+<li>En bucles anidados, observa las dos variables en el depurador.</li>
+<li>Verifica que la variable interior recupera su valor inicial en cada vuelta exterior.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué valores se muestran?</p>
+<pre><code class="language-java">for (int numero = 8; numero &gt;= 2; numero -= 2) {
+    System.out.println(numero);
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se muestran 8, 6, 4 y 2. Después la variable pasa a 0 y la condición es falsa.</p>
+</details>
+<p><strong>2.</strong> ¿Cuántas veces se ejecuta el mensaje?</p>
+<pre><code class="language-java">for (int fila = 1; fila &lt;= 2; fila++) {
+    for (int columna = 1; columna &lt;= 3; columna++) {
+        System.out.println("Mensaje");
+    }
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se ejecuta 6 veces: 3 vueltas interiores por cada una de las 2 exteriores.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>for</code> reúne la inicialización, la condición y la actualización.</li>
+<li>La condición sigue comprobándose antes de cada vuelta.</li>
+<li>El sentido de la actualización debe ser coherente con el límite.</li>
+<li>En un anidamiento, el bucle interior completa su recorrido por cada vuelta exterior.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.3. Patrones con bucles</h4>
+<p>Muchos problemas diferentes comparten la misma estructura. Reconocer patrones permite elegir variables, valores iniciales y actualizaciones con mayor seguridad.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Diferenciar contadores y acumuladores.</li>
+<li>Calcular totales y medias.</li>
+<li>Mantener máximos y mínimos.</li>
+<li>Controlar búsquedas con indicadores booleanos.</li>
+<li>Procesar datos hasta encontrar un centinela.</li>
+<li>Construir validaciones y menús repetitivos.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Contadores</h5>
+<p>Un contador registra cuántas veces ocurre algo. Suele comenzar en cero y aumentar en una unidad cuando se cumple la situación que queremos contar:</p>
+<pre><code class="language-java">int cantidadPares = 0;
+
+for (int numero = 1; numero &lt;= 10; numero++) {
+    if (numero % 2 == 0) {
+        cantidadPares++;
+    }
+}
+
+System.out.println("Pares: " + cantidadPares);</code></pre>
+<p>La variable de control <code>numero</code> indica qué valor se está procesando. <code>cantidadPares</code> tiene otra función: cuenta los valores que cumplen la condición.</p>
+<h5 class="text-primary mt-3 mb-2">Acumuladores</h5>
+<p>Un acumulador combina sucesivamente los valores procesados. Para una suma comienza normalmente en cero:</p>
+<pre><code class="language-java">int suma = 0;
+
+for (int numero = 1; numero &lt;= 5; numero++) {
+    suma += numero;
+}
+
+System.out.println("Suma: " + suma);</code></pre>
+<p>Para un producto, el valor neutro es uno:</p>
+<pre><code class="language-java">long producto = 1;
+
+for (int numero = 1; numero &lt;= 10; numero++) {
+    producto *= numero;
+}</code></pre>
+<div><strong>Desbordamiento.</strong> Los productos crecen rápidamente. Utilizar <code>long</code> amplía el intervalo respecto a <code>int</code>, pero también tiene un límite.</div>
+<h5 class="text-primary mt-3 mb-2">Cálculo de una media</h5>
+<p>Una media necesita dos datos: la suma y la cantidad de valores. La división se realiza después del bucle:</p>
+<pre><code class="language-java">double suma = 0;
+int cantidad = 0;
+int valor = teclado.nextInt();
+
+while (valor != -1) {
+    suma += valor;
+    cantidad++;
+    valor = teclado.nextInt();
+}
+
+if (cantidad &gt; 0) {
+    double media = suma / cantidad;
+    System.out.println("Media: " + media);
+} else {
+    System.out.println("No se introdujeron valores");
+}</code></pre>
+<p>La comprobación final evita una división entre cero cuando el primer valor introducido es el centinela.</p>
+<h5 class="text-primary mt-3 mb-2">Valores centinela</h5>
+<p>Un centinela es un valor reservado para indicar que no quedan más datos. No forma parte de los datos que se procesan.</p>
+<pre><code class="language-java">System.out.print("Edad (-1 para terminar): ");
+int edad = teclado.nextInt();
+
+while (edad != -1) {
+    System.out.println("Edad registrada: " + edad);
+
+    System.out.print("Edad (-1 para terminar): ");
+    edad = teclado.nextInt();
+}</code></pre>
+<p>La primera lectura se realiza antes del bucle y las siguientes al final del cuerpo. Si se olvida la segunda lectura, el programa procesa indefinidamente el mismo valor.</p>
+<div><strong>Elección del centinela.</strong> Debe quedar fuera del conjunto de valores válidos. Si cualquier número entero fuese válido, habría que utilizar otra forma de indicar el final.</div>
+<h5 class="text-primary mt-3 mb-2">Máximos y mínimos</h5>
+<p>Para calcular un máximo no siempre es correcto comenzar en cero. Si todos los valores son negativos, cero sería un resultado que nunca apareció.</p>
+<p>Una solución segura consiste en inicializar el máximo con el primer dato válido y procesar después los restantes:</p>
+<pre><code class="language-java">System.out.print("Primer valor: ");
+int maximo = teclado.nextInt();
+
+for (int posicion = 2; posicion &lt;= 5; posicion++) {
+    System.out.print("Siguiente valor: ");
+    int valor = teclado.nextInt();
+
+    if (valor &gt; maximo) {
+        maximo = valor;
+    }
+}
+
+System.out.println("Máximo: " + maximo);</code></pre>
+<p>Para calcular un mínimo se mantiene la misma estructura y se cambia la comparación a <code>valor < minimo</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Búsqueda e indicadores booleanos</h5>
+<p>Un indicador booleano recuerda si ya ha ocurrido una situación. Este ejemplo determina si un número mayor que 1 tiene algún divisor distinto de 1 y de sí mismo:</p>
+<pre><code class="language-java">boolean encontrado = false;
+int divisor = 2;
+
+while (divisor &lt; numero &amp;&amp; !encontrado) {
+    if (numero % divisor == 0) {
+        encontrado = true;
+    } else {
+        divisor++;
+    }
+}
+
+if (encontrado) {
+    System.out.println("Tiene un divisor: " + divisor);
+} else {
+    System.out.println("No tiene divisores propios");
+}</code></pre>
+<p>La condición combina dos motivos para continuar: quedan candidatos y todavía no se ha encontrado un divisor. Cuando cualquiera deja de cumplirse, la búsqueda termina.</p>
+<h5 class="text-primary mt-3 mb-2">Validación de datos</h5>
+<p>Validar significa impedir que el programa continúe con un dato que no cumple las reglas. La condición de repetición debe expresar cuándo hay que volver a pedirlo:</p>
+<pre><code class="language-java">double nota;
+
+do {
+    System.out.print("Introduce una nota entre 0 y 10: ");
+    nota = teclado.nextDouble();
+
+    if (nota &lt; 0 || nota &gt; 10) {
+        System.out.println("La nota no es válida");
+    }
+} while (nota &lt; 0 || nota &gt; 10);</code></pre>
+<p>La condición aparece dos veces porque una decide si se muestra el aviso y la otra si se repite la lectura. Ambas deben representar exactamente la misma regla de invalidez.</p>
+<h5 class="text-primary mt-3 mb-2">Menús repetitivos</h5>
+<p>Un menú suele mostrarse al menos una vez y repetirse hasta seleccionar la opción de salida:</p>
+<pre><code class="language-java">int opcion;
+
+do {
+    System.out.println("1. Consultar");
+    System.out.println("2. Modificar");
+    System.out.println("0. Salir");
+    System.out.print("Opción: ");
+    opcion = teclado.nextInt();
+
+    switch (opcion) {
+        case 1 -&gt; System.out.println("Consulta seleccionada");
+        case 2 -&gt; System.out.println("Modificación seleccionada");
+        case 0 -&gt; System.out.println("Fin del programa");
+        default -&gt; System.out.println("Opción no válida");
+    }
+} while (opcion != 0);</code></pre>
+<p>La selección decide qué operación se realiza en cada vuelta y el bucle decide si el menú vuelve a aparecer.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Inicializar una suma en uno.</strong> El resultado queda desplazado una unidad.</li>
+<li><strong>Inicializar un producto en cero.</strong> Cualquier multiplicación posterior seguirá dando cero.</li>
+<li><strong>Contar el centinela.</strong> La comprobación debe hacerse antes de procesarlo.</li>
+<li><strong>Calcular la media dentro del bucle.</strong> La media definitiva solo se conoce al terminar la entrada.</li>
+<li><strong>Inicializar un máximo o mínimo con un valor arbitrario.</strong> Puede producir un resultado que no pertenece a los datos.</li>
+<li><strong>Olvidar actualizar un indicador.</strong> La condición de búsqueda nunca detectará que el elemento ya se encontró.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<p>Prepara los datos según el patrón:</p>
+<ul>
+<li><strong>Contador:</strong> ningún caso, un caso y varios casos que cumplan la condición.</li>
+<li><strong>Media:</strong> entrada vacía, un único dato y varios datos.</li>
+<li><strong>Máximo o mínimo:</strong> valores positivos, negativos, repetidos y ordenados de distintas formas.</li>
+<li><strong>Búsqueda:</strong> coincidencia al principio, en medio, al final y ausencia de coincidencia.</li>
+<li><strong>Validación:</strong> dato válido en el primer intento y varios datos inválidos antes del válido.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué error tiene este producto?</p>
+<pre><code class="language-java">int producto = 0;
+
+for (int numero = 1; numero &lt;= 5; numero++) {
+    producto *= numero;
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Debe comenzar en 1. Cero multiplicado por cualquier número siempre produce cero.</p>
+</details>
+<p><strong>2.</strong> ¿Por qué conviene comprobar que <code>cantidad > 0</code> antes de calcular una media?</p>
+<details>
+<summary>Ver la solución</summary>
+<p>Porque puede no haberse procesado ningún dato. En ese caso la división no representa una media y, con operandos enteros, provocaría además una división entre cero.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>Un contador registra cuántas veces ocurre algo.</li>
+<li>Un acumulador combina los valores procesados y debe partir del valor neutro adecuado.</li>
+<li>Una media combina suma y cantidad, y exige tratar la ausencia de datos.</li>
+<li>Los máximos y mínimos deben inicializarse a partir de un dato válido.</li>
+<li>Los centinelas, indicadores y validaciones permiten controlar repeticiones cuyo número de vueltas no se conoce de antemano.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.2.4. Sentencias de salto</h4>
+<p>Las sentencias <code>break</code>, <code>continue</code> y <code>return</code> transfieren el control a otro punto y pueden terminar anticipadamente una iteración, un bucle o un método.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Interrumpir un bucle con <code>break</code>.</li>
+<li>Omitir el resto de una iteración con <code>continue</code>.</li>
+<li>Finalizar un método y, cuando corresponda, devolver un valor con <code>return</code>.</li>
+<li>Reconocer el destino exacto de cada salto.</li>
+<li>Valorar cuándo un salto aclara el código y cuándo dificulta su lectura.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">break: terminar el bucle</h5>
+<p>Un <code>break</code> sin etiqueta finaliza el bucle más cercano que lo contiene. La ejecución continúa en la primera sentencia situada después del bucle.</p>
+<pre><code class="language-java">int divisorEncontrado = 0;
+
+for (int divisor = 2; divisor &lt; numero; divisor++) {
+    if (numero % divisor == 0) {
+        divisorEncontrado = divisor;
+        break;
+    }
+}
+
+if (divisorEncontrado != 0) {
+    System.out.println("Divisor: " + divisorEncontrado);
+}</code></pre>
+<p>Cuando se encuentra un divisor, seguir comprobando candidatos no aporta información. <code>break</code> termina la búsqueda.</p>
+<div><strong>Uso natural.</strong> <code>break</code> resulta claro cuando una búsqueda ha cumplido su objetivo o cuando aparece una condición excepcional de finalización.</div>
+<p>En un <code>switch</code> clásico, <code>break</code> finaliza el <code>switch</code>. No abandona el método ni cualquier bloque de llaves.</p>
+<h5 class="text-primary mt-3 mb-2">continue: pasar a la siguiente iteración</h5>
+<p><code>continue</code> omite las instrucciones restantes de la iteración actual, pero no finaliza el bucle:</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 6; numero++) {
+    if (numero % 2 != 0) {
+        continue;
+    }
+
+    System.out.println(numero);
+}</code></pre>
+<p>Los valores impares ejecutan <code>continue</code> y no llegan al mensaje. Se muestran 2, 4 y 6.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th><code>numero</code></th>
+<th>¿Es impar?</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sí</td>
+<td>Salta el mensaje</td>
+</tr>
+<tr>
+<td>2</td>
+<td>No</td>
+<td>Muestra 2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sí</td>
+<td>Salta el mensaje</td>
+</tr>
+<tr>
+<td>4</td>
+<td>No</td>
+<td>Muestra 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En un <code>for</code>, tras <code>continue</code> se ejecuta la actualización de la cabecera y después vuelve a comprobarse la condición. En un <code>while</code>, el control vuelve directamente a su condición.</p>
+<div><strong>Riesgo en while.</strong> Si <code>continue</code> impide ejecutar la actualización de la variable de control, el bucle puede quedar atrapado en la misma iteración.</div>
+<pre><code class="language-java">int numero = 1;
+
+while (numero &lt;= 5) {
+    if (numero == 3) {
+        continue; // numero sigue valiendo 3 indefinidamente
+    }
+    numero++;
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">return: terminar el método</h5>
+<p><code>return</code> finaliza el método completo. Si el método declara un tipo de retorno, debe entregar un valor compatible:</p>
+<pre><code class="language-java">public boolean esPar(int numero) {
+    return numero % 2 == 0;
+}</code></pre>
+<p>También puede utilizarse para terminar anticipadamente cuando ya se conoce la respuesta:</p>
+<pre><code class="language-java">public boolean tieneDivisorPropio(int numero) {
+    for (int divisor = 2; divisor &lt; numero; divisor++) {
+        if (numero % divisor == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}</code></pre>
+<p>Si el bucle encuentra un divisor, devuelve <code>true</code> inmediatamente. Solo se llega al último <code>return</code> cuando se han probado todos los candidatos sin encontrar ninguno.</p>
+<h5 class="text-primary mt-3 mb-2">Return en métodos void</h5>
+<p>Un método <code>void</code> no devuelve un valor, pero puede utilizar <code>return;</code> para finalizar:</p>
+<pre><code class="language-java">public void mostrarDivision(int dividendo, int divisor) {
+    if (divisor == 0) {
+        System.out.println("No se puede dividir entre cero");
+        return;
+    }
+
+    System.out.println(dividendo / divisor);
+}</code></pre>
+<p>Esta salida temprana evita introducir todo el comportamiento normal dentro de un <code>else</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Destino de cada salto</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Sentencia</th>
+<th>Qué termina</th>
+<th>Dónde continúa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>break</code></td>
+<td>El bucle o <code>switch</code> más cercano</td>
+<td>Después de esa estructura</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>La iteración actual</td>
+<td>En el punto de continuación del bucle</td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>El método completo</td>
+<td>En el código que llamó al método</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Saltos con etiqueta</h5>
+<p>Java permite asociar una etiqueta a un bucle y utilizarla con <code>break</code> o <code>continue</code>. Puede resultar útil para salir de varios bucles anidados:</p>
+<pre><code class="language-java">busqueda:
+for (int fila = 1; fila &lt;= 3; fila++) {
+    for (int columna = 1; columna &lt;= 3; columna++) {
+        if (fila * columna == objetivo) {
+            System.out.println("Encontrado");
+            break busqueda;
+        }
+    }
+}</code></pre>
+<p><code>break busqueda;</code> termina el bucle que lleva esa etiqueta, no solo el interior. Las etiquetas deben reservarse para situaciones en las que hagan el flujo más claro; con frecuencia puede extraerse la búsqueda a un método y utilizar <code>return</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Salto o condición de control</h5>
+<p>Una búsqueda puede terminarse con <code>break</code> o incorporando el estado a la condición del bucle. Las dos soluciones pueden ser correctas:</p>
+<div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Salida con break</h5>
+<pre><code class="language-java">while (hayCandidatos) {
+    if (coincide) {
+        encontrado = true;
+        break;
+    }
+    avanzar();
+}</code></pre>
+</div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Estado en la condición</h5>
+<pre><code class="language-java">while (hayCandidatos &amp;&amp; !encontrado) {
+    if (coincide) {
+        encontrado = true;
+    } else {
+        avanzar();
+    }
+}</code></pre>
+</div>
+</div>
+<p>La mejor elección es la que permite comprender con más facilidad por qué termina el bucle. Deben evitarse cadenas de saltos que obliguen a reconstruir mentalmente numerosos destinos.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Creer que <code>break</code> termina el método.</strong> Solo termina su estructura de destino.</li>
+<li><strong>Creer que <code>continue</code> termina el bucle.</strong> Solo termina la iteración actual.</li>
+<li><strong>Colocar código necesario después de <code>continue</code>.</strong> Esa parte no se ejecuta en las iteraciones que saltan.</li>
+<li><strong>Olvidar devolver un valor en algún camino.</strong> Un método no <code>void</code> debe entregar un valor en todos los recorridos que puedan completarse.</li>
+<li><strong>Abusar de salidas anticipadas.</strong> Demasiados puntos de salida dificultan seguir el flujo.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Marca cada sentencia de salto y escribe su destino.</li>
+<li>Prueba un caso que no ejecute el salto.</li>
+<li>Prueba un caso que lo ejecute en la primera iteración.</li>
+<li>Prueba otro que lo ejecute después de varias iteraciones.</li>
+<li>En un <code>continue</code>, comprueba qué actualización ocurre antes de la siguiente condición.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué valores se muestran?</p>
+<pre><code class="language-java">for (int numero = 1; numero &lt;= 5; numero++) {
+    if (numero == 3) {
+        continue;
+    }
+    System.out.println(numero);
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se muestran 1, 2, 4 y 5. La iteración de 3 omite el mensaje, pero el bucle continúa.</p>
+</details>
+<p><strong>2.</strong> ¿Qué diferencia habría si se sustituyera <code>continue</code> por <code>break</code>?</p>
+<details>
+<summary>Ver la solución</summary>
+<p>Se mostrarían únicamente 1 y 2. Al llegar a 3, <code>break</code> terminaría el bucle completo.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>break</code> termina el bucle o <code>switch</code> que actúa como destino.</li>
+<li><code>continue</code> omite el resto de la iteración actual y comienza la siguiente.</li>
+<li><code>return</code> termina el método completo y puede devolver un valor.</li>
+<li>Las etiquetas permiten dirigir el salto en bucles anidados, pero deben utilizarse con moderación.</li>
+<li>Antes de utilizar un salto hay que identificar con precisión su destino y comprobar todos los caminos.</li>
+</ul>
+    </div>
+  </div>
+</div>

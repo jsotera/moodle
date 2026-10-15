@@ -1,4 +1,4 @@
-const CACHE_NAME = "prom-lmgi-1791975992773";
+const CACHE_NAME = "prom-lmgi-1792047116952";
 const PRECACHE_URLS = [
   "./",
   "./assets/css/course.css",
@@ -10,6 +10,10 @@ const PRECACHE_URLS = [
   "./assets/img/logo-maria-ana-sanz.jpg",
   "./assets/img/logo-maria-ana-sanz.png",
   "./assets/img/logo.png",
+  "./assets/img/prom/ut03/Assert_Intellij.png",
+  "./assets/img/prom/ut03/Modify_run_options_Intellij.png",
+  "./assets/img/prom/ut03/VM_options_Intellij.png",
+  "./assets/img/prom/ut03/edit_execution_Intellij.png",
   "./assets/js/course.js",
   "./assets/js/pwa-register.js",
   "./assets/pwa/icon-192.png",
@@ -25,6 +29,10 @@ const PRECACHE_URLS = [
   "./lmgi/assets/img/logo-maria-ana-sanz.jpg",
   "./lmgi/assets/img/logo-maria-ana-sanz.png",
   "./lmgi/assets/img/logo.png",
+  "./lmgi/assets/img/prom/ut03/Assert_Intellij.png",
+  "./lmgi/assets/img/prom/ut03/Modify_run_options_Intellij.png",
+  "./lmgi/assets/img/prom/ut03/VM_options_Intellij.png",
+  "./lmgi/assets/img/prom/ut03/edit_execution_Intellij.png",
   "./lmgi/assets/js/course.js",
   "./lmgi/assets/js/pwa-register.js",
   "./lmgi/assets/js/search-data.js",
@@ -69,6 +77,10 @@ const PRECACHE_URLS = [
   "./prom/assets/img/logo-maria-ana-sanz.jpg",
   "./prom/assets/img/logo-maria-ana-sanz.png",
   "./prom/assets/img/logo.png",
+  "./prom/assets/img/prom/ut03/Assert_Intellij.png",
+  "./prom/assets/img/prom/ut03/Modify_run_options_Intellij.png",
+  "./prom/assets/img/prom/ut03/VM_options_Intellij.png",
+  "./prom/assets/img/prom/ut03/edit_execution_Intellij.png",
   "./prom/assets/js/course.js",
   "./prom/assets/js/pwa-register.js",
   "./prom/assets/js/search-data.js",

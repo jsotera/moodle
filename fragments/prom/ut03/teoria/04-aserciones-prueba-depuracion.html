@@ -1,0 +1,377 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-bug"></i> 3.4. Aserciones, prueba y depuración</h2>
+    <p class="lead">Programar también consiste en comprobar lo que hemos hecho. En este bloque aprenderás a detectar errores con aserciones, pruebas, depuración y documentación.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4. Aserciones, prueba y depuración</h4>
+<p>Programar también consiste en comprobar lo que hemos hecho. En este bloque aprenderás a detectar errores con aserciones, probar casos diferentes, usar el depurador y documentar el código con claridad.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.1. Aserciones</h4>
+<p>Una aserción comprueba una condición que el programador considera verdadera en ese punto del programa.</p>
+<h5 class="text-primary mt-3 mb-2">Sintaxis</h5>
+<pre><code class="language-java">assert condicion;
+assert condicion : "Mensaje si la condición es falsa";</code></pre>
+<p>Si la condición es falsa y las aserciones están activadas, el programa se detiene y muestra un <code>AssertionError</code>. El mensaje ayuda a localizar el problema.</p>
+<h5 class="text-primary mt-3 mb-2">Un primer ejemplo</h5>
+<pre><code class="language-java">int stock = 5;
+int unidadesVendidas = 2;
+
+stock = stock - unidadesVendidas;
+assert stock &gt;= 0 : "El stock no puede ser negativo";
+
+System.out.println("Stock restante: " + stock);</code></pre>
+<p>Con estos datos la condición es verdadera. Si durante las pruebas cambiamos <code>unidadesVendidas</code> a <code>8</code>, la aserción descubre que el programa ha dejado el stock en un estado imposible.</p>
+<h5 class="text-primary mt-3 mb-2">Activar las aserciones</h5>
+<p>Java las desactiva normalmente. Para utilizarlas durante el desarrollo hay que añadir la opción <code>-ea</code> a la ejecución.</p>
+<pre><code class="language-java">java -ea MiPrograma</code></pre>
+<p>En el IDE, esta opción se escribe en las opciones de la máquina virtual de la configuración de ejecución. Después hay que volver a ejecutar el programa.</p>
+<div><strong>Atención.</strong> Si olvidamos <code>-ea</code>, Java ignora las aserciones. No debemos interpretar que una prueba ha sido correcta sin comprobar antes que están activadas.</div>
+<h5 class="text-primary mt-3 mb-2">Activar las aserciones en Intellij IDEA</h5>
+<p>En un IDE como Intellij podremos definir las opciones de la máquina virtual (VM) mediante ventanas. Para ello accederemos a editar la configuración de la ejecución y agregaremos la posibilidad de editar las opciones de la VM si no está activa.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/edit_execution_Intellij.png" alt="Intellij Configuration Edit"></p>
+<p> Imagen 1. Selecciona "Edit..." en el menú superior derecho para ejecutar la clase.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/Modify_run_options_Intellij.png" alt="Java Add VM options"></p>
+<p> Imagen 2. La opción "Add VM options" debe estar seleccionada.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/VM_options_Intellij.png" alt="-ea"></p>
+<p> Imagen 3. Junto a la versión de Java se pueden escribir las opciones de la VM. Para usar los asserts escribir:  <code>-ea</code></p>
+<p>Ahora al ejecutarse el programa funcionarán los asserts.</p>
+<p><img class="img-fluid" style="display: block; margin-left: auto; margin-right: auto;" src="assets/img/prom/ut03/Assert_Intellij.png" alt="assert con mensaje"></p>
+<p> Imagen 4. Si el stock no es mayor o igual que cero se parará la ejecución y nos mostrará el mensaje indicado: "El stock no puede ser negativo"</p>
+<h5 class="text-primary mt-3 mb-2">Aserción o validación</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Situación</th>
+<th>Qué utilizar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprobar una idea interna del programa durante el desarrollo.</td>
+<td><code>assert</code></td>
+</tr>
+<tr>
+<td>Comprobar un dato introducido por una persona.</td>
+<td><code>if</code> y un mensaje o una excepción</td>
+</tr>
+<tr>
+<td>Comprobar un argumento de un método público.</td>
+<td><code>if</code> y una excepción</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las validaciones deben funcionar siempre. Las aserciones son una ayuda para encontrar defectos mientras construimos y probamos el programa.</p>
+<h5 class="text-primary mt-3 mb-2">No modificar datos dentro de una aserción</h5>
+<pre><code class="language-java">// Incorrecto: cambia el valor de contador
+assert contador++ &lt; 10;
+
+// Correcto: solo comprueba
+assert contador &lt; 10 : "Contador fuera de rango";</code></pre>
+<p>El programa debe comportarse igual con las aserciones activadas o desactivadas. Por eso la condición solo debe comprobar, nunca realizar una operación necesaria.</p>
+<h5 class="text-primary mt-3 mb-2">Detectar y corregir un error</h5>
+<ol>
+<li>Activa las aserciones con <code>-ea</code>.</li>
+<li>Ejecuta un caso que muestre el fallo.</li>
+<li>Lee el mensaje y la línea señalada.</li>
+<li>Observa los valores de las variables.</li>
+<li>Corrige la causa, no la aserción.</li>
+<li>Vuelve a ejecutar el caso.</li>
+</ol>
+<div><strong>Idea clave.</strong> Una aserción que falla no suele ser el problema: es la alarma que permite encontrarlo.</div>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>Queremos comprobar que el saldo calculado nunca es negativo por un defecto interno. Completa la instrucción:</p>
+<pre><code class="language-java">assert __________________ : "Saldo negativo inesperado";</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<pre><code class="language-java">assert saldo &gt;= 0 : "Saldo negativo inesperado";</code></pre>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>assert</code> comprueba una condición interna.</li>
+<li>Las aserciones se activan con <code>-ea</code>.</li>
+<li>No sustituyen la validación de entradas ni el uso de excepciones.</li>
+<li>Su condición no debe modificar el estado del programa.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.2. Prueba y depuración</h4>
+<p>Probar es buscar casos que puedan descubrir fallos. Depurar es observar la ejecución para localizar su causa.</p>
+<h5 class="text-primary mt-3 mb-2">Elegir casos de prueba</h5>
+<p>Para probar un método conviene combinar casos normales, límites e incorrectos. Por ejemplo, para un método que recibe una edad entre 0 y 120:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Tipo</th>
+<th>Dato</th>
+<th>Qué comprobamos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td><code>25</code></td>
+<td>El caso habitual.</td>
+</tr>
+<tr>
+<td>Límite</td>
+<td><code>0</code> y <code>120</code></td>
+<td>Los extremos permitidos.</td>
+</tr>
+<tr>
+<td>Incorrecto</td>
+<td><code>-1</code> y <code>121</code></td>
+<td>La respuesta ante datos no válidos.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Antes de ejecutar, escribe el resultado esperado. Después compáralo con el resultado obtenido.</p>
+<h5 class="text-primary mt-3 mb-2">Usar el depurador</h5>
+<ol>
+<li><strong>Punto de ruptura:</strong> marca una línea en la que quieres detener el programa.</li>
+<li><strong>Depurar:</strong> inicia el programa con la opción de depuración del IDE.</li>
+<li><strong>Paso a paso:</strong> ejecuta una línea cada vez.</li>
+<li><strong>Variables:</strong> observa cómo cambian sus valores.</li>
+<li><strong>Continuar:</strong> reanuda la ejecución hasta el siguiente punto de ruptura.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Ejemplo para seguir paso a paso</h5>
+<pre><code class="language-java">int suma = 0;
+
+for (int numero = 1; numero &lt;= 3; numero++) {
+    suma = suma + numero;
+    assert suma &gt;= 0 : "Suma negativa inesperada";
+}
+
+System.out.println(suma);</code></pre>
+<p>Coloca un punto de ruptura en la asignación a <code>suma</code>. Sus valores serán <code>1</code>, <code>3</code> y <code>6</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Qué herramienta elegir</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Herramienta</th>
+<th>Utilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mensaje por consola</td>
+<td>Comprobar rápidamente por dónde pasa el programa.</td>
+</tr>
+<tr>
+<td>Depurador</td>
+<td>Seguir el flujo y examinar variables.</td>
+</tr>
+<tr>
+<td><code>assert</code></td>
+<td>Avisar cuando una condición interna deja de cumplirse.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Ciclo de corrección</h5>
+<p><strong>Reproducir el fallo → localizarlo → corregir la causa → repetir las pruebas.</strong></p>
+<p>Una corrección puede crear otro problema. Por eso hay que volver a ejecutar tanto el caso que fallaba como los que ya funcionaban.</p>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>Un método acepta notas entre 0 y 10. Indica un caso normal, dos casos límite y dos incorrectos.</p>
+<details>
+<summary>Ver una posible solución</summary>
+<p>Normal: <code>6</code>. Límites: <code>0</code> y <code>10</code>. Incorrectos: <code>-1</code> y <code>11</code>.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>Incluye casos normales, límites e incorrectos.</li>
+<li>Compara siempre el resultado esperado con el obtenido.</li>
+<li>El depurador permite seguir instrucciones y variables.</li>
+<li>Después de corregir, repite todas las pruebas importantes.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.3. Comentarios y documentación</h4>
+<p>Un código claro facilita encontrar errores y permite que otras personas comprendan nuestras decisiones.</p>
+<h5 class="text-primary mt-3 mb-2">Tipos de comentario</h5>
+<pre><code class="language-java">// Comentario de una línea
+
+/* Comentario que puede
+   ocupar varias líneas */
+
+/** Documentación de una clase o un método. */</code></pre>
+<p>Los comentarios deben explicar una regla o una decisión que no resulta evidente. No deben repetir literalmente la instrucción.</p>
+<pre><code class="language-java">// Poco útil: suma uno a intentos
+intentos++;
+
+// Útil: el primer intento también cuenta para el bloqueo
+intentos++;</code></pre>
+<h5 class="text-primary mt-3 mb-2">Documentar un método</h5>
+<pre><code class="language-java">/**
+ * Calcula el precio después de aplicar un descuento.
+ *
+ * @param precio precio original, no negativo
+ * @param descuento porcentaje entre 0 y 100
+ * @return precio con el descuento aplicado
+ * @throws IllegalArgumentException si los datos no son válidos
+ */
+public static double calcularPrecio(double precio, double descuento) {
+    if (precio &lt; 0 || descuento &lt; 0 || descuento &gt; 100) {
+        throw new IllegalArgumentException("Datos no válidos");
+    }
+
+    double resultado = precio - precio * descuento / 100;
+    assert resultado &gt;= 0 : "Precio final negativo";
+    return resultado;
+}</code></pre>
+<p><code>@param</code> explica los parámetros, <code>@return</code> el resultado y <code>@throws</code> la excepción que puede producirse.</p>
+<h5 class="text-primary mt-3 mb-2">El código también comunica</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Evita</th>
+<th>Prefiere</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int x;</code></td>
+<td><code>int intentosRestantes;</code></td>
+</tr>
+<tr>
+<td>Un método muy largo</td>
+<td>Métodos pequeños con una finalidad clara</td>
+</tr>
+<tr>
+<td>Comentarios desactualizados</td>
+<td>Revisar el comentario al cambiar el código</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>¿Qué aporta el comentario <code>// incrementa i</code> junto a <code>i++</code>?</p>
+<details>
+<summary>Ver la solución</summary>
+<p>No aporta información nueva. Es mejor eliminarlo o explicar por qué se incrementa, si esa decisión necesita aclaración.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>Comenta el motivo o la regla, no lo evidente.</li>
+<li>Documenta qué recibe, devuelve y puede lanzar un método.</li>
+<li>Utiliza nombres descriptivos y una presentación ordenada.</li>
+<li>Mantén los comentarios de acuerdo con el código.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.4.4. Integración</h4>
+<p>Las mismas herramientas sirven en programas de temas diferentes: validar, decidir, repetir, comprobar y probar.</p>
+<h5 class="text-primary mt-3 mb-2">Ejemplo integrado: puntuación de una partida</h5>
+<pre><code class="language-java">/**
+ * Calcula la puntuación de una partida.
+ * Cada tercera ronda añade 5 puntos extra.
+ *
+ * @param rondas número de rondas jugadas
+ * @param puntosPorRonda puntos obtenidos en cada ronda
+ * @return puntuación total
+ * @throws IllegalArgumentException si un dato es negativo
+ */
+public static int calcularPuntuacion(int rondas, int puntosPorRonda) {
+    if (rondas &lt; 0 || puntosPorRonda &lt; 0) {
+        throw new IllegalArgumentException("Los datos no pueden ser negativos");
+    }
+
+    int total = 0;
+
+    for (int ronda = 1; ronda &lt;= rondas; ronda++) {
+        total = total + puntosPorRonda;
+
+        if (ronda % 3 == 0) {
+            total = total + 5;
+        }
+
+        assert total &gt;= 0 : "Puntuación negativa inesperada";
+    }
+
+    return total;
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Qué aparece en el ejemplo</h5>
+<ul>
+<li><code>if</code> y una excepción para rechazar argumentos incorrectos.</li>
+<li><code>for</code> para repetir el cálculo de cada ronda.</li>
+<li><code>if</code> para aplicar el premio cada tres rondas.</li>
+<li><code>assert</code> para vigilar un estado interno inesperado.</li>
+<li>Documentación para explicar el uso del método.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Casos para probar</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Rondas</th>
+<th>Puntos</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10</td>
+<td>35</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>10</td>
+<td><code>IllegalArgumentException</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Cambia el contexto, conserva el proceso</h5>
+<p>En una tienda, una biblioteca o un juego cambiarán los nombres y las reglas, pero el trabajo será parecido:</p>
+<ol>
+<li>Comprender los datos y el resultado.</li>
+<li>Validar lo que puede llegar incorrecto.</li>
+<li>Construir las decisiones y repeticiones.</li>
+<li>Añadir aserciones para condiciones internas importantes.</li>
+<li>Probar casos normales, límites e incorrectos.</li>
+<li>Depurar y corregir los fallos encontrados.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Práctica guiada</h5>
+<p>Adapta el método para una tarjeta de fidelización: cada compra aporta una cantidad fija de puntos y cada quinta compra añade 10 puntos extra.</p>
+<ul>
+<li>Rechaza cantidades negativas mediante una excepción.</li>
+<li>Usa un bucle y una decisión.</li>
+<li>Añade una aserción que compruebe que el total no es negativo.</li>
+<li>Activa las aserciones y prueba 0, 1 y 5 compras, además de un dato negativo.</li>
+<li>Coloca un punto de ruptura dentro del bucle y observa el total.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Lista final de revisión</h5>
+<ul>
+<li>El programa compila y sus nombres son claros.</li>
+<li>Los datos incorrectos reciben una respuesta adecuada.</li>
+<li>Las aserciones están activadas durante las pruebas.</li>
+<li>Se han probado casos normales, límites e incorrectos.</li>
+<li>Los comentarios explican decisiones útiles y siguen siendo correctos.</li>
+</ul>
+    </div>
+  </div>
+</div>

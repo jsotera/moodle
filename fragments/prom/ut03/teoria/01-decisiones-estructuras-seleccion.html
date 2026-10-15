@@ -1,0 +1,758 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i
+        class="fas fa-code-branch"></i> 3.1. Decisiones y estructuras de selección</h2>
+    <p class="lead">Un programa no siempre ejecuta todas sus instrucciones. En este bloque aprenderás a seguir su flujo y a decidir qué instrucciones deben ejecutarse en cada situación.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1. Decisiones y estructuras de selección</h4>
+<p>Un programa no siempre ejecuta todas sus instrucciones. En este bloque aprenderás a seguir su flujo y a decidir qué instrucciones deben ejecutarse en cada situación.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1.1. Flujo de ejecución</h4>
+<p>Para comprender un programa hay que saber qué instrucción se ejecuta en cada momento y cómo se elige la siguiente.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Distinguir entre ejecución secuencial y ejecución controlada por una condición.</li>
+<li>Reconocer sentencias, bloques y estructuras de control.</li>
+<li>Seguir manualmente el valor de las variables mediante una traza.</li>
+<li>Detectar código que nunca llega a ejecutarse o que se ejecuta en un orden inesperado.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Observa este fragmento:</p>
+
+<pre><code class="language-java">int saldo = 40;
+int precio = 25;
+
+saldo = saldo - precio;
+System.out.println("Saldo restante: " + saldo);</code></pre>
+<p>Java ejecuta las instrucciones en el orden en el que aparecen. Primero crea las variables, después calcula el nuevo saldo y finalmente muestra el resultado. Este comportamiento recibe el nombre de ejecución secuencial.</p>
+<p>Sin embargo, el código descuenta el precio incluso cuando no hay saldo suficiente. Para evitarlo necesitamos que el programa tome una decisión:</p>
+
+<pre><code class="language-java">if (saldo &gt;= precio) {
+    saldo = saldo - precio;
+    System.out.println("Saldo restante: " + saldo);
+}</code></pre>
+<p>La condición cambia el flujo: las instrucciones del bloque solo se ejecutan cuando su resultado es <code>true</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Cómo funciona el flujo</h5>
+<p>Durante la ejecución, Java mantiene un punto que podemos imaginar como una flecha situada sobre la próxima sentencia. Normalmente la flecha avanza hacia abajo, pero una estructura de control puede desviarla, repetir un bloque o finalizar una parte del programa.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Tipo de flujo</th>
+<th>Qué ocurre</th>
+<th>Estructuras habituales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Secuencial</td>
+<td>Las sentencias se ejecutan una después de otra.</td>
+<td>Asignaciones, cálculos y llamadas a métodos</td>
+</tr>
+<tr>
+<td>Selección</td>
+<td>Se elige qué bloque debe ejecutarse.</td>
+<td><code>if</code>, <code>if-else</code>, <code>switch</code></td>
+</tr>
+<tr>
+<td>Repetición</td>
+<td>Un bloque se ejecuta varias veces.</td>
+<td><code>while</code>, <code>do-while</code>, <code>for</code></td>
+</tr>
+<tr>
+<td>Salto</td>
+<td>Se abandona o se interrumpe una parte del flujo.</td>
+<td><code>return</code>, <code>break</code>, <code>continue</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Sentencias y bloques</h5>
+<p>Una sentencia representa una acción. Las sentencias terminan con punto y coma:</p>
+<pre><code class="language-java">saldo = saldo - precio;
+System.out.println(saldo);</code></pre>
+<p>Un bloque agrupa cero o más sentencias entre llaves. Las estructuras de control utilizan bloques para indicar qué instrucciones dependen de ellas:</p>
+<pre><code class="language-java">{
+    saldo = saldo - precio;
+    System.out.println(saldo);
+}</code></pre>
+<div><strong>Convención de estilo.</strong> Aunque Java permite omitir las llaves cuando hay una sola sentencia, en estos apuntes las utilizaremos siempre. Las llaves hacen visible la estructura y evitan errores al añadir nuevas instrucciones.</div>
+<h5 class="text-primary mt-3 mb-2">Una primera traza</h5>
+<p>Una traza registra el valor de las variables después de cada sentencia relevante. Permite razonar sin ejecutar el programa.</p>
+<pre><code class="language-java">int puntos = 10;
+puntos = puntos + 5;
+int bonus = puntos / 3;
+puntos = puntos + bonus;</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Paso</th>
+<th>Sentencia ejecutada</th>
+<th><code>puntos</code></th>
+<th><code>bonus</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>int puntos = 10;</code></td>
+<td>10</td>
+<td>No existe todavía</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>puntos = puntos + 5;</code></td>
+<td>15</td>
+<td>No existe todavía</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>int bonus = puntos / 3;</code></td>
+<td>15</td>
+<td>5</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>puntos = puntos + bonus;</code></td>
+<td>20</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La división es entera porque los dos operandos son de tipo <code>int</code>. La traza debe aplicar las reglas reales de Java, no el resultado que esperamos intuitivamente.</p>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Leer el código como un texto completo.</strong> El programa solo conoce los valores alcanzados en el punto actual de la ejecución.</li>
+<li><strong>Confundir una asignación con una igualdad.</strong> En <code>puntos = puntos + 5</code>, Java calcula primero la derecha y guarda después el resultado.</li>
+<li><strong>Ignorar las llaves.</strong> La indentación ayuda a leer, pero son las llaves las que delimitan realmente un bloque.</li>
+<li><strong>Suponer valores no inicializados.</strong> Una variable local debe recibir un valor antes de poder leerse.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Predice el resultado antes de ejecutar.</li>
+<li>Coloca un punto de ruptura en la primera sentencia.</li>
+<li>Avanza sentencia a sentencia con la ejecución paso a paso del IDE.</li>
+<li>Observa cuándo cambia cada variable.</li>
+<li>Compara esos valores con tu traza manual.</li>
+</ol>
+<p>Cuando la predicción y la ejecución no coinciden, no cambies el código de inmediato. Localiza primero el paso exacto en el que aparece la diferencia.</p>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p>Sin ejecutar el código, determina qué se muestra:</p>
+<pre><code class="language-java">int unidades = 3;
+int precio = 4;
+int total = unidades * precio;
+unidades++;
+System.out.println(total + " - " + unidades);</code></pre>
+<details>
+<summary>Ver la solución razonada</summary>
+<p>Se muestra <code>12 - 4</code>. La modificación de <code>unidades</code> ocurre después de calcular <code>total</code>, por lo que no modifica retroactivamente el valor ya guardado.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>El flujo secuencial ejecuta las sentencias en orden.</li>
+<li>Las estructuras de control pueden seleccionar, repetir o interrumpir partes del programa.</li>
+<li>Las llaves delimitan bloques de sentencias.</li>
+<li>Una traza registra los cambios de las variables y ayuda a detectar el primer punto en el que el comportamiento se desvía de lo esperado.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1.2. Condiciones e if</h4>
+<p>Una condición permite que el programa elija entre distintos caminos a partir de datos concretos.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Construir y evaluar expresiones booleanas.</li>
+<li>Utilizar <code>if</code>, <code>if-else</code> y cadenas <code>else if</code>.</li>
+<li>Combinar condiciones con <code>&&</code>, <code>||</code> y <code>!</code>.</li>
+<li>Ordenar correctamente condiciones que se solapan.</li>
+<li>Simplificar decisiones innecesariamente complejas.</li>
+<li>Probar cada camino posible y sus valores límite.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Un programa calcula el precio de una entrada. Las personas menores de 12 años tienen tarifa reducida. El programa necesita seleccionar uno de dos precios:</p>
+<pre><code class="language-java">int edad = 10;
+double precio;
+
+if (edad &lt; 12) {
+    precio = 4.50;
+} else {
+    precio = 7.00;
+}
+
+System.out.println("Precio: " + precio);</code></pre>
+<p>La expresión <code>edad < 12</code> solo puede producir dos resultados: <code>true</code> o <code>false</code>. Java ejecuta exactamente uno de los dos bloques.</p>
+<h5 class="text-primary mt-3 mb-2">Expresiones booleanas</h5>
+<p>Una expresión booleana tiene como resultado un valor de tipo <code>boolean</code>. Puede proceder de una variable, una comparación, una llamada a un método o una combinación de varias condiciones.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Operador</th>
+<th>Significado</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Igual a</td>
+<td><code>intentos == 3</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Distinto de</td>
+<td><code>estado != 0</code></td>
+</tr>
+<tr>
+<td><code><</code>, <code><=</code></td>
+<td>Menor que, menor o igual que</td>
+<td><code>edad < 18</code></td>
+</tr>
+<tr>
+<td><code>></code>, <code>>=</code></td>
+<td>Mayor que, mayor o igual que</td>
+<td><code>saldo >= precio</code></td>
+</tr>
+<tr>
+<td><code>&&</code></td>
+<td>Se cumplen las dos condiciones</td>
+<td><code>edad >= 12 && edad < 18</code></td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>Se cumple al menos una condición</td>
+<td><code>dia == 6 || dia == 7</code></td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>Niega una condición</td>
+<td><code>!bloqueado</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Atención a <code>=</code> y <code>==</code>.</strong> Un solo signo <code>=</code> asigna un valor. Dos signos <code>==</code> comparan valores primitivos. Para comparar el contenido de objetos como <code>String</code> se utiliza normalmente el método <code>equals</code>.</div>
+<pre><code class="language-java">String opcion = "guardar";
+
+if (opcion.equals("guardar")) {
+    System.out.println("Datos guardados");
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">Evaluación de cortocircuito</h5>
+<p>Los operadores <code>&&</code> y <code>||</code> evalúan de izquierda a derecha y se detienen cuando ya conocen el resultado:</p>
+<pre><code class="language-java">if (divisor != 0 &amp;&amp; numero / divisor &gt; 2) {
+    System.out.println("Cociente mayor que 2");
+}</code></pre>
+<p>Si <code>divisor != 0</code> es falso, Java no evalúa la división. La segunda condición no puede convertir una condición falsa en verdadera y así se evita dividir entre cero.</p>
+<h5 class="text-primary mt-3 mb-2">Alternativa simple con if</h5>
+<p>La alternativa simple ejecuta un bloque únicamente cuando se cumple la condición:</p>
+<pre><code class="language-java">if (temperatura &lt; 0) {
+    System.out.println("Riesgo de hielo");
+}</code></pre>
+<p>Cuando la condición es falsa, el programa continúa en la primera sentencia situada después del bloque.</p>
+<h5 class="text-primary mt-3 mb-2">Alternativa doble con if-else</h5>
+<p>La alternativa doble garantiza que se ejecutará uno de los dos bloques, pero nunca ambos:</p>
+<pre><code class="language-java">if (nota &gt;= 5) {
+    System.out.println("Superado");
+} else {
+    System.out.println("No superado");
+}</code></pre>
+<p>Conviene leerlo como una única estructura: «si se cumple la condición, ejecuta el primer bloque; en caso contrario, ejecuta el segundo».</p>
+<h5 class="text-primary mt-3 mb-2">Varias alternativas con else if</h5>
+<p>Cuando las alternativas son excluyentes se puede construir una cadena. Java comprueba las condiciones en orden y se detiene en la primera verdadera:</p>
+<pre><code class="language-java">if (nota &gt;= 9) {
+    calificacion = "Sobresaliente";
+} else if (nota &gt;= 7) {
+    calificacion = "Notable";
+} else if (nota &gt;= 5) {
+    calificacion = "Aprobado";
+} else {
+    calificacion = "Suspenso";
+}</code></pre>
+<p>El orden es decisivo. Si se comprobara primero <code>nota >= 5</code>, una nota de 9 cumpliría esa condición y nunca alcanzaría la condición de sobresaliente.</p>
+<h5 class="text-primary mt-3 mb-2">Traza de una cadena de condiciones</h5>
+<p>Para <code>nota = 8</code>:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Paso</th>
+<th>Condición</th>
+<th>Resultado</th>
+<th>Consecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>nota >= 9</code></td>
+<td><code>false</code></td>
+<td>Continúa con el siguiente <code>else if</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>nota >= 7</code></td>
+<td><code>true</code></td>
+<td>Asigna <code>"Notable"</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>nota >= 5</code></td>
+<td>No se evalúa</td>
+<td>La cadena ya ha elegido una rama</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Condiciones anidadas e independientes</h5>
+<p>Un <code>if</code> puede contener otro. El anidamiento resulta útil cuando la segunda decisión solo tiene sentido después de la primera:</p>
+<pre><code class="language-java">if (usuarioValido) {
+    if (claveCorrecta) {
+        System.out.println("Acceso permitido");
+    } else {
+        System.out.println("Clave incorrecta");
+    }
+} else {
+    System.out.println("Usuario inexistente");
+}</code></pre>
+<p>En cambio, se utilizan varios <code>if</code> independientes cuando pueden ejecutarse varias acciones:</p>
+<pre><code class="language-java">if (temperatura &lt; 5) {
+    System.out.println("Hace frío");
+}
+
+if (llueve) {
+    System.out.println("Lleva paraguas");
+}</code></pre>
+<p>Si hace frío y llueve, se muestran los dos mensajes. Una cadena <code>if-else if</code> solo habría elegido uno.</p>
+<h5 class="text-primary mt-3 mb-2">Simplificación de condiciones</h5>
+<p>Cuando una expresión ya produce un booleano, no hace falta convertirla de nuevo en <code>true</code> o <code>false</code>.</p>
+<div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Código innecesariamente largo</h5>
+<pre><code class="language-java">public boolean esMayorDeEdad(int edad) {
+    if (edad &gt;= 18) {
+        return true;
+    } else {
+        return false;
+    }
+}</code></pre>
+</div>
+<div>
+<h5 class="text-primary mt-3 mb-2">Código simplificado</h5>
+<pre><code class="language-java">public boolean esMayorDeEdad(int edad) {
+    return edad &gt;= 18;
+}</code></pre>
+</div>
+</div>
+<p>La versión breve expresa directamente la regla y reduce los caminos que hay que leer y comprobar.</p>
+<h5 class="text-primary mt-3 mb-2">Prueba de valores límite</h5>
+<p>Una condición suele fallar en los límites. Para <code>edad < 12</code> no basta con probar una edad claramente menor y otra claramente mayor:</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Caso</th>
+<th>Edad</th>
+<th>Resultado esperado</th>
+<th>Qué comprueba</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Por debajo del límite</td>
+<td>11</td>
+<td>Tarifa reducida</td>
+<td>La rama verdadera</td>
+</tr>
+<tr>
+<td>En el límite</td>
+<td>12</td>
+<td>Tarifa general</td>
+<td>La diferencia entre <code><</code> y <code><=</code></td>
+</tr>
+<tr>
+<td>Por encima del límite</td>
+<td>13</td>
+<td>Tarifa general</td>
+<td>La rama falsa</td>
+</tr>
+<tr>
+<td>Dato no válido</td>
+<td>-1</td>
+<td>Debe rechazarse</td>
+<td>La validación del dominio</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><strong>Idea clave.</strong> Un programa puede ejecutar correctamente una condición y seguir siendo incorrecto si acepta datos que no tienen sentido. La selección también se utiliza para validar los datos antes de procesarlos.</div>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ol>
+<li><strong>Escribir un punto y coma después del <code>if</code>.</strong>
+<pre><code class="language-java">if (saldo &gt;= precio); {   // El punto y coma termina el if
+    saldo = saldo - precio;
+}</code></pre>
+</li>
+<li><strong>Comparar textos con <code>==</code>.</strong> Para comparar su contenido se utiliza normalmente <code>equals</code>.</li>
+<li><strong>Confundir <code>&&</code> con <code>||</code>.</strong> «Debe cumplir ambas» y «basta con una» son reglas diferentes.</li>
+<li><strong>Dejar huecos entre intervalos.</strong> Por ejemplo, comprobar <code>edad < 12</code> y después <code>edad > 12</code> deja sin clasificar la edad 12.</li>
+<li><strong>Solapar condiciones en un orden incorrecto.</strong> La primera condición verdadera impide comprobar las siguientes ramas de una cadena.</li>
+<li><strong>Anidar sin necesidad.</strong> Un anidamiento profundo dificulta seguir el flujo y detectar qué <code>else</code> corresponde a cada <code>if</code>.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<p>Para depurar una selección, no basta con detenerse dentro del bloque. Coloca el punto de ruptura antes de la condición y sigue este proceso:</p>
+<ol>
+<li>Anota los valores de las variables utilizadas por la condición.</li>
+<li>Calcula manualmente el resultado de cada comparación.</li>
+<li>Comprueba qué operadores lógicos llegan a evaluarse.</li>
+<li>Avanza una sentencia y observa qué rama elige Java.</li>
+<li>Repite la prueba con datos que obliguen a recorrer cada rama.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué mensaje se muestra cuando <code>edad</code> vale 17?</p>
+<pre><code class="language-java">if (edad &lt; 12) {
+    System.out.println("Infancia");
+} else if (edad &lt; 18) {
+    System.out.println("Adolescencia");
+} else {
+    System.out.println("Edad adulta");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Se muestra <code>Adolescencia</code>. La primera condición es falsa y la segunda es verdadera.</p>
+</details>
+<p><strong>2.</strong> ¿Qué cambio necesita la condición para aceptar únicamente valores entre 1 y 10, ambos incluidos?</p>
+<pre><code class="language-java">if (valor &gt;= 1 || valor &lt;= 10) {
+    System.out.println("Valor válido");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Debe utilizarse <code>&&</code>:</p>
+<pre><code class="language-java">if (valor &gt;= 1 &amp;&amp; valor &lt;= 10) {
+    System.out.println("Valor válido");
+}</code></pre>
+<p>El valor debe cumplir simultáneamente los dos límites.</p>
+</details>
+<p><strong>3.</strong> ¿Por qué pueden mostrarse dos mensajes?</p>
+<pre><code class="language-java">int temperatura = 2;
+
+if (temperatura &lt; 10) {
+    System.out.println("Temperatura baja");
+}
+if (temperatura &lt; 5) {
+    System.out.println("Riesgo de hielo");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Son dos estructuras independientes y las dos condiciones son verdaderas. Si solo debiera aparecer el aviso más específico, habría que reorganizar la selección.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li>La condición de un <code>if</code> debe producir un valor booleano.</li>
+<li><code>if</code> representa una alternativa simple y <code>if-else</code> una alternativa doble.</li>
+<li>Una cadena <code>else if</code> comprueba condiciones en orden y ejecuta la primera rama válida.</li>
+<li>Los <code>if</code> independientes pueden ejecutar varias ramas.</li>
+<li>Las pruebas deben cubrir cada camino, los valores límite y los datos no válidos.</li>
+</ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.1.3. Selección con switch</h4>
+<p>Cuando una decisión compara el mismo valor con varias opciones concretas, <code>switch</code> puede expresar la selección con mayor claridad.</p>
+<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<ul>
+<li>Reconocer cuándo una selección se adapta a un <code>switch</code>.</li>
+<li>Utilizar el <code>switch</code> clásico con <code>case</code>, <code>break</code> y <code>default</code>.</li>
+<li>Comprender la caída entre casos y evitarla cuando no es intencionada.</li>
+<li>Agrupar varios casos que comparten una acción.</li>
+<li>Utilizar etiquetas con flecha y expresiones <code>switch</code>.</li>
+<li>Elegir entre <code>if</code> y <code>switch</code> según la forma del problema.</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Situación inicial</h5>
+<p>Una aplicación recibe un número del 1 al 3 y debe mostrar el nivel seleccionado. Una cadena de condiciones puede resolverlo:</p>
+<pre><code class="language-java">if (nivel == 1) {
+    descripcion = "Inicial";
+} else if (nivel == 2) {
+    descripcion = "Intermedio";
+} else if (nivel == 3) {
+    descripcion = "Avanzado";
+} else {
+    descripcion = "Nivel desconocido";
+}</code></pre>
+<p>Todas las condiciones comparan la misma variable con valores concretos. Esa forma encaja con un <code>switch</code>.</p>
+<h5 class="text-primary mt-3 mb-2">El switch clásico</h5>
+<pre><code class="language-java">switch (nivel) {
+    case 1:
+        descripcion = "Inicial";
+        break;
+    case 2:
+        descripcion = "Intermedio";
+        break;
+    case 3:
+        descripcion = "Avanzado";
+        break;
+    default:
+        descripcion = "Nivel desconocido";
+        break;
+}</code></pre>
+<p>Java evalúa una vez la expresión situada entre paréntesis. Después busca una etiqueta <code>case</code> coincidente. Si no existe, entra en <code>default</code>, cuando está presente.</p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Elemento</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>switch (nivel)</code></td>
+<td>Evalúa el selector de la decisión.</td>
+</tr>
+<tr>
+<td><code>case 1:</code></td>
+<td>Marca el punto de entrada para ese valor.</td>
+</tr>
+<tr>
+<td><code>break;</code></td>
+<td>Finaliza el <code>switch</code> clásico y continúa después de él.</td>
+</tr>
+<tr>
+<td><code>default:</code></td>
+<td>Recoge los valores no tratados por ningún <code>case</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Tipos habituales del selector</h5>
+<p>En el uso no experimental el selector puede trabajar con tipos enteros compatibles, <code>char</code>, <code>String</code> y tipos enumerados. En este bloque utilizaremos principalmente números, caracteres y textos.</p>
+<h5 class="text-primary mt-3 mb-2">La caída entre casos</h5>
+<p>En el <code>switch</code> clásico, encontrar una etiqueta indica dónde comienza la ejecución, pero no dónde termina. Sin un <code>break</code>, la ejecución continúa por los casos siguientes:</p>
+<pre><code class="language-java">int opcion = 2;
+
+switch (opcion) {
+    case 1:
+        System.out.println("Uno");
+    case 2:
+        System.out.println("Dos");
+    case 3:
+        System.out.println("Tres");
+    default:
+        System.out.println("Fin");
+}</code></pre>
+<p>La ejecución comienza en <code>case 2</code> y, como no hay ningún <code>break</code>, muestra:</p>
+<pre><code class="language-java">Dos
+Tres
+Fin</code></pre>
+<div><strong>Error habitual.</strong> La caída accidental produce resultados aparentemente inexplicables. En la sintaxis clásica, revisa que cada camino termine de forma consciente, normalmente con <code>break</code>.</div>
+<h5 class="text-primary mt-3 mb-2">Agrupación de casos</h5>
+<p>La caída puede utilizarse deliberadamente para agrupar valores que comparten una acción:</p>
+<pre><code class="language-java">switch (diaSemana) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        tipoDia = "Laborable";
+        break;
+    case 6:
+    case 7:
+        tipoDia = "Fin de semana";
+        break;
+    default:
+        tipoDia = "Día no válido";
+        break;
+}</code></pre>
+<p>Los primeros casos no tienen instrucciones. Todos conducen al mismo bloque y comparten el mismo <code>break</code>.</p>
+<h5 class="text-primary mt-3 mb-2">Etiquetas con flecha</h5>
+<p>Las versiones nuevas de Java permiten una sintaxis que evita la caída entre casos. Cada flecha define las instrucciones de una alternativa:</p>
+<pre><code class="language-java">switch (diaSemana) {
+    case 1, 2, 3, 4, 5 -&gt; tipoDia = "Laborable";
+    case 6, 7 -&gt; tipoDia = "Fin de semana";
+    default -&gt; tipoDia = "Día no válido";
+}</code></pre>
+<p>No se añade <code>break</code>. Una vez ejecutada la alternativa seleccionada, el <code>switch</code> termina.</p>
+<p>Cuando una alternativa necesita varias sentencias, se utiliza un bloque:</p>
+<pre><code class="language-java">switch (opcion) {
+    case 1 -&gt; {
+        System.out.println("Guardando...");
+        guardado = true;
+    }
+    case 2 -&gt; {
+        System.out.println("Cancelando...");
+        guardado = false;
+    }
+    default -&gt; System.out.println("Opción desconocida");
+}</code></pre>
+<h5 class="text-primary mt-3 mb-2">El switch como expresión</h5>
+<p>Un <code>switch</code> moderno puede producir directamente un valor. Así se evita declarar una variable y asignarla por separado en cada rama:</p>
+<pre><code class="language-java">String tipoDia = switch (diaSemana) {
+    case 1, 2, 3, 4, 5 -&gt; "Laborable";
+    case 6, 7 -&gt; "Fin de semana";
+    default -&gt; "Día no válido";
+};</code></pre>
+<p>El punto y coma final pertenece a la asignación completa. Como el <code>switch</code> produce un valor, todas las posibilidades deben quedar cubiertas.</p>
+<h5 class="text-primary mt-3 mb-2">Bloques y yield</h5>
+<p>Si una alternativa necesita varias sentencias antes de producir el resultado, utiliza <code>yield</code>:</p>
+<pre><code class="language-java">double precioFinal = switch (tipoCliente) {
+    case "NORMAL" -&gt; precioBase;
+    case "SOCIO" -&gt; precioBase * 0.90;
+    case "PROMOCION" -&gt; {
+        double descuento = precioBase * 0.20;
+        System.out.println("Descuento: " + descuento);
+        yield precioBase - descuento;
+    }
+    default -&gt; precioBase;
+};</code></pre>
+<p><code>yield</code> entrega el valor de esa alternativa a la expresión <code>switch</code>. No equivale a devolver un valor desde el método.</p>
+<h5 class="text-primary mt-3 mb-2">Elegir entre if y switch</h5>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Situación</th>
+<th>Estructura más natural</th>
+<th>Motivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comparar una variable con varios valores concretos</td>
+<td><code>switch</code></td>
+<td>Hace visibles las opciones disponibles.</td>
+</tr>
+<tr>
+<td>Comprobar intervalos</td>
+<td><code>if-else if</code></td>
+<td>Los casos de un <code>switch</code> no representan directamente rangos.</td>
+</tr>
+<tr>
+<td>Combinar varias variables</td>
+<td><code>if</code></td>
+<td>Permite escribir cualquier expresión booleana.</td>
+</tr>
+<tr>
+<td>Asignar un valor según una opción</td>
+<td>Expresión <code>switch</code></td>
+<td>Evita repetir asignaciones.</td>
+</tr>
+<tr>
+<td>Ejecutar varias condiciones independientes</td>
+<td>Varios <code>if</code></td>
+<td>Pueden cumplirse varias condiciones a la vez.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La elección no depende de cuál estructura tenga menos líneas, sino de cuál representa la regla de forma más clara y permite probarla con facilidad.</p>
+<h5 class="text-primary mt-3 mb-2">Traza de un switch</h5>
+<p>Para <code>codigo = 'B'</code>:</p>
+<pre><code class="language-java">int puntos = switch (codigo) {
+    case 'A' -&gt; 100;
+    case 'B' -&gt; 75;
+    case 'C' -&gt; 50;
+    default -&gt; 0;
+};</code></pre>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light">
+<tr>
+<th>Paso</th>
+<th>Acción</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Evalúa <code>codigo</code></td>
+<td><code>'B'</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Busca una etiqueta coincidente</td>
+<td><code>case 'B'</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Evalúa la expresión situada tras la flecha</td>
+<td><code>75</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Asigna el resultado</td>
+<td><code>puntos = 75</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<ul>
+<li><strong>Olvidar un <code>break</code> en la sintaxis clásica.</strong> La ejecución continúa en los casos siguientes.</li>
+<li><strong>Escribir casos duplicados.</strong> Dos etiquetas no pueden representar el mismo valor.</li>
+<li><strong>Utilizar variables como etiquetas.</strong> Los casos tradicionales deben ser valores constantes compatibles.</li>
+<li><strong>Olvidar valores inesperados.</strong> <code>default</code> permite definir qué ocurre fuera de las opciones previstas.</li>
+<li><strong>Mezclar estilos sin una razón clara.</strong> En código inicial conviene elegir sintaxis clásica o sintaxis con flechas y mantenerla de forma coherente.</li>
+<li><strong>Usar <code>switch</code> para intervalos.</strong> Una cadena de condiciones suele expresar mejor rangos como «menor de 18» o «entre 1 y 10».</li>
+</ul>
+<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<ol>
+<li>Prepara al menos un dato para cada caso.</li>
+<li>Añade un dato que obligue a ejecutar <code>default</code>.</li>
+<li>En la sintaxis clásica, comprueba el punto exacto en el que termina cada camino.</li>
+<li>Si aparece la salida de varios casos, busca un <code>break</code> ausente.</li>
+<li>En una expresión <code>switch</code>, verifica que cada alternativa produce un valor del tipo esperado.</li>
+</ol>
+<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<p><strong>1.</strong> ¿Qué muestra el código cuando <code>opcion</code> vale 1?</p>
+<pre><code class="language-java">switch (opcion) {
+    case 1:
+        System.out.println("Consultar");
+    case 2:
+        System.out.println("Modificar");
+        break;
+    default:
+        System.out.println("Salir");
+}</code></pre>
+<details>
+<summary>Ver la solución</summary>
+<p>Muestra <code>Consultar</code> y <code>Modificar</code>. Falta un <code>break</code> después del primer mensaje, por lo que la ejecución cae al caso siguiente.</p>
+</details>
+<p><strong>2.</strong> Convierte mentalmente esta cadena en una expresión <code>switch</code>:</p>
+<pre><code class="language-java">String nombre;
+if (mes == 1) {
+    nombre = "Enero";
+} else if (mes == 2) {
+    nombre = "Febrero";
+} else {
+    nombre = "Otro mes";
+}</code></pre>
+<details>
+<summary>Ver una posible solución</summary>
+<pre><code class="language-java">String nombre = switch (mes) {
+    case 1 -&gt; "Enero";
+    case 2 -&gt; "Febrero";
+    default -&gt; "Otro mes";
+};</code></pre>
+</details>
+<p><strong>3.</strong> ¿Elegirías <code>if</code> o <code>switch</code> para comprobar si una temperatura está por debajo de 0, entre 0 y 25 o por encima de 25?</p>
+<details>
+<summary>Ver la solución razonada</summary>
+<p>Una cadena <code>if-else if</code>, porque la decisión utiliza intervalos y no valores concretos aislados.</p>
+</details>
+<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<ul>
+<li><code>switch</code> resulta adecuado cuando se compara un selector con varias opciones concretas.</li>
+<li>El <code>switch</code> clásico utiliza normalmente <code>break</code> para evitar la caída entre casos.</li>
+<li>Las etiquetas con flecha no producen caída y permiten agrupar casos con comas.</li>
+<li>Una expresión <code>switch</code> produce un valor y puede utilizar <code>yield</code> en alternativas con bloque.</li>
+<li><code>if</code> sigue siendo la opción natural para intervalos, condiciones compuestas y decisiones basadas en varias variables.</li>
+</ul>
+    </div>
+  </div>
+</div>
