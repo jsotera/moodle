@@ -1,0 +1,37 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-music"></i> 3.18 Reproductor de música</h2>
+    <p class="lead">Simula un reproductor con <strong>menú, estado y batería</strong>, íntegramente dentro de <code>main</code>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sliders"></i> Datos de la simulación</h4>
+      <p>Representa dos canciones mediante variables locales, sin clases ni arrays:</p>
+      <ul>
+        <li>Canción 1: «Bohemian Rhapsody», 360 segundos, género Rock.</li>
+        <li>Canción 2: «Imagine», 183 segundos, género Pop.</li>
+        <li>Un contador de reproducciones completas para cada canción, inicialmente a cero.</li>
+      </ul>
+      <p>El reproductor comienza apagado, con batería al 100 % y sin canción seleccionada. Necesitarás variables para <code>encendido</code>, <code>bateria</code>, <code>cancionActual</code> (0, 1 o 2), <code>tiempoRestante</code> y los segundos reproducidos desde el último consumo de batería.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Menú y reglas</h4>
+      <p>Repite un menú mediante <code>do-while</code> y procesa las opciones con condicionales o <code>switch</code>:</p>
+      <ol>
+        <li><strong>Encender:</strong> solo es posible si queda batería.</li>
+        <li><strong>Apagar:</strong> conserva la canción y el tiempo pendiente, pero impide reproducir o cambiar de canción.</li>
+        <li><strong>Seleccionar canción:</strong> solicita 1 o 2. Debe estar encendido y disponer de más de 5 puntos de batería. La selección, incluso si se elige la misma canción, consume 5 puntos, reinicia su tiempo restante y pone a cero los segundos parciales de consumo. Si no se puede realizar, no modifica nada.</li>
+        <li><strong>Reproducir:</strong> solicita una cantidad positiva de segundos. Solo se permite si está encendido y hay una canción con tiempo pendiente.</li>
+        <li><strong>Consultar información:</strong> muestra estado, batería, canción, género, tiempo restante y los dos contadores de reproducciones completas.</li>
+        <li><strong>Salir:</strong> utiliza la opción 0 para terminar el programa.</li>
+      </ol>
+      <p>Durante la reproducción, utiliza un bucle que simule los segundos de uno en uno, sin esperas reales. Cada segundo reduce el tiempo restante y aumenta el contador de segundos parciales. Cada 60 segundos acumulados consume 1 punto de batería y reinicia ese contador. Si varias peticiones reproducen la misma canción, los segundos parciales se conservan.</p>
+      <p>Detén la reproducción cuando se alcance el tiempo solicitado, termine la canción o se agote la batería. Si termina la canción, aumenta una sola vez su contador de reproducciones completas. Si la batería llega a cero, apaga el reproductor. Ningún tiempo ni la batería pueden quedar en negativo.</p>
+      <p>Los valores de opción desconocidos deben producir un aviso. No crees clases <code>Cancion</code> o <code>ReproductorMusica</code>, ni métodos adicionales.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Pruebas</h4>
+      <p>Intenta reproducir estando apagado y sin selección. Después selecciona una canción, reproduce 30 segundos y luego otros 30, y comprueba el consumo. Solicita más tiempo del que queda y verifica que la reproducción completa se cuenta una sola vez. Prueba también tiempo cero, una canción desconocida y el agotamiento de la batería.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer18ReproductorMusical</code></p>
+    </div>
+  </div>
+</div>

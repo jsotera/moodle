@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../assets/pwa/icon-192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1792047116864" rel="stylesheet">
+    <link href="assets/css/course.css?v=1792403945865" rel="stylesheet">
   </head>
   <body data-page-id="ut03-teoria">
     <div class="app-shell">
@@ -84,6 +84,9 @@
         </a>
         <a class="section-nav-link" href="#ut03-teoria-03-tablas-html">
           3.3 Tablas en HTML
+        </a>
+        <a class="section-nav-link" href="#ut03-teoria-04-formularios-html">
+          3.4 Formularios en HTML
         </a>
   </div>
 </nav>
@@ -1026,13 +1029,484 @@
   </div>
 </div>
 </section>
+
+
+<section id="ut03-teoria-04-formularios-html" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-rectangle-list"></i> 3.4 Formularios en HTML</h2>
+    <p class="lead">Los formularios permiten <strong>recoger información</strong>: escribir un nombre, elegir una opción, marcar preferencias o adjuntar un archivo.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-paper-plane"></i> El formulario: form</h4>
+      <p>La etiqueta <code>&lt;form&gt;</code> agrupa los controles que forman un formulario. Cada control permite introducir o seleccionar un dato. Un botón de envío solicita al navegador que compruebe los campos y envíe los datos al destino configurado.</p>
+      <pre><code class="language-html">&lt;form action="/inscripciones" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre" required&gt;
+  &lt;button type="submit"&gt;Inscribirme&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      <p>La ruta <code>/inscripciones</code> es un destino de ejemplo: para que los datos se guarden, debe existir un programa que los reciba y procese. <strong>HTML construye el formulario, pero no guarda los datos por sí solo.</strong> GitHub Pages publica archivos estáticos; no ejecuta por sí mismo ese programa receptor.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Atributo de form</th><th>Para qué sirve</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td><code>action</code></td><td>Dirección a la que se envían los datos. Si se omite, el destino es la página actual.</td><td><code>action="/inscripciones"</code></td></tr>
+            <tr><td><code>method</code></td><td>Método de envío. Los más habituales son <code>get</code> y <code>post</code>. El predeterminado es <code>get</code>.</td><td><code>method="post"</code></td></tr>
+            <tr><td><code>enctype</code></td><td>Formato de los datos. El habitual es <code>application/x-www-form-urlencoded</code>. Para enviar archivos con POST se utiliza <code>multipart/form-data</code>.</td><td><code>enctype="multipart/form-data"</code></td></tr>
+            <tr><td><code>autocomplete</code></td><td>Indica si se permite al navegador sugerir o completar valores previamente conocidos. Los controles pueden indicar su propia configuración.</td><td><code>autocomplete="on"</code></td></tr>
+            <tr><td><code>target</code></td><td>Indica dónde se abre la respuesta. Por defecto, en la pestaña actual.</td><td><code>target="_blank"</code></td></tr>
+            <tr><td><code>novalidate</code></td><td>Desactiva la validación automática del navegador al enviar. Normalmente lo omitiremos para aprovechar las comprobaciones de HTML.</td><td><code>&lt;form novalidate&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No se puede colocar un formulario dentro de otro. Utilizaremos párrafos y grupos de campos para organizar su contenido, sin necesitar CSS por el momento.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tags"></i> label, for, id, name y value</h4>
+      <p>La etiqueta <code>&lt;label&gt;</code> escribe el texto que identifica un control. Su atributo <code>for</code> debe coincidir exactamente con el <code>id</code> del control asociado. Al pulsar la etiqueta, el navegador enfoca el campo o activa la casilla correspondiente.</p>
+      <pre><code class="language-html">&lt;label for="nombre-alumno"&gt;Nombre del alumno o alumna:&lt;/label&gt;
+&lt;input type="text" id="nombre-alumno" name="nombre" value="Ane"&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <label for="nombre-alumno">Nombre del alumno o alumna:</label>
+        <input type="text" id="nombre-alumno" name="nombre" value="Ane">
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Elemento</th><th>Función</th><th>En el ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td><code>label</code> y <code>for</code></td><td>Proporcionan una etiqueta asociada al control.</td><td><code>for="nombre-alumno"</code> apunta al campo.</td></tr>
+            <tr><td><code>id</code></td><td>Identifica el elemento de forma única en todo el documento.</td><td><code>id="nombre-alumno"</code></td></tr>
+            <tr><td><code>name</code></td><td>Es el nombre con el que se envía el dato. No tiene por qué coincidir con el <code>id</code>.</td><td><code>name="nombre"</code></td></tr>
+            <tr><td><code>value</code></td><td>En un campo de texto, establece su valor inicial. Al enviar se utiliza el valor actual, que la persona puede haber cambiado.</td><td>Inicialmente se enviaría <code>nombre=Ane</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Un id no sustituye a name:</strong> un campo de datos puede tener etiqueta e identificador y, aun así, no incluirse en el envío si carece de <code>name</code>. Los identificadores deben ser únicos; los nombres pueden repetirse cuando queremos agrupar datos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Campos de entrada: input y type</h4>
+      <p><code>&lt;input&gt;</code> es una etiqueta vacía: no lleva cierre <code>&lt;/input&gt;</code>. Su atributo <code>type</code> determina qué control crea. Si no se indica, el tipo predeterminado es <code>text</code>.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>type</th><th>Uso</th><th>Atributos especialmente útiles</th></tr></thead>
+          <tbody>
+            <tr><td><code>text</code></td><td>Texto en una línea.</td><td><code>minlength</code>, <code>maxlength</code>, <code>placeholder</code></td></tr>
+            <tr><td><code>password</code></td><td>Texto cuyos caracteres se ocultan visualmente.</td><td><code>minlength</code>, <code>autocomplete="new-password"</code></td></tr>
+            <tr><td><code>email</code></td><td>Correo con comprobación básica de formato.</td><td><code>required</code>, <code>multiple</code> para varios correos separados por comas</td></tr>
+            <tr><td><code>number</code></td><td>Valores numéricos.</td><td><code>min</code>, <code>max</code>, <code>step</code></td></tr>
+            <tr><td><code>tel</code></td><td>Teléfono; puede facilitar un teclado adaptado en móviles. No impone por sí solo un formato de teléfono.</td><td><code>pattern</code>, <code>autocomplete="tel"</code></td></tr>
+            <tr><td><code>url</code></td><td>Una dirección web con comprobación básica de formato.</td><td><code>placeholder</code>, <code>required</code></td></tr>
+            <tr><td><code>search</code></td><td>Texto de búsqueda.</td><td><code>placeholder</code>, <code>maxlength</code></td></tr>
+            <tr><td><code>date</code>, <code>time</code></td><td>Fecha o una hora.</td><td><code>min</code>, <code>max</code>, <code>step</code></td></tr>
+            <tr><td><code>datetime-local</code></td><td>Fecha y hora local, sin zona horaria.</td><td><code>min</code>, <code>max</code></td></tr>
+            <tr><td><code>month</code>, <code>week</code></td><td>Mes o semana. Su presentación depende del navegador.</td><td><code>min</code>, <code>max</code></td></tr>
+            <tr><td><code>range</code></td><td>Selector deslizante para un intervalo numérico.</td><td><code>min</code>, <code>max</code>, <code>step</code>, <code>value</code></td></tr>
+            <tr><td><code>color</code></td><td>Selector de color.</td><td><code>value="#336699"</code></td></tr>
+            <tr><td><code>checkbox</code></td><td>Casilla que puede marcarse o desmarcarse.</td><td><code>checked</code>, <code>value</code></td></tr>
+            <tr><td><code>radio</code></td><td>Una alternativa dentro de un grupo.</td><td><code>name</code> compartido, <code>value</code>, <code>checked</code></td></tr>
+            <tr><td><code>file</code></td><td>Selección de archivos.</td><td><code>accept</code>, <code>multiple</code></td></tr>
+            <tr><td><code>hidden</code></td><td>Dato que se envía sin mostrar un control.</td><td><code>name</code>, <code>value</code></td></tr>
+            <tr><td><code>submit</code>, <code>reset</code>, <code>button</code></td><td>Botones de envío, restablecimiento o acción.</td><td><code>value</code> contiene su texto visible.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre><code class="language-html">&lt;p&gt;
+  &lt;label for="correo-ejemplo"&gt;Correo:&lt;/label&gt;
+  &lt;input type="email" id="correo-ejemplo" name="correo"
+         placeholder="nombre@ejemplo.com" required&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;label for="edad-ejemplo"&gt;Edad:&lt;/label&gt;
+  &lt;input type="number" id="edad-ejemplo" name="edad" min="16" max="100" step="1"&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;label for="fecha-ejemplo"&gt;Fecha:&lt;/label&gt;
+  &lt;input type="date" id="fecha-ejemplo" name="fecha"&gt;
+&lt;/p&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <p><label for="correo-ejemplo">Correo:</label> <input type="email" id="correo-ejemplo" name="correo" placeholder="nombre@ejemplo.com" required></p>
+        <p><label for="edad-ejemplo">Edad:</label> <input type="number" id="edad-ejemplo" name="edad" min="16" max="100" step="1"></p>
+        <p><label for="fecha-ejemplo">Fecha:</label> <input type="date" id="fecha-ejemplo" name="fecha"></p>
+      </div>
+      <p><code>password</code> solo oculta visualmente los caracteres: no cifra los datos. Para proteger el envío se necesita HTTPS. Tampoco conviene usar <code>number</code> para códigos postales o teléfonos: son identificadores, no cantidades con las que realizar cálculos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sliders"></i> Atributos de los campos y validación</h4>
+      <p>El navegador puede comprobar algunos requisitos antes de enviar. Los atributos disponibles dependen del tipo de control: no todos sirven para cualquier etiqueta.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Atributo</th><th>Significado</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td><code>required</code></td><td>Exige completar o seleccionar un valor válido antes de enviar.</td><td><code>&lt;input type="email" required&gt;</code></td></tr>
+            <tr><td><code>placeholder</code></td><td>Pista visible cuando un campo compatible está vacío. No es su valor ni sustituye a la etiqueta.</td><td><code>placeholder="Tu nombre"</code></td></tr>
+            <tr><td><code>minlength</code>, <code>maxlength</code></td><td>Límites de longitud para campos de texto compatibles y <code>textarea</code>.</td><td><code>minlength="3" maxlength="30"</code></td></tr>
+            <tr><td><code>min</code>, <code>max</code></td><td>Límites para números y tipos compatibles de fecha y hora.</td><td><code>min="0" max="10"</code></td></tr>
+            <tr><td><code>step</code></td><td>Paso permitido para números u otros tipos compatibles. En <code>number</code>, el paso predeterminado es 1.</td><td><code>step="0.5"</code> o <code>step="any"</code></td></tr>
+            <tr><td><code>pattern</code></td><td>Patrón que debe cumplir todo el texto en tipos como <code>text</code>, <code>tel</code> o <code>password</code>.</td><td><code>pattern="[0-9]{5}"</code>: cinco dígitos</td></tr>
+            <tr><td><code>readonly</code></td><td>Impide editar un campo compatible, pero permite enviar su valor. Se aplica a campos de texto, entre otros, y a <code>textarea</code>; no a <code>select</code>, radios o casillas.</td><td><code>&lt;input type="text" name="curso" value="DAW" readonly&gt;</code></td></tr>
+            <tr><td><code>disabled</code></td><td>Deshabilita un control. No se incluye en el envío y no participa en la validación.</td><td><code>&lt;select disabled&gt;...&lt;/select&gt;</code></td></tr>
+            <tr><td><code>autocomplete</code></td><td>Indica qué dato puede autocompletar el navegador.</td><td><code>autocomplete="name"</code> o <code>autocomplete="email"</code></td></tr>
+            <tr><td><code>size</code></td><td>Anchura aproximada en caracteres para ciertos campos de texto. En <code>select</code> tiene otro significado: cantidad de opciones visibles.</td><td><code>&lt;input type="text" size="15"&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre><code class="language-html">&lt;label for="postal-ejemplo"&gt;Código postal (cinco dígitos):&lt;/label&gt;
+&lt;input type="text" id="postal-ejemplo" name="codigoPostal"
+       pattern="[0-9]{5}" maxlength="5" placeholder="31001" required&gt;</code></pre>
+      <p>El patrón comprueba la forma del texto, no que exista ese código postal. Sin <code>required</code>, un campo con <code>pattern</code> puede dejarse vacío.</p>
+      <div class="alert alert-info" role="alert">
+        <strong>Atributos booleanos:</strong> <code>required</code>, <code>disabled</code>, <code>readonly</code>, <code>checked</code>, <code>selected</code> y <code>multiple</code> se activan por estar presentes. Escribir <code>disabled="false"</code> también deshabilita: para desactivarlo hay que quitar el atributo.
+      </div>
+      <p>La validación del navegador ayuda a completar el formulario, pero el programa que recibe los datos debe volver a comprobarlos. El tipo <code>email</code>, por ejemplo, no demuestra que la dirección exista.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-square"></i> Casillas de verificación: checkbox</h4>
+      <p>Una casilla representa una opción que puede activarse o desactivarse. Varias casillas permiten elegir varias alternativas simultáneamente.</p>
+      <pre><code class="language-html">&lt;p&gt;
+  &lt;input type="checkbox" id="interes-html" name="intereses" value="html" checked&gt;
+  &lt;label for="interes-html"&gt;HTML&lt;/label&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;input type="checkbox" id="interes-css" name="intereses" value="css"&gt;
+  &lt;label for="interes-css"&gt;CSS&lt;/label&gt;
+&lt;/p&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <p><input type="checkbox" id="interes-html" name="intereses" value="html" checked> <label for="interes-html">HTML</label></p>
+        <p><input type="checkbox" id="interes-css" name="intereses" value="css"> <label for="interes-css">CSS</label></p>
+      </div>
+      <p><code>checked</code> marca la opción inicialmente. <code>value</code> indica el dato que se envía si está marcada, no su estado de marcado. Si se eligen ambas, se enviarán dos valores con el mismo nombre: <code>intereses=html</code> e <code>intereses=css</code>.</p>
+      <p>Las casillas desmarcadas <strong>no se envían</strong>. Si se omite <code>value</code>, el valor de una casilla marcada será <code>on</code>. Para exigir aceptar una condición concreta, se puede añadir <code>required</code> a esa casilla.</p>
+      <p>A diferencia de los radios, compartir <code>name</code> no impide marcar varias casillas. Además, <code>required</code> en una casilla exige marcar esa casilla concreta; no significa «elige al menos una de este grupo».</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-dot"></i> Botones de opción: radio</h4>
+      <p>Los controles <code>radio</code> sirven para elegir <strong>una sola alternativa</strong> de un grupo. En un mismo formulario, los que comparten el atributo <code>name</code> pertenecen al mismo grupo.</p>
+      <pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Turno preferido&lt;/legend&gt;
+  &lt;input type="radio" id="turno-manana" name="turno" value="manana" required&gt;
+  &lt;label for="turno-manana"&gt;Mañana&lt;/label&gt;
+  &lt;input type="radio" id="turno-tarde" name="turno" value="tarde"&gt;
+  &lt;label for="turno-tarde"&gt;Tarde&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <fieldset>
+          <legend>Turno preferido</legend>
+          <input type="radio" id="turno-manana" name="turno" value="manana" required> <label for="turno-manana">Mañana</label>
+          <input type="radio" id="turno-tarde" name="turno" value="tarde"> <label for="turno-tarde">Tarde</label>
+        </fieldset>
+      </div>
+      <ul>
+        <li><code>name</code> es igual en todas las alternativas del grupo.</li>
+        <li><code>id</code> es diferente en cada alternativa; cada <code>label</code> apunta al suyo.</li>
+        <li><code>value</code> identifica la alternativa elegida: se enviaría <code>turno=manana</code> o <code>turno=tarde</code>.</li>
+        <li><code>checked</code> permite seleccionar una alternativa inicialmente. Úsalo como máximo en una opción del grupo.</li>
+        <li>Si algún radio del grupo tiene <code>required</code>, se exige elegir una opción de ese grupo, no necesariamente ese radio.</li>
+      </ul>
+      <p>Si ponemos nombres diferentes, no se comportarán como alternativas excluyentes. Otro grupo, por ejemplo <code>name="modalidad"</code>, será independiente del turno.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list"></i> Listas de selección: select, option y optgroup</h4>
+      <p><code>&lt;select&gt;</code> crea una lista de selección y cada <code>&lt;option&gt;</code> representa una alternativa. La etiqueta correcta es <code>option</code>, en singular, no <code>options</code>.</p>
+      <pre><code class="language-html">&lt;label for="ciclo-ejemplo"&gt;Ciclo:&lt;/label&gt;
+&lt;select id="ciclo-ejemplo" name="ciclo" required&gt;
+  &lt;option value="" selected disabled&gt;Elige un ciclo&lt;/option&gt;
+  &lt;optgroup label="Grado superior"&gt;
+    &lt;option value="dam"&gt;Desarrollo de aplicaciones multiplataforma&lt;/option&gt;
+    &lt;option value="daw"&gt;Desarrollo de aplicaciones web&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <label for="ciclo-ejemplo">Ciclo:</label>
+        <select id="ciclo-ejemplo" name="ciclo" required>
+          <option value="" selected disabled>Elige un ciclo</option>
+          <optgroup label="Grado superior">
+            <option value="dam">Desarrollo de aplicaciones multiplataforma</option>
+            <option value="daw">Desarrollo de aplicaciones web</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Etiqueta</th><th>Atributos</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>select</code></td><td><code>id</code>, <code>name</code>, <code>required</code>, <code>disabled</code></td><td>Identifican el control, el nombre enviado, su obligatoriedad y su disponibilidad.</td></tr>
+            <tr><td><code>select</code></td><td><code>multiple</code>, <code>size</code></td><td>Permiten varias selecciones y establecen cuántas opciones se muestran a la vez.</td></tr>
+            <tr><td><code>option</code></td><td><code>value</code></td><td>Valor enviado al elegirla. Si falta, se utiliza su texto.</td></tr>
+            <tr><td><code>option</code></td><td><code>selected</code>, <code>disabled</code></td><td>Selección inicial y opción que no puede elegirse.</td></tr>
+            <tr><td><code>optgroup</code></td><td><code>label</code>, <code>disabled</code></td><td>Agrupa opciones bajo un título; puede deshabilitar todo ese grupo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>En el ejemplo se ve el nombre completo del ciclo, pero se enviaría <code>ciclo=dam</code> o <code>ciclo=daw</code>. La opción inicial tiene valor vacío y no satisface <code>required</code>.</p>
+      <pre><code class="language-html">&lt;label for="talleres-ejemplo"&gt;Talleres (puedes elegir varios):&lt;/label&gt;
+&lt;select id="talleres-ejemplo" name="talleres" multiple size="3"&gt;
+  &lt;option value="html"&gt;HTML&lt;/option&gt;
+  &lt;option value="css"&gt;CSS&lt;/option&gt;
+  &lt;option value="xml"&gt;XML&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <label for="talleres-ejemplo">Talleres (puedes elegir varios):</label>
+        <select id="talleres-ejemplo" name="talleres" multiple size="3">
+          <option value="html">HTML</option><option value="css">CSS</option><option value="xml">XML</option>
+        </select>
+      </div>
+      <p>En muchos equipos, para seleccionar opciones separadas se mantiene pulsada Ctrl o Cmd; con Mayús se selecciona un intervalo. En móviles la interacción puede ser distinta. Cada opción seleccionada aporta un valor con el mismo <code>name</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-align-left"></i> Texto de varias líneas: textarea</h4>
+      <p><code>&lt;textarea&gt;</code> permite escribir comentarios o mensajes con saltos de línea. Tiene apertura y cierre: el contenido inicial se escribe <strong>entre las etiquetas</strong>, no mediante un atributo <code>value</code>.</p>
+      <pre><code class="language-html">&lt;label for="mensaje-ejemplo"&gt;Mensaje:&lt;/label&gt;&lt;br&gt;
+&lt;textarea id="mensaje-ejemplo" name="mensaje" rows="4" cols="25"
+          maxlength="300" placeholder="Cuéntanos tu consulta"&gt;&lt;/textarea&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <label for="mensaje-ejemplo">Mensaje:</label><br>
+        <textarea id="mensaje-ejemplo" name="mensaje" rows="4" cols="25" maxlength="300" placeholder="Cuéntanos tu consulta"></textarea>
+      </div>
+      <p><code>rows</code> y <code>cols</code> indican su tamaño visible aproximado en filas y columnas; no limitan la cantidad de texto. Para la longitud utilizamos <code>minlength</code> y <code>maxlength</code>. También admite <code>required</code>, <code>readonly</code> y <code>disabled</code>.</p>
+      <pre><code class="language-html">&lt;textarea name="observaciones" aria-label="Observaciones"&gt;Texto inicial editable.&lt;/textarea&gt;</code></pre>
+      <p>Normalmente utilizaremos un <code>label</code> visible. El atributo <code>aria-label</code> del último ejemplo proporciona un nombre accesible cuando no hay una etiqueta visible.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-object-group"></i> Agrupar campos: fieldset y legend</h4>
+      <p><code>&lt;fieldset&gt;</code> reúne controles relacionados. Su primer elemento <code>&lt;legend&gt;</code> pone nombre al grupo, por ejemplo «Datos de contacto» o «Turno preferido». Cada campo sigue necesitando su propia etiqueta.</p>
+      <pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Datos de contacto&lt;/legend&gt;
+  &lt;p&gt;
+    &lt;label for="contacto-nombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" id="contacto-nombre" name="nombre"&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for="contacto-correo"&gt;Correo:&lt;/label&gt;
+    &lt;input type="email" id="contacto-correo" name="correo"&gt;
+  &lt;/p&gt;
+&lt;/fieldset&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <fieldset>
+          <legend>Datos de contacto</legend>
+          <p><label for="contacto-nombre">Nombre:</label> <input type="text" id="contacto-nombre" name="nombre"></p>
+          <p><label for="contacto-correo">Correo:</label> <input type="email" id="contacto-correo" name="correo"></p>
+        </fieldset>
+      </div>
+      <p><code>fieldset</code> admite <code>disabled</code> para deshabilitar los controles del grupo, con la excepción de los que estén dentro de su primera <code>legend</code>. En nuestros ejemplos, la leyenda solo contendrá el título.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-hand-pointer"></i> Botones: button, submit y reset</h4>
+      <p><code>&lt;button&gt;</code> crea un botón cuyo texto se escribe entre la apertura y el cierre. <strong>No existe una etiqueta &lt;submit&gt;</strong>: <code>submit</code> es un valor del atributo <code>type</code>.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>type</th><th>Comportamiento</th><th>Ejemplo</th></tr></thead>
+          <tbody>
+            <tr><td><code>submit</code></td><td>Solicita validar y enviar el formulario.</td><td><code>&lt;button type="submit"&gt;Enviar&lt;/button&gt;</code></td></tr>
+            <tr><td><code>reset</code></td><td>Devuelve los campos a sus valores iniciales. No necesariamente los deja vacíos.</td><td><code>&lt;button type="reset"&gt;Restablecer&lt;/button&gt;</code></td></tr>
+            <tr><td><code>button</code></td><td>No tiene una acción automática; normalmente se le asociará comportamiento con JavaScript.</td><td><code>&lt;button type="button"&gt;Otra acción&lt;/button&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Dentro de un formulario, un <code>button</code> sin <code>type</code> normalmente actúa como botón de envío. Para evitar envíos por accidente, indicaremos siempre el tipo.</p>
+      <pre><code class="language-html">&lt;button type="submit" name="accion" value="inscribir"&gt;Enviar inscripción&lt;/button&gt;
+&lt;button type="reset"&gt;Restablecer&lt;/button&gt;
+&lt;button type="button" disabled&gt;Acción no disponible&lt;/button&gt;
+
+&lt;!-- Alternativa con input: el texto se escribe en value. --&gt;
+&lt;input type="submit" value="Enviar inscripción"&gt;</code></pre>
+      <p><code>disabled</code> impide activar el botón. Si un botón de envío tiene <code>name</code> y <code>value</code>, aporta ese par de datos cuando es el botón utilizado para enviar. El texto visible de <code>button</code> puede ser distinto de su <code>value</code>.</p>
+      <p>Como ampliación, un botón de envío puede usar <code>formaction</code> y <code>formmethod</code> para cambiar el destino o método de ese envío concreto. Para los formularios iniciales bastará con configurarlos en <code>form</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-arrow-up"></i> Archivos y campos ocultos</h4>
+      <p>Un <code>input</code> de tipo <code>file</code> permite seleccionar archivos del dispositivo. Para enviar su contenido, el formulario debe usar <code>method="post"</code> y <code>enctype="multipart/form-data"</code>.</p>
+      <pre><code class="language-html">&lt;form action="/adjuntos" method="post" enctype="multipart/form-data"&gt;
+  &lt;label for="archivo-ejemplo"&gt;Adjunta imágenes o documentos PDF:&lt;/label&gt;
+  &lt;input type="file" id="archivo-ejemplo" name="documentos"
+         accept="image/*,.pdf" multiple&gt;
+  &lt;button type="submit"&gt;Enviar archivos&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual del selector:</p>
+        <label for="archivo-ejemplo">Adjunta imágenes o documentos PDF:</label>
+        <input type="file" id="archivo-ejemplo" name="documentos" accept="image/*,.pdf" multiple>
+      </div>
+      <p><code>multiple</code> permite varios archivos. <code>accept</code> orienta al selector sobre los formatos esperados; el receptor debe comprobarlos igualmente. Elegir un archivo no lo sube automáticamente.</p>
+      <p>Un campo <code>hidden</code> envía un dato sin mostrar un control:</p>
+      <pre><code class="language-html">&lt;input type="hidden" name="actividad" value="taller-html"&gt;</code></pre>
+      <p>Se enviaría <code>actividad=taller-html</code>. Que esté oculto no lo hace secreto ni impide modificarlo desde las herramientas del navegador.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Sugerencias de texto: datalist</h4>
+      <p><code>&lt;datalist&gt;</code> ofrece sugerencias para un <code>input</code>. El atributo <code>list</code> del campo apunta al <code>id</code> de la lista. A diferencia de un <code>select</code>, la persona puede escribir otro valor.</p>
+      <pre><code class="language-html">&lt;label for="editor-ejemplo"&gt;Editor preferido:&lt;/label&gt;
+&lt;input type="text" id="editor-ejemplo" name="editor" list="editores-ejemplo"&gt;
+&lt;datalist id="editores-ejemplo"&gt;
+  &lt;option value="Visual Studio Code"&gt;&lt;/option&gt;
+  &lt;option value="Notepad++"&gt;&lt;/option&gt;
+  &lt;option value="IntelliJ IDEA"&gt;&lt;/option&gt;
+&lt;/datalist&gt;</code></pre>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual:</p>
+        <label for="editor-ejemplo">Editor preferido:</label>
+        <input type="text" id="editor-ejemplo" name="editor" list="editores-ejemplo">
+        <datalist id="editores-ejemplo"><option value="Visual Studio Code"></option><option value="Notepad++"></option><option value="IntelliJ IDEA"></option></datalist>
+      </div>
+      <p>La apariencia y la forma de mostrar las sugerencias dependen del navegador. La lista no impone por sí misma que el valor escrito pertenezca a las sugerencias.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-envelope"></i> Qué se envía: GET y POST</h4>
+      <p>El envío utiliza pares <strong>nombre=valor</strong>. Por ejemplo, un campo con <code>name="nombre"</code> cuyo contenido actual sea <code>Ane</code> aporta <code>nombre=Ane</code>.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Método</th><th>Dónde van los datos</th><th>Uso habitual</th></tr></thead>
+          <tbody>
+            <tr><td><code>get</code></td><td>En la URL, como parámetros después de <code>?</code>.</td><td>Búsquedas y filtros que consultan información.</td></tr>
+            <tr><td><code>post</code></td><td>En el cuerpo de la petición, no añadidos a la URL por el formulario.</td><td>Inscripciones, mensajes o subida de archivos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre><code class="language-html">&lt;form action="/buscar" method="get"&gt;
+  &lt;label for="busqueda"&gt;Buscar:&lt;/label&gt;
+  &lt;input type="search" id="busqueda" name="q"&gt;
+  &lt;button type="submit"&gt;Buscar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      <p>Si escribimos <code>html</code>, el navegador solicitaría <code>/buscar?q=html</code>. Cuando hay varios datos, se separan con <code>&amp;</code>; el navegador codifica los caracteres que lo necesitan.</p>
+      <ul>
+        <li>Los campos de datos sin <code>name</code> y los controles deshabilitados no se incluyen.</li>
+        <li>Los campos compatibles con <code>readonly</code> sí pueden enviar su valor.</li>
+        <li>Las casillas y radios solo aportan datos si están seleccionados.</li>
+        <li>Un <code>select</code> aporta los valores de sus opciones seleccionadas y habilitadas.</li>
+      </ul>
+      <p><strong>POST no cifra los datos:</strong> para cifrar la comunicación se utiliza HTTPS. En esta unidad aprenderemos a construir formularios y entender sus datos; su procesamiento en un servidor se trabajará más adelante.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Ejemplo completo: inscripción a un taller</h4>
+      <p>Este documento reúne etiquetas, validación, selección de una alternativa y casillas. Observa los identificadores distintos, los radios con el mismo nombre y las opciones con valores breves.</p>
+      <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Inscripción a un taller&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Inscripción a un taller&lt;/h1&gt;
+    &lt;form action="/inscripciones" method="post"&gt;
+      &lt;input type="hidden" name="actividad" value="taller-html"&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;Datos personales&lt;/legend&gt;
+        &lt;p&gt;
+          &lt;label for="inscripcion-nombre"&gt;Nombre (obligatorio):&lt;/label&gt;
+          &lt;input type="text" id="inscripcion-nombre" name="nombre"
+                 autocomplete="name" minlength="2" maxlength="40" required&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+          &lt;label for="inscripcion-correo"&gt;Correo (obligatorio):&lt;/label&gt;
+          &lt;input type="email" id="inscripcion-correo" name="correo"
+                 autocomplete="email" required&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+          &lt;label for="inscripcion-ciclo"&gt;Ciclo (obligatorio):&lt;/label&gt;
+          &lt;select id="inscripcion-ciclo" name="ciclo" required&gt;
+            &lt;option value="" selected disabled&gt;Elige un ciclo&lt;/option&gt;
+            &lt;option value="dam"&gt;DAM&lt;/option&gt;
+            &lt;option value="daw"&gt;DAW&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/p&gt;
+      &lt;/fieldset&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;Turno (elige uno)&lt;/legend&gt;
+        &lt;p&gt;
+          &lt;input type="radio" id="inscripcion-manana" name="turno" value="manana" required&gt;
+          &lt;label for="inscripcion-manana"&gt;Mañana&lt;/label&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+          &lt;input type="radio" id="inscripcion-tarde" name="turno" value="tarde"&gt;
+          &lt;label for="inscripcion-tarde"&gt;Tarde&lt;/label&gt;
+        &lt;/p&gt;
+      &lt;/fieldset&gt;
+      &lt;p&gt;
+        &lt;input type="checkbox" id="inscripcion-avisos" name="avisos" value="si"&gt;
+        &lt;label for="inscripcion-avisos"&gt;Quiero recibir avisos de otros talleres&lt;/label&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;label for="inscripcion-comentarios"&gt;Comentarios:&lt;/label&gt;&lt;br&gt;
+        &lt;textarea id="inscripcion-comentarios" name="comentarios"
+                  rows="3" cols="25" maxlength="300"&gt;&lt;/textarea&gt;
+      &lt;/p&gt;
+      &lt;button type="submit"&gt;Enviar inscripción&lt;/button&gt;
+      &lt;button type="reset"&gt;Restablecer&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>En la demostración de esta web puedes completar los campos y probar la validación. El envío es una simulación: no guarda ni transmite los datos.</p>
+      <div class="html-preview mb-3">
+        <p class="html-preview-label"><i class="fas fa-eye"></i> Resultado visual del contenido del body:</p>
+        <h1>Inscripción a un taller</h1>
+        <form action="/inscripciones" method="post" data-demo-form>
+          <input type="hidden" name="actividad" value="taller-html">
+          <fieldset>
+            <legend>Datos personales</legend>
+            <p><label for="inscripcion-nombre">Nombre (obligatorio):</label> <input type="text" id="inscripcion-nombre" name="nombre" autocomplete="name" minlength="2" maxlength="40" required></p>
+            <p><label for="inscripcion-correo">Correo (obligatorio):</label> <input type="email" id="inscripcion-correo" name="correo" autocomplete="email" required></p>
+            <p><label for="inscripcion-ciclo">Ciclo (obligatorio):</label> <select id="inscripcion-ciclo" name="ciclo" required><option value="" selected disabled>Elige un ciclo</option><option value="dam">DAM</option><option value="daw">DAW</option></select></p>
+          </fieldset>
+          <fieldset>
+            <legend>Turno (elige uno)</legend>
+            <p><input type="radio" id="inscripcion-manana" name="turno" value="manana" required> <label for="inscripcion-manana">Mañana</label></p>
+            <p><input type="radio" id="inscripcion-tarde" name="turno" value="tarde"> <label for="inscripcion-tarde">Tarde</label></p>
+          </fieldset>
+          <p><input type="checkbox" id="inscripcion-avisos" name="avisos" value="si"> <label for="inscripcion-avisos">Quiero recibir avisos de otros talleres</label></p>
+          <p><label for="inscripcion-comentarios">Comentarios:</label><br><textarea id="inscripcion-comentarios" name="comentarios" rows="3" cols="25" maxlength="300"></textarea></p>
+          <button type="submit">Enviar inscripción</button>
+          <button type="reset">Restablecer</button>
+          <p data-demo-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <p>Prueba a enviar sin rellenar, escribe un correo incorrecto y cambia varias veces de turno. Después completa los datos y pulsa «Restablecer»: se recuperan los valores iniciales, incluidos los estados de selección.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Errores frecuentes y documentación</h4>
+      <ul>
+        <li>Usar el mismo <code>id</code> para varios controles o escribir un <code>for</code> que no coincide.</li>
+        <li>Confundir <code>name</code> con <code>id</code> y olvidar el nombre del dato enviado.</li>
+        <li>Dar nombres distintos a los radios de un mismo grupo.</li>
+        <li>Utilizar <code>checked</code> en una opción de <code>select</code>: en <code>option</code> se usa <code>selected</code>.</li>
+        <li>Escribir <code>&lt;submit&gt;</code> o <code>&lt;options&gt;</code> en lugar de las etiquetas y atributos correctos.</li>
+        <li>Confundir una pista <code>placeholder</code> con una etiqueta o un valor inicial.</li>
+        <li>Esperar que un formulario guarde información sin disponer de un receptor que la procese.</li>
+      </ul>
+      <p>Para ampliar, consulta la <a href="https://www.w3schools.com/html/html_forms.asp" target="_blank" rel="noopener noreferrer">introducción a formularios de W3Schools</a> y la <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls" target="_blank" rel="noopener noreferrer">documentación de controles de formulario de MDN</a>.</p>
+    </div>
+  </div>
+</div>
+</section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1792047116864"></script>
-    <script src="assets/js/course.js?v=1792047116864"></script>
-    <script src="assets/js/pwa-register.js?v=1792047116864" data-service-worker="../sw.js" data-scope="../"></script>
+    <script src="assets/js/search-data.js?v=1792403945865"></script>
+    <script src="assets/js/course.js?v=1792403945865"></script>
+    <script src="assets/js/pwa-register.js?v=1792403945865" data-service-worker="../sw.js" data-scope="../"></script>
   </body>
 </html>

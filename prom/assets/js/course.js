@@ -480,6 +480,29 @@
     }
   });
 
+  document.querySelectorAll(".html-preview form[data-demo-form]").forEach((form) => {
+    const status = form.querySelector("[data-demo-status]");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (status) {
+        status.textContent = "Formulario válido. Envío simulado: no se han guardado ni transmitido datos.";
+      }
+    });
+
+    form.addEventListener("reset", () => {
+      if (status) {
+        status.textContent = "";
+      }
+    });
+
+    form.addEventListener("input", () => {
+      if (status) {
+        status.textContent = "";
+      }
+    });
+  });
+
   window.addEventListener("hashchange", highlightTargetFromHash);
 
   document.addEventListener("keydown", (event) => {

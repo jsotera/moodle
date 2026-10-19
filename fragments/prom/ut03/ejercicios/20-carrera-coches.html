@@ -1,0 +1,28 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-car"></i> 3.20 Simulación de carrera de coches</h2>
+    <p class="lead">Combina <strong>aleatoriedad, bucles, acumuladores y clasificación</strong> para simular una carrera.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-flag-checkered"></i> Datos y reglas</h4>
+      <p>Dentro de <code>main</code>, representa tres coches mediante variables locales para nombre, velocidad actual, distancia total y posición. Comienzan con distancia cero. No crees clases <code>Coche</code> o <code>Carrera</code>.</p>
+      <p>La simulación tendrá cinco rondas. En cada una, los tres coches circulan durante una hora a una nueva velocidad aleatoria entera entre 100 y 200 km/h, ambos incluidos. Por tanto, en cada ronda cada coche suma a su distancia tantos kilómetros como indique su velocidad. Estas rondas son intervalos de tiempo, no vueltas a una pista de longitud fija.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Qué debes hacer</h4>
+      <ol>
+        <li>Utiliza un <code>for</code> para recorrer las cinco rondas.</li>
+        <li>Genera las tres velocidades y actualiza las tres distancias antes de calcular posiciones.</li>
+        <li>La posición de un coche será 1 más la cantidad de rivales que tengan una distancia estrictamente mayor que la suya.</li>
+        <li>Muestra en cada ronda su número y, para cada coche, nombre, velocidad, distancia y posición.</li>
+        <li>Al terminar, muestra el podio ordenado por posiciones y felicita a todos los coches que compartan la primera posición.</li>
+      </ol>
+      <p>Los empates comparten posición. Por ejemplo, con distancias 900, 900 y 850, las posiciones son 1, 1 y 3. Puedes mostrar el podio recorriendo las posiciones del 1 al 3 y comprobando qué coches ocupan cada una, sin arrays ni ordenaciones de biblioteca.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Pruebas</h4>
+      <p>Prueba primero velocidades fijas para comprobar sumas y posiciones. Incluye un cambio de líder, dos coches empatados y tres empatados. Después activa la generación aleatoria y comprueba que cada distancia final está entre 500 y 1000 km.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer20CarreraCoches</code></p>
+    </div>
+  </div>
+</div>

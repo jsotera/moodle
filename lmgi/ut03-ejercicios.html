@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../assets/pwa/icon-192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1792047116864" rel="stylesheet">
+    <link href="assets/css/course.css?v=1792403945865" rel="stylesheet">
   </head>
   <body data-page-id="ut03-ejercicios">
     <div class="app-shell">
@@ -87,6 +87,12 @@
         </a>
         <a class="section-nav-link" href="#ut03-ejercicios-04-ejercicios-refuerzo-html">
           3.4 Ejercicios de refuerzo HTML
+        </a>
+        <a class="section-nav-link" href="#ut03-ejercicios-05-formularios-html">
+          3.5 Ejercicios de formularios HTML
+        </a>
+        <a class="section-nav-link" href="#ut03-ejercicios-06-paginas-completas-formularios">
+          3.6 Páginas completas con formularios
         </a>
   </div>
 </nav>
@@ -591,13 +597,298 @@
   </div>
 </div>
 </section>
+
+
+<section id="ut03-ejercicios-05-formularios-html" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-rectangle-list"></i> 3.5 Ejercicios de formularios HTML</h2>
+    <p class="lead">Diez actividades progresivas para construir <strong>formularios con etiquetas, controles, selección de opciones y validación</strong>.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-open"></i> Preparación y normas comunes</h4>
+      <p>Crea una carpeta <code>formularios</code> dentro de <code>ut03-html</code>. Cada actividad será un documento HTML completo, con idioma español, codificación UTF-8, título de pestaña, un <code>h1</code> y una breve explicación de su propósito.</p>
+      <p>Trabaja con HTML, sin JavaScript ni Bootstrap. Puedes organizar los campos mediante párrafos, <code>fieldset</code> y <code>legend</code>. La apariencia se trabajará con CSS más adelante.</p>
+      <ul>
+        <li>Asocia cada control visible con su <code>label</code>, utilizando <code>for</code> e <code>id</code>. No repitas identificadores dentro del mismo documento.</li>
+        <li>Asigna un <code>name</code> a cada dato que deba enviarse e indica valores explícitos en radios, casillas y opciones.</li>
+        <li>Escribe el <code>type</code> de cada botón e indica junto a los campos cuáles son obligatorios.</li>
+        <li>Utiliza datos inventados para las pruebas.</li>
+      </ul>
+      <p>Salvo en la actividad de archivos, configura <code>method="get"</code> y como <code>action</code> el nombre del propio archivo, por ejemplo <code>action="formulario-01.html"</code>. Al enviar, la página se volverá a abrir y podrás observar los datos en su URL. Esto permite estudiar el envío, pero no almacena una inscripción ni ejecuta un programa receptor.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user"></i> Actividad 1: primer formulario de contacto</h4>
+      <p>Crea <code>formulario-01.html</code> con un formulario para solicitar información sobre un taller.</p>
+      <ul>
+        <li>Incluye nombre y correo, ambos obligatorios, con tipos <code>text</code> y <code>email</code>.</li>
+        <li>Utiliza los nombres de envío <code>nombre</code> y <code>correo</code>.</li>
+        <li>Añade un botón <code>submit</code> con el texto «Solicitar información».</li>
+        <li>El <code>id</code> del nombre será distinto de su <code>name</code>, para comprobar que cumplen funciones diferentes.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> pulsa cada etiqueta y observa si se enfoca el campo correspondiente. Intenta enviar vacío, introduce un correo con formato incorrecto y finalmente envía datos válidos. Localiza en la URL los nombres de los datos enviados.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-filter"></i> Actividad 2: longitudes y patrones</h4>
+      <p>Crea <code>formulario-02.html</code> para registrar un alias y unos datos de contacto.</p>
+      <ul>
+        <li>Alias obligatorio de entre 3 y 15 caracteres.</li>
+        <li>Código postal obligatorio formado exactamente por cinco dígitos. Utiliza texto y un <code>pattern</code>, para poder conservar ceros iniciales.</li>
+        <li>Teléfono opcional: si se completa, debe contener exactamente nueve dígitos. Utiliza <code>type="tel"</code> y un patrón.</li>
+        <li>Incluye ejemplos mediante <code>placeholder</code>, manteniendo etiquetas visibles.</li>
+        <li>Añade un botón de envío y otro para restablecer.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> prueba alias de 2, 3 y 15 caracteres, un código postal con letras y otro que empiece por cero. Deja el teléfono vacío y después introduce uno de ocho dígitos. Explica por qué el teléfono vacío es admisible y el código postal vacío no.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-calendar-days"></i> Actividad 3: reserva de una visita</h4>
+      <p>Crea <code>formulario-03.html</code> para reservar una visita a una exposición.</p>
+      <ul>
+        <li>Nombre y correo obligatorios.</li>
+        <li>Cantidad de asistentes obligatoria: entre 1 y 6, sin decimales.</li>
+        <li>Fecha obligatoria entre el 1 y el 30 de noviembre de 2026, ambos incluidos.</li>
+        <li>Hora obligatoria entre las 09:00 y las 18:00, en intervalos de 30 minutos.</li>
+        <li>Un control de color para elegir el color de la acreditación, con un valor inicial.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> intenta enviar 0 asistentes, 7 y una cantidad decimal. Prueba los extremos de fecha y hora y un valor intermedio no permitido, como las 09:15. Observa cómo cambian los controles según su <code>type</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-dot"></i> Actividad 4: dos grupos de radio independientes</h4>
+      <p>Crea <code>formulario-04.html</code> para elegir las preferencias de un curso.</p>
+      <ul>
+        <li>Añade un grupo obligatorio «Turno» con mañana y tarde, sin selección inicial.</li>
+        <li>Añade un grupo «Modalidad» con presencial y a distancia, con presencial seleccionado inicialmente.</li>
+        <li>Todos los radios de un grupo compartirán <code>name</code>, pero cada radio tendrá un <code>id</code> diferente.</li>
+        <li>Agrupa cada conjunto con <code>fieldset</code> y <code>legend</code>.</li>
+        <li>Añade botones de envío y restablecimiento.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> debes poder elegir simultáneamente un turno y una modalidad, pero nunca dos turnos. Intenta enviar sin turno y después restablece: comprueba que se recupera la modalidad inicial y que el turno vuelve a quedar sin marcar.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-square-check"></i> Actividad 5: casillas y preferencias múltiples</h4>
+      <p>Crea <code>formulario-05.html</code> para elegir temas de una revista digital.</p>
+      <ul>
+        <li>Incluye cuatro casillas de intereses: tecnología, cine, música y viajes. Compartirán <code>name="intereses"</code> y tendrán valores distintos.</li>
+        <li>Marca música inicialmente. Los intereses serán opcionales y se podrá marcar cualquier cantidad.</li>
+        <li>Añade una casilla independiente y obligatoria para aceptar las condiciones ficticias de la actividad, con su propio nombre y valor.</li>
+        <li>Añade una casilla opcional para recibir avisos.</li>
+        <li>Incluye una breve explicación visible de qué opciones son obligatorias.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> envía dos intereses y observa sus valores repetidos bajo el mismo nombre. Desmarca todos y compara la URL. Explica qué sucede con las casillas desmarcadas y por qué no has puesto <code>required</code> en cada interés.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list"></i> Actividad 6: select, option y optgroup</h4>
+      <p>Crea <code>formulario-06.html</code> para elegir un destino y varias actividades.</p>
+      <ul>
+        <li>Un <code>select</code> obligatorio de destino con una opción inicial de valor vacío que indique «Elige un destino».</li>
+        <li>Incluye al menos seis destinos, agrupados en dos <code>optgroup</code> con un título mediante <code>label</code>.</li>
+        <li>Una de las opciones será visible pero estará deshabilitada por no tener plazas.</li>
+        <li>Otro <code>select</code> permitirá elegir varias actividades. Tendrá al menos cuatro opciones y mostrará cuatro filas.</li>
+        <li>Los valores enviados serán códigos breves, diferentes de los textos completos que se muestran.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> intenta enviar sin destino. Selecciona varias actividades y observa los datos enviados. Comprueba que no puedes elegir el destino deshabilitado y que <code>selected</code> establece una selección inicial.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-align-left"></i> Actividad 7: mensajes y sugerencias</h4>
+      <p>Crea <code>formulario-07.html</code> para recibir propuestas para una biblioteca.</p>
+      <ul>
+        <li>Nombre obligatorio y asunto obligatorio, con un máximo de 60 caracteres.</li>
+        <li>Mensaje obligatorio en un <code>textarea</code> de al menos cinco filas, con un mínimo de 20 y un máximo de 400 caracteres.</li>
+        <li>Incluye un texto inicial editable dentro de <code>textarea</code>, distinto de un <code>placeholder</code>.</li>
+        <li>Un campo de texto para proponer un género literario, asociado mediante <code>list</code> a un <code>datalist</code> con al menos cuatro sugerencias.</li>
+        <li>Añade un botón para restablecer los campos.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> cambia el mensaje y restablece el formulario: debe volver su texto inicial. Escribe un género no incluido en las sugerencias y verifica que es admisible. Explica la diferencia entre el tamaño visible del mensaje y su longitud máxima.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-toggle-on"></i> Actividad 8: valores iniciales y campos deshabilitados</h4>
+      <p>Crea <code>formulario-08.html</code> para modificar una ficha ficticia.</p>
+      <ul>
+        <li>Nombre editable con un valor inicial.</li>
+        <li>Código de ficha de texto con <code>name</code>, un valor inicial y <code>readonly</code>.</li>
+        <li>Grupo de datos de una promoción futura dentro de un <code>fieldset disabled</code>, que contenga dos controles con nombre y valor.</li>
+        <li>Un campo <code>hidden</code> con el nombre <code>origen</code> y el valor <code>ficha-html</code>.</li>
+        <li>Un botón de envío con <code>name="accion"</code> y <code>value="actualizar"</code>, y otro de tipo <code>reset</code>.</li>
+      </ul>
+      <p><strong>Comprueba:</strong> identifica qué datos llegan a la URL. El código de ficha y el campo oculto deben aparecer; los controles deshabilitados, no. Modifica el nombre y restablece: debe recuperar su valor inicial, no quedar necesariamente vacío.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-arrow-up"></i> Actividad 9: preparar una subida de archivos</h4>
+      <p>Crea <code>formulario-09.html</code> con la estructura de un formulario para adjuntar trabajos. Esta actividad estudia su preparación: no disponemos de un servidor que reciba los archivos.</p>
+      <ul>
+        <li>Configura <code>method="post"</code>, <code>enctype="multipart/form-data"</code> y un destino ficticio <code>action="/entregas"</code>.</li>
+        <li>Incluye un nombre obligatorio y una descripción en <code>textarea</code>.</li>
+        <li>Un selector de un documento PDF, obligatorio.</li>
+        <li>Otro selector de imágenes opcionales que permita elegir varios archivos.</li>
+        <li>Utiliza <code>accept</code> para orientar cada selector y añade un botón de restablecimiento.</li>
+        <li>Incluye el botón de envío, pero déjalo <code>disabled</code> y acompáñalo del texto «Demostración sin servidor receptor».</li>
+      </ul>
+      <p><strong>Comprueba:</strong> selecciona archivos y prueba el restablecimiento. Explica por qué este formulario no utiliza GET, para qué sirve <code>enctype</code> y por qué <code>accept</code> no sustituye la comprobación del archivo en el servidor. No intentes enviar al destino ficticio.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-puzzle-piece"></i> Actividad 10: inscripción completa a una jornada</h4>
+      <p>Crea <code>formulario-10.html</code>, reuniendo los controles anteriores en una inscripción a una jornada cultural.</p>
+      <ul>
+        <li>Grupo de datos personales: nombre de 2 a 40 caracteres, correo y edad entre 16 y 100. Los tres son obligatorios.</li>
+        <li>Grupo de inscripción: una actividad elegida en un <code>select</code> obligatorio, con una opción inicial vacía, y una sesión elegida mediante un grupo de radios obligatorio.</li>
+        <li>Grupo de preferencias: al menos cuatro casillas opcionales y un campo de sugerencias asociado a un <code>datalist</code>.</li>
+        <li>Observaciones opcionales de hasta 300 caracteres mediante <code>textarea</code>.</li>
+        <li>Una casilla obligatoria de aceptación de las condiciones ficticias.</li>
+        <li>Un campo oculto con el código de la jornada, y botones de envío y restablecimiento.</li>
+      </ul>
+      <p>Configura el envío GET a este mismo archivo para inspeccionar los pares nombre=valor. Utiliza exclusivamente información inventada.</p>
+      <p><strong>Comprueba:</strong> prepara una ejecución válida y cinco pruebas con valores ausentes o no válidos. Anota qué control impide cada envío y por qué. Revisa también qué datos no aparecen cuando no marcas las preferencias.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Revisión final</h4>
+      <p>En cada actividad, recorre los controles con la tecla Tab, activa las opciones mediante sus etiquetas y comprueba el restablecimiento. Revisa que los nombres enviados sean comprensibles, que cada grupo de radios sea independiente y que ningún <code>placeholder</code> sustituya a una etiqueta visible.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut03-ejercicios-06-paginas-completas-formularios" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-sitemap"></i> 3.6 Páginas completas con formularios</h2>
+    <p class="lead">Cinco proyectos progresivos para combinar <strong>páginas completas, formularios, tablas, imágenes y navegación</strong> en un mismo sitio.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-tree"></i> Normas comunes de los proyectos</h4>
+      <p>Crea una carpeta independiente por proyecto y una subcarpeta <code>img</code> para sus imágenes. Cada archivo HTML tendrá su estructura completa, idioma español, UTF-8, un título de pestaña propio, un <code>h1</code> y encabezados organizados por niveles.</p>
+      <ul>
+        <li>Utiliza enlaces relativos entre páginas del proyecto y enlaces con <code>#id</code> para saltar a secciones.</li>
+        <li>Las imágenes serán locales y tendrán un <code>alt</code> adecuado. Puedes utilizar fotografías propias, imágenes que tengas permiso de usar o SVG creados por ti.</li>
+        <li>Utiliza tablas para datos, no para colocar las partes de la página. Añade un <code>caption</code> y cabeceras con <code>th</code> y <code>scope</code> cuando corresponda.</li>
+        <li>Para ver los bordes, puedes reutilizar el CSS de la teoría 3.3 dentro de <code>style</code> en el <code>head</code>. No se exige más CSS, JavaScript ni Bootstrap.</li>
+        <li>Cada formulario tendrá etiquetas asociadas, nombres de envío, valores explícitos y tipos de botón. Informa de los campos obligatorios.</li>
+      </ul>
+      <p>Utiliza datos ficticios. Configura los formularios con GET y como destino el propio archivo que los contiene para poder revisar los datos en la URL. Los proyectos simulan reservas o solicitudes: no guardan datos, calculan pagos ni envían correos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-camera"></i> Proyecto 1: taller de fotografía</h4>
+      <p>Crea <code>taller-fotografia/index.html</code>: una página completa que presente un taller y permita solicitar plaza.</p>
+      <ul>
+        <li>Presentación con título principal, dos párrafos, una imagen y una lista del material necesario.</li>
+        <li>Índice inicial con enlaces a «Presentación», «Horario» e «Inscripción», situados en esa misma página.</li>
+        <li>Tabla de horario con al menos tres sesiones y columnas de fecha, hora y tema.</li>
+        <li>Formulario de nombre y correo obligatorios, selector obligatorio de sesión y observaciones opcionales de hasta 200 caracteres.</li>
+        <li>Una casilla opcional para solicitar préstamo de cámara y botones de envío y restablecimiento.</li>
+        <li>Enlace «Volver al principio» al final y un enlace externo a un recurso sobre fotografía, con un texto que explique su destino.</li>
+      </ul>
+      <p>Los códigos y textos de las sesiones del formulario deben corresponderse con los de la tabla.</p>
+      <p><strong>Comprueba:</strong> navega por el índice, envía una solicitud válida y confirma en la URL la sesión elegida. Cambia el tamaño de la ventana y revisa que todos los contenidos sigan siendo legibles.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Proyecto 2: club de lectura</h4>
+      <p>Crea <code>club-lectura</code> con tres páginas: <code>index.html</code>, <code>lecturas.html</code> e <code>inscripcion.html</code>. Las tres mostrarán los mismos enlaces de navegación.</p>
+      <ul>
+        <li>Portada: presentación del club, imagen y lista de sus normas.</li>
+        <li>Lecturas: tabla con al menos cuatro libros, su autoría y la fecha de reunión. Añade una imagen relacionada con el club o una lectura.</li>
+        <li>Inscripción: nombre y correo obligatorios, grupo de radios para el turno, y selector de la primera lectura en la que se desea participar.</li>
+        <li>El formulario incluirá casillas opcionales de géneros favoritos, un mensaje de presentación y una aceptación obligatoria de las normas ficticias.</li>
+        <li>Desde la portada, enlaza directamente a una sección identificada dentro de <code>lecturas.html</code>, combinando el nombre del archivo y un fragmento <code>#id</code>.</li>
+      </ul>
+      <p>Organiza el formulario con al menos dos <code>fieldset</code>. El texto completo de cada libro aparecerá en el selector, pero su <code>value</code> será un código breve.</p>
+      <p><strong>Comprueba:</strong> visita todas las páginas desde cualquiera de ellas. Asegúrate de que una selección de lectura siempre corresponde a un libro de la tabla y de que los enlaces funcionan después de mover la carpeta completa a otra ubicación.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-utensils"></i> Proyecto 3: restaurante y solicitud de reserva</h4>
+      <p>Crea <code>restaurante</code> con <code>index.html</code>, <code>carta.html</code> y <code>reservas.html</code>, conectadas mediante navegación relativa.</p>
+      <ul>
+        <li>Portada con presentación, una imagen y enlaces a la carta y la reserva.</li>
+        <li>Carta con al menos seis platos agrupados por categorías, dos imágenes y una tabla de plato, descripción y precio.</li>
+        <li>Utiliza <code>thead</code>, <code>tbody</code> y una fila de título que combine columnas mediante <code>colspan</code>.</li>
+        <li>Reserva con nombre, correo, teléfono de nueve dígitos y cantidad de comensales de 1 a 8; todos obligatorios.</li>
+        <li>Incluye una fecha entre el 1 y el 30 de noviembre de 2026 y un selector obligatorio con al menos cuatro horas de reserva.</li>
+        <li>Grupo de radios para interior o terraza, casillas opcionales de necesidades de la reserva y observaciones limitadas a 300 caracteres.</li>
+        <li>Incluye enlaces entre las condiciones de reserva y el formulario, y un enlace para volver al inicio de la página.</li>
+      </ul>
+      <p>Explica junto al formulario que se trata de una solicitud y no de una confirmación automática de disponibilidad. No es necesario calcular precios ni comprobar reservas de otras personas.</p>
+      <p><strong>Comprueba:</strong> intenta reservar para 0, 1, 8 y 9 personas. Verifica los límites de fecha, el teléfono y la elección excluyente de interior o terraza. Asegúrate de que las imágenes cargan desde las tres páginas.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-gamepad"></i> Proyecto 4: jornadas de videojuegos</h4>
+      <p>Crea <code>jornadas-videojuegos</code> con portada, programa e inscripción. Guarda estas dos últimas páginas en una subcarpeta <code>paginas</code>:</p>
+      <pre><code class="language-text">jornadas-videojuegos/
+  index.html
+  paginas/
+    programa.html
+    inscripcion.html
+  img/
+    cartel.jpg
+    juegos.jpg</code></pre>
+      <p>Los nombres y formatos de las imágenes pueden cambiar, siempre que las rutas coincidan.</p>
+      <ul>
+        <li>Portada con cartel, presentación, lista de normas y enlaces a las otras dos páginas.</li>
+        <li>Programa con una tabla de al menos seis sesiones, sus horarios, salas y actividades. Usa <code>rowspan</code> para una sala que abarque varias sesiones y <code>colspan</code> en una cabecera agrupada.</li>
+        <li>Inscripción con alias de 3 a 15 caracteres, correo y edad entre 16 y 100, obligatorios.</li>
+        <li>Selector obligatorio de actividad con opciones agrupadas mediante <code>optgroup</code>. Una actividad estará deshabilitada por estar completa.</li>
+        <li>Grupo obligatorio de radios para la plataforma, casillas opcionales de intereses y un campo de juego favorito con <code>datalist</code>.</li>
+        <li>Campo oculto con el código de la jornada y botones de envío y restablecimiento.</li>
+        <li>Enlace desde la portada a una sesión concreta del programa, y enlaces de regreso que utilicen correctamente <code>../</code>.</li>
+      </ul>
+      <p>La imagen de <code>img</code> debe aparecer también en una página de <code>paginas</code>, con su ruta relativa correcta. La actividad deshabilitada debe figurar como completa también en el programa.</p>
+      <p><strong>Comprueba:</strong> recorre todas las rutas desde la portada y desde las páginas interiores. Revisa las celdas combinadas, intenta elegir la actividad completa y comprueba que los datos de la inscripción coinciden con la actividad publicada.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-mountain-sun"></i> Proyecto 5: web de actividades de naturaleza</h4>
+      <p>Crea un sitio llamado <code>naturaleza</code> con cuatro páginas: <code>index.html</code>, <code>actividades.html</code>, <code>solicitud.html</code> y <code>contacto.html</code>. Organiza al menos dos páginas en una subcarpeta y conserva una carpeta común de imágenes.</p>
+      <ul>
+        <li>Portada con presentación, dos imágenes, una lista de recomendaciones y enlaces al catálogo y la solicitud.</li>
+        <li>Catálogo con al menos cinco actividades de dos categorías distintas. Cada actividad tendrá un identificador al que se pueda enlazar.</li>
+        <li>Tabla comparativa con actividad, duración, dificultad, precio orientativo y disponibilidad. Incluye cabeceras, cuerpo, pie explicativo y al menos una combinación de celdas justificada por los datos.</li>
+        <li>Desde cada actividad del catálogo, incluye un enlace a la sección de solicitud de <code>solicitud.html</code>. La persona seleccionará manualmente allí la actividad; no es necesario rellenarla automáticamente.</li>
+        <li>Formulario de solicitud organizado en grupos: datos de contacto, actividad y preferencias. Incluye nombre, correo, teléfono, cantidad de participantes de 1 a 10 y fecha dentro del mes de noviembre de 2026, todos obligatorios.</li>
+        <li>Selector de actividad agrupado por categoría, con una opción no disponible deshabilitada; radios de turno; varias casillas de servicios opcionales y observaciones limitadas a 400 caracteres.</li>
+        <li>Una condición obligatoria de aceptación de las normas ficticias, un campo oculto con el origen de la solicitud y botones de envío y restablecimiento.</li>
+        <li>Contacto con un segundo formulario independiente: nombre, correo, asunto obligatorio elegido entre varias opciones y mensaje de 20 a 500 caracteres.</li>
+        <li>Navegación común, enlaces a secciones internas y al menos un enlace externo a una fuente de información sobre naturaleza.</li>
+      </ul>
+      <p>Usa identificadores y nombres comprensibles. Los textos de disponibilidad y los códigos de actividad deben ser coherentes entre el catálogo y el formulario. No se pide sincronizar los dos formularios, calcular importes ni comprobar disponibilidad real.</p>
+      <p><strong>Comprueba:</strong> realiza una solicitud válida y un mensaje de contacto válido. Prueba también campos obligatorios vacíos, correo incorrecto, cantidad fuera de rango, fecha no válida y una actividad no disponible. Inspecciona los datos que envía cada formulario.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Comprobaciones para todos los proyectos</h4>
+      <ol>
+        <li>Abre cada página directamente y recorre todos los enlaces. Ninguno debe depender de una ruta absoluta de tu ordenador.</li>
+        <li>Comprueba que las imágenes tienen texto alternativo y se cargan también desde las páginas de las subcarpetas.</li>
+        <li>Revisa que cada tabla conserve una estructura coherente al utilizar <code>rowspan</code> o <code>colspan</code>.</li>
+        <li>Recorre los formularios con Tab y pulsa sus etiquetas. Revisa nombres, valores y agrupación de radios.</li>
+        <li>Intenta enviar datos no válidos y verifica que se impide el envío. Después envía datos válidos y revisa la URL.</li>
+        <li>Restablece los formularios y comprueba los valores y selecciones iniciales.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+</section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1792047116864"></script>
-    <script src="assets/js/course.js?v=1792047116864"></script>
-    <script src="assets/js/pwa-register.js?v=1792047116864" data-service-worker="../sw.js" data-scope="../"></script>
+    <script src="assets/js/search-data.js?v=1792403945865"></script>
+    <script src="assets/js/course.js?v=1792403945865"></script>
+    <script src="assets/js/pwa-register.js?v=1792403945865" data-service-worker="../sw.js" data-scope="../"></script>
   </body>
 </html>

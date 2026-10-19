@@ -1,0 +1,24 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-robot"></i> 3.9 Batalla de robots</h2>
+    <p class="lead">Actualiza la vida de dos robots y decide si pueden <strong>continuar el combate</strong>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Qué debes hacer</h4>
+      <p>En <code>main</code>, representa a cada robot mediante variables locales para nombre, vida, ataque y defensa, diferenciándolas con los sufijos <code>1</code> y <code>2</code>. La vida inicial será 100 y los valores de ataque y defensa serán enteros positivos.</p>
+      <ol>
+        <li>El robot 1 ataca al robot 2. Solo causa daño si su ataque supera la defensa rival.</li>
+        <li>El daño es la diferencia entre ataque y defensa. Resta ese daño a la vida del defensor, sin dejarla por debajo de cero.</li>
+        <li>Muestra el daño causado y la vida restante. Si el defensor llega a cero, anuncia su derrota.</li>
+        <li>Si el robot 2 sigue vivo, responde una vez aplicando las mismas reglas al robot 1.</li>
+        <li>Muestra el estado de ambos al terminar el intercambio.</li>
+      </ol>
+      <p>No declares una clase <code>Robot</code> ni un método de combate. Las comprobaciones y modificaciones de vida deben estar dentro de <code>main</code>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Pruebas y ampliación con bucles</h4>
+      <p>Prueba ataque inferior, igual y superior a la defensa, y un golpe que elimine al defensor. Después, como ampliación, repite los intercambios con <code>while</code> hasta que alguien pierda o se alcancen 20 rondas. Si ambos siguen vivos al llegar al límite, declara empate; así también termina un combate en el que nadie puede causar daño.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer9BatallaRobots</code></p>
+    </div>
+  </div>
+</div>

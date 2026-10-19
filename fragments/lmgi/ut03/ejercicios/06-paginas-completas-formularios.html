@@ -1,0 +1,120 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-sitemap"></i> 3.6 Páginas completas con formularios</h2>
+    <p class="lead">Cinco proyectos progresivos para combinar <strong>páginas completas, formularios, tablas, imágenes y navegación</strong> en un mismo sitio.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-tree"></i> Normas comunes de los proyectos</h4>
+      <p>Crea una carpeta independiente por proyecto y una subcarpeta <code>img</code> para sus imágenes. Cada archivo HTML tendrá su estructura completa, idioma español, UTF-8, un título de pestaña propio, un <code>h1</code> y encabezados organizados por niveles.</p>
+      <ul>
+        <li>Utiliza enlaces relativos entre páginas del proyecto y enlaces con <code>#id</code> para saltar a secciones.</li>
+        <li>Las imágenes serán locales y tendrán un <code>alt</code> adecuado. Puedes utilizar fotografías propias, imágenes que tengas permiso de usar o SVG creados por ti.</li>
+        <li>Utiliza tablas para datos, no para colocar las partes de la página. Añade un <code>caption</code> y cabeceras con <code>th</code> y <code>scope</code> cuando corresponda.</li>
+        <li>Para ver los bordes, puedes reutilizar el CSS de la teoría 3.3 dentro de <code>style</code> en el <code>head</code>. No se exige más CSS, JavaScript ni Bootstrap.</li>
+        <li>Cada formulario tendrá etiquetas asociadas, nombres de envío, valores explícitos y tipos de botón. Informa de los campos obligatorios.</li>
+      </ul>
+      <p>Utiliza datos ficticios. Configura los formularios con GET y como destino el propio archivo que los contiene para poder revisar los datos en la URL. Los proyectos simulan reservas o solicitudes: no guardan datos, calculan pagos ni envían correos.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-camera"></i> Proyecto 1: taller de fotografía</h4>
+      <p>Crea <code>taller-fotografia/index.html</code>: una página completa que presente un taller y permita solicitar plaza.</p>
+      <ul>
+        <li>Presentación con título principal, dos párrafos, una imagen y una lista del material necesario.</li>
+        <li>Índice inicial con enlaces a «Presentación», «Horario» e «Inscripción», situados en esa misma página.</li>
+        <li>Tabla de horario con al menos tres sesiones y columnas de fecha, hora y tema.</li>
+        <li>Formulario de nombre y correo obligatorios, selector obligatorio de sesión y observaciones opcionales de hasta 200 caracteres.</li>
+        <li>Una casilla opcional para solicitar préstamo de cámara y botones de envío y restablecimiento.</li>
+        <li>Enlace «Volver al principio» al final y un enlace externo a un recurso sobre fotografía, con un texto que explique su destino.</li>
+      </ul>
+      <p>Los códigos y textos de las sesiones del formulario deben corresponderse con los de la tabla.</p>
+      <p><strong>Comprueba:</strong> navega por el índice, envía una solicitud válida y confirma en la URL la sesión elegida. Cambia el tamaño de la ventana y revisa que todos los contenidos sigan siendo legibles.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Proyecto 2: club de lectura</h4>
+      <p>Crea <code>club-lectura</code> con tres páginas: <code>index.html</code>, <code>lecturas.html</code> e <code>inscripcion.html</code>. Las tres mostrarán los mismos enlaces de navegación.</p>
+      <ul>
+        <li>Portada: presentación del club, imagen y lista de sus normas.</li>
+        <li>Lecturas: tabla con al menos cuatro libros, su autoría y la fecha de reunión. Añade una imagen relacionada con el club o una lectura.</li>
+        <li>Inscripción: nombre y correo obligatorios, grupo de radios para el turno, y selector de la primera lectura en la que se desea participar.</li>
+        <li>El formulario incluirá casillas opcionales de géneros favoritos, un mensaje de presentación y una aceptación obligatoria de las normas ficticias.</li>
+        <li>Desde la portada, enlaza directamente a una sección identificada dentro de <code>lecturas.html</code>, combinando el nombre del archivo y un fragmento <code>#id</code>.</li>
+      </ul>
+      <p>Organiza el formulario con al menos dos <code>fieldset</code>. El texto completo de cada libro aparecerá en el selector, pero su <code>value</code> será un código breve.</p>
+      <p><strong>Comprueba:</strong> visita todas las páginas desde cualquiera de ellas. Asegúrate de que una selección de lectura siempre corresponde a un libro de la tabla y de que los enlaces funcionan después de mover la carpeta completa a otra ubicación.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-utensils"></i> Proyecto 3: restaurante y solicitud de reserva</h4>
+      <p>Crea <code>restaurante</code> con <code>index.html</code>, <code>carta.html</code> y <code>reservas.html</code>, conectadas mediante navegación relativa.</p>
+      <ul>
+        <li>Portada con presentación, una imagen y enlaces a la carta y la reserva.</li>
+        <li>Carta con al menos seis platos agrupados por categorías, dos imágenes y una tabla de plato, descripción y precio.</li>
+        <li>Utiliza <code>thead</code>, <code>tbody</code> y una fila de título que combine columnas mediante <code>colspan</code>.</li>
+        <li>Reserva con nombre, correo, teléfono de nueve dígitos y cantidad de comensales de 1 a 8; todos obligatorios.</li>
+        <li>Incluye una fecha entre el 1 y el 30 de noviembre de 2026 y un selector obligatorio con al menos cuatro horas de reserva.</li>
+        <li>Grupo de radios para interior o terraza, casillas opcionales de necesidades de la reserva y observaciones limitadas a 300 caracteres.</li>
+        <li>Incluye enlaces entre las condiciones de reserva y el formulario, y un enlace para volver al inicio de la página.</li>
+      </ul>
+      <p>Explica junto al formulario que se trata de una solicitud y no de una confirmación automática de disponibilidad. No es necesario calcular precios ni comprobar reservas de otras personas.</p>
+      <p><strong>Comprueba:</strong> intenta reservar para 0, 1, 8 y 9 personas. Verifica los límites de fecha, el teléfono y la elección excluyente de interior o terraza. Asegúrate de que las imágenes cargan desde las tres páginas.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-gamepad"></i> Proyecto 4: jornadas de videojuegos</h4>
+      <p>Crea <code>jornadas-videojuegos</code> con portada, programa e inscripción. Guarda estas dos últimas páginas en una subcarpeta <code>paginas</code>:</p>
+      <pre><code class="language-text">jornadas-videojuegos/
+  index.html
+  paginas/
+    programa.html
+    inscripcion.html
+  img/
+    cartel.jpg
+    juegos.jpg</code></pre>
+      <p>Los nombres y formatos de las imágenes pueden cambiar, siempre que las rutas coincidan.</p>
+      <ul>
+        <li>Portada con cartel, presentación, lista de normas y enlaces a las otras dos páginas.</li>
+        <li>Programa con una tabla de al menos seis sesiones, sus horarios, salas y actividades. Usa <code>rowspan</code> para una sala que abarque varias sesiones y <code>colspan</code> en una cabecera agrupada.</li>
+        <li>Inscripción con alias de 3 a 15 caracteres, correo y edad entre 16 y 100, obligatorios.</li>
+        <li>Selector obligatorio de actividad con opciones agrupadas mediante <code>optgroup</code>. Una actividad estará deshabilitada por estar completa.</li>
+        <li>Grupo obligatorio de radios para la plataforma, casillas opcionales de intereses y un campo de juego favorito con <code>datalist</code>.</li>
+        <li>Campo oculto con el código de la jornada y botones de envío y restablecimiento.</li>
+        <li>Enlace desde la portada a una sesión concreta del programa, y enlaces de regreso que utilicen correctamente <code>../</code>.</li>
+      </ul>
+      <p>La imagen de <code>img</code> debe aparecer también en una página de <code>paginas</code>, con su ruta relativa correcta. La actividad deshabilitada debe figurar como completa también en el programa.</p>
+      <p><strong>Comprueba:</strong> recorre todas las rutas desde la portada y desde las páginas interiores. Revisa las celdas combinadas, intenta elegir la actividad completa y comprueba que los datos de la inscripción coinciden con la actividad publicada.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-mountain-sun"></i> Proyecto 5: web de actividades de naturaleza</h4>
+      <p>Crea un sitio llamado <code>naturaleza</code> con cuatro páginas: <code>index.html</code>, <code>actividades.html</code>, <code>solicitud.html</code> y <code>contacto.html</code>. Organiza al menos dos páginas en una subcarpeta y conserva una carpeta común de imágenes.</p>
+      <ul>
+        <li>Portada con presentación, dos imágenes, una lista de recomendaciones y enlaces al catálogo y la solicitud.</li>
+        <li>Catálogo con al menos cinco actividades de dos categorías distintas. Cada actividad tendrá un identificador al que se pueda enlazar.</li>
+        <li>Tabla comparativa con actividad, duración, dificultad, precio orientativo y disponibilidad. Incluye cabeceras, cuerpo, pie explicativo y al menos una combinación de celdas justificada por los datos.</li>
+        <li>Desde cada actividad del catálogo, incluye un enlace a la sección de solicitud de <code>solicitud.html</code>. La persona seleccionará manualmente allí la actividad; no es necesario rellenarla automáticamente.</li>
+        <li>Formulario de solicitud organizado en grupos: datos de contacto, actividad y preferencias. Incluye nombre, correo, teléfono, cantidad de participantes de 1 a 10 y fecha dentro del mes de noviembre de 2026, todos obligatorios.</li>
+        <li>Selector de actividad agrupado por categoría, con una opción no disponible deshabilitada; radios de turno; varias casillas de servicios opcionales y observaciones limitadas a 400 caracteres.</li>
+        <li>Una condición obligatoria de aceptación de las normas ficticias, un campo oculto con el origen de la solicitud y botones de envío y restablecimiento.</li>
+        <li>Contacto con un segundo formulario independiente: nombre, correo, asunto obligatorio elegido entre varias opciones y mensaje de 20 a 500 caracteres.</li>
+        <li>Navegación común, enlaces a secciones internas y al menos un enlace externo a una fuente de información sobre naturaleza.</li>
+      </ul>
+      <p>Usa identificadores y nombres comprensibles. Los textos de disponibilidad y los códigos de actividad deben ser coherentes entre el catálogo y el formulario. No se pide sincronizar los dos formularios, calcular importes ni comprobar disponibilidad real.</p>
+      <p><strong>Comprueba:</strong> realiza una solicitud válida y un mensaje de contacto válido. Prueba también campos obligatorios vacíos, correo incorrecto, cantidad fuera de rango, fecha no válida y una actividad no disponible. Inspecciona los datos que envía cada formulario.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Comprobaciones para todos los proyectos</h4>
+      <ol>
+        <li>Abre cada página directamente y recorre todos los enlaces. Ninguno debe depender de una ruta absoluta de tu ordenador.</li>
+        <li>Comprueba que las imágenes tienen texto alternativo y se cargan también desde las páginas de las subcarpetas.</li>
+        <li>Revisa que cada tabla conserve una estructura coherente al utilizar <code>rowspan</code> o <code>colspan</code>.</li>
+        <li>Recorre los formularios con Tab y pulsa sus etiquetas. Revisa nombres, valores y agrupación de radios.</li>
+        <li>Intenta enviar datos no válidos y verifica que se impide el envío. Después envía datos válidos y revisa la URL.</li>
+        <li>Restablece los formularios y comprueba los valores y selecciones iniciales.</li>
+      </ol>
+    </div>
+  </div>
+</div>
