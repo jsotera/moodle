@@ -2,18 +2,18 @@
   style="padding-top: 0 !important; margin-top: 0 !important;">
   <div class="card shadow p-4">
     <h2 class="text-primary mb-3"><i
-        class="fas fa-triangle-exclamation"></i> 3.3. Control y creación de excepciones</h2>
+        class="fa fa-exclamation-triangle"></i> 3.3. Control y creación de excepciones</h2>
     <p class="lead">Las excepciones permiten avisar de que una operación no puede continuar con normalidad. En este bloque aprenderás a tratarlas y a crear tus propias excepciones.</p>
 
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3. Control y creación de excepciones</h4>
+      <h4 class="text-primary mb-3"><i class="fa fa-file-text"></i> 3.3. Control y creación de excepciones</h4>
 <p>Las excepciones permiten avisar de que una operación no puede continuar con normalidad. En este bloque aprenderás a reconocerlas, tratarlas y crear una excepción propia sencilla.</p>
     </div>
 
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3.1. El modelo de excepciones</h4>
+      <h4 class="text-primary mb-3"><i class="fa fa-file-text"></i> 3.3.1. El modelo de excepciones</h4>
 <p>Una excepción es un objeto que informa de un problema producido durante la ejecución.</p>
-<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Qué vas a aprender</h5>
 <ul>
 <li>Distinguir una excepción de un error de compilación o un resultado incorrecto.</li>
 <li>Reconocer algunas excepciones frecuentes.</li>
@@ -21,15 +21,15 @@
 <li>Leer la información principal de una traza.</li>
 <li>Diferenciar de forma básica excepciones comprobadas y no comprobadas.</li>
 </ul>
-<h5 class="text-primary mt-3 mb-2">Una excepción durante la ejecución</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Una excepción durante la ejecución</h5>
 <p>Este programa compila, pero no puede completar la división:</p>
-<pre><code class="language-java">int dividendo = 12;
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">int dividendo = 12;
 int divisor = 0;
 int cociente = dividendo / divisor;
 
 System.out.println(cociente);</code></pre>
 <p>Al ejecutar la tercera línea, Java crea una <code>ArithmeticException</code>. Las instrucciones posteriores no se ejecutan por el camino normal.</p>
-<h5 class="text-primary mt-3 mb-2">No todos los problemas son excepciones</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> No todos los problemas son excepciones</h5>
 <div class="table-responsive">
 <table class="table table-bordered align-middle">
 <thead class="table-light">
@@ -54,7 +54,7 @@ System.out.println(cociente);</code></pre>
 </tbody>
 </table>
 </div>
-<h5 class="text-primary mt-3 mb-2">Excepciones frecuentes</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Excepciones frecuentes</h5>
 <div class="table-responsive">
 <table class="table table-bordered align-middle">
 <thead class="table-light">
@@ -84,9 +84,9 @@ System.out.println(cociente);</code></pre>
 </table>
 </div>
 <div><strong>Primero hay que comprender la causa.</strong> Capturar una excepción no siempre es la solución. Por ejemplo, una referencia sin inicializar suele indicar que hay que corregir el programa.</div>
-<h5 class="text-primary mt-3 mb-2">Propagación</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Propagación</h5>
 <p>Si un método no trata una excepción, esta vuelve al método que lo llamó:</p>
-<pre><code class="language-java">public static int convertir(String texto) {
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">public static int convertir(String texto) {
     return Integer.parseInt(texto);
 }
 
@@ -95,8 +95,8 @@ public static void main(String[] args) {
     System.out.println(numero);
 }</code></pre>
 <p>La excepción se produce dentro de <code>parseInt</code>, pasa por <code>convertir</code> y llega a <code>main</code>. Si ningún método la trata, el programa termina y Java muestra una traza.</p>
-<h5 class="text-primary mt-3 mb-2">Cómo leer una traza</h5>
-<pre><code class="language-java">java.lang.NumberFormatException: For input string: "doce"
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-list-ol" aria-hidden="true"></i> Cómo leer una traza</h5>
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">java.lang.NumberFormatException: For input string: "doce"
     at java.lang.Integer.parseInt(Integer.java:...)
     at Conversor.convertir(Conversor.java:4)
     at Conversor.main(Conversor.java:8)</code></pre>
@@ -105,7 +105,7 @@ public static void main(String[] args) {
 <li><strong>Mensaje:</strong> el texto problemático es <code>"doce"</code>.</li>
 <li><strong>Primera línea de nuestro código:</strong> <code>Conversor.java:4</code>.</li>
 </ol>
-<h5 class="text-primary mt-3 mb-2">Dos grupos que debemos conocer</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Dos grupos que debemos conocer</h5>
 <div class="table-responsive">
 <table class="table table-bordered align-middle">
 <thead class="table-light">
@@ -130,20 +130,20 @@ public static void main(String[] args) {
 </table>
 </div>
 <p>Por ahora basta con recordar esta diferencia. En el último capítulo veremos por qué afecta a las excepciones que creemos.</p>
-<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-bug" aria-hidden="true"></i> Cómo probarlo y depurarlo</h5>
 <ul>
 <li>Ejecuta primero un caso correcto.</li>
 <li>Provoca después la excepción con un dato sencillo.</li>
 <li>Lee el tipo, el mensaje y la primera línea de tu código.</li>
 <li>Utiliza el depurador para observar en qué sentencia se interrumpe el flujo.</li>
 </ul>
-<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-question-circle" aria-hidden="true"></i> Comprueba tu comprensión</h5>
 <p>¿Por qué capturar una <code>NullPointerException</code> no suele arreglar una variable que nunca se inicializó?</p>
 <details>
 <summary>Ver la solución</summary>
 <p>Porque ocultaría el defecto. Lo adecuado es inicializar correctamente la variable o revisar si <code>null</code> debería estar permitido.</p>
 </details>
-<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-check-circle" aria-hidden="true"></i> Resumen del capítulo</h5>
 <ul>
 <li>Una excepción aparece durante la ejecución y altera el flujo normal.</li>
 <li>Si no se trata, se propaga por las llamadas activas.</li>
@@ -153,24 +153,24 @@ public static void main(String[] args) {
     </div>
 
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3.2. Tratamiento de excepciones</h4>
+      <h4 class="text-primary mb-3"><i class="fa fa-file-text"></i> 3.3.2. Tratamiento de excepciones</h4>
 <p>Un bloque <code>try-catch</code> permite responder cuando una operación no puede completarse.</p>
-<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Qué vas a aprender</h5>
 <ul>
 <li>Utilizar <code>try</code> y <code>catch</code>.</li>
 <li>Tratar distintos tipos con varios bloques <code>catch</code>.</li>
 <li>Comprender el uso básico de <code>finally</code>.</li>
 <li>Evitar capturas que oculten el problema.</li>
 </ul>
-<h5 class="text-primary mt-3 mb-2">Estructura try-catch</h5>
-<pre><code class="language-java">try {
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Estructura try-catch</h5>
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">try {
     // Operación que puede lanzar una excepción
 } catch (TipoDeExcepcion e) {
     // Respuesta al problema
 }</code></pre>
 <p>Si se lanza una excepción compatible, Java abandona el resto del <code>try</code> y ejecuta el <code>catch</code>.</p>
-<h5 class="text-primary mt-3 mb-2">Permitir otro intento</h5>
-<pre><code class="language-java">boolean valido = false;
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Permitir otro intento</h5>
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">boolean valido = false;
 int numero = 0;
 
 while (!valido) {
@@ -187,9 +187,9 @@ while (!valido) {
 
 System.out.println("Número aceptado: " + numero);</code></pre>
 <p>La captura tiene una finalidad concreta: informar y repetir. No asigna un valor falso ni continúa como si la conversión hubiera funcionado.</p>
-<h5 class="text-primary mt-3 mb-2">Varios catch</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Varios catch</h5>
 <p>Una operación puede tener problemas diferentes:</p>
-<pre><code class="language-java">try {
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">try {
     int dividendo = Integer.parseInt(textoDividendo);
     int divisor = Integer.parseInt(textoDivisor);
     System.out.println(dividendo / divisor);
@@ -200,9 +200,9 @@ System.out.println("Número aceptado: " + numero);</code></pre>
 }</code></pre>
 <p>Java ejecuta el primer <code>catch</code> compatible. Si se utilizan clases relacionadas, la más específica debe aparecer antes que la más general.</p>
 <div><strong>Multicaptura.</strong> Si dos excepciones necesitan exactamente la misma respuesta, pueden agruparse: <code>catch (NumberFormatException | ArithmeticException e)</code>.</div>
-<h5 class="text-primary mt-3 mb-2">El bloque finally</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> El bloque finally</h5>
 <p><code>finally</code> contiene instrucciones que se ejecutan al finalizar el intento, haya ocurrido o no una excepción:</p>
-<pre><code class="language-java">try {
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">try {
     int numero = Integer.parseInt(texto);
     System.out.println("Número: " + numero);
 } catch (NumberFormatException e) {
@@ -211,34 +211,34 @@ System.out.println("Número aceptado: " + numero);</code></pre>
     System.out.println("Fin del intento");
 }</code></pre>
 <p>En programas reales suele emplearse para liberar recursos o restaurar un estado temporal. En los primeros programas basta con comprender su posición en el flujo.</p>
-<h5 class="text-primary mt-3 mb-2">Tratar o propagar</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Tratar o propagar</h5>
 <p>Un método debería capturar una excepción cuando sabe cómo responder correctamente. Por ejemplo, puede pedir otro dato o mostrar un mensaje en la interfaz.</p>
 <p>Si no sabe cómo continuar, es preferible que la excepción se propague. Capturarla únicamente para que no se vea elimina información necesaria para encontrar el problema.</p>
-<h5 class="text-primary mt-3 mb-2">Dos capturas incorrectas</h5>
-<h5 class="text-primary mt-3 mb-2">Ignorar la excepción</h5>
-<pre><code class="language-java">try {
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Dos capturas incorrectas</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ignorar la excepción</h5>
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">try {
     procesar();
 } catch (Exception e) {
     // No hace nada
 }</code></pre>
 <p>El programa sigue sin haber realizado la operación y sin explicar lo sucedido.</p>
-<h5 class="text-primary mt-3 mb-2">Inventar un resultado</h5>
-<pre><code class="language-java">try {
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Inventar un resultado</h5>
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">try {
     return calcularPrecio();
 } catch (Exception e) {
     return 0;
 }</code></pre>
 <p>El llamador no puede saber si cero es un precio real o una operación fallida.</p>
-<h5 class="text-primary mt-3 mb-2">Cómo probarlo y depurarlo</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-bug" aria-hidden="true"></i> Cómo probarlo y depurarlo</h5>
 <ul>
 <li>Prueba el camino sin excepción.</li>
 <li>Provoca cada excepción capturada.</li>
 <li>Comprueba que no se ejecutan las instrucciones posteriores al fallo dentro del <code>try</code>.</li>
 <li>Observa qué <code>catch</code> recibe la excepción.</li>
 </ul>
-<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-question-circle" aria-hidden="true"></i> Comprueba tu comprensión</h5>
 <p>¿Qué letras se muestran?</p>
-<pre><code class="language-java">try {
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">try {
     System.out.println("A");
     Integer.parseInt("x");
     System.out.println("B");
@@ -251,7 +251,7 @@ System.out.println("Número aceptado: " + numero);</code></pre>
 <summary>Ver la solución</summary>
 <p>Se muestran A, C y D. La excepción impide llegar a B.</p>
 </details>
-<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-check-circle" aria-hidden="true"></i> Resumen del capítulo</h5>
 <ul>
 <li><code>try</code> contiene las operaciones que pueden fallar.</li>
 <li><code>catch</code> responde a un tipo concreto de excepción.</li>
@@ -262,9 +262,9 @@ System.out.println("Número aceptado: " + numero);</code></pre>
     </div>
 
     <div class="mb-4">
-      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> 3.3.3. Lanzamiento y creación</h4>
+      <h4 class="text-primary mb-3"><i class="fa fa-file-text"></i> 3.3.3. Lanzamiento y creación</h4>
 <p>Un método puede lanzar una excepción cuando detecta que no puede realizar correctamente la operación solicitada.</p>
-<h5 class="text-primary mt-3 mb-2">Qué vas a aprender</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Qué vas a aprender</h5>
 <ul>
 <li>Lanzar una excepción con <code>throw</code>.</li>
 <li>Declarar una excepción con <code>throws</code>.</li>
@@ -272,9 +272,9 @@ System.out.println("Número aceptado: " + numero);</code></pre>
 <li>Capturarla desde el código que llama al método.</li>
 <li>Comprobar que una operación fallida no modifica el estado.</li>
 </ul>
-<h5 class="text-primary mt-3 mb-2">Lanzar con throw</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-code" aria-hidden="true"></i> Lanzar con throw</h5>
 <p>Un método puede comprobar sus argumentos y lanzar una excepción estándar si no cumplen sus reglas:</p>
-<pre><code class="language-java">public static double calcularPrecioUnitario(
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">public static double calcularPrecioUnitario(
         double total, int unidades) {
 
     if (unidades &lt;= 0) {
@@ -285,7 +285,7 @@ System.out.println("Número aceptado: " + numero);</code></pre>
     return total / unidades;
 }</code></pre>
 <p><code>throw</code> crea el salto en el flujo. Cuando se ejecuta, el método no continúa por las sentencias siguientes.</p>
-<h5 class="text-primary mt-3 mb-2">Diferencia entre throw y throws</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-code" aria-hidden="true"></i> Diferencia entre throw y throws</h5>
 <div class="table-responsive">
 <table class="table table-bordered align-middle">
 <thead class="table-light">
@@ -309,18 +309,18 @@ System.out.println("Número aceptado: " + numero);</code></pre>
 </tbody>
 </table>
 </div>
-<h5 class="text-primary mt-3 mb-2">Crear una excepción propia</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-info-circle" aria-hidden="true"></i> Crear una excepción propia</h5>
 <p>Supongamos que una cuenta no permite retirar más dinero del disponible. Podemos representar esa situación con una clase propia:</p>
 <div>SaldoInsuficienteException.java</div>
-<pre><code class="language-java">public class SaldoInsuficienteException extends Exception {
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">public class SaldoInsuficienteException extends Exception {
 
     public SaldoInsuficienteException(String mensaje) {
         super(mensaje);
     }
 }</code></pre>
 <p>La nueva clase hereda de <code>Exception</code>. Su constructor recibe un mensaje y lo entrega a la clase base mediante <code>super</code>.</p>
-<h5 class="text-primary mt-3 mb-2">Lanzarla desde la operación</h5>
-<pre><code class="language-java">public void retirar(double cantidad)
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-code" aria-hidden="true"></i> Lanzarla desde la operación</h5>
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">public void retirar(double cantidad)
         throws SaldoInsuficienteException {
 
     if (cantidad &lt;= 0) {
@@ -337,15 +337,15 @@ System.out.println("Número aceptado: " + numero);</code></pre>
 }</code></pre>
 <p>Primero se realizan todas las comprobaciones. El saldo solo cambia cuando la operación es válida.</p>
 <div><strong>Estado coherente.</strong> Si el método lanza una excepción, el saldo conserva su valor anterior.</div>
-<h5 class="text-primary mt-3 mb-2">Capturarla en el llamador</h5>
-<pre><code class="language-java">try {
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-code" aria-hidden="true"></i> Capturarla en el llamador</h5>
+<pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code class="language-java" style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;">try {
     cuenta.retirar(120.0);
     System.out.println("Retirada realizada");
 } catch (SaldoInsuficienteException e) {
     System.out.println(e.getMessage());
 }</code></pre>
 <p>La clase de la cuenta comunica el problema. El código que interactúa con el usuario decide cómo mostrarlo.</p>
-<h5 class="text-primary mt-3 mb-2">Casos que hay que probar</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-flask" aria-hidden="true"></i> Casos que hay que probar</h5>
 <div class="table-responsive">
 <table class="table table-bordered align-middle">
 <thead class="table-light">
@@ -374,20 +374,20 @@ System.out.println("Número aceptado: " + numero);</code></pre>
 </tbody>
 </table>
 </div>
-<h5 class="text-primary mt-3 mb-2">Errores frecuentes</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Errores frecuentes</h5>
 <ul>
 <li>Confundir <code>throw</code> con <code>throws</code>.</li>
 <li>Modificar el saldo antes de comprobar si la retirada es posible.</li>
 <li>Escribir mensajes genéricos como «Error».</li>
 <li>Declarar la excepción con <code>throws</code> y creer que ya se ha tratado.</li>
 </ul>
-<h5 class="text-primary mt-3 mb-2">Comprueba tu comprensión</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-question-circle" aria-hidden="true"></i> Comprueba tu comprensión</h5>
 <p>¿Qué diferencia existe entre lanzar una excepción y declararla?</p>
 <details>
 <summary>Ver la solución</summary>
 <p><code>throw</code> lanza un objeto en un punto concreto. <code>throws</code> avisa en la cabecera de que ese tipo puede salir del método.</p>
 </details>
-<h5 class="text-primary mt-3 mb-2">Resumen del capítulo</h5>
+<h5 class="text-primary mt-3 mb-2"><i class="fa fa-check-circle" aria-hidden="true"></i> Resumen del capítulo</h5>
 <ul>
 <li><code>throw</code> lanza una excepción y <code>throws</code> declara su posible propagación.</li>
 <li>Una excepción propia permite representar un problema concreto.</li>
