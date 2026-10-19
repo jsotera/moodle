@@ -1,0 +1,134 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-sitemap" aria-hidden="true"></i> 4.6 Miembros de clase: static y constantes</h2>
+    <p class="lead">Algunos datos y operaciones pertenecen a un objeto; otros se comparten a través de la clase. static nos permite expresar esa diferencia.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-users" aria-hidden="true"></i> Datos del objeto y datos de la clase</h4>
+      <p>Cada jugador tiene sus puntos. Sin embargo, podemos contar cuántos jugadores hemos creado durante la ejecución. Ese contador se comparte entre las instancias y pertenece a la clase.</p>
+      <p><strong>Jugador.java: versión independiente para este capítulo</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    public static final int PUNTOS_PARA_GANAR = 100;
+    private static int jugadoresCreados = 0;
+
+    private String nombre;
+    private int puntos;
+
+    public Jugador(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+        puntos = 0;
+        jugadoresCreados++;
+    }
+
+    public static int getJugadoresCreados() {
+        return jugadoresCreados;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public boolean sumarPuntos(int cantidad) {
+        if (cantidad &lt;= 0) {
+            return false;
+        }
+        puntos += cantidad;
+        return true;
+    }
+
+    public boolean haGanado() {
+        return puntos &gt;= PUNTOS_PARA_GANAR;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Jugador iker = new Jugador("Iker");
+ana.sumarPuntos(10);
+System.out.println(ana.getPuntos());
+System.out.println(iker.getPuntos());
+System.out.println(Jugador.getJugadoresCreados());
+System.out.println(Jugador.PUNTOS_PARA_GANAR);</code></pre>
+      <p>Muestra 10, 0, 2 y 100. Los puntos son independientes; jugadoresCreados es compartido. Llamamos a los miembros estáticos mediante el nombre de la clase.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> El contador registra construcciones válidas, no jugadores que siguen vivos ni jugadores conectados. Si hacemos <code>Jugador otra = ana;</code> , no aumenta. Al reiniciar el programa vuelve a empezar en cero. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Qué significa static</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Miembro</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Cómo se utiliza</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Atributo de instancia</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Cada objeto tiene su propio valor.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Atributo static</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Existe un valor compartido asociado a la clase.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Método de instancia</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Se llama sobre un objeto y puede utilizar su estado.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Método static</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Se llama sobre la clase; no tiene un objeto this.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Un método static no puede acceder directamente a nombre o puntos: ¿los de qué jugador? Sí puede usar parámetros, variables locales y miembros estáticos. Por eso desde main creamos un objeto antes de llamar a sus métodos de instancia.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-thumbtack" aria-hidden="true"></i> Constantes</h4>
+      <p><code>final</code> impide reasignar ese campo después de su inicialización. En <code>public static final int PUNTOS_PARA_GANAR = 100;</code> combinamos acceso público, un valor de clase y una constante. Los nombres de constantes suelen escribirse con mayúsculas y guiones bajos.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> Un método estático de utilidad</h4>
+      <p><strong>Conversor.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Conversor {
+    public static double minutosAHoras(int minutos) {
+        if (minutos &lt; 0) {
+            throw new IllegalArgumentException("Los minutos no pueden ser negativos");
+        }
+        return minutos / 60.0;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">System.out.println(Conversor.minutosAHoras(90));</code></pre>
+      <p>Devuelve 1.5. El cálculo no depende del estado de ningún Conversor. Usamos 60.0 para evitar la división entera.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba y practica</h4>
+      <p>Creamos dos jugadores y hacemos <code>Jugador tercero = ana;</code>. ¿Qué devuelve getJugadoresCreados?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>2. Hay tres variables, pero solo dos construcciones.</p>
+      </details>
+      <ul>
+        <li style="margin-bottom:.5rem;">Añade a Conversor un método estático para pasar horas a minutos.</li>
+        <li style="margin-bottom:.5rem;">Diseña una clase Entrada con precio de instancia y un contador estático de entradas creadas. Construye dos y compara sus precios con el contador.</li>
+        <li style="margin-bottom:.5rem;">Explica por qué no debes declarar static los puntos de Jugador.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">static asocia el miembro a la clase.</li>
+        <li style="margin-bottom:.5rem;">Un método estático no tiene this.</li>
+        <li style="margin-bottom:.5rem;">static final es adecuado para constantes compartidas.</li>
+        <li style="margin-bottom:.5rem;">Una referencia adicional a un objeto no cuenta como una nueva construcción.</li>
+      </ul>
+    </div>
+  </div>
+</div>

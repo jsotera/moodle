@@ -1,0 +1,129 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-cogs" aria-hidden="true"></i> 4.2 Métodos y comportamiento de los objetos</h2>
+    <p class="lead">Un método expresa una acción o una consulta. Aprenderemos a pasar datos, devolver resultados y decidir qué responsabilidad pertenece al objeto.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-play-circle" aria-hidden="true"></i> El objeto también puede actuar</h4>
+      <p>Hasta ahora Main cambiaba los puntos directamente. Vamos a darle esa responsabilidad al jugador. Sustituye la clase del capítulo anterior por esta versión:</p>
+      <p><strong>Jugador.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    String nombre;
+    int puntos;
+
+    public void sumarPuntos(int cantidad) {
+        puntos += cantidad;
+    }
+
+    public int consultarPuntos() {
+        return puntos;
+    }
+
+    public boolean haGanado() {
+        return puntos &gt;= 100;
+    }
+
+    public void cambiarNombre(String nombre) {
+        this.nombre = nombre;
+    }
+}</code></pre>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-search" aria-hidden="true"></i> Leer la cabecera de un método</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Parte</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Significado en <code>public int consultarPuntos()</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">public</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Podemos llamarlo desde otras clases.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">int</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Devuelve un valor entero.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">consultarPuntos</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Nombre de la operación.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">()</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">No necesita parámetros.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>En <code>sumarPuntos(int cantidad)</code>, el parámetro es la variable que recibe el dato. En <code>j1.sumarPuntos(20)</code>, el argumento es el valor concreto 20. El parámetro solo existe dentro de esa llamada al método.</p>
+      <p><code>void</code> significa que el método no devuelve un valor. Un método con tipo de retorno devuelve un valor compatible mediante <code>return</code>. Esa instrucción termina la ejecución de la llamada.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> Llamar y aprovechar el resultado</h4>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador j1 = new Jugador();
+j1.cambiarNombre("Ana");
+j1.sumarPuntos(60);
+j1.sumarPuntos(40);
+int total = j1.consultarPuntos();
+System.out.println(total);
+if (j1.haGanado()) {
+    System.out.println("Ha ganado");
+}</code></pre>
+      <p>El resultado es 100 y después «Ha ganado». Llamar a un método que devuelve un valor no lo muestra automáticamente. Para verlo usamos <code>System.out.println</code>; para tomar una decisión podemos usarlo en un <code>if</code>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-crosshairs" aria-hidden="true"></i> this: el objeto que recibe la llamada</h4>
+      <p>En <code>cambiarNombre</code> el atributo y el parámetro se llaman igual. <code>this.nombre</code> identifica el atributo del objeto; <code>nombre</code> identifica el parámetro. Si llamamos a <code>j1.cambiarNombre("Ana")</code>, this se refiere al objeto de j1.</p>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> <code>nombre = nombre;</code> asignaría el parámetro a sí mismo: el atributo no cambiaría. Cuando no hay coincidencia de nombres, escribir this suele ser opcional. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-sliders" aria-hidden="true"></i> Varios parámetros</h4>
+      <p><strong>Método que puedes añadir a Jugador</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public int calcularPuntosExtra(int aciertos, int puntosPorAcierto) {
+    return aciertos * puntosPorAcierto;
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">int extra = j1.calcularPuntosExtra(3, 5);
+j1.sumarPuntos(extra);</code></pre>
+      <p>Los argumentos deben coincidir en número, orden y tipos con los parámetros. Este cálculo devuelve 15; solo la llamada posterior a sumarPuntos modifica el estado. Una variable declarada dentro de un método es local a ese método.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador a = new Jugador();
+Jugador b = new Jugador();
+a.sumarPuntos(10);
+b.sumarPuntos(3);
+boolean resultado = a.haGanado();</code></pre>
+      <p>¿Qué puntos tiene cada objeto? ¿Consultar haGanado modifica los puntos?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>a tiene 10, b tiene 3 y resultado vale false. haGanado consulta el estado sin modificarlo.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-balance-scale" aria-hidden="true"></i> ¿Main o el objeto?</h4>
+      <p>El objeto realiza las operaciones que dependen de su estado. Main coordina: crea objetos, llama a sus métodos y muestra resultados. Para reutilizar nuestras clases, evitaremos mezclar cada operación con preguntas por teclado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Añade <code>reiniciarPuntos()</code>, sin parámetros ni retorno.</li>
+        <li style="margin-bottom:.5rem;">Añade <code>estaPorDelanteDe(int otrosPuntos)</code>, que devuelva boolean.</li>
+        <li style="margin-bottom:.5rem;">Prueba 0, 99 y 100 puntos y anota el resultado esperado de haGanado antes de ejecutar.</li>
+        <li style="margin-bottom:.5rem;">Crea <code>Termostato</code> con temperatura actual y objetivo: incluye un método para cambiar el objetivo y otro para consultar si hace falta calentar. No uses entrada por teclado dentro de la clase.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Los parámetros reciben los argumentos de cada llamada.</li>
+        <li style="margin-bottom:.5rem;">void no devuelve un valor; return permite devolver un resultado.</li>
+        <li style="margin-bottom:.5rem;">this identifica el objeto actual y ayuda a distinguir atributos y parámetros.</li>
+        <li style="margin-bottom:.5rem;">Main coordina; cada objeto gestiona su propio comportamiento.</li>
+      </ul>
+    </div>
+  </div>
+</div>

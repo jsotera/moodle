@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../assets/pwa/icon-192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1792406671113" rel="stylesheet">
+    <link href="assets/css/course.css?v=1792407821285" rel="stylesheet">
   </head>
   <body data-page-id="ut04-teoria">
     <div class="app-shell">
@@ -69,23 +69,1198 @@
     <p class="lead mb-0">Programación Orientada a Objetos (POO)</p>
   </div>
 </section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de teoría">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Teoría
+  </h2>
+  <div class="section-nav-list">
 
-<section id="ut04-teoria-01-contenido-inicial" class="fragment-section section-anchor">
+        <a class="section-nav-link" href="#ut04-teoria-01-clases-objetos-estado">
+          4.1 Clases, objetos y estado
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-02-metodos-comportamiento">
+          4.2 Métodos y comportamiento de los objetos
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-03-constructores-inicializacion">
+          4.3 Constructores e inicialización
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-04-encapsulacion-diseno">
+          4.4 Encapsulación y diseño de clases
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-05-relaciones-colaboracion-objetos">
+          4.5 Relaciones y colaboración entre objetos
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-06-static-constantes">
+          4.6 Miembros de clase: static y constantes
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-07-organizacion-reutilizacion-clases">
+          4.7 Organización y reutilización de clases
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-08-introduccion-herencia-interfaces">
+          4.8 Primera aproximación a herencia e interfaces
+        </a>
+        <a class="section-nav-link" href="#ut04-teoria-09-diseno-integracion-poo">
+          4.9 Diseño e integración de programas orientados a objetos
+        </a>
+  </div>
+</nav>
+
+<section id="ut04-teoria-01-clases-objetos-estado" class="fragment-section section-anchor">
 <div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> 4.1 Clases, objetos y estado</h2>
+    <p class="lead">Una clase describe un tipo de elemento; cada objeto tiene su propio estado. Vamos a construir y observar nuestros primeros objetos.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-lightbulb" aria-hidden="true"></i> De muchas variables a una clase</h4>
+      <p>Queremos guardar el nombre y los puntos de dos jugadores. Con variables sueltas podríamos escribir:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">String nombre1 = "Ana";
+int puntos1 = 10;
+String nombre2 = "Iker";
+int puntos2 = 20;</code></pre>
+      <p>Cada vez que añadimos un jugador necesitamos otras variables. Una <strong>clase</strong> agrupa la información y las acciones de un mismo tipo de elemento. Un <strong>objeto</strong> es un elemento concreto creado a partir de esa clase.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Concepto</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">En nuestro ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Clase</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Jugador: define qué información tendrá cada jugador.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Objeto</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">El jugador de Ana o el jugador de Iker.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Atributos / estado</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">nombre y puntos: los datos de cada jugador.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Métodos / comportamiento</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Las acciones que programaremos, como sumar puntos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> Nuestra primera clase</h4>
+      <p><strong>Jugador.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    String nombre;
+    int puntos;
+}</code></pre>
+      <p>Guarda la clase en <code>Jugador.java</code>. El nombre del archivo debe coincidir con el de la clase pública. Las llaves delimitan su cuerpo. Cada atributo tiene un tipo y un nombre. Usamos mayúscula inicial para las clases y minúscula inicial para atributos y variables.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> En este primer ejemplo los atributos no tienen modificador de acceso: pueden utilizarse desde clases del mismo paquete. Lo hacemos para observar los objetos; más adelante los protegeremos con <code>private</code> . </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-play-circle" aria-hidden="true"></i> Crear y utilizar dos objetos</h4>
+      <p><strong>Main.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Main {
+    public static void main(String[] args) {
+        Jugador j1 = new Jugador();
+        Jugador j2 = new Jugador();
 
-<div class="card shadow p-4">
+        j1.nombre = "Ana";
+        j1.puntos = 10;
+        j2.nombre = "Iker";
+        j2.puntos = 20;
 
-<h2 class="text-primary mb-3"><i class="fas fa-diagram-project"></i> 4.1 Programación Orientada a Objetos (POO)</h2>
-
-<p class="lead">Diseño de programas mediante clases, objetos, encapsulación y responsabilidades.</p>
-
-<div class="mb-4">
-  <h4 class="text-primary mb-3"><i class="fas fa-book-open"></i> Contenidos</h4>
-  <p>Pendiente: aquí se volcará la teoría completa de la unidad cuando esté disponible.</p>
+        System.out.println(j1.nombre + ": " + j1.puntos);
+        System.out.println(j2.nombre + ": " + j2.puntos);
+    }
+}</code></pre>
+      <p>Crea ambos archivos en el mismo paquete y ejecuta <code>Main</code>. Cada <code>new Jugador()</code> crea un objeto. El punto permite acceder a un miembro del objeto. Cambiar <code>j1.puntos</code> no cambia los puntos de <code>j2</code>.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> La cabecera <code>main(String[] args)</code> se mantiene como ya la conoces. No utilizaremos <code>args</code> ni estudiaremos arrays en esta unidad. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Declarar no es crear</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Código</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Qué ocurre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>Jugador j1;</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Declara una variable local. Todavía no tiene un valor asignado.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>j1 = new Jugador();</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Crea un objeto y asigna su referencia a j1.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>Jugador j1 = new Jugador();</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Hace ambas cosas en una instrucción.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>Jugador j1 = null;</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">La variable tiene valor, pero no apunta a ningún objeto.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Una variable local sin inicializar no puede utilizarse: el compilador avisa. Si contiene <code>null</code> y accedemos a <code>j1.nombre</code>, se produce una <code>NullPointerException</code>. Son problemas diferentes.</p>
+      <p>Los atributos sí reciben valores iniciales de Java: <code>int</code> vale 0, <code>boolean</code> vale false y una referencia como <code>String</code> vale null. Una variable local no recibe automáticamente esos valores.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-link" aria-hidden="true"></i> Dos referencias pueden señalar el mismo objeto</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador j1 = new Jugador();
+j1.nombre = "Ana";
+j1.puntos = 10;
+Jugador j2 = j1;
+j2.puntos = 30;
+System.out.println(j1.puntos);</code></pre>
+      <p>Antes de ejecutarlo, predice el resultado. ¿Cuántos <code>new</code> hay?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Muestra 30. Solo se ha creado un objeto: j1 y j2 se refieren al mismo jugador. La asignación copia la referencia; no duplica el objeto.</p>
+      </details>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> <strong>Error frecuente:</strong> creer que <code>Jugador j2 = j1;</code> crea un jugador independiente. Para crear otro objeto necesitas otro <code>new</code> . </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica paso a paso</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea una clase <code>Lampara</code> con <code>String ubicacion</code> y <code>boolean encendida</code>.</li>
+        <li style="margin-bottom:.5rem;">Crea dos lámparas, enciende solo una y muestra el estado de ambas.</li>
+        <li style="margin-bottom:.5rem;">Asigna la primera referencia a una tercera variable. Cambia su estado desde esa variable y comprueba qué ocurre.</li>
+        <li style="margin-bottom:.5rem;">Coloca un punto de ruptura después de crear los objetos y observa sus atributos en el depurador.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-exchange" aria-hidden="true"></i> Cambia de contexto</h4>
+      <p>Una estación registra la temperatura de dos aulas. Propón una clase con nombre del aula y temperatura, crea dos objetos y modifica solo uno. No uses arrays: bastan dos variables.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">La clase define atributos y métodos; los objetos son instancias de esa clase.</li>
+        <li style="margin-bottom:.5rem;">Declarar una referencia y crear un objeto son operaciones diferentes.</li>
+        <li style="margin-bottom:.5rem;">Dos objetos pueden tener estados diferentes; dos referencias pueden apuntar al mismo objeto.</li>
+      </ul>
+    </div>
+  </div>
 </div>
+</section>
 
+
+<section id="ut04-teoria-02-metodos-comportamiento" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-cogs" aria-hidden="true"></i> 4.2 Métodos y comportamiento de los objetos</h2>
+    <p class="lead">Un método expresa una acción o una consulta. Aprenderemos a pasar datos, devolver resultados y decidir qué responsabilidad pertenece al objeto.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-play-circle" aria-hidden="true"></i> El objeto también puede actuar</h4>
+      <p>Hasta ahora Main cambiaba los puntos directamente. Vamos a darle esa responsabilidad al jugador. Sustituye la clase del capítulo anterior por esta versión:</p>
+      <p><strong>Jugador.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    String nombre;
+    int puntos;
+
+    public void sumarPuntos(int cantidad) {
+        puntos += cantidad;
+    }
+
+    public int consultarPuntos() {
+        return puntos;
+    }
+
+    public boolean haGanado() {
+        return puntos &gt;= 100;
+    }
+
+    public void cambiarNombre(String nombre) {
+        this.nombre = nombre;
+    }
+}</code></pre>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-search" aria-hidden="true"></i> Leer la cabecera de un método</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Parte</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Significado en <code>public int consultarPuntos()</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">public</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Podemos llamarlo desde otras clases.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">int</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Devuelve un valor entero.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">consultarPuntos</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Nombre de la operación.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">()</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">No necesita parámetros.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>En <code>sumarPuntos(int cantidad)</code>, el parámetro es la variable que recibe el dato. En <code>j1.sumarPuntos(20)</code>, el argumento es el valor concreto 20. El parámetro solo existe dentro de esa llamada al método.</p>
+      <p><code>void</code> significa que el método no devuelve un valor. Un método con tipo de retorno devuelve un valor compatible mediante <code>return</code>. Esa instrucción termina la ejecución de la llamada.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> Llamar y aprovechar el resultado</h4>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador j1 = new Jugador();
+j1.cambiarNombre("Ana");
+j1.sumarPuntos(60);
+j1.sumarPuntos(40);
+int total = j1.consultarPuntos();
+System.out.println(total);
+if (j1.haGanado()) {
+    System.out.println("Ha ganado");
+}</code></pre>
+      <p>El resultado es 100 y después «Ha ganado». Llamar a un método que devuelve un valor no lo muestra automáticamente. Para verlo usamos <code>System.out.println</code>; para tomar una decisión podemos usarlo en un <code>if</code>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-crosshairs" aria-hidden="true"></i> this: el objeto que recibe la llamada</h4>
+      <p>En <code>cambiarNombre</code> el atributo y el parámetro se llaman igual. <code>this.nombre</code> identifica el atributo del objeto; <code>nombre</code> identifica el parámetro. Si llamamos a <code>j1.cambiarNombre("Ana")</code>, this se refiere al objeto de j1.</p>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> <code>nombre = nombre;</code> asignaría el parámetro a sí mismo: el atributo no cambiaría. Cuando no hay coincidencia de nombres, escribir this suele ser opcional. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-sliders" aria-hidden="true"></i> Varios parámetros</h4>
+      <p><strong>Método que puedes añadir a Jugador</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public int calcularPuntosExtra(int aciertos, int puntosPorAcierto) {
+    return aciertos * puntosPorAcierto;
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">int extra = j1.calcularPuntosExtra(3, 5);
+j1.sumarPuntos(extra);</code></pre>
+      <p>Los argumentos deben coincidir en número, orden y tipos con los parámetros. Este cálculo devuelve 15; solo la llamada posterior a sumarPuntos modifica el estado. Una variable declarada dentro de un método es local a ese método.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador a = new Jugador();
+Jugador b = new Jugador();
+a.sumarPuntos(10);
+b.sumarPuntos(3);
+boolean resultado = a.haGanado();</code></pre>
+      <p>¿Qué puntos tiene cada objeto? ¿Consultar haGanado modifica los puntos?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>a tiene 10, b tiene 3 y resultado vale false. haGanado consulta el estado sin modificarlo.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-balance-scale" aria-hidden="true"></i> ¿Main o el objeto?</h4>
+      <p>El objeto realiza las operaciones que dependen de su estado. Main coordina: crea objetos, llama a sus métodos y muestra resultados. Para reutilizar nuestras clases, evitaremos mezclar cada operación con preguntas por teclado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Añade <code>reiniciarPuntos()</code>, sin parámetros ni retorno.</li>
+        <li style="margin-bottom:.5rem;">Añade <code>estaPorDelanteDe(int otrosPuntos)</code>, que devuelva boolean.</li>
+        <li style="margin-bottom:.5rem;">Prueba 0, 99 y 100 puntos y anota el resultado esperado de haGanado antes de ejecutar.</li>
+        <li style="margin-bottom:.5rem;">Crea <code>Termostato</code> con temperatura actual y objetivo: incluye un método para cambiar el objetivo y otro para consultar si hace falta calentar. No uses entrada por teclado dentro de la clase.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Los parámetros reciben los argumentos de cada llamada.</li>
+        <li style="margin-bottom:.5rem;">void no devuelve un valor; return permite devolver un resultado.</li>
+        <li style="margin-bottom:.5rem;">this identifica el objeto actual y ayuda a distinguir atributos y parámetros.</li>
+        <li style="margin-bottom:.5rem;">Main coordina; cada objeto gestiona su propio comportamiento.</li>
+      </ul>
+    </div>
+  </div>
 </div>
+</section>
 
+
+<section id="ut04-teoria-03-constructores-inicializacion" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-gavel" aria-hidden="true"></i> 4.3 Constructores e inicialización</h2>
+    <p class="lead">Crear un objeto incluye darle un estado inicial coherente. El constructor nos permite exigir los datos que necesita.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-leaf" aria-hidden="true"></i> Que el objeto nazca preparado</h4>
+      <p>Con <code>new Jugador()</code> podíamos olvidar asignar el nombre. Un constructor recibe los datos iniciales y prepara el objeto al crearlo. Sustituye Jugador por:</p>
+      <p><strong>Jugador.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    String nombre;
+    int puntos;
+
+    public Jugador(String nombre) {
+        this.nombre = nombre;
+        this.puntos = 0;
+    }
+
+    public Jugador(String nombre, int puntos) {
+        this.nombre = nombre;
+        this.puntos = puntos;
+    }
+
+    public void sumarPuntos(int cantidad) {
+        puntos += cantidad;
+    }
+
+    public int consultarPuntos() {
+        return puntos;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Jugador iker = new Jugador("Iker", 20);
+System.out.println(ana.consultarPuntos());
+System.out.println(iker.consultarPuntos());</code></pre>
+      <p>Ana empieza con 0 puntos e Iker con 20. Java elige el constructor según los argumentos de la llamada: eso es una forma sencilla de <strong>sobrecarga</strong>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-search" aria-hidden="true"></i> Cómo reconocer un constructor</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Tiene exactamente el nombre de la clase.</li>
+        <li style="margin-bottom:.5rem;">No tiene tipo de retorno, ni siquiera void.</li>
+        <li style="margin-bottom:.5rem;">Se ejecuta al crear el objeto con new.</li>
+        <li style="margin-bottom:.5rem;">Puede asignar atributos y comprobar los datos iniciales.</li>
+      </ul>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> Si escribes <code>public void Jugador(...)</code> , has declarado un método, no un constructor. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> El constructor por defecto</h4>
+      <p>Cuando no declaramos ningún constructor, Java proporciona uno sin parámetros. En cuanto declaramos un constructor propio, Java deja de añadirlo. Por eso <code>new Jugador()</code> ya no compila con esta versión: solo existen los constructores que hemos escrito.</p>
+      <p>Si de verdad necesitamos construir sin datos, debemos definir explícitamente un constructor sin parámetros y decidir unos valores iniciales adecuados. Tener muchos constructores no hace mejor una clase; deben responder a necesidades reales.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-shield-alt" aria-hidden="true"></i> Validar desde el principio</h4>
+      <p>Para impedir puntos iniciales negativos podemos sustituir el segundo constructor por:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public Jugador(String nombre, int puntos) {
+    if (nombre == null || nombre.isBlank()) {
+        throw new IllegalArgumentException("El nombre es obligatorio");
+    }
+    if (puntos &lt; 0) {
+        throw new IllegalArgumentException("Los puntos no pueden ser negativos");
+    }
+    this.nombre = nombre;
+    this.puntos = puntos;
+}</code></pre>
+      <p>El operador <code>||</code> evita evaluar isBlank cuando nombre es null. Ante un dato no válido se lanza una excepción, como vimos en la unidad anterior. La creación no se completa normalmente: no obtenemos un jugador válido de esa llamada.</p>
+      <p>Las mismas reglas deben aplicarse al constructor de un parámetro. Una forma de evitar repetirlas es encadenar los constructores:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public Jugador(String nombre) {
+    this(nombre, 0);
+}</code></pre>
+      <p><code>this(nombre, 0)</code> llama al otro constructor de la misma clase. En Java 17 debe ser la primera instrucción del constructor. No lo confundas con <code>this.nombre</code>, que accede a un atributo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>¿Cuántos objetos crea <code>this(nombre, 0)</code>? ¿Por qué <code>new Jugador("Ana", -1)</code> no debe producir un jugador utilizable?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>No crea un segundo objeto: ambos constructores colaboran en la inicialización del mismo. La segunda llamada recibe datos no válidos y lanza una excepción.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea <code>Marcador</code> con nombre y valor entero no negativo. Define un constructor de dos parámetros y otro que empiece en cero.</li>
+        <li style="margin-bottom:.5rem;">Prueba un valor positivo, cero y un valor negativo. Comprueba también nombre null y nombre vacío.</li>
+        <li style="margin-bottom:.5rem;">Crea <code>Rectangulo</code> con ancho y alto positivos. Ofrece un constructor para dos medidas y otro para un cuadrado. Añade calcularArea().</li>
+        <li style="margin-bottom:.5rem;">Explica por qué un constructor no sustituye a un método como sumarPuntos: inicializar y modificar son momentos diferentes.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Un constructor se llama como la clase y no declara retorno.</li>
+        <li style="margin-bottom:.5rem;">Varios constructores pueden ofrecer distintas formas de inicialización.</li>
+        <li style="margin-bottom:.5rem;">Java solo añade un constructor por defecto si no hemos declarado ninguno.</li>
+        <li style="margin-bottom:.5rem;">La validación inicial impide construir objetos con datos no admitidos.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-teoria-04-encapsulacion-diseno" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-shield-alt" aria-hidden="true"></i> 4.4 Encapsulación y diseño de clases</h2>
+    <p class="lead">Los atributos privados y los métodos adecuados permiten mantener el estado del objeto dentro de las reglas del problema.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-lock" aria-hidden="true"></i> Proteger las reglas del objeto</h4>
+      <p>Aunque el constructor valide, todavía podríamos escribir <code>j.puntos = -500;</code> desde Main. Necesitamos controlar todos los cambios. Encapsular consiste en proteger el estado y ofrecer operaciones que respeten las reglas.</p>
+      <p><strong>Jugador.java: nueva versión completa</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    private String nombre;
+    private int puntos;
+
+    public Jugador(String nombre) {
+        this(nombre, 0);
+    }
+
+    public Jugador(String nombre, int puntos) {
+        if (nombre == null || nombre.isBlank() || puntos &lt; 0) {
+            throw new IllegalArgumentException("Datos de jugador no válidos");
+        }
+        this.nombre = nombre;
+        this.puntos = puntos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+    }
+
+    public boolean sumarPuntos(int cantidad) {
+        if (cantidad &lt;= 0) {
+            return false;
+        }
+        puntos += cantidad;
+        return true;
+    }
+
+    public boolean haGanado() {
+        return puntos &gt;= 100;
+    }
+}</code></pre>
+      <p>Ahora <code>j.puntos = -500;</code> no compila desde Main. getPuntos permite consultar y sumarPuntos controla el cambio. Si la cantidad no es positiva, devuelve false y conserva el estado. Main decide cómo avisar de ese resultado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-eye" aria-hidden="true"></i> Visibilidad mínima que necesitamos</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Modificador</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">public</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Un miembro accesible desde otras clases, siempre que la clase sea accesible.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">private</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Un miembro accesible dentro de la clase que lo declara.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Sin modificador</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Accesible desde clases del mismo paquete.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Una clase principal de un archivo puede ser public o tener acceso de paquete si no lleva modificador. No puede declararse private como clase de nivel superior. En el capítulo de paquetes veremos por qué la visibilidad también importa para las clases.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> La visibilidad regula el acceso al código. No sustituye a la validación de valores: un método público sigue teniendo que comprobar los datos que recibe. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-sliders" aria-hidden="true"></i> Getters, setters y operaciones</h4>
+      <p>Un getter consulta un atributo; un setter modifica uno, normalmente con validación. No hay que generar un setter por cada atributo. Los puntos se obtienen mediante una acción: por eso preferimos sumarPuntos a permitir cualquier setPuntos.</p>
+      <p>Del mismo modo, una cuenta puede ofrecer ingresar y retirar en lugar de setSaldo. Las operaciones expresan qué cambios permite el programa. Una consulta como haGanado calcula un resultado: no necesita guardar un atributo adicional que pueda quedar desactualizado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-flask" aria-hidden="true"></i> Prueba la protección</h4>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana", 10);
+boolean aceptada = ana.sumarPuntos(-5);
+System.out.println(aceptada);
+System.out.println(ana.getPuntos());
+ana.setNombre("Ane");
+System.out.println(ana.getNombre());</code></pre>
+      <p>Predice la salida y compruébala: false, 10, Ane. En el depurador observa que la operación rechazada no modifica los puntos.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>Un setter acepta cualquier cantidad negativa aunque el constructor la rechace. ¿Está protegida la regla de la clase?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>No. Hay que preservar las reglas en todos los caminos que puedan cambiar el estado. El constructor protege el inicio; los métodos protegen los cambios posteriores.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea <code>Deposito</code> con capacidad y litros actuales privados. El constructor exige capacidad positiva y empieza vacío.</li>
+        <li style="margin-bottom:.5rem;">Añade getLitros(), llenar(int cantidad) y vaciar(int cantidad). Cada operación devuelve boolean y solo acepta cantidades positivas que respeten 0 ≤ litros ≤ capacidad.</li>
+        <li style="margin-bottom:.5rem;">No añadas setLitros(). Prueba llenar hasta la capacidad exacta, sobrepasarla, vaciar hasta cero y vaciar más de lo disponible.</li>
+        <li style="margin-bottom:.5rem;">Crea después un <code>Contador</code> entre 0 y un máximo: incluye incrementar y reiniciar. Decide qué consultas necesita Main.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">private protege el acceso directo al estado.</li>
+        <li style="margin-bottom:.5rem;">No todos los atributos necesitan setter.</li>
+        <li style="margin-bottom:.5rem;">Constructores y métodos deben preservar las mismas reglas.</li>
+        <li style="margin-bottom:.5rem;">Una operación rechazada debe tener un resultado claro y conservar el estado.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-teoria-05-relaciones-colaboracion-objetos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-project-diagram" aria-hidden="true"></i> 4.5 Relaciones y colaboración entre objetos</h2>
+    <p class="lead">Un objeto puede recibir, guardar y devolver referencias a otros objetos. Así repartimos el trabajo entre varias clases sin necesitar arrays ni colecciones.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-link" aria-hidden="true"></i> Un objeto puede conocer a otro</h4>
+      <p>Una partida necesita saber quién juega. En lugar de copiar el nombre y los puntos, guarda una referencia a un Jugador. Usaremos la versión encapsulada del capítulo anterior.</p>
+      <p><strong>Partida.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Partida {
+    private Jugador jugador;
+    private boolean terminada;
+
+    public Partida(Jugador jugador) {
+        if (jugador == null) {
+            throw new IllegalArgumentException("Se necesita un jugador");
+        }
+        this.jugador = jugador;
+        this.terminada = false;
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public boolean estaTerminada() {
+        return terminada;
+    }
+
+    public boolean registrarAcierto(int puntos) {
+        if (terminada) {
+            return false;
+        }
+        boolean aceptado = jugador.sumarPuntos(puntos);
+        if (aceptado &amp;&amp; jugador.haGanado()) {
+            terminada = true;
+        }
+        return aceptado;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Partida partida = new Partida(ana);
+partida.registrarAcierto(60);
+partida.registrarAcierto(40);
+System.out.println(ana.getPuntos());
+System.out.println(partida.estaTerminada());
+System.out.println(partida.getJugador().getNombre());</code></pre>
+      <p>La salida es 100, true, Ana. Partida controla si se puede jugar; Jugador controla sus puntos. Cada clase tiene una responsabilidad. Partida contiene una referencia, no una copia independiente del jugador.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-route" aria-hidden="true"></i> Seguir las llamadas</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Main pide registrarAcierto a Partida.</li>
+        <li style="margin-bottom:.5rem;">Partida comprueba que no haya terminado.</li>
+        <li style="margin-bottom:.5rem;">Partida pide sumarPuntos a su Jugador.</li>
+        <li style="margin-bottom:.5rem;">Partida consulta si ha ganado y actualiza su propio estado.</li>
+        <li style="margin-bottom:.5rem;">Main consulta y presenta los resultados.</li>
+      </ul>
+      <p>La expresión <code>partida.getJugador().getNombre()</code> primero obtiene el jugador y después consulta su nombre. Para entenderla podemos separarla:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador participante = partida.getJugador();
+String nombre = participante.getNombre();</code></pre>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-share-alt" aria-hidden="true"></i> Referencias compartidas</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador participante = partida.getJugador();
+participante.setNombre("Ane");
+System.out.println(ana.getNombre());</code></pre>
+      <p>¿Qué nombre aparece?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Ane. ana, participante y el atributo jugador de partida apuntan al mismo objeto. getJugador devuelve esa referencia.</p>
+      </details>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> Devolver un objeto permite utilizar sus métodos públicos. Un atributo private no convierte al objeto referido en una copia ni impide que otras referencias lo modifiquen. </div>
+      <p>Esta pequeña Partida supone que los puntos se modifican a través de registrarAcierto mientras se juega. Si Main llama directamente a sumarPuntos, puede cambiar los puntos sin actualizar terminada. Es una decisión de uso que debemos respetar; más adelante aprenderemos diseños que controlan mejor este tipo de cambios.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-exchange" aria-hidden="true"></i> Recibir y devolver objetos</h4>
+      <p>Un atributo, un parámetro o el retorno de un método puede tener el tipo de una clase propia. Por ejemplo, un Coche puede recibir un propietario en su constructor y permitir cambiarlo:</p>
+      <p><strong>Fragmento para una clase Coche con atributo Persona propietario</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public void cambiarPropietario(Persona nuevoPropietario) {
+    if (nuevoPropietario == null) {
+        throw new IllegalArgumentException("Se necesita un propietario");
+    }
+    this.propietario = nuevoPropietario;
+}</code></pre>
+      <p>Cambiar la referencia no modifica la Persona anterior: el coche pasa a conocer a otra. Si una relación es obligatoria, rechazamos null. Si fuese opcional, habría que comprobarlo antes de utilizarla.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica con dos clases</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea <code>Persona</code> con nombre privado, constructor validado y getNombre().</li>
+        <li style="margin-bottom:.5rem;">Crea <code>Coche</code> con matrícula y una Persona propietaria. Ambas son obligatorias. Añade getMatricula(), getPropietario() y cambiarPropietario().</li>
+        <li style="margin-bottom:.5rem;">Crea dos personas y un coche. Cambia su propietario y muestra el nombre antes y después.</li>
+        <li style="margin-bottom:.5rem;">Comprueba que recibir null como propietario no altera el propietario actual.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-random" aria-hidden="true"></i> Transferencia</h4>
+      <p>Diseña <code>Habitacion</code> con número y precio por noche positivo, <code>Cliente</code> con nombre y <code>Reserva</code> con una habitación, un cliente y un número positivo de noches. Reserva calcula el total utilizando el precio de su habitación. Solo necesitamos una reserva y variables individuales.</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Reserva recibe Cliente y Habitacion en el constructor y guarda sus referencias. calcularTotal() puede devolver <code>habitacion.getPrecioPorNoche() * noches</code>. No necesita guardar una copia del nombre del cliente ni del precio si quiere consultar siempre los datos actuales.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Una clase puede utilizar otras clases como tipos de atributos, parámetros y retornos.</li>
+        <li style="margin-bottom:.5rem;">Guardar o devolver una referencia no copia el objeto.</li>
+        <li style="margin-bottom:.5rem;">Cada clase debe encargarse de sus propias reglas.</li>
+        <li style="margin-bottom:.5rem;">Las relaciones obligatorias deben inicializarse y protegerse frente a null.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-teoria-06-static-constantes" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-sitemap" aria-hidden="true"></i> 4.6 Miembros de clase: static y constantes</h2>
+    <p class="lead">Algunos datos y operaciones pertenecen a un objeto; otros se comparten a través de la clase. static nos permite expresar esa diferencia.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-users" aria-hidden="true"></i> Datos del objeto y datos de la clase</h4>
+      <p>Cada jugador tiene sus puntos. Sin embargo, podemos contar cuántos jugadores hemos creado durante la ejecución. Ese contador se comparte entre las instancias y pertenece a la clase.</p>
+      <p><strong>Jugador.java: versión independiente para este capítulo</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    public static final int PUNTOS_PARA_GANAR = 100;
+    private static int jugadoresCreados = 0;
+
+    private String nombre;
+    private int puntos;
+
+    public Jugador(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+        puntos = 0;
+        jugadoresCreados++;
+    }
+
+    public static int getJugadoresCreados() {
+        return jugadoresCreados;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public boolean sumarPuntos(int cantidad) {
+        if (cantidad &lt;= 0) {
+            return false;
+        }
+        puntos += cantidad;
+        return true;
+    }
+
+    public boolean haGanado() {
+        return puntos &gt;= PUNTOS_PARA_GANAR;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Jugador iker = new Jugador("Iker");
+ana.sumarPuntos(10);
+System.out.println(ana.getPuntos());
+System.out.println(iker.getPuntos());
+System.out.println(Jugador.getJugadoresCreados());
+System.out.println(Jugador.PUNTOS_PARA_GANAR);</code></pre>
+      <p>Muestra 10, 0, 2 y 100. Los puntos son independientes; jugadoresCreados es compartido. Llamamos a los miembros estáticos mediante el nombre de la clase.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> El contador registra construcciones válidas, no jugadores que siguen vivos ni jugadores conectados. Si hacemos <code>Jugador otra = ana;</code> , no aumenta. Al reiniciar el programa vuelve a empezar en cero. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Qué significa static</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Miembro</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Cómo se utiliza</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Atributo de instancia</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Cada objeto tiene su propio valor.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Atributo static</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Existe un valor compartido asociado a la clase.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Método de instancia</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Se llama sobre un objeto y puede utilizar su estado.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Método static</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Se llama sobre la clase; no tiene un objeto this.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Un método static no puede acceder directamente a nombre o puntos: ¿los de qué jugador? Sí puede usar parámetros, variables locales y miembros estáticos. Por eso desde main creamos un objeto antes de llamar a sus métodos de instancia.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-thumbtack" aria-hidden="true"></i> Constantes</h4>
+      <p><code>final</code> impide reasignar ese campo después de su inicialización. En <code>public static final int PUNTOS_PARA_GANAR = 100;</code> combinamos acceso público, un valor de clase y una constante. Los nombres de constantes suelen escribirse con mayúsculas y guiones bajos.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> Un método estático de utilidad</h4>
+      <p><strong>Conversor.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Conversor {
+    public static double minutosAHoras(int minutos) {
+        if (minutos &lt; 0) {
+            throw new IllegalArgumentException("Los minutos no pueden ser negativos");
+        }
+        return minutos / 60.0;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">System.out.println(Conversor.minutosAHoras(90));</code></pre>
+      <p>Devuelve 1.5. El cálculo no depende del estado de ningún Conversor. Usamos 60.0 para evitar la división entera.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba y practica</h4>
+      <p>Creamos dos jugadores y hacemos <code>Jugador tercero = ana;</code>. ¿Qué devuelve getJugadoresCreados?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>2. Hay tres variables, pero solo dos construcciones.</p>
+      </details>
+      <ul>
+        <li style="margin-bottom:.5rem;">Añade a Conversor un método estático para pasar horas a minutos.</li>
+        <li style="margin-bottom:.5rem;">Diseña una clase Entrada con precio de instancia y un contador estático de entradas creadas. Construye dos y compara sus precios con el contador.</li>
+        <li style="margin-bottom:.5rem;">Explica por qué no debes declarar static los puntos de Jugador.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">static asocia el miembro a la clase.</li>
+        <li style="margin-bottom:.5rem;">Un método estático no tiene this.</li>
+        <li style="margin-bottom:.5rem;">static final es adecuado para constantes compartidas.</li>
+        <li style="margin-bottom:.5rem;">Una referencia adicional a un objeto no cuenta como una nueva construcción.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-teoria-07-organizacion-reutilizacion-clases" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-folder-open" aria-hidden="true"></i> 4.7 Organización y reutilización de clases</h2>
+    <p class="lead">Los paquetes ordenan nuestras clases. Una pequeña biblioteca en código fuente nos permite reutilizar lo que ya hemos programado.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-folder-open" aria-hidden="true"></i> Organizar un proyecto</h4>
+      <p>Cuando aparecen varias clases, los paquetes ayudan a agruparlas. Un paquete es un nombre que organiza clases; no es un array ni una colección de objetos. Vamos a separar el modelo de la aplicación.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Ruta de archivo</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Primera instrucción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">src/modelo/Jugador.java</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>package modelo;</code></td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">src/modelo/Partida.java</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>package modelo;</code></td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">src/app/Main.java</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>package app;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>En el IDE crea los paquetes dentro de la carpeta de fuentes de tu proyecto. Si trabajáis con Maven, esa carpeta suele ser <code>src/main/java</code>. Mantén una clase pública por archivo y el nombre de archivo correspondiente.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> package e import</h4>
+      <p><strong>src/modelo/Jugador.java: ejemplo mínimo</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">package modelo;
+
+public class Jugador {
+    private String nombre;
+
+    public Jugador(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+}</code></pre>
+      <p><strong>src/app/Main.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">package app;
+
+import modelo.Jugador;
+
+public class Main {
+    public static void main(String[] args) {
+        Jugador jugador = new Jugador("Ana");
+        System.out.println(jugador.getNombre());
+    }
+}</code></pre>
+      <p>package indica a qué paquete pertenece la clase. import permite utilizar su nombre corto desde otro paquete. No crea objetos ni ejecuta la clase. También podríamos escribir <code>modelo.Jugador</code> con el nombre completo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-eye" aria-hidden="true"></i> Visibilidad entre paquetes</h4>
+      <p>Para usar Jugador desde app, la clase, el constructor y getNombre son públicos. Si quitamos public a la clase, solo podrá usarse desde modelo. Si quitamos public a getNombre, ese método solo será accesible desde modelo. Los atributos privados siguen protegidos incluso dentro del mismo paquete.</p>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> Una clase no puede importar y usar cualquier otra solo por conocer su nombre. Debe estar disponible en el proyecto y su visibilidad debe permitir el acceso. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-recycle" aria-hidden="true"></i> Crear una pequeña biblioteca reutilizable</h4>
+      <p>Una biblioteca es un conjunto de clases que podemos reutilizar. Para empezar crearemos una biblioteca en código fuente, sin generar archivos JAR ni introducir herramientas nuevas.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea un paquete utilidades con Conversor.java del capítulo anterior. Cambia su primera línea a <code>package utilidades;</code>.</li>
+        <li style="margin-bottom:.5rem;">En app.Main escribe <code>import utilidades.Conversor;</code> y utiliza minutosAHoras(90).</li>
+        <li style="margin-bottom:.5rem;">Crea un segundo proyecto de consola, copia el paquete utilidades en su carpeta de fuentes e importa Conversor desde su Main.</li>
+        <li style="margin-bottom:.5rem;">Comprueba que la misma clase funciona sin modificarla en el segundo programa.</li>
+      </ul>
+      <p>Así hemos creado y utilizado un conjunto de clases reutilizables. No basta con organizar carpetas: la reutilización se comprueba empleando nuestras clases en otro programa.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-book" aria-hidden="true"></i> Bibliotecas de Java</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">import java.util.Scanner;</code></pre>
+      <p>Scanner es una clase de la biblioteca estándar que ya hemos utilizado. Clases como String y Math están en java.lang y no necesitan import explícito. También podemos usar <code>Math.abs(-7)</code>, que devuelve 7 mediante un método estático.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>¿Es <code>import modelo.Jugador;</code> equivalente a <code>new Jugador("Ana")</code>?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>No. import resuelve el nombre de la clase en el código. new crea un objeto durante la ejecución.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Organiza Cliente, Habitacion y Reserva en modelo y Main en app.</li>
+        <li style="margin-bottom:.5rem;">Muestra desde Main el cliente de una reserva utilizando sus métodos públicos.</li>
+        <li style="margin-bottom:.5rem;">Copia el paquete utilidades en ese proyecto y usa Conversor para mostrar en horas una duración en minutos.</li>
+        <li style="margin-bottom:.5rem;">Quita temporalmente public a una clase y a un método utilizados desde app. Lee los errores del compilador y restaura el acceso necesario.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">package organiza clases e import permite usar sus nombres cortos.</li>
+        <li style="margin-bottom:.5rem;">La visibilidad también afecta a clases, constructores y métodos entre paquetes.</li>
+        <li style="margin-bottom:.5rem;">Una biblioteca puede empezar como un conjunto reutilizable de archivos fuente.</li>
+        <li style="margin-bottom:.5rem;">Importar una clase no equivale a crear un objeto.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-teoria-08-introduccion-herencia-interfaces" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> 4.8 Primera aproximación a herencia e interfaces</h2>
+    <p class="lead">Vamos a reconocer y utilizar dos mecanismos de reutilización con ejemplos mínimos y separados del trabajo principal de la unidad.</p>
+    <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> Este capítulo es una primera aproximación. Practicaremos una clase heredada y una interfaz sencillas; el desarrollo de herencia y polimorfismo llegará en una unidad posterior. </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-sitemap" aria-hidden="true"></i> Herencia: una clase a partir de otra</h4>
+      <p>Una Persona tiene nombre. Un Alumno también es una Persona y añade un curso. Podemos reutilizar la parte común mediante extends. Crea un proyecto pequeño con estos tres archivos en el mismo paquete:</p>
+      <p><strong>Persona.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Persona {
+    private String nombre;
+
+    public Persona(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+}</code></pre>
+      <p><strong>Alumno.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Alumno extends Persona {
+    private String curso;
+
+    public Alumno(String nombre, String curso) {
+        super(nombre);
+        if (curso == null || curso.isBlank()) {
+            throw new IllegalArgumentException("El curso es obligatorio");
+        }
+        this.curso = curso;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+}</code></pre>
+      <p><strong>Main.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Main {
+    public static void main(String[] args) {
+        Alumno alumno = new Alumno("Ana", "DAW1");
+        System.out.println(alumno.getNombre());
+        System.out.println(alumno.getCurso());
+    }
+}</code></pre>
+      <p><code>extends Persona</code> indica que Alumno hereda de Persona. <code>super(nombre)</code> llama al constructor de Persona para inicializar esa parte del objeto. Los constructores no se heredan: Alumno define el suyo.</p>
+      <p>getNombre está definido en Persona y puede utilizarse sobre un Alumno. El atributo nombre sigue siendo privado: Alumno no accede directamente a él. No necesitamos cambiarlo a protected.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> <strong>No confundas relaciones:</strong> un Alumno <em>es una</em> Persona; un Coche <em>tiene una</em> Persona propietaria. En el segundo caso usamos un atributo, como en el capítulo 4.5. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-file-text" aria-hidden="true"></i> Interfaces: una operación que hay que ofrecer</h4>
+      <p>Queremos indicar que una clase debe ofrecer una operación imprimir. Una interfaz declara esa operación y la clase escribe cómo se realiza.</p>
+      <p><strong>Imprimible.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public interface Imprimible {
+    void imprimir();
+}</code></pre>
+      <p><strong>Ticket.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Ticket implements Imprimible {
+    private String concepto;
+
+    public Ticket(String concepto) {
+        if (concepto == null || concepto.isBlank()) {
+            throw new IllegalArgumentException("El concepto es obligatorio");
+        }
+        this.concepto = concepto;
+    }
+
+    @Override
+    public void imprimir() {
+        System.out.println("Ticket: " + concepto);
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Ticket ticket = new Ticket("Entrada al museo");
+ticket.imprimir();</code></pre>
+      <p>implements indica que Ticket cumple la interfaz. El método de esta interfaz es público y abstracto de forma implícita: declara qué hay que hacer, sin cuerpo. Ticket debe implementarlo como public. @Override permite al compilador comprobar que estamos implementando el método declarado.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> Aquí imprimir significa mostrar en la consola. No enviamos nada a una impresora ni trabajamos con ficheros o interfaz gráfica. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-bug" aria-hidden="true"></i> Qué ocurre si falta el método</h4>
+      <p>Borra temporalmente imprimir de Ticket. El compilador avisará de que la clase no cumple la interfaz. Restaura el método y ejecuta. También falla si cambias el nombre a mostrar o quitas public.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica lo mínimo</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Define Profesor extends Persona con un atributo especialidad y su constructor. Crea un Profesor y llama a getNombre() y getEspecialidad().</li>
+        <li style="margin-bottom:.5rem;">Define una interfaz Describible con <code>String describir();</code>.</li>
+        <li style="margin-bottom:.5rem;">Crea Tarjeta implements Describible, con un texto recibido por constructor. Implementa describir para devolver ese texto. Crea una Tarjeta y muestra el resultado.</li>
+        <li style="margin-bottom:.5rem;">Utiliza variables Profesor y Tarjeta. En esta introducción no necesitamos variables del tipo padre ni del tipo interfaz.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>¿Para qué sirve super(nombre)? ¿La interfaz escribe el mensaje concreto de Ticket?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>super(nombre) inicializa la parte Persona llamando a su constructor. La interfaz declara imprimir; Ticket decide cómo producir el mensaje.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">extends permite definir una clase heredada y utilizar métodos accesibles del padre.</li>
+        <li style="margin-bottom:.5rem;">super(...) llama al constructor del padre.</li>
+        <li style="margin-bottom:.5rem;">implements obliga a ofrecer las operaciones de una interfaz.</li>
+        <li style="margin-bottom:.5rem;">Aquí trabajamos la definición y el uso básico; profundizaremos más adelante.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-teoria-09-diseno-integracion-poo" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-tasks" aria-hidden="true"></i> 4.9 Diseño e integración de programas orientados a objetos</h2>
+    <p class="lead">Aplicaremos lo aprendido a un problema conocido y después a otros contextos. La dificultad está en decidir qué debe hacer cada clase.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-pencil" aria-hidden="true"></i> Del enunciado al programa</h4>
+      <p>Programar con clases empieza antes de escribir código. Lee el problema, identifica los datos y las acciones y decide qué objeto se responsabiliza de cada una.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Subraya los elementos que tienen identidad o datos propios: posibles clases.</li>
+        <li style="margin-bottom:.5rem;">Anota qué información necesita cada elemento: posibles atributos.</li>
+        <li style="margin-bottom:.5rem;">Identifica las acciones y consultas: posibles métodos.</li>
+        <li style="margin-bottom:.5rem;">Decide qué datos exige cada constructor y qué reglas deben mantenerse.</li>
+        <li style="margin-bottom:.5rem;">Dibuja o escribe qué objeto necesita conocer a otro.</li>
+        <li style="margin-bottom:.5rem;">Crea un Main pequeño y comprueba un caso antes de añadir el siguiente.</li>
+      </ul>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> Los sustantivos son pistas, no una regla automática. No hace falta crear una clase para cada palabra del enunciado. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-gamepad" aria-hidden="true"></i> Práctica guiada: una sesión de juego</h4>
+      <p>Una sesión tiene un jugador y una duración positiva en minutos. El jugador empieza con cero puntos. Se pueden registrar aciertos con una cantidad positiva de puntos, hasta alcanzar 100. Al terminar la partida, no se aceptan nuevos aciertos. Queremos mostrar el nombre, los puntos y la duración en horas.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Clase</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Responsabilidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Jugador</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Guardar nombre y puntos, sumar una cantidad válida y consultar si ha ganado.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Partida</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Guardar el jugador, la duración y si ha terminado; aceptar aciertos mientras siga activa.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Conversor</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Convertir minutos a horas mediante un método estático.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Main</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Crear objetos, realizar llamadas y mostrar resultados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Organiza las clases en modelo, utilidades y app. Parte de las clases de 4.5 y 4.6. Para trabajar paso a paso, añade a Partida un atributo privado duracionMinutos, recíbelo como segundo parámetro del constructor y valida que sea positivo.</p>
+      <p><strong>Objetivo para Main, con los imports correspondientes</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Partida partida = new Partida(ana, 90);
+System.out.println(partida.registrarAcierto(60));
+System.out.println(partida.registrarAcierto(40));
+System.out.println(partida.registrarAcierto(5));
+System.out.println(partida.getJugador().getPuntos());
+System.out.println(partida.estaTerminada());
+System.out.println(Conversor.minutosAHoras(90));</code></pre>
+      <p>Antes de ejecutar, escribe los resultados esperados.</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>true, true, false, 100, true y 1.5. La tercera operación no cambia los puntos porque la partida ya terminó.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-flask" aria-hidden="true"></i> Comprueba varios casos</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Caso</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Acierto de 0 o negativo</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">false; mismos puntos; partida no termina por esa llamada.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Llegar a 99 puntos</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Partida todavía activa.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Llegar a 100 o superar 100</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Partida terminada.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Registrar después del final</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">false; puntos sin cambios.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Duración 0 o jugador null</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">El constructor rechaza la creación.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Prueba cada caso con un jugador y una partida nuevos cuando necesites empezar desde cero. Comprueba tanto el resultado de la operación como el estado posterior.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-hotel" aria-hidden="true"></i> Ahora diseña tú: una reserva de habitación</h4>
+      <p>Un cliente tiene nombre obligatorio. Una habitación tiene número positivo y precio por noche positivo, expresado en euros enteros para simplificar. Una reserva relaciona un cliente y una habitación durante un número positivo de noches. Puede cancelarse una sola vez. Mientras está activa, su importe es precio por noche multiplicado por noches; si está cancelada, el importe es cero.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Define Cliente, Habitacion y Reserva. Decide sus atributos privados y los constructores.</li>
+        <li style="margin-bottom:.5rem;">Ofrece los getters necesarios, calcularImporte(), estaCancelada() y cancelar(). cancelar devuelve true solo cuando realiza la cancelación.</li>
+        <li style="margin-bottom:.5rem;">No permitas null en cliente ni habitación. Para esta práctica, el precio no cambia después de construir la habitación.</li>
+        <li style="margin-bottom:.5rem;">Crea una reserva de 3 noches a 60 euros. Muestra el cliente y comprueba que el importe sea 180.</li>
+        <li style="margin-bottom:.5rem;">Cancela, vuelve a consultar el importe y realiza una segunda cancelación.</li>
+        <li style="margin-bottom:.5rem;">Organiza las clases y reutiliza una utilidad estática propia en Main, por ejemplo para calcular un descuento porcentual del importe activo.</li>
+      </ul>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Reserva guarda referencias a Cliente y Habitacion, un int noches y un boolean cancelada. El cálculo pertenece a Reserva; getNombre pertenece a Cliente. La primera cancelación devuelve true y deja el importe en 0; la segunda devuelve false.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-truck" aria-hidden="true"></i> Transferencia: un envío</h4>
+      <p>Sin copiar los nombres de las clases anteriores, diseña un envío con destinatario, dirección y peso positivo en gramos. La dirección tiene calle y localidad obligatorias. El precio es una base de 4 euros más 2 euros por cada kilogramo iniciado. Un envío puede marcarse entregado una sola vez.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Identifica tres clases del modelo y escribe sus responsabilidades antes de programar.</li>
+        <li style="margin-bottom:.5rem;">Relaciona los objetos mediante atributos de tipos propios. No repitas calle y localidad en Envio.</li>
+        <li style="margin-bottom:.5rem;">Ofrece calcularPrecio() y marcarEntregado(), además de las consultas necesarias.</li>
+        <li style="margin-bottom:.5rem;">Prueba pesos de 1, 1000 y 1001 gramos: deben costar 6, 6 y 8 euros.</li>
+        <li style="margin-bottom:.5rem;">Para calcular kilogramos iniciados puedes usar <code>(pesoGramos - 1) / 1000 + 1</code>, tras validar que el peso sea positivo.</li>
+        <li style="margin-bottom:.5rem;">Comprueba que marcar entregado dos veces devuelve true y después false.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Revisa tu diseño</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">¿Cada clase tiene una responsabilidad clara?</li>
+        <li style="margin-bottom:.5rem;">¿Los atributos están protegidos y las reglas se cumplen desde el constructor?</li>
+        <li style="margin-bottom:.5rem;">¿Los métodos devuelven información útil para Main?</li>
+        <li style="margin-bottom:.5rem;">¿Entiendes cuándo compartes una referencia y cuándo creas otro objeto?</li>
+        <li style="margin-bottom:.5rem;">¿Puedes explicar por qué una operación es de instancia o estática?</li>
+        <li style="margin-bottom:.5rem;">¿Has probado casos normales, límites y rechazados?</li>
+      </ul>
+      <p>No añadas herencia o interfaces por obligación a estos diseños. Para repasar la introducción del capítulo 4.8, utiliza sus ejercicios específicos. Aquí el objetivo es construir y hacer colaborar clases sencillas.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Diseñar significa repartir datos y responsabilidades.</li>
+        <li style="margin-bottom:.5rem;">Un problema nuevo puede resolverse con las mismas técnicas de clases y referencias.</li>
+        <li style="margin-bottom:.5rem;">Comprueba el estado posterior además del valor devuelto por cada operación.</li>
+        <li style="margin-bottom:.5rem;">Empieza por un caso pequeño y añade las reglas de forma gradual.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 </section>
         </main>
@@ -93,8 +1268,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1792406671113"></script>
-    <script src="assets/js/course.js?v=1792406671113"></script>
-    <script src="assets/js/pwa-register.js?v=1792406671113" data-service-worker="../sw.js" data-scope="../"></script>
+    <script src="assets/js/search-data.js?v=1792407821285"></script>
+    <script src="assets/js/course.js?v=1792407821285"></script>
+    <script src="assets/js/pwa-register.js?v=1792407821285" data-service-worker="../sw.js" data-scope="../"></script>
   </body>
 </html>

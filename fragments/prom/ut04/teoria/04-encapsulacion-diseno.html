@@ -1,0 +1,126 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-shield-alt" aria-hidden="true"></i> 4.4 Encapsulación y diseño de clases</h2>
+    <p class="lead">Los atributos privados y los métodos adecuados permiten mantener el estado del objeto dentro de las reglas del problema.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-lock" aria-hidden="true"></i> Proteger las reglas del objeto</h4>
+      <p>Aunque el constructor valide, todavía podríamos escribir <code>j.puntos = -500;</code> desde Main. Necesitamos controlar todos los cambios. Encapsular consiste en proteger el estado y ofrecer operaciones que respeten las reglas.</p>
+      <p><strong>Jugador.java: nueva versión completa</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    private String nombre;
+    private int puntos;
+
+    public Jugador(String nombre) {
+        this(nombre, 0);
+    }
+
+    public Jugador(String nombre, int puntos) {
+        if (nombre == null || nombre.isBlank() || puntos &lt; 0) {
+            throw new IllegalArgumentException("Datos de jugador no válidos");
+        }
+        this.nombre = nombre;
+        this.puntos = puntos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+    }
+
+    public boolean sumarPuntos(int cantidad) {
+        if (cantidad &lt;= 0) {
+            return false;
+        }
+        puntos += cantidad;
+        return true;
+    }
+
+    public boolean haGanado() {
+        return puntos &gt;= 100;
+    }
+}</code></pre>
+      <p>Ahora <code>j.puntos = -500;</code> no compila desde Main. getPuntos permite consultar y sumarPuntos controla el cambio. Si la cantidad no es positiva, devuelve false y conserva el estado. Main decide cómo avisar de ese resultado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-eye" aria-hidden="true"></i> Visibilidad mínima que necesitamos</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Modificador</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">public</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Un miembro accesible desde otras clases, siempre que la clase sea accesible.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">private</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Un miembro accesible dentro de la clase que lo declara.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Sin modificador</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Accesible desde clases del mismo paquete.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Una clase principal de un archivo puede ser public o tener acceso de paquete si no lleva modificador. No puede declararse private como clase de nivel superior. En el capítulo de paquetes veremos por qué la visibilidad también importa para las clases.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> La visibilidad regula el acceso al código. No sustituye a la validación de valores: un método público sigue teniendo que comprobar los datos que recibe. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-sliders" aria-hidden="true"></i> Getters, setters y operaciones</h4>
+      <p>Un getter consulta un atributo; un setter modifica uno, normalmente con validación. No hay que generar un setter por cada atributo. Los puntos se obtienen mediante una acción: por eso preferimos sumarPuntos a permitir cualquier setPuntos.</p>
+      <p>Del mismo modo, una cuenta puede ofrecer ingresar y retirar en lugar de setSaldo. Las operaciones expresan qué cambios permite el programa. Una consulta como haGanado calcula un resultado: no necesita guardar un atributo adicional que pueda quedar desactualizado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-flask" aria-hidden="true"></i> Prueba la protección</h4>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana", 10);
+boolean aceptada = ana.sumarPuntos(-5);
+System.out.println(aceptada);
+System.out.println(ana.getPuntos());
+ana.setNombre("Ane");
+System.out.println(ana.getNombre());</code></pre>
+      <p>Predice la salida y compruébala: false, 10, Ane. En el depurador observa que la operación rechazada no modifica los puntos.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>Un setter acepta cualquier cantidad negativa aunque el constructor la rechace. ¿Está protegida la regla de la clase?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>No. Hay que preservar las reglas en todos los caminos que puedan cambiar el estado. El constructor protege el inicio; los métodos protegen los cambios posteriores.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea <code>Deposito</code> con capacidad y litros actuales privados. El constructor exige capacidad positiva y empieza vacío.</li>
+        <li style="margin-bottom:.5rem;">Añade getLitros(), llenar(int cantidad) y vaciar(int cantidad). Cada operación devuelve boolean y solo acepta cantidades positivas que respeten 0 ≤ litros ≤ capacidad.</li>
+        <li style="margin-bottom:.5rem;">No añadas setLitros(). Prueba llenar hasta la capacidad exacta, sobrepasarla, vaciar hasta cero y vaciar más de lo disponible.</li>
+        <li style="margin-bottom:.5rem;">Crea después un <code>Contador</code> entre 0 y un máximo: incluye incrementar y reiniciar. Decide qué consultas necesita Main.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">private protege el acceso directo al estado.</li>
+        <li style="margin-bottom:.5rem;">No todos los atributos necesitan setter.</li>
+        <li style="margin-bottom:.5rem;">Constructores y métodos deben preservar las mismas reglas.</li>
+        <li style="margin-bottom:.5rem;">Una operación rechazada debe tener un resultado claro y conservar el estado.</li>
+      </ul>
+    </div>
+  </div>
+</div>

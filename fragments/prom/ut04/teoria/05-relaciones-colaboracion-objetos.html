@@ -1,0 +1,115 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-project-diagram" aria-hidden="true"></i> 4.5 Relaciones y colaboración entre objetos</h2>
+    <p class="lead">Un objeto puede recibir, guardar y devolver referencias a otros objetos. Así repartimos el trabajo entre varias clases sin necesitar arrays ni colecciones.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-link" aria-hidden="true"></i> Un objeto puede conocer a otro</h4>
+      <p>Una partida necesita saber quién juega. En lugar de copiar el nombre y los puntos, guarda una referencia a un Jugador. Usaremos la versión encapsulada del capítulo anterior.</p>
+      <p><strong>Partida.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Partida {
+    private Jugador jugador;
+    private boolean terminada;
+
+    public Partida(Jugador jugador) {
+        if (jugador == null) {
+            throw new IllegalArgumentException("Se necesita un jugador");
+        }
+        this.jugador = jugador;
+        this.terminada = false;
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public boolean estaTerminada() {
+        return terminada;
+    }
+
+    public boolean registrarAcierto(int puntos) {
+        if (terminada) {
+            return false;
+        }
+        boolean aceptado = jugador.sumarPuntos(puntos);
+        if (aceptado &amp;&amp; jugador.haGanado()) {
+            terminada = true;
+        }
+        return aceptado;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Partida partida = new Partida(ana);
+partida.registrarAcierto(60);
+partida.registrarAcierto(40);
+System.out.println(ana.getPuntos());
+System.out.println(partida.estaTerminada());
+System.out.println(partida.getJugador().getNombre());</code></pre>
+      <p>La salida es 100, true, Ana. Partida controla si se puede jugar; Jugador controla sus puntos. Cada clase tiene una responsabilidad. Partida contiene una referencia, no una copia independiente del jugador.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-route" aria-hidden="true"></i> Seguir las llamadas</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Main pide registrarAcierto a Partida.</li>
+        <li style="margin-bottom:.5rem;">Partida comprueba que no haya terminado.</li>
+        <li style="margin-bottom:.5rem;">Partida pide sumarPuntos a su Jugador.</li>
+        <li style="margin-bottom:.5rem;">Partida consulta si ha ganado y actualiza su propio estado.</li>
+        <li style="margin-bottom:.5rem;">Main consulta y presenta los resultados.</li>
+      </ul>
+      <p>La expresión <code>partida.getJugador().getNombre()</code> primero obtiene el jugador y después consulta su nombre. Para entenderla podemos separarla:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador participante = partida.getJugador();
+String nombre = participante.getNombre();</code></pre>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-share-alt" aria-hidden="true"></i> Referencias compartidas</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador participante = partida.getJugador();
+participante.setNombre("Ane");
+System.out.println(ana.getNombre());</code></pre>
+      <p>¿Qué nombre aparece?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Ane. ana, participante y el atributo jugador de partida apuntan al mismo objeto. getJugador devuelve esa referencia.</p>
+      </details>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> Devolver un objeto permite utilizar sus métodos públicos. Un atributo private no convierte al objeto referido en una copia ni impide que otras referencias lo modifiquen. </div>
+      <p>Esta pequeña Partida supone que los puntos se modifican a través de registrarAcierto mientras se juega. Si Main llama directamente a sumarPuntos, puede cambiar los puntos sin actualizar terminada. Es una decisión de uso que debemos respetar; más adelante aprenderemos diseños que controlan mejor este tipo de cambios.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-exchange" aria-hidden="true"></i> Recibir y devolver objetos</h4>
+      <p>Un atributo, un parámetro o el retorno de un método puede tener el tipo de una clase propia. Por ejemplo, un Coche puede recibir un propietario en su constructor y permitir cambiarlo:</p>
+      <p><strong>Fragmento para una clase Coche con atributo Persona propietario</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public void cambiarPropietario(Persona nuevoPropietario) {
+    if (nuevoPropietario == null) {
+        throw new IllegalArgumentException("Se necesita un propietario");
+    }
+    this.propietario = nuevoPropietario;
+}</code></pre>
+      <p>Cambiar la referencia no modifica la Persona anterior: el coche pasa a conocer a otra. Si una relación es obligatoria, rechazamos null. Si fuese opcional, habría que comprobarlo antes de utilizarla.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica con dos clases</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea <code>Persona</code> con nombre privado, constructor validado y getNombre().</li>
+        <li style="margin-bottom:.5rem;">Crea <code>Coche</code> con matrícula y una Persona propietaria. Ambas son obligatorias. Añade getMatricula(), getPropietario() y cambiarPropietario().</li>
+        <li style="margin-bottom:.5rem;">Crea dos personas y un coche. Cambia su propietario y muestra el nombre antes y después.</li>
+        <li style="margin-bottom:.5rem;">Comprueba que recibir null como propietario no altera el propietario actual.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-random" aria-hidden="true"></i> Transferencia</h4>
+      <p>Diseña <code>Habitacion</code> con número y precio por noche positivo, <code>Cliente</code> con nombre y <code>Reserva</code> con una habitación, un cliente y un número positivo de noches. Reserva calcula el total utilizando el precio de su habitación. Solo necesitamos una reserva y variables individuales.</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Reserva recibe Cliente y Habitacion en el constructor y guarda sus referencias. calcularTotal() puede devolver <code>habitacion.getPrecioPorNoche() * noches</code>. No necesita guardar una copia del nombre del cliente ni del precio si quiere consultar siempre los datos actuales.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Una clase puede utilizar otras clases como tipos de atributos, parámetros y retornos.</li>
+        <li style="margin-bottom:.5rem;">Guardar o devolver una referencia no copia el objeto.</li>
+        <li style="margin-bottom:.5rem;">Cada clase debe encargarse de sus propias reglas.</li>
+        <li style="margin-bottom:.5rem;">Las relaciones obligatorias deben inicializarse y protegerse frente a null.</li>
+      </ul>
+    </div>
+  </div>
+</div>

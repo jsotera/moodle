@@ -1,0 +1,100 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-gavel" aria-hidden="true"></i> 4.3 Constructores e inicialización</h2>
+    <p class="lead">Crear un objeto incluye darle un estado inicial coherente. El constructor nos permite exigir los datos que necesita.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-leaf" aria-hidden="true"></i> Que el objeto nazca preparado</h4>
+      <p>Con <code>new Jugador()</code> podíamos olvidar asignar el nombre. Un constructor recibe los datos iniciales y prepara el objeto al crearlo. Sustituye Jugador por:</p>
+      <p><strong>Jugador.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    String nombre;
+    int puntos;
+
+    public Jugador(String nombre) {
+        this.nombre = nombre;
+        this.puntos = 0;
+    }
+
+    public Jugador(String nombre, int puntos) {
+        this.nombre = nombre;
+        this.puntos = puntos;
+    }
+
+    public void sumarPuntos(int cantidad) {
+        puntos += cantidad;
+    }
+
+    public int consultarPuntos() {
+        return puntos;
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Jugador iker = new Jugador("Iker", 20);
+System.out.println(ana.consultarPuntos());
+System.out.println(iker.consultarPuntos());</code></pre>
+      <p>Ana empieza con 0 puntos e Iker con 20. Java elige el constructor según los argumentos de la llamada: eso es una forma sencilla de <strong>sobrecarga</strong>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-search" aria-hidden="true"></i> Cómo reconocer un constructor</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Tiene exactamente el nombre de la clase.</li>
+        <li style="margin-bottom:.5rem;">No tiene tipo de retorno, ni siquiera void.</li>
+        <li style="margin-bottom:.5rem;">Se ejecuta al crear el objeto con new.</li>
+        <li style="margin-bottom:.5rem;">Puede asignar atributos y comprobar los datos iniciales.</li>
+      </ul>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> Si escribes <code>public void Jugador(...)</code> , has declarado un método, no un constructor. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> El constructor por defecto</h4>
+      <p>Cuando no declaramos ningún constructor, Java proporciona uno sin parámetros. En cuanto declaramos un constructor propio, Java deja de añadirlo. Por eso <code>new Jugador()</code> ya no compila con esta versión: solo existen los constructores que hemos escrito.</p>
+      <p>Si de verdad necesitamos construir sin datos, debemos definir explícitamente un constructor sin parámetros y decidir unos valores iniciales adecuados. Tener muchos constructores no hace mejor una clase; deben responder a necesidades reales.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-shield-alt" aria-hidden="true"></i> Validar desde el principio</h4>
+      <p>Para impedir puntos iniciales negativos podemos sustituir el segundo constructor por:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public Jugador(String nombre, int puntos) {
+    if (nombre == null || nombre.isBlank()) {
+        throw new IllegalArgumentException("El nombre es obligatorio");
+    }
+    if (puntos &lt; 0) {
+        throw new IllegalArgumentException("Los puntos no pueden ser negativos");
+    }
+    this.nombre = nombre;
+    this.puntos = puntos;
+}</code></pre>
+      <p>El operador <code>||</code> evita evaluar isBlank cuando nombre es null. Ante un dato no válido se lanza una excepción, como vimos en la unidad anterior. La creación no se completa normalmente: no obtenemos un jugador válido de esa llamada.</p>
+      <p>Las mismas reglas deben aplicarse al constructor de un parámetro. Una forma de evitar repetirlas es encadenar los constructores:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public Jugador(String nombre) {
+    this(nombre, 0);
+}</code></pre>
+      <p><code>this(nombre, 0)</code> llama al otro constructor de la misma clase. En Java 17 debe ser la primera instrucción del constructor. No lo confundas con <code>this.nombre</code>, que accede a un atributo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>¿Cuántos objetos crea <code>this(nombre, 0)</code>? ¿Por qué <code>new Jugador("Ana", -1)</code> no debe producir un jugador utilizable?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>No crea un segundo objeto: ambos constructores colaboran en la inicialización del mismo. La segunda llamada recibe datos no válidos y lanza una excepción.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea <code>Marcador</code> con nombre y valor entero no negativo. Define un constructor de dos parámetros y otro que empiece en cero.</li>
+        <li style="margin-bottom:.5rem;">Prueba un valor positivo, cero y un valor negativo. Comprueba también nombre null y nombre vacío.</li>
+        <li style="margin-bottom:.5rem;">Crea <code>Rectangulo</code> con ancho y alto positivos. Ofrece un constructor para dos medidas y otro para un cuadrado. Añade calcularArea().</li>
+        <li style="margin-bottom:.5rem;">Explica por qué un constructor no sustituye a un método como sumarPuntos: inicializar y modificar son momentos diferentes.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Un constructor se llama como la clase y no declara retorno.</li>
+        <li style="margin-bottom:.5rem;">Varios constructores pueden ofrecer distintas formas de inicialización.</li>
+        <li style="margin-bottom:.5rem;">Java solo añade un constructor por defecto si no hemos declarado ninguno.</li>
+        <li style="margin-bottom:.5rem;">La validación inicial impide construir objetos con datos no admitidos.</li>
+      </ul>
+    </div>
+  </div>
+</div>

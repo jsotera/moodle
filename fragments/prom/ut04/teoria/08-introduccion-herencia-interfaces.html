@@ -1,0 +1,112 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> 4.8 Primera aproximación a herencia e interfaces</h2>
+    <p class="lead">Vamos a reconocer y utilizar dos mecanismos de reutilización con ejemplos mínimos y separados del trabajo principal de la unidad.</p>
+    <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> Este capítulo es una primera aproximación. Practicaremos una clase heredada y una interfaz sencillas; el desarrollo de herencia y polimorfismo llegará en una unidad posterior. </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-sitemap" aria-hidden="true"></i> Herencia: una clase a partir de otra</h4>
+      <p>Una Persona tiene nombre. Un Alumno también es una Persona y añade un curso. Podemos reutilizar la parte común mediante extends. Crea un proyecto pequeño con estos tres archivos en el mismo paquete:</p>
+      <p><strong>Persona.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Persona {
+    private String nombre;
+
+    public Persona(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+}</code></pre>
+      <p><strong>Alumno.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Alumno extends Persona {
+    private String curso;
+
+    public Alumno(String nombre, String curso) {
+        super(nombre);
+        if (curso == null || curso.isBlank()) {
+            throw new IllegalArgumentException("El curso es obligatorio");
+        }
+        this.curso = curso;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+}</code></pre>
+      <p><strong>Main.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Main {
+    public static void main(String[] args) {
+        Alumno alumno = new Alumno("Ana", "DAW1");
+        System.out.println(alumno.getNombre());
+        System.out.println(alumno.getCurso());
+    }
+}</code></pre>
+      <p><code>extends Persona</code> indica que Alumno hereda de Persona. <code>super(nombre)</code> llama al constructor de Persona para inicializar esa parte del objeto. Los constructores no se heredan: Alumno define el suyo.</p>
+      <p>getNombre está definido en Persona y puede utilizarse sobre un Alumno. El atributo nombre sigue siendo privado: Alumno no accede directamente a él. No necesitamos cambiarlo a protected.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> <strong>No confundas relaciones:</strong> un Alumno <em>es una</em> Persona; un Coche <em>tiene una</em> Persona propietaria. En el segundo caso usamos un atributo, como en el capítulo 4.5. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-file-text" aria-hidden="true"></i> Interfaces: una operación que hay que ofrecer</h4>
+      <p>Queremos indicar que una clase debe ofrecer una operación imprimir. Una interfaz declara esa operación y la clase escribe cómo se realiza.</p>
+      <p><strong>Imprimible.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public interface Imprimible {
+    void imprimir();
+}</code></pre>
+      <p><strong>Ticket.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Ticket implements Imprimible {
+    private String concepto;
+
+    public Ticket(String concepto) {
+        if (concepto == null || concepto.isBlank()) {
+            throw new IllegalArgumentException("El concepto es obligatorio");
+        }
+        this.concepto = concepto;
+    }
+
+    @Override
+    public void imprimir() {
+        System.out.println("Ticket: " + concepto);
+    }
+}</code></pre>
+      <p><strong>Dentro de main</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Ticket ticket = new Ticket("Entrada al museo");
+ticket.imprimir();</code></pre>
+      <p>implements indica que Ticket cumple la interfaz. El método de esta interfaz es público y abstracto de forma implícita: declara qué hay que hacer, sin cuerpo. Ticket debe implementarlo como public. @Override permite al compilador comprobar que estamos implementando el método declarado.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> Aquí imprimir significa mostrar en la consola. No enviamos nada a una impresora ni trabajamos con ficheros o interfaz gráfica. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-bug" aria-hidden="true"></i> Qué ocurre si falta el método</h4>
+      <p>Borra temporalmente imprimir de Ticket. El compilador avisará de que la clase no cumple la interfaz. Restaura el método y ejecuta. También falla si cambias el nombre a mostrar o quitas public.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica lo mínimo</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Define Profesor extends Persona con un atributo especialidad y su constructor. Crea un Profesor y llama a getNombre() y getEspecialidad().</li>
+        <li style="margin-bottom:.5rem;">Define una interfaz Describible con <code>String describir();</code>.</li>
+        <li style="margin-bottom:.5rem;">Crea Tarjeta implements Describible, con un texto recibido por constructor. Implementa describir para devolver ese texto. Crea una Tarjeta y muestra el resultado.</li>
+        <li style="margin-bottom:.5rem;">Utiliza variables Profesor y Tarjeta. En esta introducción no necesitamos variables del tipo padre ni del tipo interfaz.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>¿Para qué sirve super(nombre)? ¿La interfaz escribe el mensaje concreto de Ticket?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>super(nombre) inicializa la parte Persona llamando a su constructor. La interfaz declara imprimir; Ticket decide cómo producir el mensaje.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">extends permite definir una clase heredada y utilizar métodos accesibles del padre.</li>
+        <li style="margin-bottom:.5rem;">super(...) llama al constructor del padre.</li>
+        <li style="margin-bottom:.5rem;">implements obliga a ofrecer las operaciones de una interfaz.</li>
+        <li style="margin-bottom:.5rem;">Aquí trabajamos la definición y el uso básico; profundizaremos más adelante.</li>
+      </ul>
+    </div>
+  </div>
+</div>

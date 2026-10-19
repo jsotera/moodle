@@ -1,0 +1,142 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> 4.1 Clases, objetos y estado</h2>
+    <p class="lead">Una clase describe un tipo de elemento; cada objeto tiene su propio estado. Vamos a construir y observar nuestros primeros objetos.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-lightbulb" aria-hidden="true"></i> De muchas variables a una clase</h4>
+      <p>Queremos guardar el nombre y los puntos de dos jugadores. Con variables sueltas podríamos escribir:</p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">String nombre1 = "Ana";
+int puntos1 = 10;
+String nombre2 = "Iker";
+int puntos2 = 20;</code></pre>
+      <p>Cada vez que añadimos un jugador necesitamos otras variables. Una <strong>clase</strong> agrupa la información y las acciones de un mismo tipo de elemento. Un <strong>objeto</strong> es un elemento concreto creado a partir de esa clase.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Concepto</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">En nuestro ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Clase</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Jugador: define qué información tendrá cada jugador.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Objeto</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">El jugador de Ana o el jugador de Iker.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Atributos / estado</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">nombre y puntos: los datos de cada jugador.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Métodos / comportamiento</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Las acciones que programaremos, como sumar puntos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> Nuestra primera clase</h4>
+      <p><strong>Jugador.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Jugador {
+    String nombre;
+    int puntos;
+}</code></pre>
+      <p>Guarda la clase en <code>Jugador.java</code>. El nombre del archivo debe coincidir con el de la clase pública. Las llaves delimitan su cuerpo. Cada atributo tiene un tipo y un nombre. Usamos mayúscula inicial para las clases y minúscula inicial para atributos y variables.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> En este primer ejemplo los atributos no tienen modificador de acceso: pueden utilizarse desde clases del mismo paquete. Lo hacemos para observar los objetos; más adelante los protegeremos con <code>private</code> . </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-play-circle" aria-hidden="true"></i> Crear y utilizar dos objetos</h4>
+      <p><strong>Main.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">public class Main {
+    public static void main(String[] args) {
+        Jugador j1 = new Jugador();
+        Jugador j2 = new Jugador();
+
+        j1.nombre = "Ana";
+        j1.puntos = 10;
+        j2.nombre = "Iker";
+        j2.puntos = 20;
+
+        System.out.println(j1.nombre + ": " + j1.puntos);
+        System.out.println(j2.nombre + ": " + j2.puntos);
+    }
+}</code></pre>
+      <p>Crea ambos archivos en el mismo paquete y ejecuta <code>Main</code>. Cada <code>new Jugador()</code> crea un objeto. El punto permite acceder a un miembro del objeto. Cambiar <code>j1.puntos</code> no cambia los puntos de <code>j2</code>.</p>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> La cabecera <code>main(String[] args)</code> se mantiene como ya la conoces. No utilizaremos <code>args</code> ni estudiaremos arrays en esta unidad. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Declarar no es crear</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Código</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Qué ocurre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>Jugador j1;</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Declara una variable local. Todavía no tiene un valor asignado.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>j1 = new Jugador();</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Crea un objeto y asigna su referencia a j1.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>Jugador j1 = new Jugador();</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Hace ambas cosas en una instrucción.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>Jugador j1 = null;</code></td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">La variable tiene valor, pero no apunta a ningún objeto.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Una variable local sin inicializar no puede utilizarse: el compilador avisa. Si contiene <code>null</code> y accedemos a <code>j1.nombre</code>, se produce una <code>NullPointerException</code>. Son problemas diferentes.</p>
+      <p>Los atributos sí reciben valores iniciales de Java: <code>int</code> vale 0, <code>boolean</code> vale false y una referencia como <code>String</code> vale null. Una variable local no recibe automáticamente esos valores.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-link" aria-hidden="true"></i> Dos referencias pueden señalar el mismo objeto</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador j1 = new Jugador();
+j1.nombre = "Ana";
+j1.puntos = 10;
+Jugador j2 = j1;
+j2.puntos = 30;
+System.out.println(j1.puntos);</code></pre>
+      <p>Antes de ejecutarlo, predice el resultado. ¿Cuántos <code>new</code> hay?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Muestra 30. Solo se ha creado un objeto: j1 y j2 se refieren al mismo jugador. La asignación copia la referencia; no duplica el objeto.</p>
+      </details>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> <strong>Error frecuente:</strong> creer que <code>Jugador j2 = j1;</code> crea un jugador independiente. Para crear otro objeto necesitas otro <code>new</code> . </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica paso a paso</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea una clase <code>Lampara</code> con <code>String ubicacion</code> y <code>boolean encendida</code>.</li>
+        <li style="margin-bottom:.5rem;">Crea dos lámparas, enciende solo una y muestra el estado de ambas.</li>
+        <li style="margin-bottom:.5rem;">Asigna la primera referencia a una tercera variable. Cambia su estado desde esa variable y comprueba qué ocurre.</li>
+        <li style="margin-bottom:.5rem;">Coloca un punto de ruptura después de crear los objetos y observa sus atributos en el depurador.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-exchange" aria-hidden="true"></i> Cambia de contexto</h4>
+      <p>Una estación registra la temperatura de dos aulas. Propón una clase con nombre del aula y temperatura, crea dos objetos y modifica solo uno. No uses arrays: bastan dos variables.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">La clase define atributos y métodos; los objetos son instancias de esa clase.</li>
+        <li style="margin-bottom:.5rem;">Declarar una referencia y crear un objeto son operaciones diferentes.</li>
+        <li style="margin-bottom:.5rem;">Dos objetos pueden tener estados diferentes; dos referencias pueden apuntar al mismo objeto.</li>
+      </ul>
+    </div>
+  </div>
+</div>

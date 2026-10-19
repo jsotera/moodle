@@ -1,0 +1,114 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-folder-open" aria-hidden="true"></i> 4.7 Organización y reutilización de clases</h2>
+    <p class="lead">Los paquetes ordenan nuestras clases. Una pequeña biblioteca en código fuente nos permite reutilizar lo que ya hemos programado.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-folder-open" aria-hidden="true"></i> Organizar un proyecto</h4>
+      <p>Cuando aparecen varias clases, los paquetes ayudan a agruparlas. Un paquete es un nombre que organiza clases; no es un array ni una colección de objetos. Vamos a separar el modelo de la aplicación.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Ruta de archivo</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Primera instrucción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">src/modelo/Jugador.java</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>package modelo;</code></td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">src/modelo/Partida.java</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>package modelo;</code></td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">src/app/Main.java</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;"><code>package app;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>En el IDE crea los paquetes dentro de la carpeta de fuentes de tu proyecto. Si trabajáis con Maven, esa carpeta suele ser <code>src/main/java</code>. Mantén una clase pública por archivo y el nombre de archivo correspondiente.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-code" aria-hidden="true"></i> package e import</h4>
+      <p><strong>src/modelo/Jugador.java: ejemplo mínimo</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">package modelo;
+
+public class Jugador {
+    private String nombre;
+
+    public Jugador(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre es obligatorio");
+        }
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+}</code></pre>
+      <p><strong>src/app/Main.java</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">package app;
+
+import modelo.Jugador;
+
+public class Main {
+    public static void main(String[] args) {
+        Jugador jugador = new Jugador("Ana");
+        System.out.println(jugador.getNombre());
+    }
+}</code></pre>
+      <p>package indica a qué paquete pertenece la clase. import permite utilizar su nombre corto desde otro paquete. No crea objetos ni ejecuta la clase. También podríamos escribir <code>modelo.Jugador</code> con el nombre completo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-eye" aria-hidden="true"></i> Visibilidad entre paquetes</h4>
+      <p>Para usar Jugador desde app, la clase, el constructor y getNombre son públicos. Si quitamos public a la clase, solo podrá usarse desde modelo. Si quitamos public a getNombre, ese método solo será accesible desde modelo. Los atributos privados siguen protegidos incluso dentro del mismo paquete.</p>
+      <div class="alert" style="border-left:.35rem solid #b45309;background:#fff6e8;padding:1rem;margin:1.25rem 0;"> Una clase no puede importar y usar cualquier otra solo por conocer su nombre. Debe estar disponible en el proyecto y su visibilidad debe permitir el acceso. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-recycle" aria-hidden="true"></i> Crear una pequeña biblioteca reutilizable</h4>
+      <p>Una biblioteca es un conjunto de clases que podemos reutilizar. Para empezar crearemos una biblioteca en código fuente, sin generar archivos JAR ni introducir herramientas nuevas.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Crea un paquete utilidades con Conversor.java del capítulo anterior. Cambia su primera línea a <code>package utilidades;</code>.</li>
+        <li style="margin-bottom:.5rem;">En app.Main escribe <code>import utilidades.Conversor;</code> y utiliza minutosAHoras(90).</li>
+        <li style="margin-bottom:.5rem;">Crea un segundo proyecto de consola, copia el paquete utilidades en su carpeta de fuentes e importa Conversor desde su Main.</li>
+        <li style="margin-bottom:.5rem;">Comprueba que la misma clase funciona sin modificarla en el segundo programa.</li>
+      </ul>
+      <p>Así hemos creado y utilizado un conjunto de clases reutilizables. No basta con organizar carpetas: la reutilización se comprueba empleando nuestras clases en otro programa.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-book" aria-hidden="true"></i> Bibliotecas de Java</h4>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">import java.util.Scanner;</code></pre>
+      <p>Scanner es una clase de la biblioteca estándar que ya hemos utilizado. Clases como String y Math están en java.lang y no necesitan import explícito. También podemos usar <code>Math.abs(-7)</code>, que devuelve 7 mediante un método estático.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Comprueba tu comprensión</h4>
+      <p>¿Es <code>import modelo.Jugador;</code> equivalente a <code>new Jugador("Ana")</code>?</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>No. import resuelve el nombre de la clase en el código. new crea un objeto durante la ejecución.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-terminal" aria-hidden="true"></i> Practica</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Organiza Cliente, Habitacion y Reserva en modelo y Main en app.</li>
+        <li style="margin-bottom:.5rem;">Muestra desde Main el cliente de una reserva utilizando sus métodos públicos.</li>
+        <li style="margin-bottom:.5rem;">Copia el paquete utilidades en ese proyecto y usa Conversor para mostrar en horas una duración en minutos.</li>
+        <li style="margin-bottom:.5rem;">Quita temporalmente public a una clase y a un método utilizados desde app. Lee los errores del compilador y restaura el acceso necesario.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">package organiza clases e import permite usar sus nombres cortos.</li>
+        <li style="margin-bottom:.5rem;">La visibilidad también afecta a clases, constructores y métodos entre paquetes.</li>
+        <li style="margin-bottom:.5rem;">Una biblioteca puede empezar como un conjunto reutilizable de archivos fuente.</li>
+        <li style="margin-bottom:.5rem;">Importar una clase no equivale a crear un objeto.</li>
+      </ul>
+    </div>
+  </div>
+</div>

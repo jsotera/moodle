@@ -1,0 +1,151 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fa fa-tasks" aria-hidden="true"></i> 4.9 Diseño e integración de programas orientados a objetos</h2>
+    <p class="lead">Aplicaremos lo aprendido a un problema conocido y después a otros contextos. La dificultad está en decidir qué debe hacer cada clase.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-pencil" aria-hidden="true"></i> Del enunciado al programa</h4>
+      <p>Programar con clases empieza antes de escribir código. Lee el problema, identifica los datos y las acciones y decide qué objeto se responsabiliza de cada una.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Subraya los elementos que tienen identidad o datos propios: posibles clases.</li>
+        <li style="margin-bottom:.5rem;">Anota qué información necesita cada elemento: posibles atributos.</li>
+        <li style="margin-bottom:.5rem;">Identifica las acciones y consultas: posibles métodos.</li>
+        <li style="margin-bottom:.5rem;">Decide qué datos exige cada constructor y qué reglas deben mantenerse.</li>
+        <li style="margin-bottom:.5rem;">Dibuja o escribe qué objeto necesita conocer a otro.</li>
+        <li style="margin-bottom:.5rem;">Crea un Main pequeño y comprueba un caso antes de añadir el siguiente.</li>
+      </ul>
+      <div class="alert" style="border-left:.35rem solid #0b5cab;background:#edf4fc;padding:1rem;margin:1.25rem 0;"> Los sustantivos son pistas, no una regla automática. No hace falta crear una clase para cada palabra del enunciado. </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-gamepad" aria-hidden="true"></i> Práctica guiada: una sesión de juego</h4>
+      <p>Una sesión tiene un jugador y una duración positiva en minutos. El jugador empieza con cero puntos. Se pueden registrar aciertos con una cantidad positiva de puntos, hasta alcanzar 100. Al terminar la partida, no se aceptan nuevos aciertos. Queremos mostrar el nombre, los puntos y la duración en horas.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Clase</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Responsabilidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Jugador</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Guardar nombre y puntos, sumar una cantidad válida y consultar si ha ganado.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Partida</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Guardar el jugador, la duración y si ha terminado; aceptar aciertos mientras siga activa.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Conversor</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Convertir minutos a horas mediante un método estático.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Main</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Crear objetos, realizar llamadas y mostrar resultados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Organiza las clases en modelo, utilidades y app. Parte de las clases de 4.5 y 4.6. Para trabajar paso a paso, añade a Partida un atributo privado duracionMinutos, recíbelo como segundo parámetro del constructor y valida que sea positivo.</p>
+      <p><strong>Objetivo para Main, con los imports correspondientes</strong></p>
+      <pre style="padding: 1rem; overflow-x: auto; color: #f1f5f9 !important; background-color: #18232f !important; border-radius: 6px; white-space: pre;"><code style="color: inherit !important; background: transparent !important; font-family: Consolas, monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre;" class="language-java">Jugador ana = new Jugador("Ana");
+Partida partida = new Partida(ana, 90);
+System.out.println(partida.registrarAcierto(60));
+System.out.println(partida.registrarAcierto(40));
+System.out.println(partida.registrarAcierto(5));
+System.out.println(partida.getJugador().getPuntos());
+System.out.println(partida.estaTerminada());
+System.out.println(Conversor.minutosAHoras(90));</code></pre>
+      <p>Antes de ejecutar, escribe los resultados esperados.</p>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>true, true, false, 100, true y 1.5. La tercera operación no cambia los puntos porque la partida ya terminó.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-flask" aria-hidden="true"></i> Comprueba varios casos</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%;border-collapse:collapse;">
+          <thead style="background:#e7eef6;">
+            <tr>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Caso</th>
+              <th style="border:1px solid #dee2e6;padding:.7rem;text-align:left;">Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Acierto de 0 o negativo</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">false; mismos puntos; partida no termina por esa llamada.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Llegar a 99 puntos</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Partida todavía activa.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Llegar a 100 o superar 100</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Partida terminada.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Registrar después del final</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">false; puntos sin cambios.</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">Duración 0 o jugador null</td>
+              <td style="border:1px solid #dee2e6;padding:.7rem;">El constructor rechaza la creación.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Prueba cada caso con un jugador y una partida nuevos cuando necesites empezar desde cero. Comprueba tanto el resultado de la operación como el estado posterior.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-hotel" aria-hidden="true"></i> Ahora diseña tú: una reserva de habitación</h4>
+      <p>Un cliente tiene nombre obligatorio. Una habitación tiene número positivo y precio por noche positivo, expresado en euros enteros para simplificar. Una reserva relaciona un cliente y una habitación durante un número positivo de noches. Puede cancelarse una sola vez. Mientras está activa, su importe es precio por noche multiplicado por noches; si está cancelada, el importe es cero.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Define Cliente, Habitacion y Reserva. Decide sus atributos privados y los constructores.</li>
+        <li style="margin-bottom:.5rem;">Ofrece los getters necesarios, calcularImporte(), estaCancelada() y cancelar(). cancelar devuelve true solo cuando realiza la cancelación.</li>
+        <li style="margin-bottom:.5rem;">No permitas null en cliente ni habitación. Para esta práctica, el precio no cambia después de construir la habitación.</li>
+        <li style="margin-bottom:.5rem;">Crea una reserva de 3 noches a 60 euros. Muestra el cliente y comprueba que el importe sea 180.</li>
+        <li style="margin-bottom:.5rem;">Cancela, vuelve a consultar el importe y realiza una segunda cancelación.</li>
+        <li style="margin-bottom:.5rem;">Organiza las clases y reutiliza una utilidad estática propia en Main, por ejemplo para calcular un descuento porcentual del importe activo.</li>
+      </ul>
+      <details style="border:1px solid #d9e2ec;border-radius:.45rem;padding:1rem;margin:1rem 0;">
+        <summary style="cursor:pointer;font-weight:bold;color:#0b5cab;">Ver solución orientativa</summary>
+        <p>Reserva guarda referencias a Cliente y Habitacion, un int noches y un boolean cancelada. El cálculo pertenece a Reserva; getNombre pertenece a Cliente. La primera cancelación devuelve true y deja el importe en 0; la segunda devuelve false.</p>
+      </details>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-truck" aria-hidden="true"></i> Transferencia: un envío</h4>
+      <p>Sin copiar los nombres de las clases anteriores, diseña un envío con destinatario, dirección y peso positivo en gramos. La dirección tiene calle y localidad obligatorias. El precio es una base de 4 euros más 2 euros por cada kilogramo iniciado. Un envío puede marcarse entregado una sola vez.</p>
+      <ul>
+        <li style="margin-bottom:.5rem;">Identifica tres clases del modelo y escribe sus responsabilidades antes de programar.</li>
+        <li style="margin-bottom:.5rem;">Relaciona los objetos mediante atributos de tipos propios. No repitas calle y localidad en Envio.</li>
+        <li style="margin-bottom:.5rem;">Ofrece calcularPrecio() y marcarEntregado(), además de las consultas necesarias.</li>
+        <li style="margin-bottom:.5rem;">Prueba pesos de 1, 1000 y 1001 gramos: deben costar 6, 6 y 8 euros.</li>
+        <li style="margin-bottom:.5rem;">Para calcular kilogramos iniciados puedes usar <code>(pesoGramos - 1) / 1000 + 1</code>, tras validar que el peso sea positivo.</li>
+        <li style="margin-bottom:.5rem;">Comprueba que marcar entregado dos veces devuelve true y después false.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-check-square" aria-hidden="true"></i> Revisa tu diseño</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">¿Cada clase tiene una responsabilidad clara?</li>
+        <li style="margin-bottom:.5rem;">¿Los atributos están protegidos y las reglas se cumplen desde el constructor?</li>
+        <li style="margin-bottom:.5rem;">¿Los métodos devuelven información útil para Main?</li>
+        <li style="margin-bottom:.5rem;">¿Entiendes cuándo compartes una referencia y cuándo creas otro objeto?</li>
+        <li style="margin-bottom:.5rem;">¿Puedes explicar por qué una operación es de instancia o estática?</li>
+        <li style="margin-bottom:.5rem;">¿Has probado casos normales, límites y rechazados?</li>
+      </ul>
+      <p>No añadas herencia o interfaces por obligación a estos diseños. Para repasar la introducción del capítulo 4.8, utiliza sus ejercicios específicos. Aquí el objetivo es construir y hacer colaborar clases sencillas.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fa fa-cubes" aria-hidden="true"></i> Recuerda</h4>
+      <ul>
+        <li style="margin-bottom:.5rem;">Diseñar significa repartir datos y responsabilidades.</li>
+        <li style="margin-bottom:.5rem;">Un problema nuevo puede resolverse con las mismas técnicas de clases y referencias.</li>
+        <li style="margin-bottom:.5rem;">Comprueba el estado posterior además del valor devuelto por cada operación.</li>
+        <li style="margin-bottom:.5rem;">Empieza por un caso pequeño y añade las reglas de forma gradual.</li>
+      </ul>
+    </div>
+  </div>
+</div>
