@@ -1,4 +1,4 @@
-const CACHE_NAME = "prom-lmgi-1792407821596";
+const CACHE_NAME = "prom-lmgi-1792576180036";
 const PRECACHE_URLS = [
   "./",
   "./assets/css/course.css",
@@ -14,6 +14,7 @@ const PRECACHE_URLS = [
   "./assets/img/prom/ut03/Modify_run_options_Intellij.png",
   "./assets/img/prom/ut03/VM_options_Intellij.png",
   "./assets/img/prom/ut03/edit_execution_Intellij.png",
+  "./assets/img/prom/ut04/empuja-piedras.png",
   "./assets/js/course.js",
   "./assets/js/pwa-register.js",
   "./assets/pwa/icon-192.png",
@@ -33,6 +34,7 @@ const PRECACHE_URLS = [
   "./lmgi/assets/img/prom/ut03/Modify_run_options_Intellij.png",
   "./lmgi/assets/img/prom/ut03/VM_options_Intellij.png",
   "./lmgi/assets/img/prom/ut03/edit_execution_Intellij.png",
+  "./lmgi/assets/img/prom/ut04/empuja-piedras.png",
   "./lmgi/assets/js/course.js",
   "./lmgi/assets/js/pwa-register.js",
   "./lmgi/assets/js/search-data.js",
@@ -81,6 +83,7 @@ const PRECACHE_URLS = [
   "./prom/assets/img/prom/ut03/Modify_run_options_Intellij.png",
   "./prom/assets/img/prom/ut03/VM_options_Intellij.png",
   "./prom/assets/img/prom/ut03/edit_execution_Intellij.png",
+  "./prom/assets/img/prom/ut04/empuja-piedras.png",
   "./prom/assets/js/course.js",
   "./prom/assets/js/pwa-register.js",
   "./prom/assets/js/search-data.js",
