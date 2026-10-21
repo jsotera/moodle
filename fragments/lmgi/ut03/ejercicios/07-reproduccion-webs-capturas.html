@@ -1,0 +1,70 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-laptop-code"></i> 3.7 Reproducción de webs a partir de capturas</h2>
+    <p class="lead">Practica con dos propuestas de estilo examen: observa las <strong>capturas de una web</strong> y construye sus páginas utilizando el HTML trabajado en la unidad.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-eye"></i> De la captura al HTML</h4>
+      <p>En estas actividades no tendrás una lista de etiquetas que debas colocar. El modelo será el documento PDF de cada proyecto: tendrás que reconocer sus contenidos, decidir qué etiquetas los representan y organizar los archivos necesarios.</p>
+      <ol>
+        <li>Revisa todas las capturas del documento antes de empezar. Identifica las páginas, sus apartados y los elementos que se repiten.</li>
+        <li>Localiza encabezados, párrafos, formatos de texto, listas, imágenes, enlaces, tablas y formularios que aparezcan en el modelo.</li>
+        <li>Prepara los archivos HTML y las imágenes. Después construye cada página por apartados.</li>
+        <li>Compara el resultado en el navegador con las capturas y corrige las diferencias y los elementos que falten.</li>
+      </ol>
+      <p>El objetivo es reproducir los contenidos, su orden y su estructura con las etiquetas adecuadas, no conseguir una copia exacta al píxel mediante CSS que todavía no hemos estudiado.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-open"></i> Preparación y criterios comunes</h4>
+      <ul>
+        <li>Crea una carpeta independiente para cada proyecto, con una página inicial <code>index.html</code> y una subcarpeta <code>img</code> para las imágenes.</li>
+        <li>Si el modelo muestra varias páginas, crea un archivo HTML para cada una y conéctalas con enlaces relativos.</li>
+        <li>Cada documento tendrá estructura HTML completa, idioma español, codificación UTF-8 y un título de pestaña adecuado.</li>
+        <li>Reproduce los textos legibles y su jerarquía con encabezados, párrafos y las etiquetas de formato que correspondan. No simules la separación de apartados acumulando espacios o saltos de línea.</li>
+        <li>Si aparecen tablas, constrúyelas con filas y celdas reales. Utiliza cabeceras y, cuando corresponda, <code>colspan</code> y <code>rowspan</code>. Puedes reutilizar el CSS de bordes de la teoría 3.3 dentro de <code>style</code> en el <code>head</code>.</li>
+        <li>Si aparecen formularios, utiliza controles reales: etiquetas asociadas con <code>for</code> e <code>id</code>, tipos de campo adecuados, nombres de envío y grupos de opciones coherentes. No es necesario programar un servidor ni almacenar los datos.</li>
+        <li>No utilices Bootstrap, JavaScript ni plantillas de páginas ya construidas: el trabajo consiste en aplicar el HTML de esta unidad.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-crop-alt"></i> Obtener las imágenes</h4>
+      <p>Las imágenes que necesites debes obtenerlas de los propios pantallazos del PDF. Haz una captura, recorta únicamente la imagen que quieras utilizar y guárdala en la carpeta <code>img</code> con un nombre descriptivo.</p>
+      <p>Inserta cada recorte mediante <code>&lt;img&gt;</code>, con una ruta relativa y un texto <code>alt</code> adecuado. Ajusta sus dimensiones sin deformarlo.</p>
+      <p><strong>Importante:</strong> los recortes sirven para las imágenes de la web, no para sustituir la página entera ni sus textos, tablas o formularios. Esos elementos debes construirlos con HTML.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-pdf"></i> Ejercicio 1: reproducción del Proyecto 1</h4>
+      <p>Implementa la web representada en el siguiente documento. Utiliza sus capturas como referencia para reproducir las páginas y los elementos que aparecen en ellas.</p>
+      <p><a class="btn btn-primary" href="https://moodle.mariaanasanz.es/pluginfile.php/26289/mod_resource/content/0/Proyecto%201.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Abrir Proyecto 1 (PDF)</a></p>
+      <p>Antes de escribir el HTML, prepara un pequeño esquema de las páginas y de sus apartados. Implementa primero la estructura y los textos; después incorpora las imágenes recortadas y completa los demás elementos del modelo.</p>
+      <p>Comprueba el resultado abriendo <code>index.html</code> en el navegador. Recorre los enlaces y revisa que todas las imágenes y páginas del proyecto se carguen correctamente.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ProyectoWeb01</code></p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-pdf"></i> Ejercicio 2: reproducción del Proyecto 2</h4>
+      <p>Construye una segunda web independiente siguiendo las capturas del siguiente documento. Aplica el mismo proceso de análisis y construcción, eligiendo las etiquetas según los contenidos que observes.</p>
+      <p><a class="btn btn-primary" href="https://moodle.mariaanasanz.es/pluginfile.php/26290/mod_resource/content/0/Proyecto%202.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Abrir Proyecto 2 (PDF)</a></p>
+      <p>Organiza los archivos desde el principio y reproduce los apartados del modelo sin sustituirlos por capturas completas. Obtén también las imágenes de los pantallazos de este documento.</p>
+      <p>Al terminar, compara cada página con su referencia y comprueba tanto el contenido visible como el funcionamiento de los elementos interactivos que hayas implementado.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ProyectoWeb02</code></p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Revisión final</h4>
+      <ul>
+        <li>¿Están todas las páginas y los apartados que aparecen en el documento?</li>
+        <li>¿Los textos, las listas y las tablas están construidos con HTML, en lugar de ser imágenes?</li>
+        <li>¿Los enlaces funcionan y las imágenes se cargan desde rutas relativas?</li>
+        <li>¿Las tablas conservan sus filas, columnas y combinaciones de celdas?</li>
+        <li>¿Los formularios, si los hay, permiten escribir y seleccionar opciones correctamente?</li>
+        <li>¿El proyecto sigue funcionando si mueves su carpeta completa a otra ubicación?</li>
+      </ul>
+      <p>Los documentos de referencia están alojados en Moodle. Si se solicita, inicia sesión con tu cuenta para abrirlos.</p>
+    </div>
+  </div>
+</div>
