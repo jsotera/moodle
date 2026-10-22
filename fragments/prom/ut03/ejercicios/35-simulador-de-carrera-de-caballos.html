@@ -1,0 +1,25 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-horse"></i> 3.28 Simulador de Carrera de Caballos</h2>
+<p class="lead">En este ejercicio crearás un simulador de carrera entre dos jugadores que controlarán caballos. Cada jugador tendrá que gestionar la velocidad y la potencia del caballo durante 20 segundos (iteraciones) para intentar llegar lo más lejos posible.</p>
+<p>Implementa la carrera únicamente en <code>main</code>, sin clases <code>Carrera</code> o <code>Caballo</code> ni métodos auxiliares. Utiliza dos grupos de variables locales para nombre, potencia y distancia recorrida. Ambos caballos comienzan con distancia cero.</p>
+<p>Define constantes locales para las 20 iteraciones, las velocidades y los consumos. En cada iteración de un <code>for</code>, solicita por teclado la opción de cada participante: 1 máxima, 2 normal, 3 mínima o 4 descansar. Puedes suponer que se introduce una de esas cuatro opciones.</p>
+<p><strong>Reglas del juego:</strong></p>
+<ol>
+<li>Cada caballo comienza con 100 unidades de potencia y velocidades predefinidas (velocidad máxima: 10, velocidad normal: 7, velocidad mínima: 3).</li>
+<li>Los jugadores podrán elegir su estrategia en cada iteración:
+<ul>
+<li><strong>Correr a velocidad máxima:</strong> Avanza más rápido pero consume 15 puntos de potencia por segundo.</li>
+<li><strong>Correr a velocidad normal:</strong> Avanza a velocidad media y consume 10 puntos de potencia por segundo.</li>
+<li><strong>Correr a velocidad mínima:</strong> Avanza más lento pero solo consume 5 puntos de potencia por segundo.</li>
+<li><strong>Parar a descansar:</strong> El caballo recupera 10 puntos de potencia, sin superar 100, pero no avanza en esa iteración.</li>
+</ul>
+</li>
+<li>Si no tiene potencia suficiente para la velocidad elegida, corre a velocidad mínima. Descuenta su consumo sin dejar la potencia por debajo de cero. Con potencia cero puede seguir avanzando a velocidad mínima o elegir descansar para recuperarse.</li>
+<li>El juego termina después de 20 iteraciones. Gana el jugador cuyo caballo haya recorrido la mayor distancia.</li>
+</ol>
+<p>Para esta simulación, las velocidades son metros por segundo y cada iteración representa un segundo: suma a la distancia los metros de la velocidad aplicada. No es necesario esperar un segundo real. Muestra en cada ronda la opción aplicada, la potencia y la distancia de ambos; contempla el empate final.</p>
+<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer28CarreraEstrategicaCaballos</code></p>
+</div>
+</div>

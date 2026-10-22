@@ -1,0 +1,29 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-ticket-alt"></i> 3.16 Puesto de lotería</h2>
+<p class="lead">Simula la venta de boletos y busca quién queda <strong>más cerca del número ganador</strong>.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-coins"></i> Datos iniciales</h4>
+<p>Representa en <code>main</code> a Ana, Luis y Carlos con tres grupos de variables locales para nombre, dinero y boleto. Sus saldos iniciales son 50, 11 y 100 euros, respectivamente.</p>
+<p>Cada boleto cuesta 20 euros. El número ganador y los boletos válidos serán enteros aleatorios entre <strong>10000 y 99999</strong>, ambos incluidos. Utiliza <code>Random</code> o <code>Math.random()</code>. Inicializa los boletos con <code>-99999</code> para representar que todavía no se han comprado.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-list-check"></i> Qué debes hacer</h4>
+<ol>
+<li>Genera el número ganador, pero no lo muestres hasta completar las ventas.</li>
+<li>Procesa una compra por persona. Si tiene al menos 20 euros, descuenta el precio y asigna un boleto aleatorio. En caso contrario, conserva el saldo y el valor que indica que no participa.</li>
+<li>Muestra el nombre, el boleto o el mensaje «sin boleto», y el saldo restante de cada persona.</li>
+<li>Revela el número ganador y calcula, con <code>Math.abs()</code>, la distancia de cada boleto válido a ese número.</li>
+<li>Muestra todas las personas con la menor distancia. Puede haber empate. Si la distancia es cero, indica que se ha acertado el número.</li>
+<li>Si nadie pudo comprar, muestra que no hay participantes. Nunca incluyas un boleto <code>-99999</code> en la búsqueda del ganador.</li>
+</ol>
+<p>Resuélvelo con variables locales y condicionales dentro de <code>main</code>, sin clases <code>Persona</code> o <code>PuestoLoteria</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Pruebas</h4>
+<p>Comprueba los saldos 19, 20 y 21 euros. Para probar un empate, sustituye temporalmente los aleatorios por un número ganador 50000 y boletos 49990 y 50010. Prueba también un acierto exacto y una ejecución en la que nadie tenga dinero suficiente.</p>
+<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer16Loteria</code></p>
+</div>
+</div>
+</div>

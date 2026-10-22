@@ -1,0 +1,19 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+<div class="card shadow p-4">
+<h2 class="text-primary mb-3"><i class="fas fa-bolt"></i> 3.27 Combate de Guerreros</h2>
+<p class="lead">En este ejercicio crearás un juego de combate entre dos guerreros. Cada guerrero tiene puntos de vida, ataque y defensa. El combate durará varias rondas, y el guerrero que reduzca los puntos de vida del oponente a cero será el ganador.</p>
+<p>Representa en <code>main</code> a dos guerreros con variables locales para nombre, puntos de vida, ataque y defensa, diferenciadas mediante los sufijos <code>1</code> y <code>2</code>. No crees clases <code>Combate</code> o <code>Guerrero</code>, constructores ni métodos propios.</p>
+<p>Genera una vez los datos iniciales de cada guerrero con <code>Random</code> o <code>Math.random()</code>. Utiliza un <code>for</code> que permita hasta 20 rondas, pero deje de repetir si alguien pierde.</p>
+<p><strong>Reglas del combate:</strong></p>
+<ol>
+<li>Los puntos de vida iniciales de cada guerrero estarán entre 50 y 100.</li>
+<li>El ataque estará entre 10 y 20, y la defensa entre 5 y 15.</li>
+<li>En cada ronda ataca primero el guerrero 1. El daño es su ataque menos la defensa rival, con un mínimo de cero. Descuenta ese daño sin dejar la vida por debajo de cero.</li>
+<li>Si el guerrero 2 sobrevive, responde aplicando las mismas reglas. Muestra el daño y las vidas después de cada ataque.</li>
+<li>Quien llegue a cero pierde y no puede responder. Si ambos siguen vivos después de 20 rondas, declara empate. El límite evita un combate infinito si nadie puede causar daño.</li>
+</ol>
+<p>Puedes tomar como referencia el ejercicio <strong>3.9 Batalla de robots</strong> de esta misma unidad. Ahora el intercambio de ataques se repite con un <code>for</code>.</p>
+<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer27CombateGuerreros</code></p>
+</div>
+</div>

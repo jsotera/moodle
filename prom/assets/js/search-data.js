@@ -478,211 +478,472 @@ window.COURSE_PAGES = [
     "text": "3.4. Aserciones, prueba y depuración Programar también consiste en comprobar lo que hemos hecho. En este bloque aprenderás a detectar errores con aserciones, pruebas, depuración y documentación. 3.4. Aserciones, prueba y depuración Programar también consiste en comprobar lo que hemos hecho. En este bloque aprenderás a detectar errores con aserciones, probar casos diferentes, usar el depurador y documentar el código con claridad. 3.4.1. Aserciones Una aserción comprueba una condición que el programador considera verdadera en ese punto del programa. Sintaxis assert condicion; assert condicion : \"Mensaje si la condición es falsa\"; Si la condición es falsa y las aserciones están activadas, el programa se detiene y muestra un AssertionError . El mensaje ayuda a localizar el problema. Un primer ejemplo int stock = 5; int unidadesVendidas = 2; stock = stock - unidadesVendidas; assert stock &gt;= 0 : \"El stock no puede ser negativo\"; System.out.println(\"Stock restante: \" + stock); Con estos datos la condición es verdadera. Si durante las pruebas cambiamos unidadesVendidas a 8 , la aserción descubre que el programa ha dejado el stock en un estado imposible. Activar las aserciones Java las desactiva normalmente. Para utilizarlas durante el desarrollo hay que añadir la opción -ea a la ejecución. java -ea MiPrograma En el IDE, esta opción se escribe en las opciones de la máquina virtual de la configuración de ejecución. Después hay que volver a ejecutar el programa. Atención. Si olvidamos -ea , Java ignora las aserciones. No debemos interpretar que una prueba ha sido correcta sin comprobar antes que están activadas. Activar las aserciones en Intellij IDEA En un IDE como Intellij podremos definir las opciones de la máquina virtual (VM) mediante ventanas. Para ello accederemos a editar la configuración de la ejecución y agregaremos la posibilidad de editar las opciones de la VM si no está activa. Imagen 1. Selecciona \"Edit...\" en el menú superior derecho para ejecutar la clase. Imagen 2. La opción \"Add VM options\" debe estar seleccionada. Imagen 3. Junto a la versión de Java se pueden escribir las opciones de la VM. Para usar los asserts escribir: -ea Ahora al ejecutarse el programa funcionarán los asserts. Imagen 4. Si el stock no es mayor o igual que cero se parará la ejecución y nos mostrará el mensaje indicado: \"El stock no puede ser negativo\" Aserción o validación Situación Qué utilizar Comprobar una idea interna del programa durante el desarrollo. assert Comprobar un dato introducido por una persona. if y un mensaje o una excepción Comprobar un argumento de un método público. if y una excepción Las validaciones deben funcionar siempre. Las aserciones son una ayuda para encontrar defectos mientras construimos y probamos el programa. No modificar datos dentro de una aserción // Incorrecto: cambia el valor de contador assert contador++ &lt; 10; // Correcto: solo comprueba assert contador &lt; 10 : \"Contador fuera de rango\"; El programa debe comportarse igual con las aserciones activadas o desactivadas. Por eso la condición solo debe comprobar, nunca realizar una operación necesaria. Detectar y corregir un error Activa las aserciones con -ea . Ejecuta un caso que muestre el fallo. Lee el mensaje y la línea señalada. Observa los valores de las variables. Corrige la causa, no la aserción. Vuelve a ejecutar el caso. Idea clave. Una aserción que falla no suele ser el problema: es la alarma que permite encontrarlo. Comprueba tu comprensión Queremos comprobar que el saldo calculado nunca es negativo por un defecto interno. Completa la instrucción: assert __________________ : \"Saldo negativo inesperado\"; Ver la solución assert saldo &gt;= 0 : \"Saldo negativo inesperado\"; Resumen del capítulo assert comprueba una condición interna. Las aserciones se activan con -ea . No sustituyen la validación de entradas ni el uso de excepciones. Su condición no debe modificar el estado del programa. 3.4.2. Prueba y depuración Probar es buscar casos que puedan descubrir fallos. Depurar es observar la ejecución para localizar su causa. Elegir casos de prueba Para probar un método conviene combinar casos normales, límites e incorrectos. Por ejemplo, para un método que recibe una edad entre 0 y 120: Tipo Dato Qué comprobamos Normal 25 El caso habitual. Límite 0 y 120 Los extremos permitidos. Incorrecto -1 y 121 La respuesta ante datos no válidos. Antes de ejecutar, escribe el resultado esperado. Después compáralo con el resultado obtenido. Usar el depurador Punto de ruptura: marca una línea en la que quieres detener el programa. Depurar: inicia el programa con la opción de depuración del IDE. Paso a paso: ejecuta una línea cada vez. Variables: observa cómo cambian sus valores. Continuar: reanuda la ejecución hasta el siguiente punto de ruptura. Ejemplo para seguir paso a paso int suma = 0; for (int numero = 1; numero &lt;= 3; numero++) { suma = suma + numero; assert suma &gt;= 0 : \"Suma negativa inesperada\"; } System.out.println(suma); Coloca un punto de ruptura en la asignación a suma . Sus valores serán 1 , 3 y 6 . Qué herramienta elegir Herramienta Utilidad Mensaje por consola Comprobar rápidamente por dónde pasa el programa. Depurador Seguir el flujo y examinar variables. assert Avisar cuando una condición interna deja de cumplirse. Ciclo de corrección Reproducir el fallo → localizarlo → corregir la causa → repetir las pruebas. Una corrección puede crear otro problema. Por eso hay que volver a ejecutar tanto el caso que fallaba como los que ya funcionaban. Comprueba tu comprensión Un método acepta notas entre 0 y 10. Indica un caso normal, dos casos límite y dos incorrectos. Ver una posible solución Normal: 6 . Límites: 0 y 10 . Incorrectos: -1 y 11 . Resumen del capítulo Incluye casos normales, límites e incorrectos. Compara siempre el resultado esperado con el obtenido. El depurador permite seguir instrucciones y variables. Después de corregir, repite todas las pruebas importantes. 3.4.3. Comentarios y documentación Un código claro facilita encontrar errores y permite que otras personas comprendan nuestras decisiones. Tipos de comentario // Comentario de una línea /* Comentario que puede ocupar varias líneas */ /** Documentación de una clase o un método. */ Los comentarios deben explicar una regla o una decisión que no resulta evidente. No deben repetir literalmente la instrucción. // Poco útil: suma uno a intentos intentos++; // Útil: el primer intento también cuenta para el bloqueo intentos++; Documentar un método /** * Calcula el precio después de aplicar un descuento. * * @param precio precio original, no negativo * @param descuento porcentaje entre 0 y 100 * @return precio con el descuento aplicado * @throws IllegalArgumentException si los datos no son válidos */ public static double calcularPrecio(double precio, double descuento) { if (precio &lt; 0 || descuento &lt; 0 || descuento &gt; 100) { throw new IllegalArgumentException(\"Datos no válidos\"); } double resultado = precio - precio * descuento / 100; assert resultado &gt;= 0 : \"Precio final negativo\"; return resultado; } @param explica los parámetros, @return el resultado y @throws la excepción que puede producirse. El código también comunica Evita Prefiere int x; int intentosRestantes; Un método muy largo Métodos pequeños con una finalidad clara Comentarios desactualizados Revisar el comentario al cambiar el código Comprueba tu comprensión ¿Qué aporta el comentario // incrementa i junto a i++ ? Ver la solución No aporta información nueva. Es mejor eliminarlo o explicar por qué se incrementa, si esa decisión necesita aclaración. Resumen del capítulo Comenta el motivo o la regla, no lo evidente. Documenta qué recibe, devuelve y puede lanzar un método. Utiliza nombres descriptivos y una presentación ordenada. Mantén los comentarios de acuerdo con el código. 3.4.4. Integración Las mismas herramientas sirven en programas de temas diferentes: validar, decidir, repetir, comprobar y probar. Ejemplo integrado: puntuación de una partida /** * Calcula la puntuación de una partida. * Cada tercera ronda añade 5 puntos extra. * * @param rondas número de rondas jugadas * @param puntosPorRonda puntos obtenidos en cada ronda * @return puntuación total * @throws IllegalArgumentException si un dato es negativo */ public static int calcularPuntuacion(int rondas, int puntosPorRonda) { if (rondas &lt; 0 || puntosPorRonda &lt; 0) { throw new IllegalArgumentException(\"Los datos no pueden ser negativos\"); } int total = 0; for (int ronda = 1; ronda &lt;= rondas; ronda++) { total = total + puntosPorRonda; if (ronda % 3 == 0) { total = total + 5; } assert total &gt;= 0 : \"Puntuación negativa inesperada\"; } return total; } Qué aparece en el ejemplo if y una excepción para rechazar argumentos incorrectos. for para repetir el cálculo de cada ronda. if para aplicar el premio cada tres rondas. assert para vigilar un estado interno inesperado. Documentación para explicar el uso del método. Casos para probar Rondas Puntos Resultado esperado 0 10 0 1 10 10 3 10 35 -1 10 IllegalArgumentException Cambia el contexto, conserva el proceso En una tienda, una biblioteca o un juego cambiarán los nombres y las reglas, pero el trabajo será parecido: Comprender los datos y el resultado. Validar lo que puede llegar incorrecto. Construir las decisiones y repeticiones. Añadir aserciones para condiciones internas importantes. Probar casos normales, límites e incorrectos. Depurar y corregir los fallos encontrados. Práctica guiada Adapta el método para una tarjeta de fidelización: cada compra aporta una cantidad fija de puntos y cada quinta compra añade 10 puntos extra. Rechaza cantidades negativas mediante una excepción. Usa un bucle y una decisión. Añade una aserción que compruebe que el total no es negativo. Activa las aserciones y prueba 0, 1 y 5 compras, además de un dato negativo. Coloca un punto de ruptura dentro del bucle y observa el total. Lista final de revisión El programa compila y sus nombres son claros. Los datos incorrectos reciben una respuesta adecuada. Las aserciones están activadas durante las pruebas. Se han probado casos normales, límites e incorrectos. Los comentarios explican decisiones útiles y siguen siendo correctos."
   },
   {
-    "id": "ut03-ejercicios-01-comparacion-numeros",
+    "id": "ut03-ejercicios-01-condicionales-simples",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Condicionales Simples",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-01-condicionales-simples",
+    "type": "Ejercicios · Sección",
+    "text": "Condicionales Simples En esta actividad trabajaremos los condicionales simples utilizando operadores como &gt; , &lt; , &gt;= y &lt;= . Aprenderemos a utilizar if , else if y else para evaluar condiciones básicas. Crearás proyectos donde implementarás condiciones sencillas para resolver problemas prácticos como verificar si un número es mayor o menor, si un objeto tiene ciertos atributos o si una persona cumple una serie de requisitos. Forma de trabajo en toda la tanda Resuelve todos los ejercicios de condicionales, for y while dentro del método main de una clase Main . Utiliza variables locales, constantes, expresiones y estructuras de control. Puedes emplear Scanner , Random y Math , pero no declares clases de modelo, atributos, constructores ni métodos auxiliares propios. Tampoco necesitas arrays ni colecciones. Los ejercicios están organizados en tres bloques, con sus subsecciones introductorias: condicionales (3.1–3.18), bucles for (3.19–3.33) y bucles while (3.34–3.41). Crea un proyecto independiente para cada ejercicio."
+  },
+  {
+    "id": "ut03-ejercicios-02-comparacion-de-numeros",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.1 Comparación de números",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-01-comparacion-numeros",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-02-comparacion-de-numeros",
     "type": "Ejercicios · Sección",
     "text": "3.1 Comparación de números Practica if, else if y else comparando dos números enteros. Cómo trabajaremos en estas actividades Crea un proyecto con una clase Main y su método public static void main(String[] args) . Escribe toda la lógica dentro de main , utilizando variables locales, expresiones, condicionales y, cuando se soliciten, bucles. No declares atributos, constructores, métodos auxiliares ni clases de modelo. Tampoco necesitas arrays ni colecciones. Puedes utilizar clases de Java como Scanner , Random y Math . Los import necesarios se escriben antes de la declaración de Main . Estas normas se aplican a toda la tanda de ejercicios. En los primeros ejercicios puedes asignar los datos directamente a las variables y cambiarlos entre ejecuciones. Cuando se pida entrada por teclado, utiliza Scanner . Este ejemplo solo muestra cómo leer un entero: import java.util.Scanner; public class Main { public static void main(String[] args) { Scanner teclado = new Scanner(System.in); System.out.print(\"Introduce un número entero: \"); int numero = Integer.parseInt(teclado.nextLine()); System.out.println(\"Has escrito: \" + numero); } } Para leer texto utiliza teclado.nextLine() y para un decimal, Double.parseDouble(teclado.nextLine()) , escribiendo el punto como separador decimal. Por ahora puedes suponer que se introduce un dato del tipo solicitado; las comprobaciones del enunciado se refieren a sus valores. Qué debes hacer Declara dos variables locales de tipo int , numero1 y numero2 . Compara sus valores y muestra exactamente uno de estos mensajes: Si el primero es mayor: El primer número es mayor. Si el segundo es mayor: El segundo número es mayor. Si coinciden: Los dos números son iguales. Resuelve la comparación mediante condicionales, sin utilizar Math.max() . Pruebas Ejecuta el programa con 8 y 3 , 3 y 8 , 5 y 5 y -2 y -7 . Antes de ejecutar, anota qué mensaje esperas. Nombre del proyecto del ejercicio: UT3Ejer1Comparacion"
   },
   {
-    "id": "ut03-ejercicios-02-mayoria-edad",
+    "id": "ut03-ejercicios-03-edad-y-mayoria-de-edad",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.2 Edad y mayoría de edad",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-02-mayoria-edad",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-03-edad-y-mayoria-de-edad",
     "type": "Ejercicios · Sección",
     "text": "3.2 Edad y mayoría de edad Utiliza una condición para decidir si una persona ha alcanzado la mayoría de edad . Qué debes hacer Dentro de main , declara String nombre e int edad . No necesitas crear una clase Persona . Si la edad es negativa, muestra que el dato no es válido. Si la edad es de 18 años o más, muestra el nombre e indica que es mayor de edad. En los demás casos, muestra el nombre e indica que es menor de edad. Después de resolverlo con if y else , escribe una segunda versión para edades válidas empleando el operador ternario ?: . Pruebas Comprueba las edades -1 , 0 , 17 , 18 y 19 . Un dato no válido no debe recibir además una clasificación de mayoría de edad. Nombre del proyecto del ejercicio: UT3Ejer2MayorEdad"
   },
   {
-    "id": "ut03-ejercicios-03-positivo-negativo",
+    "id": "ut03-ejercicios-04-numero-positivo-negativo-o-cero",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.3 Número positivo, negativo o cero",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-03-positivo-negativo",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-04-numero-positivo-negativo-o-cero",
     "type": "Ejercicios · Sección",
     "text": "3.3 Número positivo, negativo o cero Construye una clasificación con tres resultados excluyentes . Qué debes hacer Declara en main una variable local int numero . Mediante if , else if y else , indica si su valor es positivo, negativo o cero. Debe aparecer una única clasificación. El cero no pertenece a los positivos ni a los negativos. Pruebas Prueba con -15 , -1 , 0 , 1 y 24 . Sigue la ejecución con el depurador y observa qué bloque se ejecuta en cada caso. Nombre del proyecto del ejercicio: UT3Ejer3PositivoNegativo"
   },
   {
-    "id": "ut03-ejercicios-04-descuento-tienda",
+    "id": "ut03-ejercicios-05-descuento-en-una-tienda",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.4 Descuento en una tienda",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-04-descuento-tienda",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-05-descuento-en-una-tienda",
     "type": "Ejercicios · Sección",
     "text": "3.4 Descuento en una tienda Calcula un precio final aplicando un descuento condicionado al importe. Qué debes hacer Trabaja únicamente en main con variables locales de tipo double para el precio original, el importe del descuento y el precio final. Si el precio es mayor que 100 euros, aplica un descuento del 10 %. Si está entre 0 y 100 euros, ambos incluidos, no hay descuento. Si el precio es negativo, informa del error y no calcules la compra. Para un precio válido, muestra el precio original, los euros descontados y el importe final. No confundas el porcentaje con el importe del descuento. Pruebas Prueba con -5 , 0 , 99.99 , 100 , 100.01 y 150 . Comprueba especialmente cuándo comienza a aplicarse el descuento. Nombre del proyecto del ejercicio: UT3Ejer4DescuentoTienda"
   },
   {
-    "id": "ut03-ejercicios-05-estado-agua",
+    "id": "ut03-ejercicios-06-temperatura-y-estado-del-agua",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.5 Temperatura y estado del agua",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-05-estado-agua",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-06-temperatura-y-estado-del-agua",
     "type": "Ejercicios · Sección",
     "text": "3.5 Temperatura y estado del agua Clasifica una temperatura mediante intervalos sin solapamientos . Qué debes hacer Declara double temperatura dentro de main y muestra un estado según estas reglas simplificadas del ejercicio: Sólido: temperatura menor o igual que 0 °C. Líquido: temperatura mayor que 0 °C y menor que 100 °C. Gaseoso: temperatura mayor o igual que 100 °C. Incluye la temperatura en el mensaje. No crees una clase Agua ni un método para calcular el estado. Pruebas Comprueba -10 , 0 , 0.1 , 99.9 , 100 y 120 . Ningún valor debe quedarse sin clasificar ni recibir dos estados. Nombre del proyecto del ejercicio: UT3Ejer5EstadoAgua"
   },
   {
-    "id": "ut03-ejercicios-06-pedido-pizza",
+    "id": "ut03-ejercicios-07-condicionales-complejos",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Condicionales Complejos",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-07-condicionales-complejos",
+    "type": "Ejercicios · Sección",
+    "text": "Condicionales Complejos En esta actividad daremos un paso más allá en el uso de condicionales, trabajando con múltiples condiciones en un solo if y combinando operadores lógicos como &amp;&amp; (AND) y || (OR). Estos ejercicios te permitirán manejar situaciones más complejas, donde un programa debe tomar decisiones basadas en varias condiciones simultáneamente. Podrás combinar condiciones para verificar si los datos cumplen múltiples criterios."
+  },
+  {
+    "id": "ut03-ejercicios-08-pedido-de-pizza",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.6 Pedido de pizza",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-06-pedido-pizza",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-08-pedido-de-pizza",
     "type": "Ejercicios · Sección",
     "text": "3.6 Pedido de pizza Combina AND y OR para comprobar si una pizza cumple un pedido. Qué debes hacer Declara dentro de main tres variables String : tamano , tipoMasa e ingredientes . Guarda los ingredientes en un único texto en minúsculas, por ejemplo \"tomate, queso, pepperoni, aceitunas\" . El pedido es válido únicamente si se cumplen todas estas condiciones: El tamaño es \"mediana\" o \"grande\" . La masa es \"gruesa\" . Los ingredientes contienen \"pepperoni\" , \"tomate\" y \"queso\" . Puede haber ingredientes adicionales. Guarda la comprobación en un boolean pedidoValido y muestra un mensaje con if y else . Utiliza equals() para comparar textos, contains() para buscar ingredientes y paréntesis para agrupar las alternativas del tamaño. Pruebas Prueba un pedido válido de cada tamaño, uno pequeño con todo lo demás correcto, otro con masa fina y otro al que le falte un ingrediente obligatorio. Nombre del proyecto del ejercicio: UT3Ejer6Pizza"
   },
   {
-    "id": "ut03-ejercicios-07-lanzamiento-cohetes",
+    "id": "ut03-ejercicios-09-lanzamiento-de-cohetes",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.7 Lanzamiento de cohetes",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-07-lanzamiento-cohetes",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-09-lanzamiento-de-cohetes",
     "type": "Ejercicios · Sección",
     "text": "3.7 Lanzamiento de cohetes Valida un despegue combinando constantes locales y condiciones . Qué debes hacer Declara en main variables para el combustible en litros, el peso en kilogramos y la velocidad inicial en km/h. Define también constantes locales con final y nombres en mayúsculas: COMBUSTIBLE_MINIMO : 500 litros. Debe superarse estrictamente. PESO_MAXIMO : 2000 kg. Se permite alcanzar ese valor. VELOCIDAD_MINIMA : 100 km/h. Se permite alcanzar ese valor. Si algún dato es negativo, informa de que los datos no son válidos. En otro caso, calcula boolean puedeDespegar y muestra si se autoriza el lanzamiento. Si no se autoriza, indica todos los requisitos incumplidos. Puede haber más de uno. Al ser constantes dentro de un método, utiliza final , sin public ni static . Pruebas Prueba los valores exactos de los límites, un despegue autorizado y un caso en el que fallen dos requisitos simultáneamente. Nombre del proyecto del ejercicio: UT3Ejer7Lanzamiento"
   },
   {
-    "id": "ut03-ejercicios-08-juego-dados",
+    "id": "ut03-ejercicios-10-juego-de-dados",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.8 Juego de dados",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-08-juego-dados",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-10-juego-de-dados",
     "type": "Ejercicios · Sección",
     "text": "3.8 Juego de dados Decide quién gana una partida en la que un trío tiene prioridad sobre la suma . Qué debes hacer Representa a dos participantes mediante sus nombres y seis variables enteras locales: tres dados por participante. Todo el programa se desarrolla dentro de main . Asigna inicialmente valores entre 1 y 6 para poder probar las reglas. Muestra los tres dados y la suma de cada participante. Si solo una persona tiene los tres dados iguales, gana esa persona, independientemente de las sumas. Si ambas tienen trío, gana quien tenga el valor de dado más alto; si los tríos son iguales, hay empate. Si ninguna tiene trío, gana la suma mayor; si las sumas coinciden, hay empate. Cuando funcionen las decisiones, sustituye las asignaciones por tiradas con Random o Math.random() . No necesitas arrays ni una clase Jugador . Pruebas Comprueba 2, 2, 2 contra 6, 6, 5 ; dos tríos diferentes; dos tríos iguales; y dos tiradas sin trío con la misma suma. Nombre del proyecto del ejercicio: UT3Ejer8Dados"
   },
   {
-    "id": "ut03-ejercicios-09-batalla-robots",
+    "id": "ut03-ejercicios-11-batalla-de-robots",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.9 Batalla de robots",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-09-batalla-robots",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-11-batalla-de-robots",
     "type": "Ejercicios · Sección",
     "text": "3.9 Batalla de robots Actualiza la vida de dos robots y decide si pueden continuar el combate . Qué debes hacer En main , representa a cada robot mediante variables locales para nombre, vida, ataque y defensa, diferenciándolas con los sufijos 1 y 2 . La vida inicial será 100 y los valores de ataque y defensa serán enteros positivos. El robot 1 ataca al robot 2. Solo causa daño si su ataque supera la defensa rival. El daño es la diferencia entre ataque y defensa. Resta ese daño a la vida del defensor, sin dejarla por debajo de cero. Muestra el daño causado y la vida restante. Si el defensor llega a cero, anuncia su derrota. Si el robot 2 sigue vivo, responde una vez aplicando las mismas reglas al robot 1. Muestra el estado de ambos al terminar el intercambio. No declares una clase Robot ni un método de combate. Las comprobaciones y modificaciones de vida deben estar dentro de main . Pruebas y ampliación con bucles Prueba ataque inferior, igual y superior a la defensa, y un golpe que elimine al defensor. Después, como ampliación, repite los intercambios con while hasta que alguien pierda o se alcancen 20 rondas. Si ambos siguen vivos al llegar al límite, declara empate; así también termina un combate en el que nadie puede causar daño. Nombre del proyecto del ejercicio: UT3Ejer9BatallaRobots"
   },
   {
-    "id": "ut03-ejercicios-10-colision-rectangulos",
+    "id": "ut03-ejercicios-12-colision-entre-rectangulos",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.10 Colisión entre rectángulos",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-10-colision-rectangulos",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-12-colision-entre-rectangulos",
     "type": "Ejercicios · Sección",
     "text": "3.10 Colisión entre rectángulos Combina comparaciones en dos ejes para detectar si dos rectángulos se tocan o se superponen . Qué debes hacer Dentro de main , declara ocho variables locales: x1 , y1 , anchura1 , altura1 y las cuatro equivalentes para el segundo rectángulo. No crees objetos Rectangulo . Considera x e y como las coordenadas mínimas del rectángulo. Su intervalo horizontal va desde x hasta x + anchura y el vertical, desde y hasta y + altura . Si alguna anchura o altura no es positiva, informa de que las dimensiones no son válidas. Para datos válidos, comprueba si los intervalos se tocan o superponen en cada eje. Solo hay colisión si esto sucede en ambos ejes . El contacto de bordes o de una esquina cuenta como colisión. Guarda el resultado en boolean hayColision y muestra un mensaje mediante un condicional. Pruebas Comprueba separación horizontal, separación vertical, superposición parcial, un rectángulo dentro de otro, contacto de bordes y contacto en una esquina. Prueba también coordenadas negativas y dimensiones no válidas. Nombre del proyecto del ejercicio: UT3Ejer10Colision"
   },
   {
-    "id": "ut03-ejercicios-11-clasificacion-edad",
+    "id": "ut03-ejercicios-13-mas-condicionales",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Más Condicionales!",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-13-mas-condicionales",
+    "type": "Ejercicios · Sección",
+    "text": "Más Condicionales! Continuamos trabajando los condicionales, realizando ejercicios variados con todo lo aprendido hasta ahora. Estos ejercicios te permitirán afianzar los conocimientos adquiridos sobre las sentencias condicionales adquiriendo una madurez y una soltura digna de un programador o una programadora profesional."
+  },
+  {
+    "id": "ut03-ejercicios-14-clasificacion-por-edad",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.11 Clasificación por edad",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-11-clasificacion-edad",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-14-clasificacion-por-edad",
     "type": "Ejercicios · Sección",
     "text": "3.11 Clasificación por edad Ordena las condiciones para clasificar una edad en un único intervalo . Qué debes hacer Declara en main un nombre, una edad entera y una variable de texto para la clasificación. Utiliza estos intervalos del ejercicio: De 0 a 10 años, ambos incluidos: infancia. De 11 a 19 años, ambos incluidos: adolescencia. De 20 a 65 años, ambos incluidos: edad adulta. A partir de 66 años: persona mayor. Si la edad es negativa, muestra un error. Para una edad válida, asigna la clasificación con condicionales y muestra el nombre, la edad y el resultado. Toda la lógica debe permanecer en main . Pruebas Comprueba -1 , 0 , 10 , 11 , 19 , 20 , 65 y 66 . Nombre del proyecto del ejercicio: UT3Ejer11ClasificacionEdad"
   },
   {
-    "id": "ut03-ejercicios-12-mayor-tres-numeros",
+    "id": "ut03-ejercicios-15-el-mayor-de-tres-numeros",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.12 El mayor de tres números",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-12-mayor-tres-numeros",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-15-el-mayor-de-tres-numeros",
     "type": "Ejercicios · Sección",
     "text": "3.12 El mayor de tres números Amplía la comparación a tres valores y ten en cuenta los empates . Qué debes hacer Declara tres enteros locales en main . Determina el valor mayor mediante condicionales, sin usar Math.max() , arrays ni métodos propios. Muestra el valor máximo e indica qué posiciones lo contienen: primera, segunda y/o tercera. Si dos valores máximos coinciden, deben aparecer ambas posiciones; si coinciden los tres, deben aparecer las tres. Pruebas Prueba un máximo en cada posición, valores negativos, dos máximos iguales y tres números iguales. Incluye 8, 8, 3 y -5, -2, -9 . Nombre del proyecto del ejercicio: UT3Ejer12Comparador3Numeros"
   },
   {
-    "id": "ut03-ejercicios-13-calculadora-condicionales",
+    "id": "ut03-ejercicios-16-calculadora-con-condicionales",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.13 Calculadora con condicionales",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-13-calculadora-condicionales",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-16-calculadora-con-condicionales",
     "type": "Ejercicios · Sección",
     "text": "3.13 Calculadora con condicionales Selecciona una operación aritmética mediante if y else if . Qué debes hacer Dentro de main , solicita por teclado dos números double y una operación de tipo String : \"+\" , \"-\" , \"*\" o \"/\" . Utiliza una cadena de condicionales para elegir la operación y mostrar su resultado. Compara los símbolos con equals() . Si se solicita una división cuyo segundo número sea cero, muestra un aviso y no realices la división. Si el símbolo no corresponde a ninguna operación, informa de ello sin mostrar un resultado numérico inventado. No crees una clase Calculadora ni métodos para las operaciones. Pruebas Prueba las cuatro operaciones, una división con decimales, una división entre cero y un operador desconocido. Nombre del proyecto del ejercicio: UT3Ejer13Calculadora"
   },
   {
-    "id": "ut03-ejercicios-14-conversor-unidades",
+    "id": "ut03-ejercicios-17-conversor-de-unidades",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.14 Conversor de unidades",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-14-conversor-unidades",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-17-conversor-de-unidades",
     "type": "Ejercicios · Sección",
     "text": "3.14 Conversor de unidades Convierte una longitud en metros eligiendo el cálculo mediante condicionales . Qué debes hacer Solicita en main una cantidad de metros y una unidad de destino: \"km\" o \"cm\" . Para convertir a kilómetros, recuerda que 1 km equivale a 1000 m. Para convertir a centímetros, recuerda que 1 m equivale a 100 cm. Rechaza las longitudes negativas y las unidades desconocidas. Muestra la cantidad original, el resultado y la unidad de destino para los datos válidos. Emplea variables locales de tipo double y String , y selecciona la conversión con if y else if . No declares métodos auxiliares. Pruebas Convierte 1500 metros a kilómetros y 1.25 metros a centímetros. Prueba también cero, una cantidad negativa y la unidad \"kg\" . Nombre del proyecto del ejercicio: UT3Ejer14ConversorMetrico"
   },
   {
-    "id": "ut03-ejercicios-15-evaluacion-empleados",
+    "id": "ut03-ejercicios-18-evaluacion-de-empleados",
     "unitId": "ut03",
     "section": "Ejercicios",
     "title": "UT 03. Ejercicios: 3.15 Evaluación de empleados",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-15-evaluacion-empleados",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-18-evaluacion-de-empleados",
     "type": "Ejercicios · Sección",
     "text": "3.15 Evaluación de empleados Combina condiciones y decisiones anidadas para evaluar un desempeño . Qué debes hacer Solicita en main un nombre y dos puntuaciones enteras de 0 a 100: puntosTrabajo y puntosActitud . Si alguna está fuera de ese intervalo, muestra un aviso y no evalúes. Para datos válidos, aplica estas reglas en orden: Excelente: ambas puntuaciones son mayores o iguales que 80. Bueno: no cumple la categoría anterior y ambas puntuaciones son mayores o iguales que 70. Aceptable: la puntuación de trabajo es menor que 70, pero la de actitud es mayor o igual que 70. Necesita mejora: la puntuación de actitud es menor que 70, independientemente de la de trabajo. Dentro de la rama «Excelente», comprueba si puntosTrabajo supera 90: solo entonces muestra ¡Bono aprobado! . En la rama «Necesita mejora», añade una advertencia. Muestra el nombre y la evaluación, usando únicamente variables locales y condicionales. Pruebas Prueba las parejas trabajo/actitud 95/85 , 90/80 , 85/75 , 75/70 , 60/80 , 95/60 y 101/80 . Comprueba que todos los datos válidos reciben exactamente una categoría. Nombre del proyecto del ejercicio: UT3Ejer15EvaluacionEmpleados"
   },
   {
-    "id": "ut03-ejercicios-16-factorial",
+    "id": "ut03-ejercicios-19-trabajando-con-math-random",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.16 Cálculo del factorial",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-16-factorial",
+    "title": "UT 03. Ejercicios: Trabajando con Math.random()",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-19-trabajando-con-math-random",
     "type": "Ejercicios · Sección",
-    "text": "3.16 Cálculo del factorial Utiliza un bucle y un acumulador para calcular un producto. Qué debes hacer El factorial de un entero no negativo n , escrito n! , es el producto de los enteros desde 1 hasta n . Por definición, 0! = 1 . Por ejemplo, 5! = 1 × 2 × 3 × 4 × 5 = 120 . Solicita un entero entre 0 y 20. Si está fuera de ese intervalo, vuelve a pedirlo mediante un bucle. Calcula el factorial con un bucle for y una variable acumuladora de tipo long . Muestra cada factor y el producto acumulado, y finalmente el resultado. Escribe después una segunda versión empleando while . Realiza todo dentro de main , sin recursividad ni métodos propios. El límite de 20 permite que el resultado quepa en un long . Piensa con qué valor debe comenzar un acumulador que multiplica. Pruebas Prueba 0 , 1 , 5 y 20 . Introduce primero -1 o 21 para comprobar que vuelve a solicitar un valor. Nombre del proyecto del ejercicio: UT3Ejer16Factorial"
+    "text": "Trabajando con Math.random() En esta actividad vamos a aprender a utilizar la función Math.random() , que nos permite generar números aleatorios en Java. Este método es útil en una gran variedad de situaciones, como en juegos, simulaciones, sorteos, y mucho más. ¿Qué es Math.random()? El método Math.random() genera un número decimal aleatorio entre 0.0 (inclusive) y 1.0 (exclusivo). Sin embargo, podemos manipular el resultado para generar números aleatorios en rangos más amplios, como números enteros o números dentro de un rango específico. Aplicaciones Prácticas Durante los próximos ejercicios, utilizaremos Math.random() para desarrollar pequeños proyectos en los que se generen números aleatorios, como en la venta de boletos de lotería o la simulación de eventos aleatorios. ¿Por qué aprenderlo? El uso de números aleatorios es esencial en muchos programas y juegos. Generar números aleatorios nos permite simular situaciones inesperadas o simplemente introducir elementos impredecibles en nuestros proyectos. Vamos a experimentar con esta función a lo largo de varios ejercicios para que aprendas cómo funciona y cómo puedes manipular estos elementos para distintos propósitos."
   },
   {
-    "id": "ut03-ejercicios-17-fibonacci",
+    "id": "ut03-ejercicios-20-puesto-de-loteria",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.17 Serie de Fibonacci",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-17-fibonacci",
+    "title": "UT 03. Ejercicios: 3.16 Puesto de lotería",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-20-puesto-de-loteria",
     "type": "Ejercicios · Sección",
-    "text": "3.17 Serie de Fibonacci Calcula una sucesión conservando únicamente los dos valores anteriores . Qué debes hacer La sucesión comienza con F(0) = 0 y F(1) = 1 . Cada término siguiente es la suma de los dos anteriores: 0, 1, 1, 2, 3, 5, 8, 13... . Solicita una posición entera n entre 0 y 92. Repite la petición mientras el valor no sea válido. Muestra los términos desde la posición 0 hasta la posición n , ambas incluidas, mediante un bucle. Indica al final cuál es el valor de F(n) . Trabaja solo dentro de main , con variables long para los términos y una variable temporal para actualizar los valores sin perder información. No utilices recursividad, arrays ni métodos auxiliares. El límite evita que el término solicitado supere la capacidad de long . Ten cuidado: tampoco debes calcular un término posterior fuera de rango que no vayas a mostrar. Pruebas Prueba n = 0 , 1 , 2 , 7 y 92 . Para n = 7 deben aparecer ocho términos, porque comenzamos a contar en la posición cero. Nombre del proyecto del ejercicio: UT3Ejer17Fibonacci"
+    "text": "3.16 Puesto de lotería Simula la venta de boletos y busca quién queda más cerca del número ganador . Datos iniciales Representa en main a Ana, Luis y Carlos con tres grupos de variables locales para nombre, dinero y boleto. Sus saldos iniciales son 50, 11 y 100 euros, respectivamente. Cada boleto cuesta 20 euros. El número ganador y los boletos válidos serán enteros aleatorios entre 10000 y 99999 , ambos incluidos. Utiliza Random o Math.random() . Inicializa los boletos con -99999 para representar que todavía no se han comprado. Qué debes hacer Genera el número ganador, pero no lo muestres hasta completar las ventas. Procesa una compra por persona. Si tiene al menos 20 euros, descuenta el precio y asigna un boleto aleatorio. En caso contrario, conserva el saldo y el valor que indica que no participa. Muestra el nombre, el boleto o el mensaje «sin boleto», y el saldo restante de cada persona. Revela el número ganador y calcula, con Math.abs() , la distancia de cada boleto válido a ese número. Muestra todas las personas con la menor distancia. Puede haber empate. Si la distancia es cero, indica que se ha acertado el número. Si nadie pudo comprar, muestra que no hay participantes. Nunca incluyas un boleto -99999 en la búsqueda del ganador. Resuélvelo con variables locales y condicionales dentro de main , sin clases Persona o PuestoLoteria . Pruebas Comprueba los saldos 19, 20 y 21 euros. Para probar un empate, sustituye temporalmente los aleatorios por un número ganador 50000 y boletos 49990 y 50010. Prueba también un acierto exacto y una ejecución en la que nadie tenga dinero suficiente. Nombre del proyecto del ejercicio: UT3Ejer16Loteria"
   },
   {
-    "id": "ut03-ejercicios-18-reproductor-musical",
+    "id": "ut03-ejercicios-21-trabajando-con-switch",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.18 Reproductor de música",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-18-reproductor-musical",
+    "title": "UT 03. Ejercicios: Trabajando con Switch",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-21-trabajando-con-switch",
     "type": "Ejercicios · Sección",
-    "text": "3.18 Reproductor de música Simula un reproductor con menú, estado y batería , íntegramente dentro de main . Datos de la simulación Representa dos canciones mediante variables locales, sin clases ni arrays: Canción 1: «Bohemian Rhapsody», 360 segundos, género Rock. Canción 2: «Imagine», 183 segundos, género Pop. Un contador de reproducciones completas para cada canción, inicialmente a cero. El reproductor comienza apagado, con batería al 100 % y sin canción seleccionada. Necesitarás variables para encendido , bateria , cancionActual (0, 1 o 2), tiempoRestante y los segundos reproducidos desde el último consumo de batería. Menú y reglas Repite un menú mediante do-while y procesa las opciones con condicionales o switch : Encender: solo es posible si queda batería. Apagar: conserva la canción y el tiempo pendiente, pero impide reproducir o cambiar de canción. Seleccionar canción: solicita 1 o 2. Debe estar encendido y disponer de más de 5 puntos de batería. La selección, incluso si se elige la misma canción, consume 5 puntos, reinicia su tiempo restante y pone a cero los segundos parciales de consumo. Si no se puede realizar, no modifica nada. Reproducir: solicita una cantidad positiva de segundos. Solo se permite si está encendido y hay una canción con tiempo pendiente. Consultar información: muestra estado, batería, canción, género, tiempo restante y los dos contadores de reproducciones completas. Salir: utiliza la opción 0 para terminar el programa. Durante la reproducción, utiliza un bucle que simule los segundos de uno en uno, sin esperas reales. Cada segundo reduce el tiempo restante y aumenta el contador de segundos parciales. Cada 60 segundos acumulados consume 1 punto de batería y reinicia ese contador. Si varias peticiones reproducen la misma canción, los segundos parciales se conservan. Detén la reproducción cuando se alcance el tiempo solicitado, termine la canción o se agote la batería. Si termina la canción, aumenta una sola vez su contador de reproducciones completas. Si la batería llega a cero, apaga el reproductor. Ningún tiempo ni la batería pueden quedar en negativo. Los valores de opción desconocidos deben producir un aviso. No crees clases Cancion o ReproductorMusica , ni métodos adicionales. Pruebas Intenta reproducir estando apagado y sin selección. Después selecciona una canción, reproduce 30 segundos y luego otros 30, y comprueba el consumo. Solicita más tiempo del que queda y verifica que la reproducción completa se cuenta una sola vez. Prueba también tiempo cero, una canción desconocida y el agotamiento de la batería. Nombre del proyecto del ejercicio: UT3Ejer18ReproductorMusical"
+    "text": "Trabajando con Switch En las siguientes actividades vamos a aprender a utilizar la instrucción switch en Java, la cual nos permite evaluar múltiples posibles casos basados en el valor de una variable y ejecutar diferentes bloques de código dependiendo del resultado. ¿Qué es switch? El bloque switch evalúa una expresión, compara su valor con diferentes case y ejecuta el código asociado al caso que coincida. Si no coincide ninguno, puede utilizarse una opción default para manejar los valores que no correspondan a los casos predefinidos. Aplicaciones Prácticas Durante los próximos ejercicios, emplearemos switch para manejar distintos escenarios, como en un menú de opciones, en la selección de operaciones matemáticas o en la gestión de empleados con diferentes roles y salarios. ¿Por qué aprenderlo? La instrucción switch es útil cuando tienes múltiples opciones o resultados posibles para una variable. Es una alternativa más clara y eficiente a las estructuras if-else múltiples, mejorando la legibilidad de tus programas. Vamos a explorar diferentes formas de utilizar switch a lo largo de varios ejercicios para que aprendas cómo aplicarlo en proyectos reales."
   },
   {
-    "id": "ut03-ejercicios-19-puesto-loteria",
+    "id": "ut03-ejercicios-22-calculadora-con-switch",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.19 Puesto de lotería",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-19-puesto-loteria",
+    "title": "UT 03. Ejercicios: 3.17 Calculadora con switch",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-22-calculadora-con-switch",
     "type": "Ejercicios · Sección",
-    "text": "3.19 Puesto de lotería Simula la venta de boletos y busca quién queda más cerca del número ganador . Datos iniciales Representa en main a Ana, Luis y Carlos con tres grupos de variables locales para nombre, dinero y boleto. Sus saldos iniciales son 50, 11 y 100 euros, respectivamente. Cada boleto cuesta 20 euros. El número ganador y los boletos válidos serán enteros aleatorios entre 10000 y 99999 , ambos incluidos. Utiliza Random o Math.random() . Inicializa los boletos con -99999 para representar que todavía no se han comprado. Qué debes hacer Genera el número ganador, pero no lo muestres hasta completar las ventas. Procesa una compra por persona. Si tiene al menos 20 euros, descuenta el precio y asigna un boleto aleatorio. En caso contrario, conserva el saldo y el valor que indica que no participa. Muestra el nombre, el boleto o el mensaje «sin boleto», y el saldo restante de cada persona. Revela el número ganador y calcula, con Math.abs() , la distancia de cada boleto válido a ese número. Muestra todas las personas con la menor distancia. Puede haber empate. Si la distancia es cero, indica que se ha acertado el número. Si nadie pudo comprar, muestra que no hay participantes. Nunca incluyas un boleto -99999 en la búsqueda del ganador. Resuélvelo con variables locales y condicionales dentro de main , sin clases Persona o PuestoLoteria . Pruebas y ampliación Comprueba los saldos 19, 20 y 21 euros. Para probar un empate, sustituye temporalmente los aleatorios por un número ganador 50000 y boletos 49990 y 50010. Prueba también un acierto exacto y una ejecución en la que nadie tenga dinero suficiente. Como ampliación, utiliza un for de tres iteraciones para procesar las compras: selecciona con condicionales los datos de la persona correspondiente y actualiza sus variables. No necesitas arrays. Nombre del proyecto del ejercicio: UT3Ejer19Loteria"
+    "text": "3.17 Calculadora con switch Reformula la calculadora utilizando switch para seleccionar operaciones. Qué debes hacer Solicita dentro de main dos números double y uno de los operadores + , - , * o / . Utiliza switch para seleccionar el cálculo. Dentro del caso de división, comprueba el divisor con un condicional. Si es cero, informa del problema sin dividir. Incluye default para los operadores desconocidos. Si utilizas la sintaxis con case: , evita que se ejecuten accidentalmente los casos siguientes. Pruebas Prueba las cuatro operaciones, un operador desconocido, una división entre cero y varias operaciones consecutivas. Compara los resultados con los del ejercicio 3.13. Nombre del proyecto del ejercicio: UT3Ejer17Calculadora"
   },
   {
-    "id": "ut03-ejercicios-20-carrera-coches",
+    "id": "ut03-ejercicios-23-conversion-de-monedas",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.20 Simulación de carrera de coches",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-20-carrera-coches",
+    "title": "UT 03. Ejercicios: 3.18 Conversión de monedas",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-23-conversion-de-monedas",
     "type": "Ejercicios · Sección",
-    "text": "3.20 Simulación de carrera de coches Combina aleatoriedad, bucles, acumuladores y clasificación para simular una carrera. Datos y reglas Dentro de main , representa tres coches mediante variables locales para nombre, velocidad actual, distancia total y posición. Comienzan con distancia cero. No crees clases Coche o Carrera . La simulación tendrá cinco rondas. En cada una, los tres coches circulan durante una hora a una nueva velocidad aleatoria entera entre 100 y 200 km/h, ambos incluidos. Por tanto, en cada ronda cada coche suma a su distancia tantos kilómetros como indique su velocidad. Estas rondas son intervalos de tiempo, no vueltas a una pista de longitud fija. Qué debes hacer Utiliza un for para recorrer las cinco rondas. Genera las tres velocidades y actualiza las tres distancias antes de calcular posiciones. La posición de un coche será 1 más la cantidad de rivales que tengan una distancia estrictamente mayor que la suya. Muestra en cada ronda su número y, para cada coche, nombre, velocidad, distancia y posición. Al terminar, muestra el podio ordenado por posiciones y felicita a todos los coches que compartan la primera posición. Los empates comparten posición. Por ejemplo, con distancias 900, 900 y 850, las posiciones son 1, 1 y 3. Puedes mostrar el podio recorriendo las posiciones del 1 al 3 y comprobando qué coches ocupan cada una, sin arrays ni ordenaciones de biblioteca. Pruebas Prueba primero velocidades fijas para comprobar sumas y posiciones. Incluye un cambio de líder, dos coches empatados y tres empatados. Después activa la generación aleatoria y comprueba que cada distancia final está entre 500 y 1000 km. Nombre del proyecto del ejercicio: UT3Ejer20CarreraCoches"
+    "text": "3.18 Conversión de monedas Selecciona una conversión mediante switch y constantes locales . Qué debes hacer Solicita en main una cantidad en euros y la moneda de destino: USD , GBP o JPY . Utiliza estos tipos de cambio ficticios, fijados únicamente para el ejercicio: 1 EUR equivale a 1.10 USD. 1 EUR equivale a 0.85 GBP. 1 EUR equivale a 160 JPY. Guarda las tasas en constantes locales final double . Rechaza los importes negativos, utiliza switch para seleccionar la moneda e informa de los códigos desconocidos. Para una conversión válida, muestra el importe original y el convertido con sus monedas. Pruebas Convierte 100 euros a cada moneda. Prueba cero, una cantidad negativa y una moneda desconocida. Nombre del proyecto del ejercicio: UT3Ejer18ConversorMonedas"
   },
   {
-    "id": "ut03-ejercicios-21-calculadora-switch",
+    "id": "ut03-ejercicios-24-bucles-for",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.21 Calculadora con switch",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-21-calculadora-switch",
+    "title": "UT 03. Ejercicios: Bucles for",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-24-bucles-for",
     "type": "Ejercicios · Sección",
-    "text": "3.21 Calculadora con switch Reformula la calculadora utilizando switch para seleccionar operaciones. Qué debes hacer Solicita dentro de main dos números double y uno de los operadores + , - , * o / . Utiliza switch para seleccionar el cálculo. Dentro del caso de división, comprueba el divisor con un condicional. Si es cero, informa del problema sin dividir. Incluye default para los operadores desconocidos. Si utilizas la sintaxis con case: , evita que se ejecuten accidentalmente los casos siguientes. Después, incorpora un do-while que permita realizar otra operación mientras la persona responda \"s\" . No declares métodos propios: lectura, selección, cálculo y repetición deben estar en main . Pruebas Prueba las cuatro operaciones, un operador desconocido, una división entre cero y varias operaciones consecutivas. Compara los resultados con los del ejercicio 3.13. Nombre del proyecto del ejercicio: UT3Ejer21Calculadora"
+    "text": "Bucles for En esta actividad trabajaremos con bucles for , una estructura fundamental en programación que nos permite repetir un bloque de código un número determinado de veces. El bucle for se utiliza para realizar tareas repetitivas como imprimir secuencias numéricas, recorrer una serie de datos o generar patrones. Veremos la estructura básica del bucle: for (inicialización; condición; actualización) { // Bloque de código que se ejecuta en cada iteración } En los proyectos de esta unidad, implementarás bucles for para resolver problemas como imprimir tablas de multiplicar, generar secuencias y crear patrones utilizando caracteres o números. Todos los ejercicios de este bloque se resuelven dentro de Main.main , sin crear clases de modelo ni métodos auxiliares. Utiliza variables locales para los datos de cada participante o elemento."
   },
   {
-    "id": "ut03-ejercicios-22-conversor-monedas",
+    "id": "ut03-ejercicios-25-numeros-impares-entre-1-y-un-numero-dado",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.22 Conversión de monedas",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-22-conversor-monedas",
+    "title": "UT 03. Ejercicios: 3.19 Números Impares entre 1 y un Número Dado",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-25-numeros-impares-entre-1-y-un-numero-dado",
     "type": "Ejercicios · Sección",
-    "text": "3.22 Conversión de monedas Selecciona una conversión mediante switch y constantes locales . Qué debes hacer Solicita en main una cantidad en euros y la moneda de destino: USD , GBP o JPY . Utiliza estos tipos de cambio ficticios, fijados únicamente para el ejercicio: 1 EUR equivale a 1.10 USD. 1 EUR equivale a 0.85 GBP. 1 EUR equivale a 160 JPY. Guarda las tasas en constantes locales final double . Rechaza los importes negativos, utiliza switch para seleccionar la moneda e informa de los códigos desconocidos. Para una conversión válida, muestra el importe original y el convertido con sus monedas. Añade un bucle para realizar conversiones hasta que se introduzca \"SALIR\" como moneda. Solicita primero la moneda: si se pide salir, no debe ser necesario introducir un importe. Todo debe resolverse dentro de main . Pruebas Convierte 100 euros a cada moneda. Prueba cero, una cantidad negativa, una moneda desconocida y salir en la primera iteración. Nombre del proyecto del ejercicio: UT3Ejer22ConversorMonedas"
+    "text": "3.19 Números Impares entre 1 y un Número Dado En este ejercicio trabajarás con bucles for para filtrar números impares hasta un número ingresado por el usuario. Desde la clase Main , solicita al usuario que ingrese un número y utiliza un bucle for para imprimir todos los números impares desde el 1 hasta el número introducido. Nombre del proyecto del ejercicio: UT3Ejer19NumerosImparesUsuario"
   },
   {
-    "id": "ut03-ejercicios-23-gestion-empleados",
+    "id": "ut03-ejercicios-26-tabla-de-multiplicar",
     "unitId": "ut03",
     "section": "Ejercicios",
-    "title": "UT 03. Ejercicios: 3.23 Gestión de empleados",
-    "url": "ut03-ejercicios.html#ut03-ejercicios-23-gestion-empleados",
+    "title": "UT 03. Ejercicios: 3.20 Tabla de Multiplicar",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-26-tabla-de-multiplicar",
     "type": "Ejercicios · Sección",
-    "text": "3.23 Gestión de empleados Calcula salarios con switch y resume varios registros mediante contadores y acumuladores . Puestos y salarios Estas cantidades son datos ficticios del ejercicio. El salario total es el salario base más el bono fijo indicado: Código del puesto Salario base Bono desarrollador 1800 euros 200 euros disenador 1700 euros 150 euros gerente 2500 euros 500 euros Qué debes hacer Solicita cuántos empleados se van a procesar. Repite la petición mientras la cantidad no sea positiva. Utiliza un bucle para leer el nombre y el código de puesto de cada empleado. Selecciona el salario base y el bono con switch . Si el código no es válido, vuelve a pedirlo para ese mismo empleado, sin avanzar al siguiente. Muestra el nombre, el puesto, el salario base, el bono y el salario total. Acumula el coste total y cuenta cuántas personas se han procesado en cada puesto. Al finalizar, muestra el coste total, el salario medio y los tres contadores. Resuelve todo en main , utilizando variables locales. Puedes reutilizar las variables del empleado actual en cada iteración; no necesitas conservar los registros en arrays ni crear una clase Empleado . Pruebas Prueba un solo empleado, uno de cada puesto y varios del mismo puesto. Introduce un código desconocido y comprueba que la petición se repite sin alterar contadores ni coste. Verifica que la suma de los tres contadores coincide con el número de empleados solicitado. Nombre del proyecto del ejercicio: UT3Ejer23GestionEmpleados"
+    "text": "3.20 Tabla de Multiplicar En este ejercicio generarás una tabla de multiplicar solicitando el número al usuario. Desde la clase Main , solicita al usuario que ingrese un número y utiliza un bucle for para imprimir la tabla de multiplicar del número proporcionado (del número x 1 al número x 10). Nombre del proyecto del ejercicio: UT3Ejer20TablaMultiplicarUsuario"
+  },
+  {
+    "id": "ut03-ejercicios-27-factorial-de-un-numero",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.21 Factorial de un Número",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-27-factorial-de-un-numero",
+    "type": "Ejercicios · Sección",
+    "text": "3.21 Factorial de un Número En este ejercicio calcularás el factorial de un número introducido por el usuario. El factorial de un número entero positivo se define como el producto de todos los números enteros positivos menores o iguales a ese número. Por ejemplo, el factorial de 5 (representado como 5!) es 5 × 4 × 3 × 2 × 1 = 120. El factorial de 0 es 1 por definición. Desde la clase Main , solicita al usuario que ingrese un número y utiliza un bucle for para calcular el factorial de dicho número e imprimir el resultado. Solicita un entero entre 0 y 20, ambos incluidos. Si está fuera del intervalo, muestra un aviso y no calcules el factorial. Utiliza un acumulador long : el límite de 20 evita que el resultado supere su capacidad. Nombre del proyecto del ejercicio: UT3Ejer21FactorialUsuario"
+  },
+  {
+    "id": "ut03-ejercicios-28-serie-fibonacci",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.22 Serie Fibonacci",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-28-serie-fibonacci",
+    "type": "Ejercicios · Sección",
+    "text": "3.22 Serie Fibonacci En este ejercicio trabajarás con la secuencia de Fibonacci utilizando un bucle for . La secuencia de Fibonacci es una serie de números donde cada número es la suma de los dos anteriores. Comienza con 0 y 1, y luego sigue con 0, 1, 1, 2, 3, 5, 8, 13, 21, etc. Esta serie es utilizada en matemáticas y ciencias para describir muchos fenómenos naturales. Desde la clase Main , utiliza un bucle for para imprimir los primeros 10 números de la secuencia de Fibonacci. Nombre del proyecto del ejercicio: UT3Ejer22Fibonacci"
+  },
+  {
+    "id": "ut03-ejercicios-29-numeros-divisibles-por-3",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.23 Números Divisibles por 3",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-29-numeros-divisibles-por-3",
+    "type": "Ejercicios · Sección",
+    "text": "3.23 Números Divisibles por 3 En este ejercicio trabajarás con un bucle for y una condición if para filtrar números divisibles por 3. Desde la clase Main , solicita al usuario que ingrese un número. Utiliza un bucle for para recorrer los números desde 1 hasta el número introducido, y usa un if dentro del bucle para imprimir solo los números que sean divisibles por 3. Nombre del proyecto del ejercicio: UT3Ejer23DivisiblesPor3"
+  },
+  {
+    "id": "ut03-ejercicios-30-mas-ejercicios",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Más ejercicios!",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-30-mas-ejercicios",
+    "type": "Ejercicios · Sección",
+    "text": "Más ejercicios! Aumentaremos la complejidad combinando bucles, condicionales, números aleatorios y acumuladores , junto con los conocimientos de las unidades anteriores. Representa los datos mediante variables locales dentro de main . Aunque el enunciado describa jugadores, guerreros o caballos, no tendrás que crear clases para representarlos. Estos ejercicios nos permitirán: Simular interacciones entre participantes mediante sus datos y decisiones. Utilizar bucles y condicionales para manejar casos complejos. Reforzar las expresiones, las constantes y las llamadas a métodos de las clases de Java."
+  },
+  {
+    "id": "ut03-ejercicios-31-generador-de-codigos-aleatorios",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.24 Generador de Códigos Aleatorios",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-31-generador-de-codigos-aleatorios",
+    "type": "Ejercicios · Sección",
+    "text": "3.24 Generador de Códigos Aleatorios Genera un código aleatorio de cifras con una longitud indicada por teclado . Dentro de main , solicita un entero positivo y guárdalo en int longitud . Si no es positivo, muestra un aviso y no generes el código. Para una longitud válida, comienza con String codigo = \"\" . Utiliza un for para generar tantas cifras aleatorias entre 0 y 9 como indique la longitud y concatenarlas al texto. Al terminar, muestra el código completo. Puedes utilizar Random o Math.random() . Conserva el código como texto para no perder posibles ceros iniciales. No crees una clase GeneradorCodigo ni un método propio. Nombre del proyecto del ejercicio: UT3Ejer24GeneradorCodigo"
+  },
+  {
+    "id": "ut03-ejercicios-32-temporizador-de-cuenta-atras",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.25 Temporizador de Cuenta Atrás",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-32-temporizador-de-cuenta-atras",
+    "type": "Ejercicios · Sección",
+    "text": "3.25 Temporizador de Cuenta Atrás Simula un temporizador de cuenta atrás con un bucle descendente. Solicita en main un entero no negativo y guárdalo en tiempoInicial . Si es negativo, muestra un aviso. En otro caso, utiliza un for para mostrar los valores desde ese tiempo hasta cero, ambos incluidos. Después muestra que la cuenta atrás ha terminado. No crees una clase Temporizador ni un método propio. Opcionalmente, utiliza Thread.sleep(1000); entre un valor y el siguiente para esperar un segundo. No hace falta esperar después del cero. Solo si incorporas esa espera, puedes usar esta firma para el método principal: public static void main(String[] args) throws InterruptedException { // Aqui escribiras la cuenta atras. } sleep recibe milisegundos. InterruptedException es una excepción estándar de Java; en esta ampliación la declaración throws permite comunicar una interrupción de la espera sin crear métodos ni excepciones propios. Nombre del proyecto del ejercicio: UT3Ejer25Temporizador"
+  },
+  {
+    "id": "ut03-ejercicios-33-juego-de-dados",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.26 Juego de Dados",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-33-juego-de-dados",
+    "type": "Ejercicios · Sección",
+    "text": "3.26 Juego de Dados En este ejercicio crearás un juego de dados para dos jugadores, donde competirán en varias rondas. Desde main , simula 10 rondas con un for . Representa a los dos participantes con sus nombres y dos contadores locales de puntuación que comiencen en cero. En cada ronda, genera dos dados por participante, con valores enteros aleatorios entre 1 y 6. Muestra los cuatro dados y compara la suma de cada pareja. Quien obtenga la suma mayor gana un punto. Si las sumas coinciden, la ronda termina en empate y nadie suma puntos. Muestra las puntuaciones acumuladas después de cada ronda. Después de las 10 rondas, anuncia quién tiene más puntos o si hay empate final. Utiliza Random o Math.random() , sin crear una clase JuegoDados ni un método para lanzar dados. Todas las tiradas y comparaciones van dentro de main . Nombre del proyecto del ejercicio: UT3Ejer26JuegoDados"
+  },
+  {
+    "id": "ut03-ejercicios-34-combate-de-guerreros",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.27 Combate de Guerreros",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-34-combate-de-guerreros",
+    "type": "Ejercicios · Sección",
+    "text": "3.27 Combate de Guerreros En este ejercicio crearás un juego de combate entre dos guerreros. Cada guerrero tiene puntos de vida, ataque y defensa. El combate durará varias rondas, y el guerrero que reduzca los puntos de vida del oponente a cero será el ganador. Representa en main a dos guerreros con variables locales para nombre, puntos de vida, ataque y defensa, diferenciadas mediante los sufijos 1 y 2 . No crees clases Combate o Guerrero , constructores ni métodos propios. Genera una vez los datos iniciales de cada guerrero con Random o Math.random() . Utiliza un for que permita hasta 20 rondas, pero deje de repetir si alguien pierde. Reglas del combate: Los puntos de vida iniciales de cada guerrero estarán entre 50 y 100. El ataque estará entre 10 y 20, y la defensa entre 5 y 15. En cada ronda ataca primero el guerrero 1. El daño es su ataque menos la defensa rival, con un mínimo de cero. Descuenta ese daño sin dejar la vida por debajo de cero. Si el guerrero 2 sobrevive, responde aplicando las mismas reglas. Muestra el daño y las vidas después de cada ataque. Quien llegue a cero pierde y no puede responder. Si ambos siguen vivos después de 20 rondas, declara empate. El límite evita un combate infinito si nadie puede causar daño. Puedes tomar como referencia el ejercicio 3.9 Batalla de robots de esta misma unidad. Ahora el intercambio de ataques se repite con un for . Nombre del proyecto del ejercicio: UT3Ejer27CombateGuerreros"
+  },
+  {
+    "id": "ut03-ejercicios-35-simulador-de-carrera-de-caballos",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.28 Simulador de Carrera de Caballos",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-35-simulador-de-carrera-de-caballos",
+    "type": "Ejercicios · Sección",
+    "text": "3.28 Simulador de Carrera de Caballos En este ejercicio crearás un simulador de carrera entre dos jugadores que controlarán caballos. Cada jugador tendrá que gestionar la velocidad y la potencia del caballo durante 20 segundos (iteraciones) para intentar llegar lo más lejos posible. Implementa la carrera únicamente en main , sin clases Carrera o Caballo ni métodos auxiliares. Utiliza dos grupos de variables locales para nombre, potencia y distancia recorrida. Ambos caballos comienzan con distancia cero. Define constantes locales para las 20 iteraciones, las velocidades y los consumos. En cada iteración de un for , solicita por teclado la opción de cada participante: 1 máxima, 2 normal, 3 mínima o 4 descansar. Puedes suponer que se introduce una de esas cuatro opciones. Reglas del juego: Cada caballo comienza con 100 unidades de potencia y velocidades predefinidas (velocidad máxima: 10, velocidad normal: 7, velocidad mínima: 3). Los jugadores podrán elegir su estrategia en cada iteración: Correr a velocidad máxima: Avanza más rápido pero consume 15 puntos de potencia por segundo. Correr a velocidad normal: Avanza a velocidad media y consume 10 puntos de potencia por segundo. Correr a velocidad mínima: Avanza más lento pero solo consume 5 puntos de potencia por segundo. Parar a descansar: El caballo recupera 10 puntos de potencia, sin superar 100, pero no avanza en esa iteración. Si no tiene potencia suficiente para la velocidad elegida, corre a velocidad mínima. Descuenta su consumo sin dejar la potencia por debajo de cero. Con potencia cero puede seguir avanzando a velocidad mínima o elegir descansar para recuperarse. El juego termina después de 20 iteraciones. Gana el jugador cuyo caballo haya recorrido la mayor distancia. Para esta simulación, las velocidades son metros por segundo y cada iteración representa un segundo: suma a la distancia los metros de la velocidad aplicada. No es necesario esperar un segundo real. Muestra en cada ronda la opción aplicada, la potencia y la distancia de ambos; contempla el empate final. Nombre del proyecto del ejercicio: UT3Ejer28CarreraEstrategicaCaballos"
+  },
+  {
+    "id": "ut03-ejercicios-36-bucles-anidados",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Bucles Anidados",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-36-bucles-anidados",
+    "type": "Ejercicios · Sección",
+    "text": "Bucles Anidados En estas actividades, aprenderás a utilizar bucles anidados : un bucle dentro de otro. Los emplearemos para generar patrones de texto por filas y columnas, sin almacenar una matriz. Un bucle anidado sigue la siguiente estructura: for (inicialización1; condición1; actualización1) { for (inicialización2; condición2; actualización2) { // Bloque de código anidado } } Este tipo de bucles permite resolver problemas más complejos, como: Imprimir patrones en forma de pirámides o figuras geométricas. Realizar cálculos sobre tablas de datos. Controlar por separado cuántas filas se imprimen y qué aparece en cada columna. En los ejercicios de esta unidad, aplicarás bucles anidados para resolver retos que involucren repeticiones dentro de repeticiones, aumentando así la complejidad y el control sobre las estructuras de datos y el flujo de tu código."
+  },
+  {
+    "id": "ut03-ejercicios-37-piramide-de-asteriscos",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.29 Pirámide de Asteriscos",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-37-piramide-de-asteriscos",
+    "type": "Ejercicios · Sección",
+    "text": "3.29 Pirámide de Asteriscos En este ejercicio crearás una pirámide de asteriscos utilizando bucles anidados. Desde la clase Main , solicita al usuario que ingrese un número que representará la altura de la pirámide. Usa bucles for anidados para imprimir una pirámide de asteriscos con esa altura. Instrucciones: La primera fila tiene un asterisco y cada fila añade dos más. Utiliza espacios iniciales para centrar la pirámide. Por ejemplo, si el usuario ingresa el número 5, la pirámide debe verse así: * *** ***** ******* ********* Solicita una altura positiva. Para una altura no válida, muestra un aviso. Usa un bucle para las filas y otros para los espacios y asteriscos de cada fila, sin String.repeat() ni arrays. Nombre del proyecto del ejercicio: UT3Ejer29PiramideAsteriscos"
+  },
+  {
+    "id": "ut03-ejercicios-38-tabla-de-multiplicar-con-formato",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.30 Tabla de Multiplicar con Formato",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-38-tabla-de-multiplicar-con-formato",
+    "type": "Ejercicios · Sección",
+    "text": "3.30 Tabla de Multiplicar con Formato En este ejercicio generarás una tabla de multiplicar de 1 a 10, mostrando cada cálculo en formato tabular utilizando bucles anidados. Desde la clase Main , usa bucles for anidados para imprimir la tabla de multiplicar del 1 al 10 con el siguiente formato: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 ... Nombre del proyecto del ejercicio: UT3Ejer30TablaMultiplicar"
+  },
+  {
+    "id": "ut03-ejercicios-39-rectangulo-de-numeros",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.31 Rectángulo de Números",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-39-rectangulo-de-numeros",
+    "type": "Ejercicios · Sección",
+    "text": "3.31 Rectángulo de Números En este ejercicio crearás un rectángulo de números utilizando bucles anidados. Desde la clase Main , solicita al usuario que ingrese dos números que representarán el número de filas y columnas del rectángulo. Usa bucles for anidados para generar el siguiente patrón: 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 El número de filas y columnas dependerá de los valores ingresados por el usuario. En el caso anterior, hay 3 filas y 5 columnas. Ambas dimensiones deben ser positivas. Si alguna no lo es, muestra un aviso y no dibujes el rectángulo. Nombre del proyecto del ejercicio: UT3Ejer31RectanguloNumeros"
+  },
+  {
+    "id": "ut03-ejercicios-40-patron-de-diamante",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.32 Patrón de Diamante",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-40-patron-de-diamante",
+    "type": "Ejercicios · Sección",
+    "text": "3.32 Patrón de Diamante En este ejercicio generarás un patrón de diamante o de rombo. Desde la clase Main , solicita al usuario que ingrese un número que representará el tamaño del diamante. Usa bucles for anidados para generar un diamante con asteriscos similar al siguiente: * *** ***** *** * En este caso, el usuario ha introducido el valor 3. Solicita un tamaño positivo. Representa la altura de la mitad superior, incluida la fila central; el diamante completo tendrá el doble de filas menos una. No repitas la fila central al dibujar la mitad inferior. Si el tamaño no es positivo, muestra un aviso. Es una ampliación del ejercicio 3.29 Pirámide de asteriscos : combina una parte creciente y otra decreciente con bucles anidados. Nombre del proyecto del ejercicio: UT3Ejer32PatronDiamante"
+  },
+  {
+    "id": "ut03-ejercicios-41-cuadrado-hueco-de-asteriscos",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.33 Cuadrado Hueco de Asteriscos",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-41-cuadrado-hueco-de-asteriscos",
+    "type": "Ejercicios · Sección",
+    "text": "3.33 Cuadrado Hueco de Asteriscos En este ejercicio crearás un cuadrado hueco utilizando bucles anidados. Desde la clase Main , solicita al usuario que ingrese un número que representará el tamaño del cuadrado . Usa bucles for anidados para imprimir un cuadrado hueco de asteriscos, similar al siguiente: ***** * * * * * * ***** En este caso, el usuario ha introducido el valor 5 El tamaño debe ser positivo. Para 1 muestra un único asterisco y para 2 un cuadrado de dos filas y dos columnas, sin hueco interior. Si el tamaño no es válido, muestra un aviso. Nombre del proyecto del ejercicio: UT3Ejer33CuadradoHueco"
+  },
+  {
+    "id": "ut03-ejercicios-42-bucles-while",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Bucles while",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-42-bucles-while",
+    "type": "Ejercicios · Sección",
+    "text": "Bucles while En estas actividades vamos a aprender a utilizar el bucle while , otra estructura fundamental en programación que nos permite repetir un bloque de código mientras se cumpla una condición. El bucle while es especialmente útil para repetir acciones sin conocer de antemano cuántas veces necesitaremos ejecutarlas. Tanto for como while comprueban una condición, pero solemos elegir for cuando controlamos una cantidad de repeticiones y while cuando esperamos que ocurra algo. Como en el resto de la tanda, escribe toda la lógica en Main.main , con variables locales y sin clases de modelo ni métodos auxiliares propios. Estructura básica del bucle while while (condición) { // Bloque de código que se ejecuta mientras la condición sea verdadera } En cada iteración, el bucle while evalúa la condición antes de ejecutar el bloque de código. Si la condición es true , el bloque de código se ejecuta y, al finalizar, se vuelve a evaluar la condición. Si es false , el bucle se detiene. Ejercicios prácticos En los ejercicios de esta actividad, implementarás bucles while para resolver problemas como: Imprimir secuencias de números bajo ciertas condiciones. Generar sumas acumulativas hasta alcanzar un valor objetivo. Simular procesos que deben repetirse hasta que ocurra un evento. Nota importante Recuerda que el bucle while puede llevar a bucles infinitos si la condición nunca se vuelve falsa. Asegúrate de que en algún momento la condición se actualizará para detener el bucle."
+  },
+  {
+    "id": "ut03-ejercicios-43-sumas-infinitas",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.34 Sumas infinitas",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-43-sumas-infinitas",
+    "type": "Ejercicios · Sección",
+    "text": "3.34 Sumas infinitas En esta actividad emplearemos la clase Scanner para leer datos que el usuario introduzca desde el teclado. En este ejercicio, el usuario podrá introducir números enteros para realizar una suma acumulativa. Mientras no introduzca un 0 , el programa seguirá sumando los números ingresados. Cuando el usuario introduzca un 0 , el programa mostrará el total de la suma y finalizará. Nombre del proyecto del ejercicio: UT3Ejer34SumasInfinitas"
+  },
+  {
+    "id": "ut03-ejercicios-44-suma-de-numeros-pares",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.35 Suma de Números Pares",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-44-suma-de-numeros-pares",
+    "type": "Ejercicios · Sección",
+    "text": "3.35 Suma de Números Pares En este ejercicio, el usuario podrá introducir números enteros. El programa sumará únicamente los números pares. Si el usuario introduce un número impar, el programa mostrará el resultado total de la suma y finalizará. Con este ejercicio, podrás ver cómo se puede utilizar el bucle while para validar entradas del usuario y tomar decisiones basadas en condiciones dentro del bucle. El primer impar sirve solo para terminar y no se suma. El cero es par: no termina la lectura. Admite también enteros negativos y, si el primer dato es impar, muestra una suma de cero. Nombre del proyecto del ejercicio: UT3Ejer35SumasPares"
+  },
+  {
+    "id": "ut03-ejercicios-45-busqueda-del-numero-secreto",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.36 Búsqueda del Número Secreto",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-45-busqueda-del-numero-secreto",
+    "type": "Ejercicios · Sección",
+    "text": "3.36 Búsqueda del Número Secreto En esta actividad, se generará un número secreto aleatorio entre 1 y 10. El usuario deberá adivinarlo introduciendo números. El programa dará pistas indicando si el número es mayor o menor hasta que el usuario acierte. Este ejercicio es útil para practicar el control de flujo en bucles while y la generación de números aleatorios. Genera el secreto una sola vez antes del bucle y conserva ese valor durante toda la partida. Expresa las pistas sin ambigüedad: «El número secreto es mayor que tu intento» o «El número secreto es menor que tu intento». Nombre del proyecto del ejercicio: UT3Ejer36NumeroSecreto"
+  },
+  {
+    "id": "ut03-ejercicios-46-juego-de-aritmetica-acierta-5-preguntas",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.37 Juego de Aritmética: ¡Acierta 5 Preguntas!",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-46-juego-de-aritmetica-acierta-5-preguntas",
+    "type": "Ejercicios · Sección",
+    "text": "3.37 Juego de Aritmética: ¡Acierta 5 Preguntas! En esta actividad, vamos a desarrollar un programa que pondrá a prueba tus habilidades en aritmética básica a través de operaciones de suma y resta generadas aleatoriamente. Objetivo El programa generará preguntas aleatorias de suma y resta entre dos números aleatorios (entre 0 y 100), y las mostrará en pantalla hasta que el usuario acierte 5 preguntas en total. Estructura del Programa Para este ejercicio, deberás implementar lo siguiente: Un bucle que genere operaciones aleatorias de suma o resta entre dos números aleatorios. Validación de la respuesta del usuario, indicando si es correcta o incorrecta tras cada intento. Una condición para finalizar el programa una vez que el usuario haya acertado 5 preguntas. ¿Qué debes hacer? Sigue estos pasos: Usa Math.random() para generar dos operandos enteros entre 0 y 100, ambos incluidos, y elegir si la pregunta será una suma o una resta. Las restas pueden tener resultado negativo. Implementa un bucle while que se ejecute hasta que el usuario acumule 5 aciertos. Emplea una constante local final int para definir la cantidad de aciertos que se deben obtener para finalizar el cuestionario. Informa al usuario cada vez que su respuesta sea correcta o incorrecta. Finaliza el programa mostrando un mensaje de felicitación una vez que el usuario haya acertado 5 preguntas. Los aciertos no tienen que ser consecutivos. Un error no resta aciertos: genera una nueva pregunta y continúa hasta alcanzar el objetivo. Nombre del proyecto del ejercicio: UT3Ejer37QuizMatematicas"
+  },
+  {
+    "id": "ut03-ejercicios-47-optimizacion-de-aplicaciones-ajustando-y-mejorando-nuestro-codigo",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Optimización de Aplicaciones: Ajustando y Mejorando Nuestro Código",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-47-optimizacion-de-aplicaciones-ajustando-y-mejorando-nuestro-codigo",
+    "type": "Ejercicios · Sección",
+    "text": "Optimización de Aplicaciones: Ajustando y Mejorando Nuestro Código A continuación, vamos a centrarnos en optimizar y mejorar aplicaciones que ya hemos desarrollado anteriormente. El objetivo es hacer que nuestros programas sean más eficientes, fáciles de mantener y, en algunos casos, incluso más rápidos."
+  },
+  {
+    "id": "ut03-ejercicios-48-batalla-de-robots-combate-hasta-el-final",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.38 Batalla de Robots: Combate hasta el Final",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-48-batalla-de-robots-combate-hasta-el-final",
+    "type": "Ejercicios · Sección",
+    "text": "3.38 Batalla de Robots: Combate hasta el Final Retoma el ejercicio 3.9 Batalla de robots de esta misma unidad y repite los intercambios con while hasta que alguien pierda. Conserva los datos como variables locales de main ; no crees clases Robot ni métodos de combate. La vida inicial es 100. El daño es ataque menos defensa cuando el ataque la supera, y cero en otro caso. Objetivo Modifica el programa de batalla de robots para que el combate continúe de manera automática hasta que uno de los robots quede con puntos de vida igual a 0 . Estructura del Programa Para implementar este ajuste, deberás: Utilizar un bucle while que controle el combate y se ejecute mientras ambos robots tengan puntos de vida superiores a cero. Asegurarte de que los robots alternen sus ataques en cada iteración del bucle. Finalizar el bucle cuando uno de los robots se quede sin puntos de vida, mostrando el robot ganador y sus puntos de vida restantes. Ataca primero el robot 1 y permite responder al robot 2 solo si sigue vivo. La vida no puede quedar por debajo de cero. Muestra los ataques, el daño y la vida restante en cada ronda. Evita un bucle infinito: si ninguno puede superar la defensa del rival, anuncia un empate por bloqueo y termina. Si al menos uno puede causar daño, continúa hasta la derrota de uno de ellos. No se aplica aquí el límite opcional de 20 rondas del ejercicio 3.9. Nombre del proyecto del ejercicio: UT3Ejer38BatallaRobotsMejorada"
+  },
+  {
+    "id": "ut03-ejercicios-49-simulacion-de-carrera-de-coches-mejorada",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.39 Simulación de Carrera de Coches Mejorada",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-49-simulacion-de-carrera-de-coches-mejorada",
+    "type": "Ejercicios · Sección",
+    "text": "3.39 Simulación de Carrera de Coches Mejorada Automatiza una carrera de tres coches con un bucle while , mostrando las distancias y la clasificación después de cada ronda. Datos y reglas Dentro de main , representa tres coches con variables locales para nombre, velocidad, distancia y posición. Comienzan con distancia cero. No crees clases Coche o Carrera ni métodos como comenzarCarrera() . Solicita por teclado una cantidad positiva de rondas. Si no es positiva, muestra un aviso y no inicies la carrera. Utiliza un while para completar exactamente esa cantidad de rondas. En cada ronda, genera una nueva velocidad entera entre 100 y 200 km/h para cada coche con Random o Math.random() . Cada ronda representa una hora de circulación: suma a cada distancia tantos kilómetros como indique su velocidad. Son intervalos de tiempo, no vueltas a un circuito de longitud fija. Actualiza las tres distancias antes de calcular la clasificación. La posición de cada coche es 1 más la cantidad de rivales con una distancia estrictamente mayor que la suya. Muestra el número de ronda, las velocidades, las distancias y las posiciones. Al finalizar, muestra el podio ordenado por posiciones y felicita a todos los que compartan la primera posición. Los empates comparten posición: con distancias 900, 900 y 850, las posiciones son 1, 1 y 3. Para mostrar el podio puedes recorrer las posiciones y comprobar qué coches las ocupan, sin arrays ni colecciones. Prueba primero con velocidades fijas, incluyendo empates y cambios de líder; después activa los aleatorios. Para cinco rondas, cada distancia final estará entre 500 y 1000 km. Nombre del proyecto del ejercicio: UT3Ejer39CarreraCochesMejorada"
+  },
+  {
+    "id": "ut03-ejercicios-50-bucles-while-anidados",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: Bucles While Anidados",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-50-bucles-while-anidados",
+    "type": "Ejercicios · Sección",
+    "text": "Bucles While Anidados Vamos a complicar un poco más el asunto. Ahora que has aprendido a utilizar bucles while , es hora de empezar a realizar bucles anidados, puede que mezclarlo con algún for ... ¡Y quien sabe que sorpresas más!"
+  },
+  {
+    "id": "ut03-ejercicios-51-piramide-de-asteriscos-loca",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.40 Pirámide de Asteriscos Loca",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-51-piramide-de-asteriscos-loca",
+    "type": "Ejercicios · Sección",
+    "text": "3.40 Pirámide de Asteriscos Loca En este ejercicio crearás otra pirámide de asteriscos utilizando bucles anidados. No solicites la altura por teclado. Declara en main la constante local final int ALTURA_MINIMA = 3 y dibuja primero esas tres filas. Después, genera un entero aleatorio entre 1 y 10: si es mayor que 2, añade una fila; si es 1 o 2, termina. Tras cada fila adicional genera una nueva tirada y vuelve a decidir. Combina un while que controle la prolongación aleatoria y bucles for para imprimir los espacios y asteriscos. Muestra al final la altura alcanzada y la tirada que hizo terminar la pirámide. Recordamos las instrucciones: La primera fila tiene un asterisco y cada fila añade dos más, manteniendo el mismo eje central. Por ejemplo, si se alcanzan cinco filas, la pirámide tendrá esta forma: * *** ***** ******* ********* Como no conoces la altura final al imprimir la primera fila, define también la constante local final int ALTURA_MAXIMA = 20 . Úsala para reservar los espacios de alineación y como condición adicional de parada. No necesitas pedir alturas ni guardar filas en arrays: imprímelas conforme se generan. Si llegas al límite, indica que se ha alcanzado, sin inventar una tirada de finalización. Nombre del proyecto del ejercicio: UT3Ejer40PiramideAsteriscosAleatoria"
+  },
+  {
+    "id": "ut03-ejercicios-52-numero-primo-mas-cercano",
+    "unitId": "ut03",
+    "section": "Ejercicios",
+    "title": "UT 03. Ejercicios: 3.41 Número Primo Más Cercano",
+    "url": "ut03-ejercicios.html#ut03-ejercicios-52-numero-primo-mas-cercano",
+    "type": "Ejercicios · Sección",
+    "text": "3.41 Número Primo Más Cercano Solicita un número entero y busca el número primo más cercano , combinando bucles para explorar candidatos y comprobar sus divisores. ¿Qué es un Número Primo? Un número primo es un número mayor que 1 que solo puede dividirse de manera exacta por sí mismo y por 1. Es decir, no tiene divisores adicionales. Por ejemplo, 2, 3, 5, y 7 son números primos. Los números primos son fundamentales en muchos campos de las matemáticas y la informática, y encontrar números primos es una habilidad importante. ¿Qué Harás en Este Ejercicio? Tu objetivo será desarrollar un programa que siga estos pasos: Pedir al usuario que introduzca un número. Buscar el número primo más cercano a ese número (puede ser menor, igual o mayor). Mostrar el número primo encontrado. Para encontrar el primo más cercano, el programa deberá verificar, por cada número cercano, si cumple con las condiciones de ser primo hasta localizar el número que esté más próximo. Si el número introducido ya es primo, el resultado será ese mismo número. Si dos primos están a la misma distancia, muestra el menor. Para cualquier valor menor o igual que 2, el más cercano es 2. Para mantener las pruebas manejables, trabaja con entradas entre -100000 y 100000; fuera de ese rango muestra un aviso. Resuelve la búsqueda y las comprobaciones de divisibilidad en main , con bucles anidados, sin declarar un método esPrimo ni utilizar arrays o colecciones. Prueba 2, 4, 8, 11, 12, 0 y un valor negativo. Nombre del proyecto del ejercicio: UT3Ejer41NumeroPrimo"
   },
   {
     "id": "ut04-teoria-01-clases-objetos-estado",
