@@ -88,6 +88,9 @@ Las páginas completas para GitHub Pages deben incluir:
 
 ## Criterios para código Java
 
+- El JDK del curso es el 25. Configurar los nuevos proyectos Maven con
+  `maven.compiler.release=25` y verificar la compilación con JDK 25, sin preview.
+  Las instrucciones de IntelliJ deben indicar JDK 25 para el proyecto y para Maven.
 - Los ejemplos deben ser válidos y copiables.
 - Usar preferentemente una clase `Main` cuando el ejemplo sea autocontenido.
 - Incluir siempre `public static void main(String[] args)` si el programa necesita ejecutarse.
@@ -197,6 +200,78 @@ Si el ejercicio tiene enunciado, usar una subsección propia:
   <p><strong>Nombre del proyecto del ejercicio:</strong> <code>SumaVariables</code></p>
 </div>
 ```
+
+## Proyectos base con TODOs
+
+Cuando la actividad pida implementar clases dadas, proporcionar un proyecto que
+compile con los atributos, constructores y firmas de métodos definidos. El alumnado
+completa los cuerpos y el método `main`, respetando esas firmas. Documentar cada
+método con Javadoc e incluir en el enunciado los contratos y casos rechazados.
+
+- Ordenar el trabajo y los enunciados empezando por `GUI`, continuando por las
+  clases de modelo según sus dependencias y terminando por `Main`.
+  Con dos modelos: `TODO 01`, `TODO 02`... en `GUI`; `TODO 11`, `TODO 12`...
+  en el primer modelo; `TODO 21`, `TODO 22`... en el segundo;
+  `TODO 31`, `TODO 32`... en `Main`.
+- Mantener los TODOs únicos y ordenados dentro de cada proyecto. Reservar los
+  bloques necesarios si una clase necesita más tareas que las disponibles.
+- Proporcionar implementados los getters y setters directos, los constructores
+  que solo asignan datos y los `toString` de descripción directa, cuando existan.
+  No añadir setters innecesarios que rompan las reglas del modelo.
+- Mantener como TODO los métodos con cálculos o decisiones, incluidas consultas
+  cuyo nombre empiece por `get`, y los constructores con validaciones u otra lógica.
+- Cada TODO del código debe contener únicamente el enunciado de lo que debe hacer,
+  sin pseudocódigo, algoritmos ni comentarios adicionales de resolución.
+- En el enunciado HTML, incluir un punto individual por cada TODO con su mismo
+  número y texto literal. Colocar debajo las explicaciones o requisitos adicionales.
+  Comprobar automáticamente la correspondencia entre código y enunciado.
+- Solo los constructores y métodos `void` pendientes llevan cuerpos con únicamente
+  los comentarios de sus tareas.
+- Si un método pendiente tiene retorno, utilizar el valor inicial del tipo: `0`, `0L`, `0.0f`, `0.0`,
+  `false`, `'\u0000'` o `null` para referencias, incluido `String`.
+- No usar excepciones para señalar operaciones pendientes. Aclarar que los retornos
+  provisionales permiten compilar, pero no constituyen una solución.
+- Evitar campos `final` sin inicializar que impidan compilar constructores vacíos.
+  Las constantes ya suministradas pueden estar inicializadas.
+- Incluir un README con el orden de trabajo y la ejecución desde IntelliJ.
+- Empaquetar los ZIP sin `target`, clases compiladas ni carpetas del IDE y usar
+  enlaces absolutos de GitHub Pages en los fragmentos para Moodle.
+- No incluir soluciones cuando se solicite únicamente la base del alumnado.
+- En el material para el alumnado, omitir explicaciones sobre por qué un
+  constructor o método se entrega implementado o queda como TODO. Describir
+  únicamente los requisitos y el código que se proporciona.
+
+## Interfaces de consola
+
+- Siempre que sea posible, suministrar una clase `GUI` en un
+  subpaquete `gui`, al mismo nivel que `modelo` y `app`.
+- Todos los métodos de `GUI` deben ser estáticos, con llamadas como
+  `GUI.mostrarMenu()` y `GUI.pedirOpcion()`, sin crear instancias.
+  Compartir la entrada mediante `private static Scanner scanner = new Scanner(System.in);`.
+  Mantener una clase sencilla, sin `final` ni constructor privado.
+- Dar implementados los métodos que solo imprimen textos o datos recibidos,
+  como `mostrarMenu` o `mostrarOpcionIncorrecta`. Dejar como TODO las lecturas
+  y validaciones de interfaz, especialmente `pedirOpcion`, con sus retornos
+  provisionales y puntos individuales idénticos en el enunciado.
+- `GUI` no debe importar ni recibir objetos del modelo. Usar parámetros simples
+  como `String`, `int` o `boolean`, en la cantidad mínima necesaria para el mensaje.
+- Evitar métodos de presentación que recorran modelos, calculen o decidan
+  reglas de negocio, o reciban conjuntos grandes de parámetros. Preferir
+  mensajes pequeños como `mostrarAlguienEntra(nombre)` y `mostrarAlguienSale(nombre)`.
+- `Main` consulta los objetos y decide qué texto o datos mostrar; `GUI` solo
+  los imprime o solicita datos. El modelo no lee del teclado ni imprime.
+- Los resultados finales pueden mostrarse mediante mensajes simples; evitar
+  métodos como `mostrarResumen` que aglutinen todos los contadores.
+- Ordenar las opciones como `1`, `2`, `3`... y, al final, `0. Salir`.
+  El valor cero siempre significa salir del menú, no otra operación.
+- En simulaciones automáticas, el menú puede iniciar un servicio completo y
+  volver a mostrarse al finalizar; no añadir entradas durante cada paso si
+  no forman parte de la actividad.
+- Incluir en cada enunciado ejemplos de pantallas, solicitudes de datos,
+  resultados correctos y rechazos. Marcar los extractos y los casos aleatorios
+  para no confundirlos con una transcripción completa o un resultado fijo.
+- Documentar los métodos públicos de `GUI` con Javadoc y enumerarlos en el
+  enunciado. Mantener la correspondencia literal de los TODOs de las otras clases.
 
 ## Iconos recomendados
 

@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../assets/pwa/icon-192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1792662998206" rel="stylesheet">
+    <link href="assets/css/course.css?v=1792670571240" rel="stylesheet">
   </head>
   <body data-page-id="ut03-ejercicios">
     <div class="app-shell">
@@ -229,6 +229,15 @@
         <a class="section-nav-link" href="#ut03-ejercicios-51-numero-primo-mas-cercano">
           3.40 Número Primo Más Cercano
         </a>
+        <a class="section-nav-link" href="#ut03-ejercicios-52-proyectos-con-clases">
+          Nueva tanda: proyectos con clases y métodos
+        </a>
+        <a class="section-nav-link" href="#ut03-ejercicios-53-maquina-expendedora">
+          3.41 Máquina expendedora
+        </a>
+        <a class="section-nav-link" href="#ut03-ejercicios-54-ascensor">
+          3.42 Ascensor con nuevas llegadas
+        </a>
   </div>
 </nav>
 
@@ -240,9 +249,10 @@
 <p class="lead">En esta actividad trabajaremos los condicionales simples utilizando operadores como <strong>&gt;</strong>, <strong>&lt;</strong>, <strong>&gt;=</strong> y <strong>&lt;=</strong>. Aprenderemos a utilizar <code>if</code>, <code>else if</code> y <code>else</code> para evaluar condiciones básicas.</p>
 <p class="mb-0">Crearás proyectos donde implementarás condiciones sencillas para resolver problemas prácticos como verificar si un número es mayor o menor, si un objeto tiene ciertos atributos o si una persona cumple una serie de requisitos.</p>
 <div class="mb-4">
-<h4 class="text-primary mb-3"><i class="fas fa-code"></i> Forma de trabajo en toda la tanda</h4>
-<p>Resuelve todos los ejercicios de condicionales, <code>for</code> y <code>while</code> dentro del método <code>main</code> de una clase <code>Main</code>. Utiliza variables locales, constantes, expresiones y estructuras de control. Puedes emplear <code>Scanner</code>, <code>Random</code> y <code>Math</code>, pero no declares clases de modelo, atributos, constructores ni métodos auxiliares propios. Tampoco necesitas arrays ni colecciones.</p>
+<h4 class="text-primary mb-3"><i class="fas fa-code"></i> Forma de trabajo en la tanda inicial</h4>
+<p>Resuelve los primeros 40 ejercicios, de condicionales, <code>for</code> y <code>while</code>, dentro del método <code>main</code> de una clase <code>Main</code>. Utiliza variables locales, constantes, expresiones y estructuras de control. Puedes emplear <code>Scanner</code>, <code>Random</code> y <code>Math</code>, pero en esos ejercicios no declares clases de modelo, atributos, constructores ni métodos auxiliares propios. Tampoco necesitas arrays ni colecciones.</p>
 <p>Los ejercicios están organizados en tres bloques, con sus subsecciones introductorias: condicionales (3.1–3.18), bucles <code>for</code> (3.19–3.33) y bucles <code>while</code> (3.34–3.40). Crea un proyecto independiente para cada ejercicio.</p>
+<p>A partir del ejercicio 3.41 comienza una nueva tanda con proyectos base: en ella sí implementarás los cuerpos de los métodos de las clases proporcionadas, además de <code>main</code>.</p>
 </div>
 </div>
 </div>
@@ -258,7 +268,7 @@
 <div class="mb-4">
 <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Cómo trabajaremos en estas actividades</h4>
 <p>Crea un proyecto con una clase <code>Main</code> y su método <code>public static void main(String[] args)</code>. Escribe toda la lógica dentro de <code>main</code>, utilizando variables locales, expresiones, condicionales y, cuando se soliciten, bucles. No declares atributos, constructores, métodos auxiliares ni clases de modelo. Tampoco necesitas arrays ni colecciones.</p>
-<p>Puedes utilizar clases de Java como <code>Scanner</code>, <code>Random</code> y <code>Math</code>. Los <code>import</code> necesarios se escriben antes de la declaración de <code>Main</code>. Estas normas se aplican a toda la tanda de ejercicios.</p>
+<p>Puedes utilizar clases de Java como <code>Scanner</code>, <code>Random</code> y <code>Math</code>. Los <code>import</code> necesarios se escriben antes de la declaración de <code>Main</code>. Estas normas se aplican a la tanda inicial de ejercicios 3.1–3.40; los proyectos con clases que comienzan en 3.41 tienen sus propias indicaciones.</p>
 <p>En los primeros ejercicios puedes asignar los datos directamente a las variables y cambiarlos entre ejecuciones. Cuando se pida entrada por teclado, utiliza <code>Scanner</code>. Este ejemplo solo muestra cómo leer un entero:</p>
 <pre><code class="language-java">import java.util.Scanner;
 
@@ -1367,13 +1377,466 @@ public class Main {
 </div>
 </div>
 </section>
+
+
+<section id="ut03-ejercicios-52-proyectos-con-clases" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cubes"></i> Nueva tanda: proyectos con clases y métodos</h2>
+    <p class="lead">Ahora sí trabajarás en <strong>clases de modelo y en el método main</strong>. Partirás de proyectos con los atributos, constructores y firmas de los métodos ya preparados.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-ol"></i> TODOs ordenados por clase</h4>
+      <p>Cada tarea está señalada mediante un comentario numerado. Completa primero la interfaz de consola, después las clases de modelo y, al final, el programa que las utiliza:</p>
+      <ul>
+        <li>Clase <code>GUI</code>: <code>TODO 01</code>, <code>TODO 02</code>…</li>
+        <li>Primera clase de modelo: <code>TODO 11</code>, <code>TODO 12</code>…</li>
+        <li>Segunda clase de modelo: <code>TODO 21</code>, <code>TODO 22</code>…</li>
+        <li>Clase <code>Main</code>: <code>TODO 31</code>, <code>TODO 32</code>…</li>
+      </ul>
+      <p>Cada TODO aparece como un punto individual en el enunciado de su ejercicio, con <strong>el mismo número y exactamente el mismo texto</strong> que en el código. Las aclaraciones se encuentran debajo de ese punto. El comentario indica el resultado que se pide, sin pseudocódigo ni instrucciones de implementación.</p>
+      <p>Los métodos están documentados con Javadoc: lee qué reciben, qué devuelven y qué deben hacer cuando una operación no es válida. Conserva los nombres, parámetros y tipos de retorno. No necesitas añadir clases ni métodos auxiliares; tampoco arrays ni colecciones.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Código proporcionado y tareas pendientes</h4>
+      <p>Los getters y setters que solo acceden directamente a un atributo, los constructores de asignación directa y los <code>toString</code> de descripción directa se proporcionan implementados cuando existen. No son tareas del ejercicio.</p>
+      <p>Solo los cuerpos pendientes llevan retornos provisionales: <code>return 0;</code> para enteros, <code>return false;</code> para booleanos y <code>return null;</code> para objetos o textos. Los constructores pendientes y métodos <code>void</code> pendientes contienen únicamente sus TODOs.</p>
+      <p>Esos valores permiten compilar, pero <strong>no son la solución ni necesariamente el resultado correcto</strong>. Sustitúyelos al implementar cada operación pendiente. Un proyecto recién descargado ejecuta un <code>main</code> vacío y termina sin mostrar nada.</p>
+      <p>No cambies un retorno para superar una prueba aislada: implementa el comportamiento completo y comprueba también los casos rechazados, las referencias compartidas y los límites.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-play"></i> Abrir y ejecutar</h4>
+      <p>Descomprime cada ZIP en su propia carpeta y abre su <code>pom.xml</code> con IntelliJ IDEA. Configura <strong>JDK 25</strong>, también para el importador y el ejecutor Maven, y espera a que se cargue el proyecto. Los proyectos compilan para Java 25, sin características preview. Ejecuta <code>edu.masanz.da.ut3.app.Main</code> con el triángulo verde junto a <code>main</code>; utiliza <strong>Debug</strong> para seguir los cambios de estado.</p>
+      <p>Las clases de modelo están en <code>edu.masanz.da.ut3.modelo</code>, la clase principal en <code>edu.masanz.da.ut3.app</code> y la interfaz de consola en <code>edu.masanz.da.ut3.gui.GUI</code>. Los proyectos son independientes, aunque compartan estos nombres de paquete. Las descargas contienen únicamente la base, sin soluciones.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Interfaz de consola</h4>
+      <p>La clase <code>GUI</code> contiene métodos sencillos para imprimir mensajes y TODOs para solicitar datos, como <code>pedirOpcion()</code>. <code>Main</code> coordina sus llamadas con las operaciones del modelo; las clases de modelo no leen del teclado ni imprimen.</p>
+      <p>Todos los métodos de <code>GUI</code> son <strong>estáticos</strong>: se invocan mediante <code>GUI.mostrarMenu()</code> o <code>GUI.pedirOpcion()</code>, sin crear instancias. La lectura utiliza un único atributo <code>private static Scanner scanner = new Scanner(System.in);</code>.</p>
+      <p><code>GUI</code> no conoce las clases del modelo: recibe textos y valores sencillos. <code>Main</code> consulta los objetos, toma las decisiones y pasa a la interfaz únicamente los datos que debe mostrar.</p>
+      <p>Las opciones de los menús aparecen en orden: <strong>1, 2, 3… y, al final, 0 para salir</strong>. Cada enunciado incluye los métodos de <code>GUI</code> y ejemplos de las pantallas esperadas al completar los TODOs.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut03-ejercicios-53-maquina-expendedora" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-store"></i> 3.41 Máquina expendedora</h2>
+    <p class="lead">Implementa una máquina con <strong>tres productos, saldo y recaudación</strong>. El programa principal ofrecerá un menú; las clases de modelo realizarán las operaciones.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-maquina-expendedora-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Incluye <code>Producto</code>, <code>MaquinaExpendedora</code>, <code>Main</code> y la interfaz de consola <code>gui.GUI</code>. Completa los TODOs, sin cambiar las firmas ni añadir otras clases, métodos, arrays o colecciones.</p>
+      <p>Abre <code>pom.xml</code> en IntelliJ y utiliza <strong>JDK 25</strong> tanto en el proyecto como en Maven.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>MaquinaExpendedora</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-coins"></i> Importes y datos iniciales</h4>
+      <p>Trabaja con <strong>enteros en céntimos</strong>: 100 representa un euro y 150 representa un euro y medio. Así podrás comparar, sumar y restar dinero sin errores de redondeo decimal. No es necesario simular monedas físicas ni calcular cuántas monedas se devuelven.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Posición</th><th>Producto</th><th>Precio en céntimos</th><th>Unidades</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Agua</td><td>100</td><td>3</td></tr>
+            <tr><td>2</td><td>Zumo</td><td>150</td><td>2</td></tr>
+            <tr><td>3</td><td>Barrita</td><td>80</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La máquina conserva las tres referencias a productos mediante atributos independientes. Comienza con saldo y recaudación a cero. <strong>Saldo</strong> es dinero introducido que aún no se ha gastado ni devuelto; <strong>recaudación</strong> es dinero obtenido por compras realizadas.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-desktop"></i> Interfaz de consola: gui.GUI</h4>
+      <p><code>GUI</code> está en <code>edu.masanz.da.ut3.gui</code>, al mismo nivel que <code>modelo</code>. Todos sus métodos son <strong>estáticos</strong>: utiliza <code>GUI.mostrarMenu()</code> y <code>GUI.pedirOpcion()</code>, sin crear instancias. Sus métodos de impresión están preparados; completa la lectura de datos en los TODOs de esta clase.</p>
+      <p>No recibe objetos <code>Producto</code> ni <code>MaquinaExpendedora</code>. <code>Main</code> consulta sus datos y decide qué mostrar; <code>GUI</code> únicamente imprime los textos y valores que recibe o solicita datos por teclado.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Salidas proporcionadas</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>mostrarMenu()</code></td><td>Imprime las opciones 1–5 y, al final, 0 salir.</td></tr>
+            <tr><td><code>mostrarMensaje(mensaje)</code></td><td>Imprime el texto recibido: un aviso, un resultado o un encabezado.</td></tr>
+            <tr><td><code>mostrarProducto(numero, nombre, precioCentimos, unidades)</code></td><td>Imprime los cuatro datos recibidos, sin consultar productos ni validar valores.</td></tr>
+            <tr><td><code>mostrarImporte(concepto, centimos)</code></td><td>Imprime una etiqueta y un importe, por ejemplo «Saldo», «Recaudacion» o «Saldo devuelto».</td></tr>
+            <tr><td><code>mostrarOpcionIncorrecta()</code>, <code>mostrarDespedida()</code></td><td>Presentan los avisos y la despedida.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Las opciones tienen constantes en <code>GUI</code>: <code>CONSULTAR</code>, <code>INTRODUCIR_DINERO</code>, <code>COMPRAR</code>, <code>DEVOLVER_SALDO</code>, <code>REPONER</code> y <code>SALIR</code>. Implementarás <code>pedirOpcion()</code> y <code>pedirEntero(mensaje)</code> en esta clase. El modelo valida los valores de las operaciones, no la interfaz.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Clase GUI: TODO 01–02</h4>
+      <ol>
+        <li>
+          <p><strong>TODO 01:</strong> Solicita una opcion del menu y vuelve a pedirla hasta que sea valida.</p>
+          <p><code>pedirOpcion()</code> solicita «Elige una opcion: » y devuelve un entero entre 0 y 5, ambos incluidos. Para otros valores muestra <code>mostrarOpcionIncorrecta()</code> y vuelve a solicitarlo. Puedes utilizar <code>pedirEntero</code> para leer el dato. No ejecuta las compras ni otras operaciones.</p>
+        </li>
+        <li>
+          <p><strong>TODO 02:</strong> Solicita un entero con el mensaje recibido y repite la solicitud si no recibe un entero.</p>
+          <p><code>pedirEntero(mensaje)</code> utiliza el atributo estático <code>scanner</code>, inicializado con <code>private static Scanner scanner = new Scanner(System.in);</code>, y muestra el texto recibido antes de la lectura. Si no se puede convertir el texto, informa del error y vuelve a solicitar el dato. Puedes capturar la excepción estándar <code>NumberFormatException</code>.</p>
+          <p>Debe admitir también cero y enteros negativos: la validez de un importe, un producto o unas unidades la comprueba el modelo. Si la entrada termina sin más datos, devuelve 0, que permitirá salir al solicitar la siguiente opción.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-box"></i> Clase Producto: TODO 11–14</h4>
+      <p>Sus atributos son <code>nombre</code>, <code>precioCentimos</code> y <code>unidades</code>. Los tres getters y <code>toString()</code> ya están implementados.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 11:</strong> Inicializa el producto y rechaza los datos que no cumplan sus requisitos.</p>
+          <p>En <code>Producto(nombre, precioCentimos, unidades)</code>, el nombre no puede ser nulo ni estar en blanco, el precio debe ser positivo y las existencias no pueden ser negativas. Para datos incorrectos, utiliza <code>IllegalArgumentException</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 12:</strong> Indica si el producto dispone de unidades para la venta.</p>
+          <p><code>hayExistencias()</code> devuelve <code>true</code> cuando queda al menos una unidad y <code>false</code> en otro caso. No modifica las existencias.</p>
+        </li>
+        <li>
+          <p><strong>TODO 13:</strong> Retira una unidad si hay existencias e indica si se ha podido retirar.</p>
+          <p><code>retirarUnidad()</code> devuelve <code>true</code> si retira una unidad; si está agotado, devuelve <code>false</code> sin modificar nada.</p>
+        </li>
+        <li>
+          <p><strong>TODO 14:</strong> Aumenta las existencias con la cantidad solicitada si es positiva e indica si se ha podido reponer.</p>
+          <p><code>reponer(cantidad)</code> devuelve <code>true</code> si añade las unidades. Si la cantidad es cero o negativa, devuelve <code>false</code> sin cambios. No modifica el nombre ni el precio.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Clase MaquinaExpendedora: TODO 21–26</h4>
+      <p><code>getSaldoCentimos()</code> y <code>getRecaudacionCentimos()</code> ya están implementados.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 21:</strong> Inicializa los tres productos y los importes respetando las reglas del constructor.</p>
+          <p>El constructor conserva las tres referencias recibidas, sin copiarlas, y comienza con saldo y recaudación a cero. Rechaza productos nulos o referencias repetidas mediante <code>IllegalArgumentException</code>. Dos productos distintos pueden tener datos iguales.</p>
+        </li>
+        <li>
+          <p><strong>TODO 22:</strong> Devuelve el producto solicitado, o null si no existe.</p>
+          <p><code>obtenerProducto(numero)</code> devuelve la referencia de la posición 1, 2 o 3. Cualquier otra posición produce <code>null</code>, sin modificar datos.</p>
+        </li>
+        <li>
+          <p><strong>TODO 23:</strong> Acepta dinero de importe positivo y actualiza el saldo disponible.</p>
+          <p><code>introducirDinero(cantidadCentimos)</code> añade al saldo cualquier cantidad positiva y devuelve <code>true</code>. Para una cantidad no positiva, devuelve <code>false</code> sin cambios. La recaudación no aumenta al introducir dinero.</p>
+        </li>
+        <li>
+          <p><strong>TODO 24:</strong> Realiza la compra solicitada solo si se cumplen todos los requisitos, sin alterar datos si se rechaza.</p>
+          <p><code>comprar(numero)</code> requiere una posición válida, existencias y saldo suficiente. Una compra correcta retira una unidad, reduce el saldo en su precio, incrementa la recaudación en ese mismo importe y devuelve <code>true</code>. En los demás casos, devuelve <code>false</code> sin cambios.</p>
+        </li>
+        <li>
+          <p><strong>TODO 25:</strong> Devuelve todo el saldo pendiente y deja el saldo a cero, sin modificar lo recaudado.</p>
+          <p><code>devolverSaldo()</code> devuelve el importe disponible antes de la devolución. Si no había dinero, devuelve cero.</p>
+        </li>
+        <li>
+          <p><strong>TODO 26:</strong> Reabastece el producto solicitado cuando los datos sean correctos, sin modificar los importes.</p>
+          <p><code>reponerProducto(numero, cantidad)</code> utiliza la reposición de <code>Producto</code>. Devuelve <code>true</code> si se ha realizado y <code>false</code> para una posición incorrecta o una cantidad no positiva.</p>
+        </li>
+      </ol>
+      <p>Antes de modificar nada, valida la operación completa. No descuentes dinero para descubrir después que el producto estaba agotado. Las existencias solo se modifican mediante los métodos de <code>Producto</code>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Clase Main: TODO 31–35</h4>
+      <ol>
+        <li>
+          <p><strong>TODO 31:</strong> Crea los productos iniciales y el objeto que gestiona sus ventas.</p>
+          <p>Utiliza los datos de Agua, Zumo y Barrita indicados al principio. Conserva las tres referencias originales y pásalas al constructor de <code>MaquinaExpendedora</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 32:</strong> Ofrece las opciones de GUI y permite realizar operaciones hasta elegir salir.</p>
+          <p>Utiliza <code>mostrarMenu()</code> y <code>pedirOpcion()</code> de <code>GUI</code>. El menú admite 1 consultar, 2 introducir dinero, 3 comprar, 4 devolver saldo, 5 reponer y 0 salir. La validación de las opciones se realiza en <code>pedirOpcion</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 33:</strong> Gestiona cada solicitud mediante los objetos del modelo e informa de su resultado.</p>
+          <p>Solicita céntimos, producto y/o unidades con <code>GUI.pedirEntero(mensaje)</code>. Consulta el resultado de cada operación y elige el texto que pasarás a <code>GUI.mostrarMensaje</code>, por ejemplo «Operacion realizada.» u «Operacion rechazada.». El menú no mantiene copias del saldo ni de las existencias.</p>
+        </li>
+        <li>
+          <p><strong>TODO 34:</strong> Muestra el estado tras cada solicitud y devuelve el saldo pendiente al salir.</p>
+          <p>Consulta los productos y los importes desde <code>Main</code>. Pasa sus datos a <code>mostrarProducto</code> y <code>mostrarImporte</code>. La devolución la realiza <code>maquina.devolverSaldo()</code>; muestra lo devuelto con <code>mostrarImporte</code>. Al elegir 0, devuelve el saldo pendiente, informa del importe aunque sea cero y muestra la despedida.</p>
+        </li>
+        <li>
+          <p><strong>TODO 35:</strong> Muestra las existencias finales desde las referencias originales a los productos.</p>
+          <p>Consulta los getters de las referencias originales y pasa sus valores a <code>mostrarProducto</code>. Deben reflejar las compras y reposiciones hechas a través de la máquina; no construyas otros productos para presentar el resultado ni pases los objetos a <code>GUI</code>.</p>
+        </li>
+      </ol>
+      <p>El menú <strong>invoca los métodos</strong>; no vuelve a implementar las reglas de compra, devolución o reposición.</p>
+      <p>Trabaja con cantidades pequeñas; no se pide controlar desbordamientos.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplos de pantallas</h4>
+      <p>Este es el panel principal, con la opción de salida al final:</p>
+      <pre><code class="language-text">=== MAQUINA EXPENDEDORA ===
+1. Consultar productos, saldo y recaudacion
+2. Introducir dinero
+3. Comprar un producto
+4. Devolver el saldo
+5. Reponer un producto
+0. Salir
+Elige una opcion: 2
+Importe en centimos: 200
+Operacion realizada.
+--- ESTADO ---
+1. Agua | precio: 100 centimos | unidades: 3
+2. Zumo | precio: 150 centimos | unidades: 2
+3. Barrita | precio: 80 centimos | unidades: 0
+Saldo: 200 centimos
+Recaudacion: 0 centimos</code></pre>
+      <p>Extracto de las siguientes operaciones, omitiendo la repetición del menú: se compra Agua y se intenta comprar Zumo con saldo insuficiente.</p>
+      <pre><code class="language-text">Elige una opcion: 3
+Numero de producto (1-3): 1
+Operacion realizada.
+--- ESTADO ---
+1. Agua | precio: 100 centimos | unidades: 2
+2. Zumo | precio: 150 centimos | unidades: 2
+3. Barrita | precio: 80 centimos | unidades: 0
+Saldo: 100 centimos
+Recaudacion: 100 centimos
+
+Elige una opcion: 3
+Numero de producto (1-3): 2
+Operacion rechazada.</code></pre>
+      <p>La compra rechazada conserva el estado anterior. Al salir se devuelve el saldo restante y se muestran los productos originales; el cierre incluye estos mensajes:</p>
+      <pre><code class="language-text">Elige una opcion: 0
+Saldo devuelto: 100 centimos
+Hasta pronto.</code></pre>
+      <p>Son ejemplos de la aplicación al completar los TODOs. Las líneas con solicitudes incluyen los datos escritos por la persona usuaria.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Pruebas mínimas</h4>
+      <ol>
+        <li>Introduce 200 y compra Agua: saldo 100, recaudación 100 y 2 unidades de Agua.</li>
+        <li>Intenta comprar Zumo con ese saldo y Barrita agotada: ninguna operación debe modificar datos.</li>
+        <li>Repón 2 Barritas y compra una: saldo 20, recaudación 180 y 1 Barrita.</li>
+        <li>Devuelve el saldo: se devuelven 20. Repite: se devuelve 0; la recaudación sigue en 180.</li>
+        <li>Prueba posiciones 0 y 4, dinero no positivo, reposiciones no positivas y compras con saldo exacto.</li>
+        <li>Agota un producto e intenta comprarlo de nuevo. Comprueba también que salir devuelve el saldo sobrante.</li>
+      </ol>
+      <p>Estas comprobaciones describen resultados esperados, no contienen la implementación.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut03-ejercicios-54-ascensor" class="fragment-section section-anchor">
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-building"></i> 3.42 Ascensor con nuevas llegadas</h2>
+    <p class="lead">Simula un ascensor que lleva personas a sus destinos. Cada vez que baja alguien, puede aparecer otra persona: el recorrido continuará <strong>hasta que el ascensor quede vacío</strong>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-ascensor-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Incluye <code>Persona</code>, <code>Ascensor</code>, <code>Main</code> y la interfaz de consola <code>gui.GUI</code>. Completa los TODOs siguiendo el Javadoc, sin añadir clases ni métodos auxiliares, arrays o colecciones.</p>
+      <p>Abre <code>pom.xml</code> en IntelliJ y utiliza <strong>JDK 25</strong> tanto en el proyecto como en Maven.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>Ascensor</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sliders-h"></i> Configuración y comienzo</h4>
+      <ul>
+        <li>Plantas de 0 a 5, ambas incluidas. La planta 0 es la planta baja.</li>
+        <li>Tres plazas: <code>persona1</code>, <code>persona2</code> y <code>persona3</code>.</li>
+        <li>Peso máximo de 200 kg. Alcanzar exactamente el límite está permitido.</li>
+        <li>Ascensor inicialmente vacío en la planta 0.</li>
+        <li>Probabilidad inicial de nueva llegada: <strong>30 % por cada baja correcta</strong>, definida en <code>Main.PROBABILIDAD_LLEGADA</code>.</li>
+      </ul>
+      <p>Las constantes de plantas, peso y capacidad están proporcionadas en <code>Ascensor</code>. Crea e incorpora estas tres personas antes de comenzar el recorrido:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Persona</th><th>Peso</th><th>Destino</th></tr></thead>
+          <tbody><tr><td>Ana</td><td>60 kg</td><td>2</td></tr><tr><td>Luis</td><td>70 kg</td><td>4</td></tr><tr><td>Eva</td><td>50 kg</td><td>5</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-desktop"></i> Interfaz de consola: gui.GUI</h4>
+      <p>La clase <code>GUI</code> está en <code>edu.masanz.da.ut3.gui</code>. Todos sus métodos son <strong>estáticos</strong>: utiliza <code>GUI.mostrarMenu()</code> y <code>GUI.pedirOpcion()</code>, sin crear instancias. Sus métodos de impresión están preparados y completarás la lectura de opciones. <code>Main</code> decide qué mensaje mostrar, pero utiliza <code>GUI</code> para imprimirlo.</p>
+      <p>La interfaz no recibe objetos <code>Persona</code> o <code>Ascensor</code>, no recorre sus plazas ni decide si alguien puede entrar. Recibe solo los textos y valores necesarios para personalizar los mensajes.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Salidas proporcionadas</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>mostrarMenu()</code></td><td>Imprime 1 iniciar simulación y, al final, 0 salir. Las constantes son <code>GUI.INICIAR</code> y <code>GUI.SALIR</code>.</td></tr>
+            <tr><td><code>mostrarMensaje(mensaje)</code></td><td>Imprime el texto recibido: un aviso, el sentido del movimiento, un rechazo o una línea de resultados.</td></tr>
+            <tr><td><code>mostrarPlanta(planta)</code></td><td>Imprime el número de planta recibido.</td></tr>
+            <tr><td><code>mostrarPersona(nombre, pesoKg, destino)</code></td><td>Imprime esos tres datos, sin consultarlos en ningún objeto.</td></tr>
+            <tr><td><code>mostrarAlguienEntra(nombre)</code></td><td>Imprime quién ha entrado.</td></tr>
+            <tr><td><code>mostrarAlguienSale(nombre)</code></td><td>Imprime quién ha salido.</td></tr>
+            <tr><td><code>mostrarOpcionIncorrecta()</code>, <code>mostrarDespedida()</code></td><td>Presentan los avisos y el cierre de la aplicación.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Por ejemplo, <code>Main</code> puede pasar el nombre obtenido de una persona a <code>mostrarAlguienEntra</code> después de que el ascensor confirme su entrada. La interfaz no comprueba esa entrada. Los totales finales se presentan mediante llamadas sencillas a <code>mostrarMensaje</code>, sin un método que reciba todos los contadores.</p>
+      <p>El menú se muestra antes y después de cada servicio. Elegir 1 inicia un ascensor nuevo con las tres personas iniciales; la simulación funciona automáticamente hasta que queda vacío y después vuelve al menú. Elegir 0 desde el menú termina la aplicación. No se solicita una opción en cada planta.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Clase GUI: TODO 01</h4>
+      <ol>
+        <li>
+          <p><strong>TODO 01:</strong> Solicita una opcion del menu y vuelve a pedirla hasta que sea valida.</p>
+          <p><code>pedirOpcion()</code> solicita «Elige una opcion: » y devuelve únicamente 1 para iniciar o 0 para salir. Si recibe texto no entero u otro número, muestra <code>mostrarOpcionIncorrecta()</code> y vuelve a solicitarlo. Puedes capturar la excepción estándar <code>NumberFormatException</code>.</p>
+          <p>Utiliza el atributo estático <code>scanner</code>, inicializado con <code>private static Scanner scanner = new Scanner(System.in);</code>. Si la entrada termina sin más datos, devuelve 0. Este método solo lee y valida el menú: no crea personas ni inicia viajes.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user"></i> Clase Persona: TODO 11</h4>
+      <p>Una persona tiene <code>nombre</code>, <code>pesoKg</code> y <code>plantaDestino</code>. Sus tres getters y <code>toString()</code> ya están implementados. No se necesitan setters: los datos de una persona no cambian durante su viaje.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 11:</strong> Inicializa los datos de la persona y rechaza los que no cumplan los requisitos.</p>
+          <p>El constructor recibe los tres datos y utiliza <code>IllegalArgumentException</code> para rechazar un nombre nulo o en blanco, un peso no positivo o un destino fuera de las plantas del edificio.</p>
+          <p>Puede construirse una persona cuyo peso supere el máximo del ascensor; será el ascensor quien rechace su entrada.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Clase Ascensor: TODO 21–27</h4>
+      <p><code>Ascensor()</code> deja las tres plazas a <code>null</code> y sitúa el ascensor en la planta 0. <code>getPlantaActual()</code> también está implementado.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 21:</strong> Calcula el peso total de las personas presentes.</p>
+          <p><code>getPesoActualKg()</code> devuelve la suma de los pesos de las plazas ocupadas y cero si el ascensor está vacío. No modifica el estado.</p>
+        </li>
+        <li>
+          <p><strong>TODO 22:</strong> Cuenta las personas que viajan en el ascensor.</p>
+          <p><code>getCantidadPersonas()</code> devuelve un entero entre cero y tres, según las plazas ocupadas.</p>
+        </li>
+        <li>
+          <p><strong>TODO 23:</strong> Devuelve la persona de la plaza solicitada, o null si la plaza no existe o se encuentra libre.</p>
+          <p><code>obtenerPersona(plaza)</code> acepta las plazas 1, 2 y 3. Devuelve la referencia almacenada, sin copiarla ni modificarla; cualquier otro número produce <code>null</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 24:</strong> Admite a la persona solicitada solo si cumple las reglas de acceso, sin cambios si se rechaza.</p>
+          <p><code>subirPersona(persona)</code> ocupa la primera plaza libre y devuelve <code>true</code>. Rechaza con <code>false</code> una referencia nula, una persona ya presente, un destino igual a la planta actual, la falta de plazas o el exceso de peso. El peso total puede ser exactamente 200 kg.</p>
+        </li>
+        <li>
+          <p><strong>TODO 25:</strong> Permite bajar a la persona solicitada solo cuando haya llegado a su destino, sin cambios si se rechaza.</p>
+          <p><code>bajarPersona(persona)</code> devuelve <code>true</code> si esa misma instancia está dentro y ha llegado a su planta de destino. Su plaza queda a <code>null</code>. Para una referencia nula, una persona ausente o un destino aún no alcanzado, devuelve <code>false</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 26:</strong> Determina el siguiente destino respetando la distancia y las reglas de desempate.</p>
+          <p><code>obtenerSiguienteDestino()</code> devuelve el destino de menor distancia a la planta actual entre las personas presentes. En empate elige la planta menor. Si no hay personas, devuelve <code>-1</code>. No modifica el estado.</p>
+        </li>
+        <li>
+          <p><strong>TODO 27:</strong> Desplaza el ascensor una sola planta hacia el destino solicitado cuando el movimiento sea posible.</p>
+          <p><code>moverUnaPlantaHacia(destino)</code> devuelve <code>true</code> cuando cambia una planta en la dirección correspondiente. Si está vacío, el destino está fuera de límites o ya está en él, devuelve <code>false</code> sin moverse. No gestiona entradas ni salidas.</p>
+          <p><strong>El destino indica la dirección, no un salto directo.</strong> Si está en la planta 1, una llamada a <code>moverUnaPlantaHacia(5)</code> lo deja en la planta 2. Hacen falta cuatro llamadas para llegar a la 5, pasando por 2, 3, 4 y 5. En sentido contrario, desde la planta 5, <code>moverUnaPlantaHacia(1)</code> lo deja en la planta 4. Cada llamada avanza exactamente una planta o no mueve el ascensor si se rechaza.</p>
+        </li>
+      </ol>
+      <p>Compara personas por identidad de referencia: un mismo objeto no puede ocupar dos plazas. No copies personas ni sus datos para representar ocupantes. <strong>No compactes los huecos al bajar alguien</strong>: las otras personas conservan su plaza, lo que permitirá recorrerlas sin saltarse ninguna.</p>
+      <p>Calcula pesos y cantidades a partir de las plazas; no mantengas contadores duplicados que puedan quedar desactualizados. Comprueba siempre si una referencia es <code>null</code> antes de consultar sus métodos.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-route"></i> Clase Main: TODO 31–36</h4>
+      <ol>
+        <li>
+          <p><strong>TODO 31:</strong> Prepara las personas iniciales y el ascensor para cada servicio solicitado.</p>
+          <p>En cada nueva simulación utiliza los datos de Ana, Luis y Eva de la tabla inicial y comprueba los resultados de las llamadas a <code>subirPersona</code>. Los contadores del servicio comienzan de nuevo.</p>
+        </li>
+        <li>
+          <p><strong>TODO 32:</strong> Atiende las opciones de GUI y completa cada servicio hasta que no queden personas pendientes de viaje.</p>
+          <p>Utiliza <code>mostrarMenu</code> y <code>pedirOpcion</code> de <code>GUI</code> para iniciar servicios o salir. Durante un servicio, elige un nuevo destino después de cada parada; termina solo después de atender todas sus bajas y posibles llegadas, cuando el ascensor permanece vacío.</p>
+        </li>
+        <li>
+          <p><strong>TODO 33:</strong> Muestra el recorrido completo hasta cada destino elegido, sin omitir plantas intermedias.</p>
+          <p>El desplazamiento lo realiza <code>moverUnaPlantaHacia</code>. Consulta la planta actual desde <code>Main</code> y pasa su número a <code>mostrarPlanta</code>. Utiliza <code>mostrarMensaje</code> para informar del destino y del sentido del movimiento. No cambies la planta directamente desde <code>Main</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 34:</strong> Atiende la salida de cada persona que haya llegado a su destino.</p>
+          <p>En cada parada deben bajar todas las personas con ese destino. Utiliza <code>obtenerPersona</code> y <code>bajarPersona</code>, respetando las plazas vacías y sin compactar los huecos. Cuando la baja se haya realizado, pasa el nombre a <code>mostrarAlguienSale</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 35:</strong> Ofrece una oportunidad de nueva llegada tras cada baja y admite o rechaza a quien aparezca.</p>
+          <p>Aplica las reglas del apartado de llegadas: un sorteo por cada baja correcta, incluso después de bajar la última persona. Solicita la entrada al ascensor. Si se acepta, pasa el nombre a <code>mostrarAlguienEntra</code>; si se rechaza o no aparece nadie, informa con <code>mostrarMensaje</code>. Un rechazo no provoca nuevos intentos.</p>
+        </li>
+        <li>
+          <p><strong>TODO 36:</strong> Muestra lo sucedido en cada parada y un resumen final del servicio.</p>
+          <p>Consulta desde <code>Main</code> el peso, las personas y sus datos; presenta cada dato con <code>mostrarMensaje</code>, <code>mostrarPersona</code> o <code>mostrarPlanta</code>. Al finalizar, muestra los contadores con mensajes sencillos y vuelve al menú. Distingue viajes de plantas recorridas y muestra la despedida al elegir 0.</p>
+        </li>
+      </ol>
+      <p>Las personas que ya están dentro no bajan para dejar sitio a otras. No existe una cola en las plantas ni se simulan personas que no hayan sido generadas en una llegada. Nadie baja en una planta distinta de su destino.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-random"></i> Una oportunidad de llegada por cada baja</h4>
+      <p>Con <code>Random</code>, genera un entero de 0 a 99 y decide si se produce una llegada según el porcentaje configurado. Con un 30 %, exactamente 30 de los 100 resultados posibles deben representar una llegada.</p>
+      <ul>
+        <li>Si no hay llegada, continúa con las demás bajas o con el siguiente destino.</li>
+        <li>Si la hay, crea una nueva <code>Persona</code> con nombre correlativo (<code>Visitante1</code>, <code>Visitante2</code>…), peso entero aleatorio de 40 a 120 kg y destino aleatorio de 0 a 5, todos los límites incluidos.</li>
+        <li>El destino debe ser distinto de la planta actual. Vuelve a sortear el destino mientras coincidan; no crees la persona hasta tener un destino válido.</li>
+        <li>Intenta subirla una sola vez llamando a <code>subirPersona</code>. Si el peso o las plazas lo impiden, muestra el motivo y esa persona se marcha. No repitas el sorteo de llegada ni generes un sustituto.</li>
+      </ul>
+      <p><strong>También se sortea tras bajar la última persona.</strong> No termines en cuanto se libere su plaza: una nueva llegada aceptada puede hacer que el ascensor deba seguir funcionando.</p>
+      <p>Si en una parada bajan dos personas, hay dos sorteos independientes, uno después de cada baja. La nueva persona no puede bajar en esa parada porque su destino es diferente.</p>
+      <p>El porcentaje se puede ajustar entre 0 y 99. No utilices 100: si todas las llegadas fueran admitidas, se reemplazaría siempre a quien baja y el ascensor no se vaciaría. Con el porcentaje habitual, la duración depende del azar; no se pide un número fijo de viajes ni un corte artificial por rondas.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-alt"></i> Mostrar el recorrido</h4>
+      <p>La consola debe permitir seguir lo sucedido: planta inicial, destino elegido, dirección, cada planta atravesada, ocupantes y peso, personas que bajan, llegadas y entradas aceptadas o rechazadas con su motivo.</p>
+      <p>Al finalizar, muestra la planta final, los viajes completados, las plantas recorridas, las bajas y las nuevas altas aceptadas y rechazadas. Un viaje es un desplazamiento a un destino elegido; pasar de la planta 0 a la 2 cuenta como <strong>un viaje y dos plantas recorridas</strong>. Las tres incorporaciones iniciales no cuentan como altas aleatorias.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplos de pantallas</h4>
+      <p>Inicio de un servicio con los datos iniciales. Las líneas de solicitud incluyen la respuesta de la persona usuaria:</p>
+      <pre><code class="language-text">=== ASCENSOR ===
+1. Iniciar simulacion
+0. Salir
+Elige una opcion: 1
+Inicio del servicio.
+Planta: 0
+Personas: 3 | peso: 180/200 kg
+Ana | 60 kg | destino: 2
+Luis | 70 kg | destino: 4
+Eva | 50 kg | destino: 5
+Destino elegido: 2
+Subiendo
+Planta: 1</code></pre>
+      <p>Extracto de la primera parada, cuando no aparece nadie tras la baja de Ana. Se omiten los listados de plazas repetidos para abreviar:</p>
+      <pre><code class="language-text">Subiendo
+Planta: 2
+Parada en planta 2.
+Sale Ana.
+Sin nueva llegada.
+Personas: 2 | peso: 120/200 kg</code></pre>
+      <p>Si en esa situación aparece una persona de 100 kg con destino 3, el ascensor rechaza la entrada por peso. Un ejemplo del aviso es:</p>
+      <pre><code class="language-text">Aparece una persona.
+Visitante1 | 100 kg | destino: 3
+Entrada rechazada: se supera el peso maximo.</code></pre>
+      <p>Cuando sí se acepta una llegada, el aviso es sencillo, por ejemplo <code>Entra Visitante2.</code>. <code>Main</code> elige los textos y consulta los datos; <code>GUI</code> solo los imprime. No es necesario copiar exactamente todos los textos de estos ejemplos.</p>
+      <p>Con probabilidad 0, el resumen final debe tener estos valores y volver al menú:</p>
+      <pre><code class="language-text">--- SERVICIO FINALIZADO: ASCENSOR VACIO ---
+Planta final: 5
+Viajes: 3 | plantas recorridas: 5
+Bajas: 3 | nuevas altas: 0 | rechazos: 0
+
+=== ASCENSOR ===
+1. Iniciar simulacion
+0. Salir
+Elige una opcion: 0
+Hasta pronto.</code></pre>
+      <p>Estas pantallas corresponden al servicio una vez implementados los TODOs. Con llegadas aleatorias, el recorrido y los contadores pueden cambiar.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Pruebas mínimas</h4>
+      <ol>
+        <li>Pon la probabilidad a 0. Con los datos iniciales debe parar en 2, 4 y 5, completar 3 viajes, recorrer 5 plantas y registrar 3 bajas. Termina vacío en la planta 5.</li>
+        <li>Comprueba entradas con peso total exacto de 200 kg y con 201 kg; prueba también una cuarta persona, <code>null</code> y una referencia ya presente.</li>
+        <li>Intenta bajar a alguien antes de llegar a su destino y a otra persona que nunca haya entrado: ambos intentos deben ser rechazados.</li>
+        <li>Comprueba que un hueco libre no desplaza las demás referencias y que el siguiente alta ocupa el primero disponible.</li>
+        <li>Prueba destinos a igual distancia y confirma que se elige el menor. Comprueba que mover un ascensor vacío o hacia una planta incorrecta no cambia su posición.</li>
+        <li>Para probar situaciones aleatorias concretas, sustituye temporalmente las tiradas por valores fijos: una llegada tras la última baja, una entrada rechazada por peso y dos bajas en la misma parada. Después restaura <code>Random</code> y el 30 %.</li>
+      </ol>
+      <p>No se proporciona una solución: tendrás que coordinar las clases, los retornos, los bucles y las decisiones para cumplir estas reglas.</p>
+    </div>
+  </div>
+</div>
+</section>
         </main>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1792662998206"></script>
-    <script src="assets/js/course.js?v=1792662998206"></script>
-    <script src="assets/js/pwa-register.js?v=1792662998206" data-service-worker="../sw.js" data-scope="../"></script>
+    <script src="assets/js/search-data.js?v=1792670571240"></script>
+    <script src="assets/js/course.js?v=1792670571240"></script>
+    <script src="assets/js/pwa-register.js?v=1792670571240" data-service-worker="../sw.js" data-scope="../"></script>
   </body>
 </html>

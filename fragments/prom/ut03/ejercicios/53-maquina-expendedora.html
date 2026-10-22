@@ -1,0 +1,192 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-store"></i> 3.41 Máquina expendedora</h2>
+    <p class="lead">Implementa una máquina con <strong>tres productos, saldo y recaudación</strong>. El programa principal ofrecerá un menú; las clases de modelo realizarán las operaciones.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-maquina-expendedora-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Incluye <code>Producto</code>, <code>MaquinaExpendedora</code>, <code>Main</code> y la interfaz de consola <code>gui.GUI</code>. Completa los TODOs, sin cambiar las firmas ni añadir otras clases, métodos, arrays o colecciones.</p>
+      <p>Abre <code>pom.xml</code> en IntelliJ y utiliza <strong>JDK 25</strong> tanto en el proyecto como en Maven.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>MaquinaExpendedora</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-coins"></i> Importes y datos iniciales</h4>
+      <p>Trabaja con <strong>enteros en céntimos</strong>: 100 representa un euro y 150 representa un euro y medio. Así podrás comparar, sumar y restar dinero sin errores de redondeo decimal. No es necesario simular monedas físicas ni calcular cuántas monedas se devuelven.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Posición</th><th>Producto</th><th>Precio en céntimos</th><th>Unidades</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Agua</td><td>100</td><td>3</td></tr>
+            <tr><td>2</td><td>Zumo</td><td>150</td><td>2</td></tr>
+            <tr><td>3</td><td>Barrita</td><td>80</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La máquina conserva las tres referencias a productos mediante atributos independientes. Comienza con saldo y recaudación a cero. <strong>Saldo</strong> es dinero introducido que aún no se ha gastado ni devuelto; <strong>recaudación</strong> es dinero obtenido por compras realizadas.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-desktop"></i> Interfaz de consola: gui.GUI</h4>
+      <p><code>GUI</code> está en <code>edu.masanz.da.ut3.gui</code>, al mismo nivel que <code>modelo</code>. Todos sus métodos son <strong>estáticos</strong>: utiliza <code>GUI.mostrarMenu()</code> y <code>GUI.pedirOpcion()</code>, sin crear instancias. Sus métodos de impresión están preparados; completa la lectura de datos en los TODOs de esta clase.</p>
+      <p>No recibe objetos <code>Producto</code> ni <code>MaquinaExpendedora</code>. <code>Main</code> consulta sus datos y decide qué mostrar; <code>GUI</code> únicamente imprime los textos y valores que recibe o solicita datos por teclado.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Salidas proporcionadas</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><code>mostrarMenu()</code></td><td>Imprime las opciones 1–5 y, al final, 0 salir.</td></tr>
+            <tr><td><code>mostrarMensaje(mensaje)</code></td><td>Imprime el texto recibido: un aviso, un resultado o un encabezado.</td></tr>
+            <tr><td><code>mostrarProducto(numero, nombre, precioCentimos, unidades)</code></td><td>Imprime los cuatro datos recibidos, sin consultar productos ni validar valores.</td></tr>
+            <tr><td><code>mostrarImporte(concepto, centimos)</code></td><td>Imprime una etiqueta y un importe, por ejemplo «Saldo», «Recaudacion» o «Saldo devuelto».</td></tr>
+            <tr><td><code>mostrarOpcionIncorrecta()</code>, <code>mostrarDespedida()</code></td><td>Presentan los avisos y la despedida.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Las opciones tienen constantes en <code>GUI</code>: <code>CONSULTAR</code>, <code>INTRODUCIR_DINERO</code>, <code>COMPRAR</code>, <code>DEVOLVER_SALDO</code>, <code>REPONER</code> y <code>SALIR</code>. Implementarás <code>pedirOpcion()</code> y <code>pedirEntero(mensaje)</code> en esta clase. El modelo valida los valores de las operaciones, no la interfaz.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Clase GUI: TODO 01–02</h4>
+      <ol>
+        <li>
+          <p><strong>TODO 01:</strong> Solicita una opcion del menu y vuelve a pedirla hasta que sea valida.</p>
+          <p><code>pedirOpcion()</code> solicita «Elige una opcion: » y devuelve un entero entre 0 y 5, ambos incluidos. Para otros valores muestra <code>mostrarOpcionIncorrecta()</code> y vuelve a solicitarlo. Puedes utilizar <code>pedirEntero</code> para leer el dato. No ejecuta las compras ni otras operaciones.</p>
+        </li>
+        <li>
+          <p><strong>TODO 02:</strong> Solicita un entero con el mensaje recibido y repite la solicitud si no recibe un entero.</p>
+          <p><code>pedirEntero(mensaje)</code> utiliza el atributo estático <code>scanner</code>, inicializado con <code>private static Scanner scanner = new Scanner(System.in);</code>, y muestra el texto recibido antes de la lectura. Si no se puede convertir el texto, informa del error y vuelve a solicitar el dato. Puedes capturar la excepción estándar <code>NumberFormatException</code>.</p>
+          <p>Debe admitir también cero y enteros negativos: la validez de un importe, un producto o unas unidades la comprueba el modelo. Si la entrada termina sin más datos, devuelve 0, que permitirá salir al solicitar la siguiente opción.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-box"></i> Clase Producto: TODO 11–14</h4>
+      <p>Sus atributos son <code>nombre</code>, <code>precioCentimos</code> y <code>unidades</code>. Los tres getters y <code>toString()</code> ya están implementados.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 11:</strong> Inicializa el producto y rechaza los datos que no cumplan sus requisitos.</p>
+          <p>En <code>Producto(nombre, precioCentimos, unidades)</code>, el nombre no puede ser nulo ni estar en blanco, el precio debe ser positivo y las existencias no pueden ser negativas. Para datos incorrectos, utiliza <code>IllegalArgumentException</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 12:</strong> Indica si el producto dispone de unidades para la venta.</p>
+          <p><code>hayExistencias()</code> devuelve <code>true</code> cuando queda al menos una unidad y <code>false</code> en otro caso. No modifica las existencias.</p>
+        </li>
+        <li>
+          <p><strong>TODO 13:</strong> Retira una unidad si hay existencias e indica si se ha podido retirar.</p>
+          <p><code>retirarUnidad()</code> devuelve <code>true</code> si retira una unidad; si está agotado, devuelve <code>false</code> sin modificar nada.</p>
+        </li>
+        <li>
+          <p><strong>TODO 14:</strong> Aumenta las existencias con la cantidad solicitada si es positiva e indica si se ha podido reponer.</p>
+          <p><code>reponer(cantidad)</code> devuelve <code>true</code> si añade las unidades. Si la cantidad es cero o negativa, devuelve <code>false</code> sin cambios. No modifica el nombre ni el precio.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Clase MaquinaExpendedora: TODO 21–26</h4>
+      <p><code>getSaldoCentimos()</code> y <code>getRecaudacionCentimos()</code> ya están implementados.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 21:</strong> Inicializa los tres productos y los importes respetando las reglas del constructor.</p>
+          <p>El constructor conserva las tres referencias recibidas, sin copiarlas, y comienza con saldo y recaudación a cero. Rechaza productos nulos o referencias repetidas mediante <code>IllegalArgumentException</code>. Dos productos distintos pueden tener datos iguales.</p>
+        </li>
+        <li>
+          <p><strong>TODO 22:</strong> Devuelve el producto solicitado, o null si no existe.</p>
+          <p><code>obtenerProducto(numero)</code> devuelve la referencia de la posición 1, 2 o 3. Cualquier otra posición produce <code>null</code>, sin modificar datos.</p>
+        </li>
+        <li>
+          <p><strong>TODO 23:</strong> Acepta dinero de importe positivo y actualiza el saldo disponible.</p>
+          <p><code>introducirDinero(cantidadCentimos)</code> añade al saldo cualquier cantidad positiva y devuelve <code>true</code>. Para una cantidad no positiva, devuelve <code>false</code> sin cambios. La recaudación no aumenta al introducir dinero.</p>
+        </li>
+        <li>
+          <p><strong>TODO 24:</strong> Realiza la compra solicitada solo si se cumplen todos los requisitos, sin alterar datos si se rechaza.</p>
+          <p><code>comprar(numero)</code> requiere una posición válida, existencias y saldo suficiente. Una compra correcta retira una unidad, reduce el saldo en su precio, incrementa la recaudación en ese mismo importe y devuelve <code>true</code>. En los demás casos, devuelve <code>false</code> sin cambios.</p>
+        </li>
+        <li>
+          <p><strong>TODO 25:</strong> Devuelve todo el saldo pendiente y deja el saldo a cero, sin modificar lo recaudado.</p>
+          <p><code>devolverSaldo()</code> devuelve el importe disponible antes de la devolución. Si no había dinero, devuelve cero.</p>
+        </li>
+        <li>
+          <p><strong>TODO 26:</strong> Reabastece el producto solicitado cuando los datos sean correctos, sin modificar los importes.</p>
+          <p><code>reponerProducto(numero, cantidad)</code> utiliza la reposición de <code>Producto</code>. Devuelve <code>true</code> si se ha realizado y <code>false</code> para una posición incorrecta o una cantidad no positiva.</p>
+        </li>
+      </ol>
+      <p>Antes de modificar nada, valida la operación completa. No descuentes dinero para descubrir después que el producto estaba agotado. Las existencias solo se modifican mediante los métodos de <code>Producto</code>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Clase Main: TODO 31–35</h4>
+      <ol>
+        <li>
+          <p><strong>TODO 31:</strong> Crea los productos iniciales y el objeto que gestiona sus ventas.</p>
+          <p>Utiliza los datos de Agua, Zumo y Barrita indicados al principio. Conserva las tres referencias originales y pásalas al constructor de <code>MaquinaExpendedora</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 32:</strong> Ofrece las opciones de GUI y permite realizar operaciones hasta elegir salir.</p>
+          <p>Utiliza <code>mostrarMenu()</code> y <code>pedirOpcion()</code> de <code>GUI</code>. El menú admite 1 consultar, 2 introducir dinero, 3 comprar, 4 devolver saldo, 5 reponer y 0 salir. La validación de las opciones se realiza en <code>pedirOpcion</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 33:</strong> Gestiona cada solicitud mediante los objetos del modelo e informa de su resultado.</p>
+          <p>Solicita céntimos, producto y/o unidades con <code>GUI.pedirEntero(mensaje)</code>. Consulta el resultado de cada operación y elige el texto que pasarás a <code>GUI.mostrarMensaje</code>, por ejemplo «Operacion realizada.» u «Operacion rechazada.». El menú no mantiene copias del saldo ni de las existencias.</p>
+        </li>
+        <li>
+          <p><strong>TODO 34:</strong> Muestra el estado tras cada solicitud y devuelve el saldo pendiente al salir.</p>
+          <p>Consulta los productos y los importes desde <code>Main</code>. Pasa sus datos a <code>mostrarProducto</code> y <code>mostrarImporte</code>. La devolución la realiza <code>maquina.devolverSaldo()</code>; muestra lo devuelto con <code>mostrarImporte</code>. Al elegir 0, devuelve el saldo pendiente, informa del importe aunque sea cero y muestra la despedida.</p>
+        </li>
+        <li>
+          <p><strong>TODO 35:</strong> Muestra las existencias finales desde las referencias originales a los productos.</p>
+          <p>Consulta los getters de las referencias originales y pasa sus valores a <code>mostrarProducto</code>. Deben reflejar las compras y reposiciones hechas a través de la máquina; no construyas otros productos para presentar el resultado ni pases los objetos a <code>GUI</code>.</p>
+        </li>
+      </ol>
+      <p>El menú <strong>invoca los métodos</strong>; no vuelve a implementar las reglas de compra, devolución o reposición.</p>
+      <p>Trabaja con cantidades pequeñas; no se pide controlar desbordamientos.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplos de pantallas</h4>
+      <p>Este es el panel principal, con la opción de salida al final:</p>
+      <pre><code class="language-text">=== MAQUINA EXPENDEDORA ===
+1. Consultar productos, saldo y recaudacion
+2. Introducir dinero
+3. Comprar un producto
+4. Devolver el saldo
+5. Reponer un producto
+0. Salir
+Elige una opcion: 2
+Importe en centimos: 200
+Operacion realizada.
+--- ESTADO ---
+1. Agua | precio: 100 centimos | unidades: 3
+2. Zumo | precio: 150 centimos | unidades: 2
+3. Barrita | precio: 80 centimos | unidades: 0
+Saldo: 200 centimos
+Recaudacion: 0 centimos</code></pre>
+      <p>Extracto de las siguientes operaciones, omitiendo la repetición del menú: se compra Agua y se intenta comprar Zumo con saldo insuficiente.</p>
+      <pre><code class="language-text">Elige una opcion: 3
+Numero de producto (1-3): 1
+Operacion realizada.
+--- ESTADO ---
+1. Agua | precio: 100 centimos | unidades: 2
+2. Zumo | precio: 150 centimos | unidades: 2
+3. Barrita | precio: 80 centimos | unidades: 0
+Saldo: 100 centimos
+Recaudacion: 100 centimos
+
+Elige una opcion: 3
+Numero de producto (1-3): 2
+Operacion rechazada.</code></pre>
+      <p>La compra rechazada conserva el estado anterior. Al salir se devuelve el saldo restante y se muestran los productos originales; el cierre incluye estos mensajes:</p>
+      <pre><code class="language-text">Elige una opcion: 0
+Saldo devuelto: 100 centimos
+Hasta pronto.</code></pre>
+      <p>Son ejemplos de la aplicación al completar los TODOs. Las líneas con solicitudes incluyen los datos escritos por la persona usuaria.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Pruebas mínimas</h4>
+      <ol>
+        <li>Introduce 200 y compra Agua: saldo 100, recaudación 100 y 2 unidades de Agua.</li>
+        <li>Intenta comprar Zumo con ese saldo y Barrita agotada: ninguna operación debe modificar datos.</li>
+        <li>Repón 2 Barritas y compra una: saldo 20, recaudación 180 y 1 Barrita.</li>
+        <li>Devuelve el saldo: se devuelven 20. Repite: se devuelve 0; la recaudación sigue en 180.</li>
+        <li>Prueba posiciones 0 y 4, dinero no positivo, reposiciones no positivas y compras con saldo exacto.</li>
+        <li>Agota un producto e intenta comprarlo de nuevo. Comprueba también que salir devuelve el saldo sobrante.</li>
+      </ol>
+      <p>Estas comprobaciones describen resultados esperados, no contienen la implementación.</p>
+    </div>
+  </div>
+</div>

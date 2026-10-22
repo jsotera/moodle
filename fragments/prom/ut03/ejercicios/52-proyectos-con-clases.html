@@ -1,0 +1,38 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cubes"></i> Nueva tanda: proyectos con clases y métodos</h2>
+    <p class="lead">Ahora sí trabajarás en <strong>clases de modelo y en el método main</strong>. Partirás de proyectos con los atributos, constructores y firmas de los métodos ya preparados.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-ol"></i> TODOs ordenados por clase</h4>
+      <p>Cada tarea está señalada mediante un comentario numerado. Completa primero la interfaz de consola, después las clases de modelo y, al final, el programa que las utiliza:</p>
+      <ul>
+        <li>Clase <code>GUI</code>: <code>TODO 01</code>, <code>TODO 02</code>…</li>
+        <li>Primera clase de modelo: <code>TODO 11</code>, <code>TODO 12</code>…</li>
+        <li>Segunda clase de modelo: <code>TODO 21</code>, <code>TODO 22</code>…</li>
+        <li>Clase <code>Main</code>: <code>TODO 31</code>, <code>TODO 32</code>…</li>
+      </ul>
+      <p>Cada TODO aparece como un punto individual en el enunciado de su ejercicio, con <strong>el mismo número y exactamente el mismo texto</strong> que en el código. Las aclaraciones se encuentran debajo de ese punto. El comentario indica el resultado que se pide, sin pseudocódigo ni instrucciones de implementación.</p>
+      <p>Los métodos están documentados con Javadoc: lee qué reciben, qué devuelven y qué deben hacer cuando una operación no es válida. Conserva los nombres, parámetros y tipos de retorno. No necesitas añadir clases ni métodos auxiliares; tampoco arrays ni colecciones.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Código proporcionado y tareas pendientes</h4>
+      <p>Los getters y setters que solo acceden directamente a un atributo, los constructores de asignación directa y los <code>toString</code> de descripción directa se proporcionan implementados cuando existen. No son tareas del ejercicio.</p>
+      <p>Solo los cuerpos pendientes llevan retornos provisionales: <code>return 0;</code> para enteros, <code>return false;</code> para booleanos y <code>return null;</code> para objetos o textos. Los constructores pendientes y métodos <code>void</code> pendientes contienen únicamente sus TODOs.</p>
+      <p>Esos valores permiten compilar, pero <strong>no son la solución ni necesariamente el resultado correcto</strong>. Sustitúyelos al implementar cada operación pendiente. Un proyecto recién descargado ejecuta un <code>main</code> vacío y termina sin mostrar nada.</p>
+      <p>No cambies un retorno para superar una prueba aislada: implementa el comportamiento completo y comprueba también los casos rechazados, las referencias compartidas y los límites.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-play"></i> Abrir y ejecutar</h4>
+      <p>Descomprime cada ZIP en su propia carpeta y abre su <code>pom.xml</code> con IntelliJ IDEA. Configura <strong>JDK 25</strong>, también para el importador y el ejecutor Maven, y espera a que se cargue el proyecto. Los proyectos compilan para Java 25, sin características preview. Ejecuta <code>edu.masanz.da.ut3.app.Main</code> con el triángulo verde junto a <code>main</code>; utiliza <strong>Debug</strong> para seguir los cambios de estado.</p>
+      <p>Las clases de modelo están en <code>edu.masanz.da.ut3.modelo</code>, la clase principal en <code>edu.masanz.da.ut3.app</code> y la interfaz de consola en <code>edu.masanz.da.ut3.gui.GUI</code>. Los proyectos son independientes, aunque compartan estos nombres de paquete. Las descargas contienen únicamente la base, sin soluciones.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Interfaz de consola</h4>
+      <p>La clase <code>GUI</code> contiene métodos sencillos para imprimir mensajes y TODOs para solicitar datos, como <code>pedirOpcion()</code>. <code>Main</code> coordina sus llamadas con las operaciones del modelo; las clases de modelo no leen del teclado ni imprimen.</p>
+      <p>Todos los métodos de <code>GUI</code> son <strong>estáticos</strong>: se invocan mediante <code>GUI.mostrarMenu()</code> o <code>GUI.pedirOpcion()</code>, sin crear instancias. La lectura utiliza un único atributo <code>private static Scanner scanner = new Scanner(System.in);</code>.</p>
+      <p><code>GUI</code> no conoce las clases del modelo: recibe textos y valores sencillos. <code>Main</code> consulta los objetos, toma las decisiones y pasa a la interfaz únicamente los datos que debe mostrar.</p>
+      <p>Las opciones de los menús aparecen en orden: <strong>1, 2, 3… y, al final, 0 para salir</strong>. Cada enunciado incluye los métodos de <code>GUI</code> y ejemplos de las pantallas esperadas al completar los TODOs.</p>
+    </div>
+  </div>
+</div>
