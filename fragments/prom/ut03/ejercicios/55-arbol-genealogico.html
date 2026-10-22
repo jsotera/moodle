@@ -1,0 +1,242 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-sitemap"></i> 3.43 Árbol genealógico aleatorio y personal</h2>
+    <p class="lead">Cada persona tiene un padre y una madre que también son personas. Construye un <strong>árbol de ascendencia mediante referencias</strong> y dibújalo en consola: antepasados arriba y persona principal abajo. Podrás generar iniciales al azar o definir tu propia familia con los nombres que elijas.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-arbol-genealogico-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Incluye <code>GUI</code>, <code>Persona</code>, <code>ArbolGenealogico</code> y dos clases de ejecución: <code>MainRandom</code> y <code>MainConcreto</code>, con sus atributos, firmas y Javadoc. Completa los TODOs en ese orden, sin cambiar las firmas ni añadir clases o métodos auxiliares.</p>
+      <p>Abre <code>pom.xml</code> en IntelliJ y selecciona <strong>JDK 25</strong> tanto en el proyecto como en el importador y ejecutor Maven. En <code>edu.masanz.da.ut3.app</code>, ejecuta con el triángulo verde el <code>main</code> de <code>MainRandom</code> para el menú aleatorio o el de <code>MainConcreto</code> para tu familia definida en código. No se necesitan argumentos ni cambiar la configuración de Maven.</p>
+      <p>Utiliza condicionales, bucles, referencias, cadenas, <code>Random</code> y, si lo necesitas, <code>Math</code>. <strong>No uses arrays, colecciones ni recursividad.</strong> Los retornos provisionales permiten compilar la base, pero tendrás que sustituirlos al implementar cada método.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ArbolGenealogico</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-users"></i> Qué representa el árbol</h4>
+      <p>Una <code>Persona</code> tiene <code>nombre</code>, <code>padre</code> y <code>madre</code>. Los dos últimos atributos son referencias a otras personas, no nombres ni copias. Estas personas pueden tener, a su vez, sus propios progenitores.</p>
+      <p>La persona principal es la <strong>raíz</strong> y pertenece a la generación 0, aunque se dibuje en la parte inferior. Su padre aparece a la izquierda y su madre a la derecha. Ese orden se repite en todas las familias.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Profundidad</th><th>Generaciones incluidas</th><th>Personas en un árbol completo</th><th>Anchura con iniciales</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Persona principal</td><td>1</td><td>7 columnas</td></tr>
+            <tr><td>2</td><td>Persona principal y sus progenitores</td><td>3</td><td>17 columnas</td></tr>
+            <tr><td>3</td><td>También sus cuatro abuelos</td><td>7</td><td>37 columnas</td></tr>
+            <tr><td>4</td><td>También sus ocho bisabuelos</td><td>15</td><td>77 columnas</td></tr>
+            <tr><td>5</td><td>También sus dieciséis tatarabuelos</td><td>31</td><td>157 columnas</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Las referencias permiten continuar la ascendencia sin declarar campos como <code>abuelo1</code> o <code>bisabuelo8</code>. Para esta actividad se admiten <strong>entre 1 y 5 generaciones</strong>: el dibujo crece rápidamente y debe caber en una consola suficientemente ancha.</p>
+      <p>En el modo aleatorio, genera un árbol completo: cada persona anterior a la generación más antigua tiene dos progenitores nuevos y distintos. En la última generación, <code>padre</code> y <code>madre</code> quedan a <code>null</code>.</p>
+      <p>En el modo personal puedes dejar a <code>null</code> cualquier ascendiente que desconozcas. Se mantendrá su hueco, sin desplazar otras ramas ni inventar personas. En ninguno de los modos debe haber ciclos ni antepasados compartidos: es una simplificación para practicar las referencias.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> MainRandom: menú y comportamiento</h4>
+      <pre><code class="language-text">=== ARBOL GENEALOGICO ===
+1. Elegir profundidad del arbol
+2. Mostrar arbol
+0. Salir</code></pre>
+      <ul>
+        <li>La aplicación empieza sin ningún árbol generado.</li>
+        <li><strong>Opción 1:</strong> solicita la profundidad. Si está entre 1 y 5, genera un árbol nuevo que sustituye al anterior. Si está fuera del rango, informa del rechazo y conserva el anterior sin cambios.</li>
+        <li><strong>Opción 2:</strong> muestra el árbol actual, su profundidad y la cantidad de personas. Si aún no existe, muestra un aviso.</li>
+        <li><strong>Opción 0:</strong> muestra la despedida y termina.</li>
+      </ul>
+      <p>Después de las opciones 1 y 2 vuelve al menú. <strong>Mostrar no regenera:</strong> consultar dos veces debe producir el mismo dibujo. Elegir de nuevo la profundidad, aunque sea la misma, sí crea personas e iniciales nuevas; por azar, algunas iniciales pueden coincidir.</p>
+      <p><code>MainConcreto</code> no utiliza este menú: las personas, relaciones y profundidad se escriben directamente en su <code>main</code>. Ambos modos utilizan el mismo modelo y los mismos métodos de dibujo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Clase GUI: TODO 01–02</h4>
+      <p>Todos sus métodos son estáticos. Usa llamadas como <code>GUI.mostrarMenu()</code> y <code>GUI.pedirOpcion()</code>, sin crear una instancia. La clase contiene <code>private static Scanner scanner = new Scanner(System.in);</code> y no conoce los modelos.</p>
+      <p>Están implementados <code>mostrarMenu()</code>, <code>mostrarMensaje(mensaje)</code>, <code>mostrarOpcionIncorrecta()</code> y <code>mostrarDespedida()</code>. Solo imprimen textos; cada clase de ejecución decide qué comunicar y le pasa el dibujo ya compuesto a <code>GUI.mostrarMensaje</code>.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 01:</strong> Solicita un entero con el mensaje recibido y repite la solicitud si no recibe un entero.</p>
+          <p><code>pedirEntero(mensaje)</code> muestra el texto recibido y lee desde <code>scanner</code>. Si la entrada no se puede convertir a entero, informa del error y vuelve a pedirla. Puedes capturar <code>NumberFormatException</code>. Admite cualquier entero, incluidos cero y negativos: el rango de profundidad se comprueba en el modelo.</p>
+          <p>Si termina la entrada sin más datos, devuelve 0. No cierres <code>System.in</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 02:</strong> Solicita una opcion del menu y vuelve a pedirla hasta que sea valida.</p>
+          <p><code>pedirOpcion()</code> solicita «Elige una opcion: » y solo acepta 0, 1 o 2. Para otros números muestra <code>mostrarOpcionIncorrecta()</code> y repite la solicitud. Puede reutilizar <code>pedirEntero</code>. No genera ni consulta árboles. Si termina la entrada, devuelve 0.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user"></i> Clase Persona: TODO 11</h4>
+      <p>Hay dos constructores implementados: <code>Persona(nombre)</code> deja ambos progenitores a <code>null</code> y <code>Persona(nombre, padre, madre)</code> conserva las referencias recibidas. Ninguno genera nombres aleatorios. También están implementados los getters, los setters de padre y madre y <code>toString()</code>, que devuelve el nombre entre corchetes.</p>
+      <p>El nombre puede ser una cadena como <code>"Ana"</code>, <code>"María Luisa"</code> o unas iniciales. Usa nombres no nulos ni en blanco y de una sola línea, sin tabuladores. Puedes inventar una familia si prefieres no usar datos personales.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 11:</strong> Genera un nombre con tres letras mayusculas aleatorias separadas por puntos mediante conversiones de int a char.</p>
+          <p><code>Persona.generarNombreAleatorio(random)</code> es estático y recibe un generador <code>Random</code> no nulo. Obtén tres enteros independientes del intervalo 65–90, ambos incluidos, y convierte cada uno a <code>char</code>. Ese intervalo corresponde a las letras de la A a la Z.</p>
+          <p>El resultado debe tener el formato <code>J.J.S</code>: cinco caracteres, incluidos los dos puntos. No elijas nombres de una lista ni devuelvas una cadena fija. Ten cuidado al concatenar: sumar dos <code>char</code> no equivale a unir dos letras.</p>
+        </li>
+      </ol>
+      <p>La etiqueta aleatoria <code>[J.J.S]</code> ocupa <strong>siete caracteres</strong>; una etiqueta personal puede ocupar más o menos. Los nombres pueden repetirse, pero cada integrante del árbol debe ser una instancia distinta.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-sitemap"></i> Clase ArbolGenealogico: TODO 21–29</h4>
+      <p>Conserva únicamente la referencia <code>raiz</code>, la <code>profundidad</code> y un generador <code>Random</code>. <code>ArbolGenealogico()</code> prepara un árbol vacío y <code>ArbolGenealogico(raiz, profundidad)</code> conserva una familia ya definida, sin generar ni copiar personas. Ambos constructores y los getters directos están implementados.</p>
+      <p>Al usar el constructor con datos, proporciona una raíz no nula y una profundidad entre 1 y 5. Solo se dibujan y cuentan las personas dentro de esa profundidad, aunque hayas definido más ascendientes. Las ramas desconocidas pueden quedar incompletas.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 21:</strong> Genera un nuevo arbol completo de la profundidad solicitada y conserva el anterior si la profundidad no es valida.</p>
+          <p><code>generar(profundidad)</code> devuelve <code>true</code> al crear todas las personas y sus relaciones. Para valores fuera de 1–5, devuelve <code>false</code> sin cambiar raíz, profundidad, nombres ni relaciones. Usa el generador de la clase y <code>Persona.generarNombreAleatorio</code> para cada nombre.</p>
+          <p>Genera las relaciones mediante bucles. No guardes personas en arrays ni escribas a mano una variable por cada abuelo. Puedes apoyarte en <code>obtenerPersona</code> para consultar las generaciones que ya estén creadas.</p>
+        </li>
+        <li>
+          <p><strong>TODO 22:</strong> Obtiene la persona de la generacion y posicion solicitadas recorriendo las referencias de padre y madre.</p>
+          <p><code>obtenerPersona(generacion, posicion)</code> consulta sin modificar el árbol. Ambas coordenadas empiezan en cero. En cada generación las posiciones se leen de izquierda a derecha, siguiendo primero la rama del padre y después la de la madre.</p>
+          <p>En la generación 0 solo existe la posición 0, la raíz. En la generación 1, las posiciones 0 y 1 son padre y madre. En la generación 2, son padre del padre, madre del padre, padre de la madre y madre de la madre.</p>
+          <p>Devuelve <code>null</code> para índices negativos, generaciones fuera del árbol, posiciones inexistentes, un árbol vacío o un camino que todavía no esté creado. Este último caso puede darse mientras se genera el árbol. No consultes métodos de una referencia nula.</p>
+        </li>
+        <li>
+          <p><strong>TODO 23:</strong> Cuenta las personas existentes dentro de la profundidad configurada sin incluir las posiciones vacias.</p>
+          <p><code>getCantidadPersonas()</code> cuenta las referencias no nulas de las generaciones visibles, incluida la raíz. La tabla inicial solo corresponde a árboles completos: una familia incompleta puede contener menos personas. Un árbol vacío contiene cero personas. No añadas un contador como atributo.</p>
+        </li>
+        <li>
+          <p><strong>TODO 24:</strong> Calcula una anchura impar comun que permita mostrar completas todas las etiquetas del arbol.</p>
+          <p><code>getAnchoCelda()</code> consulta las etiquetas de todas las personas visibles, incluidos los corchetes. Devuelve un ancho común de al menos siete caracteres y siempre impar, suficiente para la etiqueta más larga. Si la mayor longitud es par, añade una columna. No recortes nombres. Para un árbol vacío devuelve 0.</p>
+          <p>Con iniciales, el ancho es 7. Si la etiqueta más larga es <code>[María Luisa]</code>, de 13 caracteres, todas las celdas tendrán ancho 13. Consulta los nombres al dibujar: no guardes una copia del dibujo ni un ancho que pueda quedar desactualizado.</p>
+        </li>
+        <li>
+          <p><strong>TODO 25:</strong> Calcula la anchura del dibujo reservando todas las celdas de la generacion superior y sus separaciones.</p>
+          <p><code>getAnchura()</code> reserva todas las posiciones de la generación más antigua, incluidas las desconocidas. Cada celda tiene el ancho calculado antes y entre celdas hay tres espacios. Para profundidad 3 con iniciales son cuatro celdas de siete y tres separaciones: 37 columnas. Para un árbol vacío devuelve 0.</p>
+        </li>
+        <li>
+          <p><strong>TODO 26:</strong> Compone la fila de personas con sus etiquetas centradas y conserva los huecos de los ascendientes desconocidos.</p>
+          <p><code>obtenerLineaPersonas(generacion)</code> devuelve una cadena de <code>getAnchura()</code> caracteres, sin salto de línea. Centra cada etiqueta en su celda; si sobra un espacio impar al repartir el relleno, déjalo a la derecha. La generación superior separa sus celdas con tres espacios y el centro de cada celda descendiente coincide con el punto medio entre las dos posiciones reservadas a sus progenitores.</p>
+          <p>Una referencia nula deja su celda en blanco, sin etiqueta ni desplazamiento de las otras ramas. Completa también los espacios iniciales y finales. Para una generación inexistente devuelve <code>""</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 27:</strong> Compone las barras verticales de las conexiones conocidas en la direccion solicitada respetando los huecos.</p>
+          <p><code>obtenerLineaVertical(generacion, haciaProgenitores)</code> coloca <code>|</code> en el centro de las celdas ocupadas que tengan conexión en la dirección solicitada. Con <code>true</code>, conecta hacia arriba solo a quienes tengan al menos un progenitor conocido y visible. Con <code>false</code>, conecta hacia abajo a quienes tengan un descendiente; la raíz no tiene descendiente dibujado.</p>
+          <p>No dibujes barras para referencias nulas ni conexiones inexistentes. La fila tiene la anchura del dibujo, sin salto de línea; para una generación inexistente devuelve <code>""</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 28:</strong> Compone las uniones horizontales entre cada persona y sus progenitores conocidos sin conectar familias distintas.</p>
+          <p><code>obtenerLineaUniones(generacion)</code> recibe la generación de los progenitores. Si se conocen ambos, dibuja guiones desde el centro de la celda del padre hasta el de la madre, ambos incluidos. Si solo se conoce uno, une su centro con el centro de la celda de su descendiente. Si no se conoce ninguno, o no existe el descendiente, no hay unión. <strong>No unas familias distintas.</strong></p>
+          <p>La fila tiene la anchura del dibujo y ningún salto de línea. Solo admite generaciones entre 1 y <code>profundidad - 1</code>; para otros valores o un árbol vacío devuelve <code>""</code>.</p>
+        </li>
+        <li>
+          <p><strong>TODO 29:</strong> Compone el arbol completo con los antepasados arriba y la persona principal abajo sin modificar sus datos.</p>
+          <p><code>obtenerRepresentacion()</code> reúne las filas anteriores. Entre dos filas de personas aparecen tres filas: barras bajo los progenitores (<code>haciaProgenitores = false</code>), uniones horizontales y barras sobre sus descendientes (<code>haciaProgenitores = true</code>). Separa las filas con <code>\n</code>, sin salto al final. No genera personas ni modifica nombres o relaciones.</p>
+          <p>Con profundidad 1 solo hay una etiqueta y ninguna conexión. Si el árbol está vacío devuelve <code>""</code>. El modelo devuelve texto: no imprime directamente por consola.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-ruler-horizontal"></i> Alineación y ejemplo de resultado</h4>
+      <p>Este es un ejemplo de profundidad 3 en el modo aleatorio, con celdas de siete caracteres. Las iniciales son orientativas; <strong>las posiciones y las conexiones sí deben respetarse</strong>:</p>
+      <pre><code class="language-text">[J.J.S]   [A.M.P]   [G.G.S]   [U.L.M]
+   |         |         |         |
+   -----------         -----------
+        |                   |
+     [A.J.P]             [K.K.P]
+        |                   |
+        ---------------------
+                  |
+               [E.L.M]</code></pre>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Generación</th><th>Inicio de cada etiqueta</th><th>Centro de cada etiqueta</th></tr></thead>
+          <tbody>
+            <tr><td>2: abuelos</td><td>0, 10, 20, 30</td><td>3, 13, 23, 33</td></tr>
+            <tr><td>1: progenitores</td><td>5, 25</td><td>8, 28</td></tr>
+            <tr><td>0: persona principal</td><td>15</td><td>18</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Las columnas empiezan en cero. Todas las filas de este ejemplo tienen 37 caracteres, aunque los espacios finales no sean visibles. Para otras profundidades o nombres personales más largos debes <strong>calcular las posiciones</strong>, no copiar los espacios ni crear un dibujo fijo para cada caso.</p>
+      <p>Construye las cadenas usando bucles y concatenaciones. No uses tabuladores ni dependas de ellos para alinear. Utiliza una consola con fuente monoespaciada y suficiente anchura; empieza probando con profundidades 1, 2 y 3.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-play"></i> Clase MainRandom: TODO 31–34</h4>
+      <ol>
+        <li>
+          <p><strong>TODO 31:</strong> Prepara un arbol inicialmente vacio y atiende las opciones del menu hasta elegir salir.</p>
+          <p>Crea un único gestor <code>ArbolGenealogico</code> para la sesión. Utiliza el menú y las constantes de <code>GUI</code>. La aplicación debe seguir admitiendo operaciones después de generar o mostrar un árbol.</p>
+        </li>
+        <li>
+          <p><strong>TODO 32:</strong> Solicita la profundidad y comunica si se ha generado un nuevo arbol o se ha conservado el anterior.</p>
+          <p>Solicita «Profundidad (1-5): » mediante <code>GUI.pedirEntero</code> y llama a <code>generar</code>. Informa del resultado y vuelve al menú. Si el número no pertenece al rango, no sustituyas el gestor ni borres el árbol anterior. El texto no numérico se vuelve a solicitar desde <code>GUI</code>.</p>
+          <p>Si termina la entrada durante esta solicitud, se recibe un 0 que se rechaza como profundidad; al volver al menú, la siguiente lectura devuelve 0 y termina la aplicación.</p>
+        </li>
+        <li>
+          <p><strong>TODO 33:</strong> Muestra el arbol actual y sus datos o informa de que todavia no se ha generado ninguno.</p>
+          <p>Comprueba si existe una raíz antes de mostrar el dibujo. Si existe, presenta la profundidad, la cantidad de personas y la cadena devuelta por <code>obtenerRepresentacion()</code> mediante <code>GUI.mostrarMensaje</code>. No reconstruyas el árbol al consultarlo.</p>
+        </li>
+        <li>
+          <p><strong>TODO 34:</strong> Muestra la despedida al terminar la aplicacion.</p>
+          <p>Utiliza <code>GUI.mostrarDespedida()</code> una sola vez al salir del menú.</p>
+        </li>
+      </ol>
+      <p>Las lecturas y las impresiones se hacen desde <code>GUI</code>. Las personas y sus relaciones se gestionan en el modelo; <code>MainRandom</code> coordina las operaciones sin repetir esa lógica.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-house-user"></i> Clase MainConcreto: TODO 41–44</h4>
+      <p>Esta ejecución dibuja una familia que defines directamente en Java, sin menú ni generación aleatoria. Puedes usar tu familia o una inventada. Empieza con tres generaciones y prueba también alguna rama incompleta.</p>
+      <p>Por ejemplo, estas declaraciones ilustran los dos constructores y la asignación posterior de una referencia:</p>
+      <pre><code class="language-java">Persona padre = new Persona("Luis");
+Persona madre = new Persona("Eva");
+Persona hija = new Persona("Ana", padre, null);
+hija.setMadre(madre);</code></pre>
+      <p>Los progenitores deben ser las mismas instancias que has creado, no copias ni otras personas con el mismo nombre. Puedes continuar hacia arriba mediante sus propios padres y madres. No asignes una persona como ascendiente de sí misma, directa o indirectamente.</p>
+      <ol>
+        <li>
+          <p><strong>TODO 41:</strong> Crea las personas de una familia con los nombres que elijas sin generar datos aleatorios.</p>
+          <p>Declara las referencias que necesites. Los nombres pueden tener distinta longitud y contener espacios. No llames a <code>generarNombreAleatorio</code> ni a <code>Random</code> en esta ejecución.</p>
+        </li>
+        <li>
+          <p><strong>TODO 42:</strong> Asigna la ascendencia de cada persona mediante los constructores y los setters de padre y madre.</p>
+          <p>Puedes construir una persona con sus progenitores ya creados o establecer las relaciones después con <code>setPadre</code> y <code>setMadre</code>. Deja a <code>null</code> los ascendientes desconocidos. No crees ciclos ni coloques la misma instancia en dos ramas diferentes.</p>
+        </li>
+        <li>
+          <p><strong>TODO 43:</strong> Prepara el arbol con la persona principal y la profundidad que quieras mostrar.</p>
+          <p>Usa <code>new ArbolGenealogico(personaPrincipal, profundidad)</code> con una raíz no nula y una profundidad entre 1 y 5. No llames a <code>generar</code>: sustituiría tu familia por una aleatoria. Una profundidad menor permite mostrar solo parte de la ascendencia definida.</p>
+        </li>
+        <li>
+          <p><strong>TODO 44:</strong> Muestra la profundidad, la cantidad de personas y el dibujo de la familia mediante GUI.</p>
+          <p>Consulta los mismos métodos del modelo que utiliza <code>MainRandom</code> y presenta los resultados mediante <code>GUI.mostrarMensaje</code>. No copies el código de alineación en este <code>main</code>. Al terminar el dibujo finaliza la ejecución.</p>
+        </li>
+      </ol>
+      <p>Comprueba que se ven completos los nombres más largos y que una rama desconocida no genera personas, etiquetas vacías como <code>[null]</code> ni conexiones que no existen. El número de personas cuenta solo las que están definidas y dentro de la profundidad elegida, no todos los huecos del dibujo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Pruebas y pantallas esperadas</h4>
+      <p>Estos extractos muestran posibles interacciones; entre operaciones vuelve a aparecer el menú completo:</p>
+      <pre><code class="language-text">Elige una opcion: 2
+Todavia no se ha generado ningun arbol.
+
+Elige una opcion: 1
+Profundidad (1-5): dos
+Introduce un numero entero.
+Profundidad (1-5): 3
+Arbol generado con 3 generaciones y 7 personas.
+
+Elige una opcion: 2
+Profundidad: 3 | Personas: 7
+(Aqui aparece el dibujo del arbol actual.)
+
+Elige una opcion: 1
+Profundidad (1-5): 6
+Profundidad no valida. Se conserva el arbol anterior.
+
+Elige una opcion: 0
+Hasta pronto.</code></pre>
+      <ul>
+        <li>En el modo aleatorio, prueba cada profundidad válida: deben coincidir cantidades y anchuras con la tabla inicial. Los dibujos tienen respectivamente 1, 5, 9, 13 y 17 filas.</li>
+        <li>Mostrar dos veces conserva exactamente las mismas personas, iniciales y conexiones.</li>
+        <li>Volver a generar sustituye las instancias, aunque puedan repetirse algunas iniciales por azar.</li>
+        <li>Una profundidad negativa, 0 o superior a 5 no cambia el árbol anterior. Si estaba vacío, sigue vacío.</li>
+        <li>Los accesos a generaciones o posiciones inexistentes devuelven <code>null</code>, sin intentar utilizar una referencia nula.</li>
+        <li>Los progenitores de la generación más antigua generada al azar son <code>null</code>. Cada instancia aparece en una sola posición del árbol.</li>
+        <li>Revisa los espacios iniciales y finales, los centros de las etiquetas y que las uniones horizontales no conecten parejas distintas.</li>
+        <li>En <code>MainConcreto</code>, prueba nombres cortos y largos, solo un progenitor conocido y ambos desconocidos. Los huecos se mantienen y los nombres no se recortan.</li>
+        <li>Con tres generaciones configuradas pero solo la persona principal y su madre definidas, el recuento es 2, no 7. Debe verse una única conexión entre esas dos personas.</li>
+        <li>Si la etiqueta más larga tiene 8 caracteres, la celda debe medir 9; las celdas de anchura impar permiten calcular un centro común para las conexiones.</li>
+      </ul>
+    </div>
+  </div>
+</div>
