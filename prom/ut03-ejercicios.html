@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../assets/pwa/icon-192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1792580685548" rel="stylesheet">
+    <link href="assets/css/course.css?v=1792662998206" rel="stylesheet">
   </head>
   <body data-page-id="ut03-ejercicios">
     <div class="app-shell">
@@ -220,17 +220,14 @@
         <a class="section-nav-link" href="#ut03-ejercicios-48-batalla-de-robots-combate-hasta-el-final">
           3.38 Batalla de Robots: Combate hasta el Final
         </a>
-        <a class="section-nav-link" href="#ut03-ejercicios-49-simulacion-de-carrera-de-coches-mejorada">
-          3.39 Simulación de Carrera de Coches Mejorada
-        </a>
-        <a class="section-nav-link" href="#ut03-ejercicios-50-bucles-while-anidados">
+        <a class="section-nav-link" href="#ut03-ejercicios-49-bucles-while-anidados">
           Bucles While Anidados
         </a>
-        <a class="section-nav-link" href="#ut03-ejercicios-51-piramide-de-asteriscos-loca">
-          3.40 Pirámide de Asteriscos Loca
+        <a class="section-nav-link" href="#ut03-ejercicios-50-piramide-de-asteriscos-loca">
+          3.39 Pirámide de Asteriscos Loca
         </a>
-        <a class="section-nav-link" href="#ut03-ejercicios-52-numero-primo-mas-cercano">
-          3.41 Número Primo Más Cercano
+        <a class="section-nav-link" href="#ut03-ejercicios-51-numero-primo-mas-cercano">
+          3.40 Número Primo Más Cercano
         </a>
   </div>
 </nav>
@@ -245,7 +242,7 @@
 <div class="mb-4">
 <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Forma de trabajo en toda la tanda</h4>
 <p>Resuelve todos los ejercicios de condicionales, <code>for</code> y <code>while</code> dentro del método <code>main</code> de una clase <code>Main</code>. Utiliza variables locales, constantes, expresiones y estructuras de control. Puedes emplear <code>Scanner</code>, <code>Random</code> y <code>Math</code>, pero no declares clases de modelo, atributos, constructores ni métodos auxiliares propios. Tampoco necesitas arrays ni colecciones.</p>
-<p>Los ejercicios están organizados en tres bloques, con sus subsecciones introductorias: condicionales (3.1–3.18), bucles <code>for</code> (3.19–3.33) y bucles <code>while</code> (3.34–3.41). Crea un proyecto independiente para cada ejercicio.</p>
+<p>Los ejercicios están organizados en tres bloques, con sus subsecciones introductorias: condicionales (3.1–3.18), bucles <code>for</code> (3.19–3.33) y bucles <code>while</code> (3.34–3.40). Crea un proyecto independiente para cada ejercicio.</p>
 </div>
 </div>
 </div>
@@ -1306,48 +1303,22 @@ public class Main {
 </section>
 
 
-<section id="ut03-ejercicios-49-simulacion-de-carrera-de-coches-mejorada" class="fragment-section section-anchor">
+<section id="ut03-ejercicios-49-bucles-while-anidados" class="fragment-section section-anchor">
 <div class="container mt-4 p-4"
   style="padding-top: 0 !important; margin-top: 0 !important;">
 <div class="card shadow p-4">
-<h2 class="text-primary mb-3"><i class="fas fa-car"></i> 3.39 Simulación de Carrera de Coches Mejorada</h2>
-<p class="lead">Automatiza una <strong>carrera de tres coches con un bucle while</strong>, mostrando las distancias y la clasificación después de cada ronda.</p>
-<div class="mb-4">
-<h4 class="text-primary mb-3"><i class="fas fa-flag-checkered"></i> Datos y reglas</h4>
-<p>Dentro de <code>main</code>, representa tres coches con variables locales para nombre, velocidad, distancia y posición. Comienzan con distancia cero. No crees clases <code>Coche</code> o <code>Carrera</code> ni métodos como <code>comenzarCarrera()</code>.</p>
-<p>Solicita por teclado una cantidad positiva de rondas. Si no es positiva, muestra un aviso y no inicies la carrera. Utiliza un <code>while</code> para completar exactamente esa cantidad de rondas.</p>
-<ol>
-<li>En cada ronda, genera una nueva velocidad entera entre 100 y 200 km/h para cada coche con <code>Random</code> o <code>Math.random()</code>.</li>
-<li>Cada ronda representa una hora de circulación: suma a cada distancia tantos kilómetros como indique su velocidad. Son intervalos de tiempo, no vueltas a un circuito de longitud fija.</li>
-<li>Actualiza las tres distancias antes de calcular la clasificación. La posición de cada coche es 1 más la cantidad de rivales con una distancia estrictamente mayor que la suya.</li>
-<li>Muestra el número de ronda, las velocidades, las distancias y las posiciones.</li>
-<li>Al finalizar, muestra el podio ordenado por posiciones y felicita a todos los que compartan la primera posición.</li>
-</ol>
-<p>Los empates comparten posición: con distancias 900, 900 y 850, las posiciones son 1, 1 y 3. Para mostrar el podio puedes recorrer las posiciones y comprobar qué coches las ocupan, sin arrays ni colecciones.</p>
-<p>Prueba primero con velocidades fijas, incluyendo empates y cambios de líder; después activa los aleatorios. Para cinco rondas, cada distancia final estará entre 500 y 1000 km.</p>
-<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer39CarreraCochesMejorada</code></p>
-</div>
-</div>
-</div>
-</section>
-
-
-<section id="ut03-ejercicios-50-bucles-while-anidados" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
-  style="padding-top: 0 !important; margin-top: 0 !important;">
-<div class="card shadow p-4">
-<h2 class="text-primary mb-3"><i class="fas fa-sync-alt"></i> Bucles While Anidados</h2>
+<h2 class="text-primary mb-3"><i class="fas fa-sync-alt"></i> Bucles While Anidados</h2>
 <p class="lead">Vamos a complicar un poco más el asunto. Ahora que has aprendido a utilizar <strong>bucles while</strong>, es hora de empezar a realizar bucles anidados, puede que mezclarlo con algún <strong>for</strong>... ¡Y quien sabe que sorpresas más!</p>
 </div>
 </div>
 </section>
 
 
-<section id="ut03-ejercicios-51-piramide-de-asteriscos-loca" class="fragment-section section-anchor">
+<section id="ut03-ejercicios-50-piramide-de-asteriscos-loca" class="fragment-section section-anchor">
 <div class="container mt-4 p-4"
   style="padding-top: 0 !important; margin-top: 0 !important;">
 <div class="card shadow p-4">
-<h2 class="text-primary mb-3"><i class="fas fa-caret-up"></i> 3.40 Pirámide de Asteriscos Loca</h2>
+<h2 class="text-primary mb-3"><i class="fas fa-caret-up"></i> 3.39 Pirámide de Asteriscos Loca</h2>
 <p class="lead">En este ejercicio crearás <strong>otra pirámide de asteriscos</strong> utilizando bucles anidados.</p>
 <p>No solicites la altura por teclado. Declara en <code>main</code> la constante local <code>final int ALTURA_MINIMA = 3</code> y dibuja primero esas tres filas. Después, genera un entero aleatorio entre 1 y 10: si es mayor que 2, añade una fila; si es 1 o 2, termina. Tras cada fila adicional genera una nueva tirada y vuelve a decidir.</p>
 <p>Combina un <code>while</code> que controle la prolongación aleatoria y bucles <code>for</code> para imprimir los espacios y asteriscos. Muestra al final la altura alcanzada y la tirada que hizo terminar la pirámide.</p>
@@ -1363,17 +1334,17 @@ public class Main {
     *********
     </code></pre>
 <p>Como no conoces la altura final al imprimir la primera fila, define también la constante local <code>final int ALTURA_MAXIMA = 20</code>. Úsala para reservar los espacios de alineación y como condición adicional de parada. No necesitas pedir alturas ni guardar filas en arrays: imprímelas conforme se generan. Si llegas al límite, indica que se ha alcanzado, sin inventar una tirada de finalización.</p>
-<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer40PiramideAsteriscosAleatoria</code></p>
+<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer39PiramideAsteriscosAleatoria</code></p>
 </div>
 </div>
 </section>
 
 
-<section id="ut03-ejercicios-52-numero-primo-mas-cercano" class="fragment-section section-anchor">
+<section id="ut03-ejercicios-51-numero-primo-mas-cercano" class="fragment-section section-anchor">
 <div class="container mt-4 p-4"
   style="padding-top: 0 !important; margin-top: 0 !important;">
 <div class="card shadow p-4">
-<h2 class="text-primary mb-3"><i class="fas fa-calculator"></i> 3.41 Número Primo Más Cercano</h2>
+<h2 class="text-primary mb-3"><i class="fas fa-calculator"></i> 3.40 Número Primo Más Cercano</h2>
 <p class="lead">Solicita un número entero y busca el <strong>número primo más cercano</strong>, combinando bucles para explorar candidatos y comprobar sus divisores.</p>
 <div class="mb-4">
 <h4 class="text-primary mb-3"><i class="fas fa-info-circle"></i> ¿Qué es un Número Primo?</h4>
@@ -1391,7 +1362,7 @@ public class Main {
 <p>Para encontrar el primo más cercano, el programa deberá verificar, por cada número cercano, si cumple con las condiciones de ser primo hasta localizar el número que esté más próximo.</p>
 <p>Si el número introducido ya es primo, el resultado será ese mismo número. Si dos primos están a la misma distancia, muestra el menor. Para cualquier valor menor o igual que 2, el más cercano es 2. Para mantener las pruebas manejables, trabaja con entradas entre -100000 y 100000; fuera de ese rango muestra un aviso.</p>
 <p>Resuelve la búsqueda y las comprobaciones de divisibilidad en <code>main</code>, con bucles anidados, sin declarar un método <code>esPrimo</code> ni utilizar arrays o colecciones. Prueba 2, 4, 8, 11, 12, 0 y un valor negativo.</p>
-<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer41NumeroPrimo</code></p>
+<p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer40NumeroPrimo</code></p>
 </div>
 </div>
 </div>
@@ -1401,8 +1372,8 @@ public class Main {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1792580685548"></script>
-    <script src="assets/js/course.js?v=1792580685548"></script>
-    <script src="assets/js/pwa-register.js?v=1792580685548" data-service-worker="../sw.js" data-scope="../"></script>
+    <script src="assets/js/search-data.js?v=1792662998206"></script>
+    <script src="assets/js/course.js?v=1792662998206"></script>
+    <script src="assets/js/pwa-register.js?v=1792662998206" data-service-worker="../sw.js" data-scope="../"></script>
   </body>
 </html>
