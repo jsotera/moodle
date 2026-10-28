@@ -1,4 +1,4 @@
-const CACHE_NAME = "prom-lmgi-1792672542380";
+const CACHE_NAME = "prom-lmgi-1793173265856";
 const PRECACHE_URLS = [
   "./",
   "./assets/css/course.css",
@@ -10,6 +10,8 @@ const PRECACHE_URLS = [
   "./assets/img/logo-maria-ana-sanz.jpg",
   "./assets/img/logo-maria-ana-sanz.png",
   "./assets/img/logo.png",
+  "./assets/img/prom-ut03-javafx-ajedrez.png",
+  "./assets/img/prom-ut03-javafx-diana.png",
   "./assets/img/prom/ut03/Assert_Intellij.png",
   "./assets/img/prom/ut03/Modify_run_options_Intellij.png",
   "./assets/img/prom/ut03/VM_options_Intellij.png",
@@ -30,6 +32,8 @@ const PRECACHE_URLS = [
   "./lmgi/assets/img/logo-maria-ana-sanz.jpg",
   "./lmgi/assets/img/logo-maria-ana-sanz.png",
   "./lmgi/assets/img/logo.png",
+  "./lmgi/assets/img/prom-ut03-javafx-ajedrez.png",
+  "./lmgi/assets/img/prom-ut03-javafx-diana.png",
   "./lmgi/assets/img/prom/ut03/Assert_Intellij.png",
   "./lmgi/assets/img/prom/ut03/Modify_run_options_Intellij.png",
   "./lmgi/assets/img/prom/ut03/VM_options_Intellij.png",
@@ -79,6 +83,8 @@ const PRECACHE_URLS = [
   "./prom/assets/img/logo-maria-ana-sanz.jpg",
   "./prom/assets/img/logo-maria-ana-sanz.png",
   "./prom/assets/img/logo.png",
+  "./prom/assets/img/prom-ut03-javafx-ajedrez.png",
+  "./prom/assets/img/prom-ut03-javafx-diana.png",
   "./prom/assets/img/prom/ut03/Assert_Intellij.png",
   "./prom/assets/img/prom/ut03/Modify_run_options_Intellij.png",
   "./prom/assets/img/prom/ut03/VM_options_Intellij.png",

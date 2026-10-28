@@ -1,0 +1,43 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-table-tennis"></i> 3.45 Pong: colisiones, puntos y cambio de orientación</h2>
+    <p class="lead">Completa un juego de dos jugadores con barras, pelota y marcador. Después, transforma la versión lateral en una con <strong>barras arriba y abajo</strong>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-javafx-pong-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Abre <code>pom.xml</code> con IntelliJ y selecciona JDK 25 para el proyecto y para Maven. Ejecuta <code>javafx:run</code> desde la ventana Maven. La base no incluye la solución; los métodos y tareas pendientes están documentados con Javadoc.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>Pong</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-gamepad"></i> Primera fase: versión lateral</h4>
+      <p>La base ofrece un lienzo de 400 × 600, pelota de diámetro 10 y dos barras de 10 × 50. El jugador izquierdo controla su barra con W/S y el derecho con las flechas arriba/abajo. Al soltar la tecla, la barra deja de moverse.</p>
+      <p>La pelota sale del centro con componentes de velocidad de 2 píxeles por actualización. Rebota arriba y abajo, pero los laterales quedan abiertos: cuando salga completamente por la izquierda gana el jugador derecho, y viceversa. Tras cada punto se reinicia en el centro hacia quien lo perdió. No hay un límite de puntos: se juega hasta cerrar la ventana.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pelota: TODO 01–04</h4>
+      <ol>
+        <li><p><strong>TODO 01:</strong> Actualiza la posicion de la pelota y haz que rebote en los bordes superior e inferior dejando abiertos los laterales.</p><p>Completa <code>actualizarCoordenadas()</code>. Conserva separadas <code>velocidadX</code> y <code>velocidadY</code>; considera el diámetro al comprobar los límites verticales. No rebotes en los laterales, porque se necesitan para anotar puntos.</p></li>
+        <li><p><strong>TODO 02:</strong> Detecta la colision con la barra recibida y cambia la direccion horizontal de la pelota evitando rebotes repetidos.</p><p>Completa <code>analizarColision(barra)</code> con la superposición de las cajas de pelota y barra. Usa <code>getX()</code>, <code>getY()</code> y las dimensiones de <code>Configuracion</code>. Solo debe rebotar si se mueve hacia esa barra. Separa la pelota del borde de contacto para evitar que quede atrapada o invierta varias veces la dirección.</p></li>
+        <li><p><strong>TODO 03:</strong> Indica que jugador gana el punto cuando la pelota sale completamente por un lateral.</p><p><code>obtenerGanadorDelPunto()</code> devuelve 1 al salir por la derecha, 2 al salir por la izquierda y 0 si no hay punto. No modifica la posición ni los contadores. Para salir por la izquierda debe haber pasado también el extremo derecho de la pelota.</p></li>
+        <li><p><strong>TODO 04:</strong> Reinicia la pelota en el centro con la direccion horizontal indicada y movimiento vertical hacia abajo.</p><p>Completa <code>reiniciar(direccionHorizontal)</code>: el parámetro vale 1 hacia la derecha o -1 hacia la izquierda. Ambas componentes deben volver a tener módulo 2 y la vertical debe ser positiva.</p></li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-arrows-alt-v"></i> Barra: TODO 11</h4>
+      <ol>        <li><p><strong>TODO 11:</strong> Mueve la barra cuando corresponda y limita su posicion para que permanezca completamente dentro del lienzo.</p><p>Completa <code>actualizarCoordenadas()</code>. Usa <code>enMovimiento</code>, <code>direccion</code> y <code>velocidad</code>. En la primera versión, la coordenada horizontal no cambia y la vertical debe estar entre 0 y 550. Los getters y los setters directos ya están implementados.</p></li></ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-desktop"></i> PongApp: TODO 21–22</h4>
+      <p>La interfaz, el temporizador y los eventos de teclado están preparados. La base consulta las colisiones desde la pelota, no desde ambas figuras, para evitar contabilizar un contacto dos veces.</p>
+      <ol>
+        <li><p><strong>TODO 21:</strong> Actualiza el marcador cuando haya un punto y reinicia la pelota hacia el jugador que lo haya perdido.</p><p>Completa <code>registrarPunto()</code>. Consulta una vez el resultado, incrementa únicamente el contador ganador y reinicia. <code>mostrarMarcador()</code> ya imprime los dos contadores en el lienzo; no añadas un segundo marcador ni contabilices otra vez el mismo punto.</p></li>
+        <li><p><strong>TODO 22:</strong> Adapta el juego para situar las barras arriba y abajo y ajustar sus controles, rebotes y puntos a la nueva orientacion.</p><p>Cuando funcione la primera versión, transforma la aplicación: las barras serán horizontales, de 50 × 10, situadas cerca del borde superior e inferior. El jugador superior usa A/D y el inferior las flechas izquierda/derecha. Limita ahora el movimiento horizontal. La pelota rebota en los laterales, colisiona verticalmente con las barras y anota al salir completamente por arriba o abajo. El ganador 1 es el jugador superior y el 2, el inferior. Adapta dimensiones, posiciones iniciales, dirección de saque, marcador, eventos de pulsación/liberación y métodos afectados; no hace falta mantener las dos versiones con un selector.</p></li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Pruebas</h4>
+      <ul><li>Las barras se mueven solo mientras se mantiene pulsada una tecla y no salen del lienzo.</li><li>La pelota rebota una sola vez por contacto y no se queda dentro de una barra.</li><li>Si pasa junto a la barra sin superponerse, no rebota.</li><li>Cada salida completa concede un único punto al rival y vuelve a sacar desde el centro.</li><li>El marcador no se borra de forma permanente al repintar el fondo.</li><li>Después de la segunda fase, las barras están arriba y abajo y todos los controles, rebotes y puntos corresponden a esa orientación.</li></ul>
+    </div>
+  </div>
+</div>

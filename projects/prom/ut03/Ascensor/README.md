@@ -1,6 +1,6 @@
 # Ascensor
 
-Base Maven del ejercicio 3.42 de PROM UT3. No incluye soluciones.
+Base Maven del ejercicio 3.47 de PROM UT3. No incluye soluciones.
 Abre `pom.xml` con IntelliJ, configura JDK 25 y ejecuta
 `edu.masanz.da.ut3.app.Main` con el triangulo verde junto a `main`.
 Selecciona tambien JDK 25 para el importador y el ejecutor Maven de IntelliJ.

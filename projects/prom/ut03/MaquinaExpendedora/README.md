@@ -1,6 +1,6 @@
 # MaquinaExpendedora
 
-Base Maven del ejercicio 3.41 de PROM UT3. No incluye soluciones.
+Base Maven del ejercicio 3.46 de PROM UT3. No incluye soluciones.
 
 Abre `pom.xml` en IntelliJ, configura JDK 25 y ejecuta
 `edu.masanz.da.ut3.app.Main` con el triangulo verde junto a `main`.

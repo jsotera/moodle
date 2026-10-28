@@ -1,0 +1,29 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-desktop"></i> Aplicaciones gráficas con JavaFX</h2>
+    <p class="lead">Tras los ejercicios de <code>while</code>, trabajarás los mismos condicionales, expresiones y bucles con resultados visibles en una ventana. Las actividades <strong>3.41–3.45</strong> incluyen sus proyectos base.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Qué viene preparado</h4>
+      <p>La ventana, el lienzo <code>Canvas</code>, la lectura de teclas y la animación que necesite cada aplicación están proporcionados. Completa solo los métodos indicados por los TODOs; en la segunda fase de Pong también adaptarás las partes señaladas del código existente. No necesitas crear clases nuevas, arrays ni colecciones.</p>
+      <p>Se conservan los paquetes <code>es.masanz.ut4...</code> de los proyectos originales; estas actividades pertenecen a la <strong>UT3 actual</strong>. Las soluciones no están incluidas. Los constructores directos y accesores suministrados ya están implementados.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-play"></i> Abrir y ejecutar desde IntelliJ</h4>
+      <ol><li>Descarga y descomprime cada proyecto en una carpeta independiente.</li><li>Abre su <code>pom.xml</code> y selecciona <strong>JDK 25</strong> como SDK del proyecto y como JDK del importador y ejecutor Maven.</li><li>Espera la descarga de dependencias. Desde la ventana <strong>Maven → Plugins → javafx → javafx:run</strong>, abre la aplicación.</li></ol>
+      <p>También puedes usar <code>.\mvnw.cmd javafx:run</code> en Windows o <code>sh mvnw javafx:run</code> en Linux/macOS con <code>JAVA_HOME</code> apuntando al JDK 25. Cada descarga incluye el wrapper completo. JavaFX se obtiene mediante Maven, sin instalar un SDK adicional.</p>
+      <p>Al ejecutar la base verás una ventana; los dibujos y movimientos pendientes aparecerán al implementar sus TODOs. No interpretes el lienzo negro inicial como un error de instalación.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-paint-brush"></i> Coordenadas y dibujo</h4>
+      <p>La esquina superior izquierda es <code>(0, 0)</code>. La coordenada <code>x</code> crece hacia la derecha y la <code>y</code> hacia abajo. En rectángulos y óvalos, <code>x</code> e <code>y</code> indican la esquina de su caja, no el centro.</p>
+      <div class="table-responsive"><table class="table table-bordered align-middle"><thead class="table-light"><tr><th>Método</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>gc.setFill(color)</code></td><td>Elige el relleno para los siguientes dibujos; no pinta por sí solo.</td></tr><tr><td><code>gc.fillRect(x, y, ancho, alto)</code></td><td>Rellena un rectángulo.</td></tr><tr><td><code>gc.fillOval(x, y, ancho, alto)</code></td><td>Rellena una elipse; con ancho y alto iguales, un círculo.</td></tr><tr><td><code>gc.fillText(texto, x, y)</code></td><td>Dibuja un texto, por ejemplo el marcador de Pong.</td></tr></tbody></table></div>
+      <p>Puedes consultar la <a href="https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/canvas/GraphicsContext.html" target="_blank" rel="noopener">documentación de GraphicsContext</a>. Las firmas reciben coordenadas y dimensiones numéricas; no cambies el código de arranque de JavaFX.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-ol"></i> Progresión</h4>
+      <p>Primero dibujarás un tablero y una diana; después usarás el teclado y, finalmente, una animación con rebotes y colisiones. En las aplicaciones animadas, el temporizador ya repite las actualizaciones: <strong>no añadas un bucle infinito ni <code>Thread.sleep</code> dentro de los métodos de actualización</strong>.</p>
+      <p>Al terminar JavaFX, los tres últimos proyectos serán 3.46 Máquina expendedora, 3.47 Ascensor y 3.48 Árbol genealógico.</p>
+    </div>
+  </div>
+</div>

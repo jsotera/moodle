@@ -1,6 +1,6 @@
 # ArbolGenealogico
 
-Base Maven del ejercicio 3.43 de PROM UT3. No incluye soluciones.
+Base Maven del ejercicio 3.48 de PROM UT3. No incluye soluciones.
 
 Abre pom.xml con IntelliJ y configura JDK 25 en el proyecto, el importador
 y el ejecutor Maven. En edu.masanz.da.ut3.app, ejecuta con el triangulo verde:

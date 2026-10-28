@@ -1,0 +1,26 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-bullseye"></i> 3.42 Diana de círculos concéntricos</h2>
+    <p class="lead">Construye una diana con círculos de distinto diámetro que comparten <strong>el mismo centro</strong>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-javafx-diana-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Abre <code>pom.xml</code> con IntelliJ y selecciona JDK 25 para el proyecto y para Maven. Ejecuta <code>javafx:run</code> desde la ventana Maven. La base no incluye la solución; los métodos y tareas pendientes están documentados con Javadoc.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>Diana</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-circle-notch"></i> Resultado esperado</h4>
+      <p>El lienzo es de 400 × 400 y su centro es (200, 200). Dibuja diez círculos, del mayor al menor, alternando blanco y rojo: diámetros 400, 360, 320, 280, 240, 200, 160, 120, 80 y 40. El exterior es blanco y el centro rojo.</p>
+      <p><img class="img-fluid d-block mx-auto" src="https://jsotera.github.io/moodle/prom/assets/img/prom-ut03-javafx-diana.png" alt="Diana centrada con diez zonas circulares rojas y blancas alternadas" width="420"></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> DianaApp: TODO 01</h4>
+      <ol>        <li><p><strong>TODO 01:</strong> Dibuja una diana centrada con circulos concentricos de tamano decreciente y colores blanco y rojo alternos.</p><p>Completa <code>dibujarDiana(gc)</code> con un bucle. Usa <code>setFill</code> y <code>fillOval</code>. La constante <code>INTERVALO_ENTRE_CIRCULOS</code> vale 20 y representa el grosor radial del anillo: al reducir el círculo por ambos lados, el diámetro cambia en 40. Calcula de nuevo su esquina superior izquierda para mantener el centro.</p></li></ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Pruebas</h4>
+      <ul><li>Todos los círculos tienen la misma anchura que altura: no son elipses.</li><li>El círculo exterior ocupa (0, 0, 400, 400); el interior, (180, 180, 40, 40).</li><li>No queda un centro vacío ni se dibujan diámetros nulos o negativos.</li><li>Los círculos pequeños se ven sobre los grandes y todos conservan el centro (200, 200).</li></ul>
+    </div>
+  </div>
+</div>

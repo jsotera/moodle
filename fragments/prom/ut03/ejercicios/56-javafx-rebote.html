@@ -1,0 +1,27 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-circle"></i> 3.44 Pelota que rebota en el lienzo</h2>
+    <p class="lead">Completa una animación en la que una pelota roja se desplaza y <strong>rebota en los cuatro bordes</strong>, sin desaparecer fuera de la ventana.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-javafx-rebote-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Abre <code>pom.xml</code> con IntelliJ y selecciona JDK 25 para el proyecto y para Maven. Ejecuta <code>javafx:run</code> desde la ventana Maven. La base no incluye la solución; los métodos y tareas pendientes están documentados con Javadoc.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>Rebote</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-arrows-alt"></i> Base y reglas de movimiento</h4>
+      <p>La clase <code>ReboteApp</code> crea un lienzo de 400 × 600, una pelota de diámetro 10 en (0, 0) y un temporizador que actualiza cada 25 ms. La base borra el fondo en negro y vuelve a dibujar la pelota en cada actualización: aquí no debe quedar rastro.</p>
+      <p><code>Pelota</code> conserva <code>x</code>, <code>y</code>, <code>velocidadX</code> y <code>velocidadY</code>. Ambas componentes comienzan en 2. Un valor positivo desplaza a la derecha o hacia abajo; un valor negativo, a la izquierda o hacia arriba. El constructor y <code>actualizarFigura()</code> ya están implementados.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Pelota: TODO 01</h4>
+      <ol>        <li><p><strong>TODO 01:</strong> Actualiza la posicion de la pelota y sus velocidades para que rebote en los cuatro bordes sin salir del lienzo.</p><p>Completa <code>actualizarCoordenadas()</code>. Debes poder cambiar por separado el sentido horizontal y el vertical. La esquina superior izquierda de la pelota debe mantenerse entre x = 0 y 390, e y = 0 y 590. Si coincide con una esquina, cambia ambos sentidos. Ajusta también una posición que haya sobrepasado un límite para que la figura vuelva a caber.</p></li></ol>
+      <p>No añadas un bucle infinito: el temporizador vuelve a invocar el método. Tampoco cambies el signo de una única velocidad para ambos ejes, porque un rebote lateral no debe invertir también el movimiento vertical.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Pruebas</h4>
+      <ul><li>La pelota aparece, avanza y sigue visible tras varios rebotes.</li><li>Rebotar en izquierda o derecha solo cambia el sentido horizontal; arriba o abajo, solo el vertical.</li><li>La pelota completa permanece dentro del lienzo, incluido su diámetro.</li><li>Prueba también una velocidad inicial de 7 para comprobar que no queda fuera si sobrepasa el límite.</li><li>Al alcanzar una esquina rebota en ambas direcciones sin atascarse ni parpadear.</li></ul>
+    </div>
+  </div>
+</div>

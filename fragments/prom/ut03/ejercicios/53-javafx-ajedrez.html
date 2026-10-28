@@ -1,0 +1,27 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-chess-board"></i> 3.41 Tablero de ajedrez en JavaFX</h2>
+    <p class="lead">Dibuja un tablero completo con <strong>dos bucles y colores alternos</strong>. No hacen falta piezas ni reglas de ajedrez.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-javafx-ajedrez-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Abre <code>pom.xml</code> con IntelliJ y selecciona JDK 25 para el proyecto y para Maven. Ejecuta <code>javafx:run</code> desde la ventana Maven. La base no incluye la solución; los métodos y tareas pendientes están documentados con Javadoc.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>Ajedrez</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-th"></i> Resultado esperado</h4>
+      <p>El lienzo mide 400 × 400 píxeles. Debe contener 8 filas y 8 columnas, con casillas de 50 × 50, sin márgenes, huecos ni solapamientos. La esquina superior izquierda es azul y sus vecinas son blancas.</p>
+      <p><img class="img-fluid d-block mx-auto" src="https://jsotera.github.io/moodle/prom/assets/img/prom-ut03-javafx-ajedrez.png" alt="Tablero de ocho filas y ocho columnas, con casillas azules y blancas alternadas" width="420"></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> AjedrezApp: TODO 01</h4>
+      <p>La ventana y <code>crearGUI()</code> están preparados. Completa <code>dibujarAjedrez(GraphicsContext gc)</code> utilizando las dimensiones y los colores de <code>Configuracion</code>.</p>
+      <ol>        <li><p><strong>TODO 01:</strong> Dibuja un tablero de ocho filas y ocho columnas alternando casillas azules y blancas mediante bucles.</p><p>No escribas 64 llamadas independientes. Calcula la posición de cada casilla a partir de su fila, columna y tamaño. Utiliza <code>setFill</code> antes de <code>fillRect</code> y comprueba también la alternancia entre filas.</p></li></ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Pruebas</h4>
+      <ul><li>Se ven exactamente 64 casillas, 32 de cada color.</li><li>Las casillas (fila 0, columna 0) y (fila 7, columna 7) son azules; las otras dos esquinas son blancas.</li><li>La primera casilla empieza en (0, 0) y la última en (350, 350).</li><li>Cada casilla ocupa 50 píxeles en ambas direcciones y todo el lienzo queda cubierto.</li></ul>
+    </div>
+  </div>
+</div>

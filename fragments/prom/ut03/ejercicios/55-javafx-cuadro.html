@@ -1,0 +1,32 @@
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-paint-brush"></i> 3.43 Dibujo con teclado, formas y colores</h2>
+    <p class="lead">Convierte el lienzo en una herramienta de dibujo: mueve una figura, cambia su forma y deja un <strong>rastro de colores</strong>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base</h4>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-javafx-cuadro-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Abre <code>pom.xml</code> con IntelliJ y selecciona JDK 25 para el proyecto y para Maven. Ejecuta <code>javafx:run</code> desde la ventana Maven. La base no incluye la solución; los métodos y tareas pendientes están documentados con Javadoc.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>Cuadro</code></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> Estado y controles</h4>
+      <p>El lienzo mide 400 × 600. La figura empieza centrada en (190, 290), con tamaño 20, forma circular y color blanco. <code>x</code> e <code>y</code> son la esquina superior izquierda. Los atributos de estado ya están declarados.</p>
+      <div class="table-responsive"><table class="table table-bordered align-middle"><thead class="table-light"><tr><th>Teclas</th><th>Comportamiento</th></tr></thead><tbody><tr><td><code>W, A, S, D</code></td><td>Desplazan 10 píxeles arriba, izquierda, abajo o derecha.</td></tr><tr><td>Flecha izquierda / derecha</td><td>Seleccionan círculo / cuadrado.</td></tr><tr><td>Flecha arriba / abajo</td><td>Aumentan / disminuyen el tamaño en 5, sin salir del intervalo 1–100.</td></tr><tr><td>Espacio</td><td>Cambia cíclicamente el color: blanco (0), azul (1), rojo (2) y vuelta al blanco.</td></tr></tbody></table></div>
+      <p>El fondo solo se pinta de negro al comenzar. Cada cambio deja una nueva marca: <strong>no borres las anteriores</strong>. Cuando aumente el tamaño o se alcance un borde, toda la figura debe seguir dentro del lienzo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> CuadroApp: TODO 01–03</h4>
+      <p>La captura de teclas llama a los tres métodos ya preparados. No necesitas modificar sus eventos ni añadir otro bucle de lectura.</p>
+      <ol>
+        <li><p><strong>TODO 01:</strong> Dibuja la figura con su posicion, tamano, forma y color actuales sin borrar el rastro anterior.</p><p>Completa <code>dibujarFigura()</code> usando <code>fillOval</code> para el círculo y <code>fillRect</code> para el cuadrado. Usa los valores actuales de los atributos.</p></li>
+        <li><p><strong>TODO 02:</strong> Actualiza la posicion, la forma, el tamano o el color de la figura segun la tecla pulsada.</p><p>Completa <code>procesarTecla(keyCode)</code> con las reglas de la tabla. El tamaño se limita a 1–100 y el color permanece entre 0 y 2. Este método actualiza estado; la base invoca el dibujo después.</p></li>
+        <li><p><strong>TODO 03:</strong> Ajusta las coordenadas para que la figura completa permanezca dentro del lienzo tras cualquier cambio.</p><p>Completa <code>ajustarLimites()</code> teniendo en cuenta el tamaño actual, no solo el punto (x, y). Se ejecuta después del cambio de estado y antes de dibujar.</p></li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Pruebas</h4>
+      <ul><li>Al iniciar, se ve un círculo blanco centrado.</li><li>WASD mueve la figura y deja un rastro continuo de marcas; las flechas no se confunden con el movimiento.</li><li>Pulsar espacio tres veces recupera el color inicial.</li><li>Repetir los cambios de tamaño no supera los límites 1–100.</li><li>Junto al borde derecho o inferior, aumentar el tamaño recoloca la figura sin recortarla.</li></ul>
+    </div>
+  </div>
+</div>
