@@ -6,12 +6,11 @@
     <div class="mb-4">
       <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Qué viene preparado</h4>
       <p>La ventana, el lienzo <code>Canvas</code>, la lectura de teclas y la animación que necesite cada aplicación están proporcionados. Completa solo los métodos indicados por los TODOs; en la segunda fase de Pong también adaptarás las partes señaladas del código existente. No necesitas crear clases nuevas, arrays ni colecciones.</p>
-      <p>Se conservan los paquetes <code>es.masanz.ut4...</code> de los proyectos originales; estas actividades pertenecen a la <strong>UT3 actual</strong>. Las soluciones no están incluidas. Los constructores directos y accesores suministrados ya están implementados.</p>
+      <p>Todos los proyectos emplean el paquete base <code>edu.masanz.da.ut3</code>: <code>app</code> para la aplicación, <code>modelo</code> para las clases de modelo cuando existen y <code>util</code> para <code>Configuracion</code>. Son proyectos independientes, aunque compartan estos paquetes. Las soluciones no están incluidas. Los constructores directos y accesores suministrados ya están implementados.</p>
     </div>
     <div class="mb-4">
       <h4 class="text-primary mb-3"><i class="fas fa-play"></i> Abrir y ejecutar desde IntelliJ</h4>
-      <ol><li>Descarga y descomprime cada proyecto en una carpeta independiente.</li><li>Abre su <code>pom.xml</code> y selecciona <strong>JDK 25</strong> como SDK del proyecto y como JDK del importador y ejecutor Maven.</li><li>Espera la descarga de dependencias. Desde la ventana <strong>Maven → Plugins → javafx → javafx:run</strong>, abre la aplicación.</li></ol>
-      <p>También puedes usar <code>.\mvnw.cmd javafx:run</code> en Windows o <code>sh mvnw javafx:run</code> en Linux/macOS con <code>JAVA_HOME</code> apuntando al JDK 25. Cada descarga incluye el wrapper completo. JavaFX se obtiene mediante Maven, sin instalar un SDK adicional.</p>
+      <p>Descarga y descomprime cada proyecto en una carpeta independiente. En IntelliJ, abre la clase de aplicación y ejecuta su método <code>main</code> con el triángulo verde: <code>AjedrezApp</code>, <code>DianaApp</code>, <code>CuadroApp</code>, <code>ReboteApp</code> o <code>PongApp</code>, según la actividad.</p>
       <p>Al ejecutar la base verás una ventana; los dibujos y movimientos pendientes aparecerán al implementar sus TODOs. No interpretes el lienzo negro inicial como un error de instalación.</p>
     </div>
     <div class="mb-4">

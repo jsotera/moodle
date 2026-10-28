@@ -1,7 +1,7 @@
-module es.masanz.ut4.diana.app {
+module edu.masanz.da.ut3 {
     requires javafx.controls;
 
-    exports es.masanz.ut4.diana.util;
-    exports es.masanz.ut4.diana.app;
+    exports edu.masanz.da.ut3.util;
+    exports edu.masanz.da.ut3.app;
 
 }

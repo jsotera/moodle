@@ -1,7 +1,7 @@
-module es.masanz.ut4.ajedrez.app {
+module edu.masanz.da.ut3 {
     requires javafx.controls;
 
-    exports es.masanz.ut4.ajedrez.util;
-    exports es.masanz.ut4.ajedrez.app;
+    exports edu.masanz.da.ut3.util;
+    exports edu.masanz.da.ut3.app;
 
 }

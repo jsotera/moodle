@@ -241,6 +241,19 @@ método con Javadoc e incluir en el enunciado los contratos y casos rechazados.
   constructor o método se entrega implementado o queda como TODO. Describir
   únicamente los requisitos y el código que se proporciona.
 
+## Ejecución JavaFX
+
+Usar el sistema de paquetes de la renovación también al importar proyectos
+antiguos: en PROM UT3, base `edu.masanz.da.ut3`, con `app` para la aplicación,
+`modelo` para los modelos y `util` para utilidades o constantes.
+Actualizar rutas de fuentes, imports, descriptores de módulo y configuración
+Maven para no conservar los paquetes heredados.
+
+En actividades JavaFX, indicar la ejecución desde el método `main` de la clase
+de aplicación (`AjedrezApp`, `DianaApp`, etc.) mediante el triángulo verde de
+IntelliJ. No añadir instrucciones de ejecución con `javafx:run` ni repetir
+indicaciones sobre abrir `pom.xml` o configurar Maven en los enunciados.
+
 ## Interfaces de consola
 
 - Siempre que sea posible, suministrar una clase `GUI` en un

@@ -1,7 +1,7 @@
-module es.masanz.ut4.pong.app {
+module edu.masanz.da.ut3 {
     requires javafx.controls;
 
-    exports es.masanz.ut4.pong.util;
-    exports es.masanz.ut4.pong.app;
+    exports edu.masanz.da.ut3.util;
+    exports edu.masanz.da.ut3.app;
 
 }
