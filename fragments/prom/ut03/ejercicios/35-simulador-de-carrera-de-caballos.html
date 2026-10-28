@@ -2,7 +2,9 @@
   style="padding-top: 0 !important; margin-top: 0 !important;">
 <div class="card shadow p-4">
 <h2 class="text-primary mb-3"><i class="fas fa-horse"></i> 3.28 Simulador de Carrera de Caballos</h2>
-<p class="lead">En este ejercicio crearás un simulador de carrera entre dos jugadores que controlarán caballos. Cada jugador tendrá que gestionar la velocidad y la potencia del caballo durante 20 segundos (iteraciones) para intentar llegar lo más lejos posible.</p>
+<p class="lead">En este ejercicio crearás un simulador de carrera entre dos jugadores que controlarán caballos. Cada jugador tendrá que gestionar la velocidad y la potencia del caballo durante <strong>20 rondas</strong> para intentar llegar lo más lejos posible. Mantendrás la versión de consola y añadirás otra con una interfaz sencilla en JavaFX.</p>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Versión original: consola</h4>
 <p>Implementa la carrera únicamente en <code>main</code>, sin clases <code>Carrera</code> o <code>Caballo</code> ni métodos auxiliares. Utiliza dos grupos de variables locales para nombre, potencia y distancia recorrida. Ambos caballos comienzan con distancia cero.</p>
 <p>Define constantes locales para las 20 iteraciones, las velocidades y los consumos. En cada iteración de un <code>for</code>, solicita por teclado la opción de cada participante: 1 máxima, 2 normal, 3 mínima o 4 descansar. Puedes suponer que se introduce una de esas cuatro opciones.</p>
 <p><strong>Reglas del juego:</strong></p>
@@ -20,6 +22,70 @@
 <li>El juego termina después de 20 iteraciones. Gana el jugador cuyo caballo haya recorrido la mayor distancia.</li>
 </ol>
 <p>Para esta simulación, las velocidades son metros por segundo y cada iteración representa un segundo: suma a la distancia los metros de la velocidad aplicada. No es necesario esperar un segundo real. Muestra en cada ronda la opción aplicada, la potencia y la distancia de ambos; contempla el empate final.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto base con las dos ejecuciones</h4>
+<p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut03-carrera-caballos-base.zip" download><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+<p>En IntelliJ, ejecuta con el triángulo verde el método <code>main</code> de <code>MainConsola</code> para la versión original o de <code>MainJavaFX</code> para la gráfica. Ambas están en <code>edu.masanz.da.ut3.app</code>. La interfaz terminada se encuentra en <code>edu.masanz.da.ut3.gui.GUI</code>.</p>
+<p>La descarga contiene una base, no la solución. Completa los TODOs de los dos <code>main</code>, sin crear clases <code>Caballo</code> o <code>Carrera</code>, métodos auxiliares, arrays ni colecciones. La lógica continúa utilizando variables locales, constantes, condicionales y un <code>for</code>.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-desktop"></i> Ampliación: la misma carrera en JavaFX</h4>
+<p>La ventana muestra dos carriles, un cuadrado de distinto color por participante, su nombre, potencia, distancia y acción aplicada, además de la ronda y el resultado final. La escala es fija, de 0 a 200 metros: no hay una meta que termine antes de la ronda 20.</p>
+<p><img class="img-fluid d-block mx-auto" src="https://jsotera.github.io/moodle/prom/assets/img/prom-ut03-carrera-caballos-javafx.png" alt="Interfaz de la carrera con dos cuadrados, distancias, potencia y contador de ronda" width="720"></p>
+<p>La imagen utiliza datos ilustrativos de una primera ronda. La interfaz está preparada; los cálculos de la carrera son las tareas pendientes.</p>
+<p>En cada turno, la interfaz solicita la estrategia de cada participante mediante un selector. Obtén <strong>las dos decisiones antes de aplicar los resultados</strong> y actualiza después los datos de ambos. No se necesitan segundos reales, animaciones ni un temporizador.</p>
+<p><strong>Las reglas no cambian:</strong> con potencia insuficiente se aplica velocidad mínima y su consumo no puede dejar la potencia por debajo de cero. Incluso con potencia cero puede seguir avanzando a mínima, tal como indica la versión original. Descansar recupera potencia sin avanzar.</p>
+<p><code>GUI</code> está proporcionada y no debes modificarla. Tampoco tienes que estudiar su gestión interna de JavaFX. Las llamadas de apertura, cancelación y finalización ya están preparadas en <code>MainJavaFX</code>; conserva ese código y completa únicamente los TODOs.</p>
+<p>La base gráfica ya abre la ventana, pero la carrera no avanza hasta que completes las tareas. Cancelar una selección o cerrar la ventana interrumpe la carrera; la base gestiona esa situación.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-code"></i> Métodos de la interfaz proporcionada</h4>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<thead class="table-light"><tr><th>Método</th><th>Uso desde main</th></tr></thead>
+<tbody>
+<tr><td><code>GUI.pedirOpcion(nombre)</code></td><td>Solicita la estrategia del participante indicado y devuelve 1 máxima, 2 normal, 3 mínima o 4 descansar.</td></tr>
+<tr><td><code>GUI.mostrarRonda(numero)</code></td><td>Muestra la ronda actual. Utiliza 0 para el estado inicial y 1–20 durante la carrera.</td></tr>
+<tr><td><code>GUI.mostrarParticipante(numero, nombre, potencia, distancia, accion)</code></td><td>Actualiza la ficha y el cuadrado del participante 1 o 2 con los valores que calcules. La acción es un texto como <code>"Normal"</code>, <code>"Minima por falta de potencia"</code> o <code>"Descansar"</code>.</td></tr>
+<tr><td><code>GUI.mostrarResultado(mensaje)</code></td><td>Muestra el ganador o el empate que decidas en main. No compara las distancias por ti.</td></tr>
+</tbody>
+</table>
+</div>
+<p>La interfaz no consume ni recupera potencia, no suma metros ni decide el ganador. Esas operaciones forman parte de tu código. En la versión gráfica no utilices <code>Scanner</code>, <code>System.out</code>, <code>Thread.sleep</code> ni un bucle infinito para interactuar con la ventana.</p>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-list-ol"></i> MainJavaFX: TODO 01–05</h4>
+<ol>
+<li><p><strong>TODO 01:</strong> Define los nombres, las constantes y el estado inicial de los dos participantes.</p><p>Usa dos nombres elegidos por ti, 100 de potencia y 0 metros para cada participante. Conserva las reglas y los valores de la versión original mediante constantes locales.</p></li>
+<li><p><strong>TODO 02:</strong> Muestra el estado inicial de ambos participantes en la interfaz.</p><p>Presenta la ronda 0 y las dos fichas con sus valores iniciales. Puedes usar <code>"Inicio"</code> como acción.</p></li>
+<li><p><strong>TODO 03:</strong> Ejecuta veinte rondas solicitando las decisiones y aplicando las reglas de ambos participantes.</p><p>Dentro de un <code>for</code>, solicita ambas estrategias con <code>GUI.pedirOpcion</code> y calcula por separado la acción real, la potencia restante y los metros acumulados. No vuelvas a pedir una opción cuando falte potencia: se aplica la mínima.</p></li>
+<li><p><strong>TODO 04:</strong> Actualiza la interfaz tras cada ronda con la opcion aplicada, la potencia y la distancia de ambos participantes.</p><p>Esta actualización forma parte del cuerpo del <code>for</code>. Informa de la ronda y muestra las dos fichas con <code>GUI.mostrarParticipante</code>. Distingue la opción solicitada de la aplicada.</p></li>
+<li><p><strong>TODO 05:</strong> Muestra el resultado final de la carrera contemplando el empate.</p><p>Tras las 20 rondas, compara las distancias y pasa a <code>GUI.mostrarResultado</code> un mensaje con el ganador o el empate. La ventana conserva el resultado hasta que se cierre.</p></li>
+</ol>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> MainConsola: TODO 11–15</h4>
+<p>Completa también la versión original. En ella puedes utilizar <code>Scanner</code> y mensajes de consola, siempre dentro de <code>main</code>.</p>
+<ol>
+<li><p><strong>TODO 11:</strong> Define los nombres, las constantes y el estado inicial de los dos participantes.</p><p>Usa los mismos valores iniciales y reglas que en la versión gráfica.</p></li>
+<li><p><strong>TODO 12:</strong> Muestra el estado inicial de ambos participantes en la consola.</p><p>Presenta nombres, potencia y distancia antes de comenzar la carrera.</p></li>
+<li><p><strong>TODO 13:</strong> Ejecuta veinte rondas solicitando las decisiones y aplicando las reglas de ambos participantes.</p><p>Utiliza un <code>for</code> y solicita las dos opciones con <code>Scanner</code>. Puedes suponer entradas de 1 a 4, como en el ejercicio original.</p></li>
+<li><p><strong>TODO 14:</strong> Muestra tras cada ronda la opcion aplicada, la potencia y la distancia de ambos participantes.</p><p>Muestra también el número de ronda para poder comparar la ejecución con la gráfica.</p></li>
+<li><p><strong>TODO 15:</strong> Muestra el resultado final de la carrera contemplando el empate.</p><p>Decide el resultado después de las 20 rondas, con las mismas comparaciones que en la versión JavaFX.</p></li>
+</ol>
+</div>
+<div class="mb-4">
+<h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Comprobaciones</h4>
+<ul>
+<li>Con ambos participantes descansando durante 20 rondas, la potencia no supera 100 y el resultado es empate a 0 metros.</li>
+<li>En la primera ronda, máxima deja 85 de potencia y 10 metros; normal deja 90 de potencia y 7 metros.</li>
+<li>Con potencia 10 y elección máxima, se aplica mínima: avanza 3 metros y quedan 5 de potencia.</li>
+<li>Con potencia 0 y elección máxima, se aplica mínima: avanza 3 metros y la potencia sigue en 0.</li>
+<li>Si se descansa con potencia 95, se recupera hasta 100, sin avanzar.</li>
+<li>Ejecuta la misma secuencia de decisiones en las dos versiones: deben coincidir los valores de cada ronda y el resultado final.</li>
+</ul>
+</div>
 <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT3Ejer28CarreraEstrategicaCaballos</code></p>
 </div>
 </div>
