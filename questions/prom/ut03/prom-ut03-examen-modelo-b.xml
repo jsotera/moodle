@@ -1,0 +1,1474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="category">
+    <category>
+      <text>$module$/top/Examen Java UT3 - Modelo B/UT3 - Bloque I - Decisiones y estructuras de selección</text>
+    </category>
+    <idnumber></idnumber>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque I - UT3-EXAMEN-B-B1-01</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = 8;
+if (x % 2 == 0) x++;
+if (x % 3 == 0) x += 3;
+else x--;
+System.out.print(x);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El primer if incrementa x de 8 a 9. El segundo if evalúa ese nuevo valor: 9 es divisible por 3, así que suma 3 y deja x en 12.</p><p>Salida comprobada:</p><pre><code>12</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B1-01</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>8</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>9</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>11</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>12</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-1</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque I - UT3-EXAMEN-B-B1-02</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int puntos = 72;
+String nivel = &quot;W&quot;;
+if (puntos &gt;= 70) nivel = &quot;X&quot;;
+else if (puntos &gt;= 90) nivel = &quot;Y&quot;;
+else nivel = &quot;Z&quot;;
+System.out.print(nivel);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>La primera condición es verdadera y asigna X. No se evalúa la siguiente condición ni se ejecuta el else final.</p><p>Salida comprobada:</p><pre><code>X</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B1-02</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>Y</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>Z</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>W</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>X</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-1</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque I - UT3-EXAMEN-B-B1-03</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = 2;
+int total = 6;
+switch (x) {
+    case 1: total += 4;
+    case 2: total *= 3;
+    default: total -= 2;
+}
+System.out.print(total);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Se entra por case 2 y total pasa a 18. Como no hay break, se ejecuta default y se restan 2: el resultado es 16.</p><p>Salida comprobada:</p><pre><code>16</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B1-03</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>16</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>18</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>28</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-1</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque I - UT3-EXAMEN-B-B1-04</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = -3;
+boolean valor = x &lt; 0 || x &lt; -10;
+System.out.print(x + &quot; &quot; + valor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>x es negativo, así que el primer operando de || es verdadero. valor es true y x no se modifica.</p><p>Salida comprobada:</p><pre><code>-3 true</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B1-04</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>-3 false</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>0 true</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>0 false</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>-3 true</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-1</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque I - UT3-EXAMEN-B-B1-05</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = 8;
+String salida = &quot;P&quot;;
+if (x &gt; 6) salida += &quot;B&quot;;
+else salida += x;
+System.out.print(salida);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>La condición 8 &gt; 6 es verdadera. Se concatena B con P y no se ejecuta el else: se muestra PB.</p><p>Salida comprobada:</p><pre><code>PB</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B1-05</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>P8</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>P</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>8</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>PB</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-1</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque I - UT3-EXAMEN-B-B1-06</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = 5;
+int y = 9;
+int total = 0;
+if (x &lt; y) {
+    if (x % 2 == 0) total = x + y;
+    else total = y - x;
+}
+if (total &gt; 6) total -= 2;
+else total += 3;
+System.out.print(total);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>x es menor que y, pero no es par. El else interior asigna 9 - 5, que vale 4. Como 4 no supera 6, el último else suma 3 y deja 7.</p><p>Salida comprobada:</p><pre><code>7</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B1-06</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>7</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>12</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>2</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-1</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="category">
+    <category>
+      <text>$module$/top/Examen Java UT3 - Modelo B/UT3 - Bloque II - Estructuras de repetición</text>
+    </category>
+    <idnumber></idnumber>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B2-01</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int limite = 7;
+int suma = 1;
+for (int i = 1; i &lt; limite; i++) {
+    suma += i;
+    limite--;
+}
+System.out.print(suma);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Se recorren i = 1, 2 y 3 mientras el límite baja a 6, 5 y 4. Cuando i llega a 4 la condición 4 &lt; 4 es falsa. La suma es 1 + 1 + 2 + 3 = 7.</p><p>Salida comprobada:</p><pre><code>7</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B2-01</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>7</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>22</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>11</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B2-02</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = 8;
+int vueltas = 1;
+while (x &gt; 4) {
+    vueltas++;
+    x--;
+}
+System.out.print(x + &quot; &quot; + vueltas);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El cuerpo se ejecuta cuatro veces, hasta dejar x en 4. vueltas empieza en 1 y se incrementa cuatro veces, por lo que termina en 5.</p><p>Salida comprobada:</p><pre><code>4 5</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B2-02</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>4 4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>3 5</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>8 1</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>4 5</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B2-03</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int suma = 1;
+for (int i = 1; i &lt;= 3; i++) {
+    for (int j = 1; j &lt;= 2; j++) {
+        if (j == i) continue;
+        suma += j;
+    }
+}
+System.out.print(suma);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>continue solo salta la iteración interior con j igual a i. Se suma 2 con i = 1, luego 1 con i = 2 y finalmente 1 + 2 con i = 3. Con el 1 inicial se obtiene 7.</p><p>Salida comprobada:</p><pre><code>7</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B2-03</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>7</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>10</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>6</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>3</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B2-04</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = 3;
+int vueltas = 0;
+do {
+    vueltas++;
+    x += 2;
+} while (x &lt; 3);
+System.out.print(x + &quot; &quot; + vueltas);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El cuerpo del do/while se ejecuta antes de comprobar la condición. x pasa a 5 y vueltas a 1. La condición 5 &lt; 3 es falsa y no hay más vueltas.</p><p>Salida comprobada:</p><pre><code>5 1</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B2-04</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>3 0</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>3 1</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>5 0</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>5 1</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B2-05</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int total = 2;
+for (int i = 0; i &lt; 2; i++) {
+    for (int j = 0; j &lt; 2; j++) {
+        if (j == i) break;
+        total += i + 2;
+    }
+}
+System.out.print(total);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Con i = 0 se abandona el bucle interior sin sumar. Con i = 1 se suma 3 cuando j vale 0 y se sale cuando j llega a 1. El total es 2 + 3 = 5.</p><p>Salida comprobada:</p><pre><code>5</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B2-05</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>2</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>8</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>5</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B4-02</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int numero = 26;
+int vueltas = 0;
+while (numero &gt; 3) {
+    numero = numero / 2;
+    vueltas++;
+}
+System.out.print(numero + &quot; &quot; + vueltas);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>La división entera produce 13, 6 y 3. Se ejecutan tres vueltas y el bucle termina cuando numero vale 3.</p><p>Salida comprobada:</p><pre><code>3 3</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B4-02</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>3 4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>3 3</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>1 4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>6 2</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B4-03</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int suma = 0;
+for (int i = 1; i &lt;= 7; i += 2) {
+    if (i &gt;= 5) continue;
+    suma += i;
+}
+System.out.print(suma);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>i toma los valores 1, 3, 5 y 7. continue evita sumar 5 y 7, pero el for sigue avanzando. Solo se suma 1 + 3 = 4.</p><p>Salida comprobada:</p><pre><code>4</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B4-03</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>4</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>16</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>9</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>3</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B4-08</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int x = 1;
+int suma = 2;
+while (x &lt; 7) {
+    x += 1;
+    if (x == 5) break;
+    suma += x;
+}
+System.out.print(x + &quot; &quot; + suma);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Antes del break se suman 2, 3 y 4 al valor inicial 2: suma termina en 11. x llega a 5, pero el break impide sumar ese valor.</p><p>Salida comprobada:</p><pre><code>5 11</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B4-08</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>7 29</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>5 11</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>5 16</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>4 11</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B4-09</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int total = 1;
+for (int i = 1; i &lt;= 3; i += 1) {
+    for (int j = 1; j &lt;= i; j += 1) {
+        total += i;
+    }
+}
+System.out.print(total);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El bucle interior se ejecuta i veces y cada vez suma i. Se añade 1 una vez, 2 dos veces y 3 tres veces: 1 + 1 + 4 + 9 = 15.</p><p>Salida comprobada:</p><pre><code>15</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B4-09</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>7</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>14</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>15</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>11</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque II - UT3-EXAMEN-B-B4-12</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">String salida = &quot;&quot;;
+for (int i = 4; i &gt;= 1; i -= 1) {
+    if (i % 2 == 0) {
+        salida = &quot;R&quot;;
+    }
+    if (i % 3 == 0) {
+        salida += &quot;O&quot;;
+    }
+}
+System.out.print(salida);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Con i = 4 se asigna R. Con i = 3 se concatena O y queda RO. Con i = 2 se sustituye el contenido por R. Con i = 1 no cambia: la salida final es R.</p><p>Salida comprobada:</p><pre><code>R</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B4-12</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>OR</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>R</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>RO</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>O</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-2</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="category">
+    <category>
+      <text>$module$/top/Examen Java UT3 - Modelo B/UT3 - Bloque III - Control y creación de excepciones</text>
+    </category>
+    <idnumber></idnumber>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque III - UT3-EXAMEN-B-B3-01</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int divisor = 0;
+int total = 9;
+try {
+    total += 3;
+    total = 24 / divisor;
+    total += 6;
+} catch (ArithmeticException e) {
+    total -= 4;
+} finally {
+    total += 2;
+}
+System.out.print(total);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>total llega a 12. La división entre cero salta al catch sin completar la asignación ni sumar 6. El catch deja 8 y finally suma 2: queda 10.</p><p>Salida comprobada:</p><pre><code>10</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B3-01</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>8</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>10</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>14</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>20</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-3</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque III - UT3-EXAMEN-B-B3-05</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int numero = 6;
+try {
+    numero = Integer.parseInt(&quot;9b&quot;);
+    numero += 3;
+} catch (NumberFormatException e) {
+    numero += 5;
+}
+System.out.print(numero);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>El texto 9b no es un entero válido. numero conserva su valor 6 porque la asignación no se completa. Se ejecuta el catch y se suman 5: el resultado es 11.</p><p>Salida comprobada:</p><pre><code>11</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B3-05</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>11</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>14</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>6</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>17</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-3</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque III - UT3-EXAMEN-B-B3-21</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">String nombre = null;
+try {
+    System.out.print(&quot;M&quot;);
+    int numero = nombre.length();
+    System.out.print(&quot;N&quot;);
+} catch (NullPointerException e) {
+    System.out.print(&quot;P&quot;);
+}
+System.out.print(&quot;Q&quot;);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Se imprime M. nombre es null, por lo que no se puede consultar su longitud y se ejecuta el catch, que imprime P. La N se omite y al final se imprime Q.</p><p>Salida comprobada:</p><pre><code>MPQ</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B3-21</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>MNQ</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>MPQ</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>MNPQ</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>MQ</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-3</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+  <question type="multichoice">
+    <name>
+      <text>UT3 - Bloque III - UT3-EXAMEN-B-B3-20</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>¿Qué muestra el siguiente código?</p><pre><code class="language-java">int valor = 8;
+try {
+    valor = Integer.parseInt(&quot;18&quot;);
+    valor = valor / 3;
+} catch (NumberFormatException e) {
+    valor = -3;
+} catch (ArithmeticException e) {
+    valor = -4;
+} finally {
+    valor += 1;
+}
+System.out.print(valor);</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>La conversión deja valor en 18 y la división lo deja en 6. No se ejecuta ningún catch. finally se ejecuta igualmente y suma 1: se muestra 7.</p><p>Salida comprobada:</p><pre><code>7</code></pre>]]></text>
+    </generalfeedback>
+    <defaultgrade>0.5000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber>UT3-EXAMEN-B-B3-20</idnumber>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <showstandardinstruction>1</showstandardinstruction>
+    <correctfeedback format="html">
+      <text><![CDATA[]]></text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text><![CDATA[]]></text>
+    </incorrectfeedback>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>9</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<pre><code>7</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Correcto.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>6</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="-33.33333" format="html">
+      <text><![CDATA[<pre><code>19</code></pre>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Revisa el recorrido del código y la explicación.</p>]]></text>
+      </feedback>
+    </answer>
+    <tags>
+      <tag>
+        <text>PROM-UT03</text>
+      </tag>
+      <tag>
+        <text>bloque-3</text>
+      </tag>
+      <tag>
+        <text>nueva</text>
+      </tag>
+      <tag>
+        <text>dificultad-alta</text>
+      </tag>
+    </tags>
+  </question>
+</quiz>

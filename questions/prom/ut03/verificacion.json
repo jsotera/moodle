@@ -1,0 +1,22 @@
+{
+  "originales": 211,
+  "incluidas": 109,
+  "duplicadas_agrupadas": 10,
+  "fuera_ut3": 92,
+  "banco": 150,
+  "bloques": {
+    "1": 55,
+    "2": 66,
+    "3": 9,
+    "4": 20
+  },
+  "examen_a": 20,
+  "examen_b": 20,
+  "arneses_compilados": 190,
+  "arneses_ejecutados": 184,
+  "salidas_deterministas_contrastadas": 176,
+  "codigo_visible_no_vacio": 188,
+  "fecha": "2026-11-08",
+  "jdk": "25.0.2",
+  "nota": "Los arneses de preguntas conceptuales comprueban validez del codigo, no demuestran por si solos la respuesta teorica. No se ejecutan los bucles sin terminacion; se revisan por analisis."
+}

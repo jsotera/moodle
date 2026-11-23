@@ -424,3 +424,22 @@ Para cada entrada o tema, el resultado debería incluir:
 - Nombre del proyecto del ejercicio.
 - Versión completa para GitHub Pages.
 - Fragmento limpio para Moodle.
+
+## Scripts de monitorización de los exámenes prácticos
+
+- Incluir en todos los proyectos base de exámenes prácticos nuevos los seis
+  scripts aportados por el docente: `uno.bat`, `dos.bat`, `tres.bat`,
+  `cuatro.bat`, `cinco.ps1` y `limpiar.bat`, conservando sus nombres y contenido.
+- La referencia actual está en la raíz de
+  `projects/prom/ut03/ExamenUT3/`. Copiarlos a la raíz del proyecto del examen
+  y comprobar que el ZIP de distribución también los contiene.
+- **No ejecutar ninguno de estos scripts**, ni directamente ni como parte de
+  pruebas, compilaciones, configuración o preparación de ZIP. Solo leerlos,
+  copiarlos y comprobar sus bytes sin ejecutarlos. `uno.bat` llama a
+  `limpiar.bat`, que elimina contenido de Descargas; otros scripts realizan
+  commits y cambian la configuración global de Git.
+- No modificar los scripts ni los proyectos del docente sin autorización.
+  Incluir los scripts no implica añadirlos como pasos automáticos de ejecución.
+- No incorporar los registros generados en `src/resources/logs/` a las
+  distribuciones. El código de los scripts se incluye; los datos de las
+  sesiones de monitorización no forman parte de la plantilla de examen.

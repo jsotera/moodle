@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor de preguntas · Moodle XML</title>
+  <link rel="stylesheet" href="vendor/css/all.min.css">
+  <link rel="stylesheet" href="editor.css">
+  <script src="moodle-xml.js" defer></script>
+  <script src="vendor/pdfmake/pdfmake.min.js" defer></script>
+  <script src="vendor/pdfmake/vfs_fonts.js" defer></script>
+  <script src="vendor/pdfmake/mono-vfs.js" defer></script>
+  <script src="question-pdf.js" defer></script>
+  <script src="editor.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand"><i class="fa-solid fa-file-code" aria-hidden="true"></i><div><h1>Editor de preguntas</h1><span>Moodle XML</span></div></div>
+    <div class="file-summary"><strong id="file-name">Sin archivo</strong><span id="save-status">Sin cambios</span></div>
+    <div class="file-actions">
+      <button type="button" id="new-bank" class="icon-button" title="Nuevo banco" aria-label="Nuevo banco"><i class="fa-solid fa-file-circle-plus" aria-hidden="true"></i></button>
+      <button type="button" id="open-file"><i class="fa-solid fa-folder-open" aria-hidden="true"></i><span>Abrir XML</span></button>
+      <button type="button" id="export-file" class="primary" disabled><i class="fa-solid fa-download" aria-hidden="true"></i><span>Exportar XML</span></button>
+      <input id="file-input" type="file" accept=".xml,text/xml,application/xml" hidden>
+    </div>
+  </header>
+  <div class="toolbar" aria-label="Herramientas del banco">
+    <div class="search-box"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="search" type="search" placeholder="Buscar en las preguntas" aria-label="Buscar en las preguntas" disabled><span id="search-count"></span><button id="previous-match" class="icon-button" title="Coincidencia anterior" aria-label="Coincidencia anterior" disabled><i class="fa-solid fa-chevron-up" aria-hidden="true"></i></button><button id="next-match" class="icon-button" title="Siguiente coincidencia" aria-label="Siguiente coincidencia" disabled><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></div>
+    <div class="toolbar-actions">
+      <div class="segmented" role="group" aria-label="Modo de edición"><button id="visual-mode" type="button" aria-pressed="true">Visual</button><button id="html-mode" type="button" aria-pressed="false">HTML</button></div>
+      <button id="undo" class="icon-button" title="Deshacer" aria-label="Deshacer" disabled><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></button>
+      <button id="redo" class="icon-button" title="Rehacer" aria-label="Rehacer" disabled><i class="fa-solid fa-rotate-right" aria-hidden="true"></i></button>
+      <button id="add-category" class="icon-button" title="Añadir categoría" aria-label="Añadir categoría" disabled><i class="fa-solid fa-folder-plus" aria-hidden="true"></i></button>
+      <button id="add-question" disabled><i class="fa-solid fa-plus" aria-hidden="true"></i><span>Pregunta</span></button>
+    </div>
+    <div class="pdf-actions" role="group" aria-label="Descargar PDF">
+      <button id="pdf-answers" title="Descargar PDF con respuestas" disabled><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i><span>PDF con respuestas</span></button>
+      <button id="pdf-student" title="Descargar PDF sin respuestas" disabled><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF sin respuestas</span></button>
+    </div>
+  </div>
+  <div class="workspace">
+    <aside class="sidebar" aria-label="Categorías del banco"><div class="sidebar-heading">Categorías <span id="total-count">0</span></div><nav id="category-list"></nav><div class="local-status"><i class="fa-solid fa-lock" aria-hidden="true"></i> Archivo local</div></aside>
+    <main id="main">
+      <div id="notice" role="status" aria-live="polite" hidden></div>
+      <div id="validation" role="alert" hidden></div>
+      <section id="empty-state"><i class="fa-solid fa-file-code" aria-hidden="true"></i><h2>Ningún XML abierto</h2><button id="empty-open" class="primary"><i class="fa-solid fa-folder-open" aria-hidden="true"></i>Abrir XML</button></section>
+      <div id="questions"></div>
+    </main>
+  </div>
+  <dialog id="confirm-dialog"><form method="dialog"><h2 id="confirm-title">Confirmar</h2><p id="confirm-message"></p><div class="dialog-actions"><button value="cancel">Cancelar</button><button id="confirm-accept" class="danger" value="confirm">Eliminar</button></div></form></dialog>
+  <dialog id="category-dialog"><form id="category-form"><h2>Nueva categoría</h2><label for="category-name">Ruta de la categoría</label><input id="category-name" required autocomplete="off"><div class="dialog-actions"><button type="button" id="cancel-category">Cancelar</button><button class="primary" type="submit">Crear categoría</button></div></form></dialog>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Conservar los documentos y recursos binarios sin conversiones de fin de linea.
+*.pdf binary
+*.zip binary
+*.woff binary
+*.woff2 binary
+
+# Preservar los bytes originales de los scripts aportados por el docente.
+*.bat -text
+*.ps1 -text

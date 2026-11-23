@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examen UT3 — Evaluación RA2 y RA3</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
+  <style>
+    body { background: #f4f6f7; color: #202428; font-family: Arial, sans-serif; line-height: 1.55; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .card { border-radius: 6px; background: white; }
+    h2 { font-size: 26px; } h4 { font-size: 20px; }
+    pre { background: #f0f3f5; color: #161b20; padding: 16px; border-radius: 4px; white-space: pre; overflow-x: auto; }
+    code { overflow-wrap: anywhere; }
+    pre code { color: inherit; font-family: Consolas, monospace; overflow-wrap: normal; }
+    li { margin-bottom: 10px; }
+    @media print {
+      body { background: white; }
+      .container, .card { width: 100% !important; max-width: none !important; margin: 0 !important; padding: 0 !important; border: 0 !important; box-shadow: none !important; }
+      .btn { display: none; } h2, h4, h5 { break-after: avoid; }
+      pre, tr { break-inside: avoid; } pre { white-space: pre-wrap; } .table-responsive { overflow: visible; }
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-map"></i> Examen UT3</h2>
+    <p class="lead">Completa un juego de exploración por consola: recorre el laberinto, administra los botiquines y alcanza la salida antes de quedarte sin vida.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-gamepad"></i> Reglas de la partida</h4>
+      <ul>
+        <li>Los mapas tienen <strong>8 filas y 14 columnas</strong>. Las coordenadas empiezan en cero: filas de 0 a 7 y columnas de 0 a 13.</li>
+        <li>El personaje empieza en (1, 1), con <strong>100 puntos de vida, cero botiquines y cero movimientos</strong>.</li>
+        <li>W mueve arriba, A izquierda, S abajo y D derecha. Cada acción permite avanzar una casilla. Las paredes y los límites del mapa impiden el movimiento.</li>
+        <li>Solo un desplazamiento aceptado incrementa los movimientos, también al recoger un botiquín, pisar una trampa o alcanzar la salida.</li>
+        <li>Un botiquín se recoge al entrar en su casilla: suma una unidad al inventario y desaparece del terreno. Recogerlo no cura y no permite recogerlo otra vez.</li>
+        <li>Cada entrada en una trampa resta 20 puntos de vida, sin bajar de cero. La trampa permanece en el mapa y vuelve a causar daño si se entra de nuevo.</li>
+        <li>La opción 1 consume <strong>un único botiquín</strong> y recupera 30 puntos, sin superar 100. Solo puede utilizarse con el personaje vivo, existencias y una vida inferior al máximo. Si se rechaza, no cambia ningún dato.</li>
+        <li>Alcanzar S supone la victoria. Llegar a cero de vida supone la derrota. Elegir 0 termina voluntariamente la partida.</li>
+        <li>La opción 2 restaura el mismo escenario y el estado inicial del mismo personaje, incluidos vida, posición, botiquines y movimientos. También reaparecen los botiquines recogidos y se desactiva la victoria.</li>
+        <li>La opción 3 muestra el menú sin modificar el estado del juego.</li>
+      </ul>
+      <p>Cada casilla se muestra entre corchetes. La <strong>P se superpone visualmente</strong> en la posición del personaje sin sustituir el terreno que hay debajo.</p>
+      <div class="table-responsive"><table class="table table-bordered align-middle">
+        <thead class="table-light"><tr><th>Símbolo</th><th>Significado</th><th>Constante disponible</th><th>Color en consola</th></tr></thead>
+        <tbody>
+          <tr><td><code>[P]</code></td><td>Personaje</td><td><code>Conf.PERSONAJE</code></td><td>Azul</td></tr>
+          <tr><td><code>[#]</code></td><td>Pared</td><td><code>Conf.MURO</code></td><td>Amarillo</td></tr>
+          <tr><td><code>[ ]</code></td><td>Suelo</td><td>—</td><td>Color normal</td></tr>
+          <tr><td><code>[+]</code></td><td>Botiquín</td><td><code>Conf.BOTIQUIN</code></td><td>Verde</td></tr>
+          <tr><td><code>[T]</code></td><td>Trampa</td><td><code>Conf.TRAMPA</code></td><td>Rojo</td></tr>
+          <tr><td><code>[S]</code></td><td>Salida</td><td><code>Conf.SALIDA</code></td><td>Cian</td></tr>
+        </tbody>
+      </table></div>
+      <p>En <code>util.Conf</code> dispones de las constantes de tipo <code>String</code> de la tabla para representar los símbolos del mapa. <code>Conf.NUMERO_MAPAS</code> indica cuántos escenarios hay disponibles (3).</p>
+      <p>La clase <code>GUI</code> ya incorpora los colores del mapa y de su leyenda. Sus métodos de salida están disponibles para representar las casillas, terminar las filas y mostrar la información.</p>
+      <p>El menú se muestra al empezar y al elegir 3. Tras cada acción distinta de 0 se muestran el mapa completo, su leyenda y la tabla del personaje, también cuando la acción se rechaza. Al finalizar se muestra el mensaje correspondiente a salida voluntaria, victoria o derrota y no se pide otra acción.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-map"></i> Mapa</h4>
+      <p>Los tres escenarios se encuentran en <code>util.Conf</code> y se eligen con 1, 2 o 3 al iniciar la aplicación. Todos empiezan en (1, 1) y tienen la salida en (6, 12). Reiniciar mantiene el escenario elegido.</p>
+      <p><code>Mapa</code> conserva el terreno, el personaje y el indicador de victoria. También se encarga de presentar el mapa y gestionar las acciones utilizando la salida de <code>GUI</code>.</p>
+      <p>Estos métodos de <code>Mapa</code> ya están disponibles:</p>
+      <div class="table-responsive"><table class="table table-bordered align-middle">
+        <thead class="table-light"><tr><th>Método</th><th>Comportamiento</th></tr></thead>
+        <tbody>
+          <tr><td><code>Mapa(int numero)</code></td><td>Prepara el escenario elegido y el personaje inicial. Un valor distinto de 1, 2 o 3 selecciona el escenario 1.</td></tr>
+          <tr><td><code>getFilas()</code>, <code>getColumnas()</code></td><td>Devuelven las dimensiones del mapa.</td></tr>
+          <tr><td><code>getPersonaje()</code>, <code>isGanada()</code></td><td>Permiten consultar el personaje y el indicador de victoria.</td></tr>
+          <tr><td><code>obtenerCasilla(int fila, int columna)</code></td><td>Devuelve el símbolo del terreno como un <code>String</code> de un carácter, sin superponer al personaje. Devuelve <code>null</code> para coordenadas fuera del mapa.</td></tr>
+          <tr><td><code>vaciarCasilla(int fila, int columna)</code></td><td>Sustituye una casilla existente por suelo. Fuera del mapa no cambia nada.</td></tr>
+          <tr><td><code>reiniciar()</code></td><td>Recupera el terreno inicial, restaura el mismo personaje y desactiva la victoria.</td></tr>
+        </tbody>
+      </table></div>
+      <h5>Mapa 1: Exploración</h5><p>Tres botiquines y dos trampas, con espacios abiertos para probar las acciones.</p>
+      <pre><code>[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-primary">P</span>][ ][ ][<span class="text-success">+</span>][ ][ ][ ][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][<span class="text-warning">#</span>][<span class="text-warning">#</span>][ ][ ][<span class="text-warning">#</span>][<span class="text-warning">#</span>][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][<span class="text-danger">T</span>][ ][ ][ ][ ][ ][ ][<span class="text-success">+</span>][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][ ][<span class="text-warning">#</span>][<span class="text-warning">#</span>][ ][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][<span class="text-success">+</span>][ ][ ][ ][ ][<span class="text-danger">T</span>][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][<span class="text-info">S</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]</code></pre>
+      <h5>Mapa 2: Pasillos</h5><p>Tres botiquines y cuatro trampas, con paredes interiores que obligan a cambiar de dirección.</p>
+      <pre><code>[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-primary">P</span>][ ][<span class="text-success">+</span>][<span class="text-warning">#</span>][ ][ ][ ][ ][<span class="text-warning">#</span>][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][<span class="text-danger">T</span>][ ][<span class="text-warning">#</span>][ ][ ][ ][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][<span class="text-warning">#</span>][ ][ ][<span class="text-success">+</span>][ ][<span class="text-warning">#</span>][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][<span class="text-danger">T</span>][ ][ ][ ][<span class="text-danger">T</span>][<span class="text-warning">#</span>][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][<span class="text-warning">#</span>][ ][ ][ ][ ][<span class="text-warning">#</span>][ ][<span class="text-danger">T</span>][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][<span class="text-warning">#</span>][ ][<span class="text-success">+</span>][ ][ ][ ][ ][ ][<span class="text-info">S</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]</code></pre>
+      <h5>Mapa 3: Supervivencia</h5><p>Tres botiquines y ocho trampas. Es necesario utilizar los consumibles para llegar con vida a la salida.</p>
+      <pre><code>[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-primary">P</span>][ ][<span class="text-danger">T</span>][ ][ ][<span class="text-danger">T</span>][ ][<span class="text-success">+</span>][ ][<span class="text-danger">T</span>][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][<span class="text-success">+</span>][ ][<span class="text-danger">T</span>][ ][ ][<span class="text-danger">T</span>][ ][<span class="text-success">+</span>][ ][<span class="text-danger">T</span>][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][<span class="text-danger">T</span>][ ][ ][<span class="text-danger">T</span>][ ][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-info">S</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]</code></pre>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> GUI: TODO 01 y 02 (1 punto)</h4>
+      <p>La entrada y la salida se concentran en métodos estáticos de <code>GUI</code>. La clase dispone de un <code>Scanner</code> compartido.</p>
+      <ol>
+        <li data-todo="01" data-puntos="0.40"><p><strong>TODO 01:</strong> Solicita una acción al usuario y devuelvela en mayúsculas.</p><p><code>pedirAccion()</code> muestra el mensaje <code>Introduce una acción: </code>, lee una línea y devuelve la acción en mayúsculas. Una línea vacía devuelve <code>"0"</code>, por lo que termina la partida. Una cadena como <code>DD</code> no representa un movimiento válido. El contrato también contempla devolver <code>"0"</code> cuando se termina la entrada.</p></li>
+        <li data-todo="02" data-puntos="0.600"><p><strong>TODO 02:</strong> Solicita el número del mapa y convierte la entrada a un número entero.</p><p><code>pedirMapa()</code> muestra el mensaje <code>Elige un mapa: </code>, lee una línea y la convierte a <code>int</code>, sin comprobar si está entre 1 y 3. Controla la excepción de conversión si el texto no es un entero válido; en ese caso devuelve cero. El Javadoc también contempla cero cuando se termina la entrada.</p></li>
+      </ol>
+      <p>Métodos de salida disponibles: <code>mostrarTitulo()</code>, <code>mostrarMapas()</code>, <code>mostrarMenu()</code>, <code>mostrarLeyenda()</code>, <code>mostrarCasilla(String simbolo)</code>, <code>nuevaLinea()</code>, <code>mostrarMensaje(String mensaje)</code> y <code>mostrarInfo(int vida, int botiquines, int movimientos, int fila, int columna)</code>.</p>
+      <p><code>mostrarCasilla</code> imprime una casilla entre corchetes con su color y sin salto de línea. <code>mostrarInfo</code> presenta en una tabla la vida, los botiquines, los movimientos, la fila y la columna. Estos métodos reciben los datos que muestran.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user"></i> Personaje: TODO 11 a 13 (1,4 puntos)</h4>
+      <p>El personaje mantiene posición, vida, botiquines y movimientos. Su constructor establece los valores iniciales. Están disponibles los accesores, <code>recogerBotiquin()</code>, <code>registrarMovimiento()</code> y <code>reiniciar()</code>. Esta clase no lee ni imprime.</p>
+      <ol>
+        <li data-todo="11" data-puntos="0.200"><p><strong>TODO 11:</strong> Indica si el personaje sigue con vida.</p><p><code>estaVivo()</code> indica si la vida actual es mayor que cero, sin modificar el estado.</p></li>
+        <li data-todo="12" data-puntos="0.600"><p><strong>TODO 12:</strong> Aplica el daño recibido sin permitir una vida negativa.</p><p><code>recibirDanio(int puntos)</code> descuenta un daño positivo sin dejar la vida por debajo de cero. Los valores cero y negativos no producen cambios.</p></li>
+        <li data-todo="13" data-puntos="0.600"><p><strong>TODO 13:</strong> Utiliza un único botiquín si el personaje está vivo, tiene existencias y necesita curarse.</p><p><code>usarBotiquin()</code> devuelve <code>true</code> si consume una unidad y aplica la curación de 30 puntos, respetando el máximo de 100. Devuelve <code>false</code> sin modificar nada si el personaje está muerto, no tiene botiquines o ya tiene la vida completa. Por ejemplo, con 90 de vida y dos botiquines, queda con 100 de vida y un botiquín. No modifica posición ni movimientos.</p></li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Mapa: TODO 21 a 26 (6,2 puntos)</h4>
+      <ol>
+        <li data-todo="21" data-puntos="0.40"><p><strong>TODO 21:</strong> Indica si la fila y la columna solicitadas pertenecen al mapa.</p><p><code>contiene(int fila, int columna)</code> indica si ambas coordenadas pertenecen a las dimensiones del escenario. Una pared también pertenece al mapa; este método no determina si se puede avanzar.</p></li>
+        <li data-todo="22" data-puntos="0.40"><p><strong>TODO 22:</strong> Determina si el juego ha terminado por victoria o por falta de vida.</p><p><code>estaTerminada()</code> indica si se ha alcanzado la salida o el personaje se ha quedado sin vida. No modifica ningún dato.</p></li>
+        <li data-todo="23" data-puntos="1.000"><p><strong>TODO 23:</strong> Resuelve el movimiento solicitado.</p><p><code>moverJugador(String accion)</code> devuelve <code>true</code> cuando se realiza un desplazamiento válido y <code>false</code> cuando se rechaza. Admite <code>W</code>, <code>A</code>, <code>S</code> y <code>D</code>; rechaza otras cadenas y <code>null</code>, una partida terminada, una pared y un destino fuera del mapa. Un desplazamiento aceptado cambia la posición y registra un movimiento. Uno rechazado deja el estado intacto. Los efectos del terreno corresponden a <code>aplicarEfecto()</code>.</p></li>
+        <li data-todo="24" data-puntos="1.20"><p><strong>TODO 24:</strong> Aplica el efecto de la casilla en la que se encuentra el jugador.</p><p><code>aplicarEfecto()</code> actúa sobre la casilla donde se encuentra el personaje: un <code>+</code> añade un botiquín y desaparece; una <code>T</code> causa 20 puntos de daño y permanece; una <code>S</code> activa la victoria. El suelo no cambia el estado. Este método no desplaza al personaje ni incrementa los movimientos.</p></li>
+        <li data-todo="25" data-puntos="1.400"><p><strong>TODO 25:</strong> Dibuja el mapa completo y muestra la información actual del personaje utilizando GUI.</p><p><code>mostrarMapa()</code> presenta las ocho filas de catorce casillas. El personaje se superpone a cualquier casilla del mapa en su posición actual. Utiliza <code>GUI.mostrarCasilla(String simbolo)</code> para que las casillas aparezcan coloreadas y <code>GUI.nuevaLinea()</code> para los saltos de línea. Al final del mapa, muestra la leyenda con <code>GUI.mostrarLeyenda()</code> y la tabla con vida, botiquines, movimientos, fila y columna mediante <code>GUI.mostrarInfo(...)</code>. La representación no modifica el terreno ni el estado del personaje.</p></li>
+        <li data-todo="26" data-puntos="1.800"><p><strong>TODO 26:</strong> Gestiona las acciones del usuario y muestra sus resultados</p><p><code>gestionarAccion(String accion)</code> recibe una acción normalizada. Atiende las direcciones, el uso de un botiquín, el reinicio y la consulta del menú, y muestra los mensajes de resultado mediante <code>GUI</code>. Un movimiento aceptado tiene los efectos que correspondan al terreno. La opción 1 comunica si se utiliza el botiquín o se rechaza; la opción 2 restaura el escenario y el personaje; la opción 3 muestra el menú. La opción 0 no modifica datos ni imprime desde este método. Una acción desconocida muestra el aviso correspondiente.</p></li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Main: TODO 31 (1,4 puntos)</h4>
+      <ol>
+        <li data-todo="31" data-puntos="1.400"><p><strong>TODO 31:</strong> Selecciona un mapa controlando las entradas incorrectas y ejecuta el juego hasta que finalice.</p><p><code>main(String[] args)</code> muestra los escenarios disponibles y solicita una selección del 1 al 3. Un entero fuera de ese rango vuelve a solicitarse; cero termina sin crear el mapa. La conversión de una entrada no numérica se controla conforme al contrato de <code>pedirMapa()</code>, que devuelve cero. Tras una selección válida se presentan el menú y el estado inicial. La partida admite acciones hasta salir, ganar o morir. Tras cada acción distinta de 0 se vuelve a presentar el estado. El mensaje final distingue salida voluntaria, victoria y derrota, y no se solicita otra acción.</p></li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-desktop"></i> Ejemplos de salida</h4>
+      <p>Las pantallas siguientes corresponden a la presentación actual de la consola. Los ejemplos de acciones son extractos independientes; donde se omite el mapa se indica expresamente. Los símbolos conservan sus colores y los valores se presentan en una tabla.</p>
+      <h5>Inicio del mapa 1</h5>
+<pre><code>EXAMEN UT3
+
+Mapas disponibles:
+	1. Mapa de exploración
+	2. Mapa de pasillos
+	3. Mapa de supervivencia
+	0. Salir
+
+Elige un mapa: 1
+Opciones disponibles:
+	W. Mover arriba
+	A. Mover izquierda
+	S. Mover abajo
+	D. Mover derecha
+	1. Utilizar un botiquín
+	2. Reiniciar el mapa
+	3. Mostrar menú
+	0. Salir
+
+[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-primary">P</span>][ ][ ][<span class="text-success">+</span>][ ][ ][ ][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][<span class="text-warning">#</span>][<span class="text-warning">#</span>][ ][ ][<span class="text-warning">#</span>][<span class="text-warning">#</span>][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][<span class="text-danger">T</span>][ ][ ][ ][ ][ ][ ][<span class="text-success">+</span>][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][ ][<span class="text-warning">#</span>][<span class="text-warning">#</span>][ ][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][<span class="text-success">+</span>][ ][ ][ ][ ][<span class="text-danger">T</span>][ ][ ][ ][ ][ ][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][<span class="text-info">S</span>][<span class="text-warning">#</span>]
+[<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>][<span class="text-warning">#</span>]
+
+[<span class="text-primary">P</span>] Personaje | [<span class="text-warning">#</span>] Pared | [ ] Suelo | [<span class="text-success">+</span>] Botiquín | [<span class="text-danger">T</span>] Trampa | [<span class="text-info">S</span>] Salida
+
+|----------------------------------------------------|
+|  Vida  | Botiquines | Movimientos | fila | columna |
+|----------------------------------------------------|
+|100/100 |      0     |       0     |   1  |    1    |
+|----------------------------------------------------|
+
+</code></pre>
+      <h5>Selección fuera de rango</h5>
+      <p>Extracto de la selección inicial: un entero fuera de las opciones permite volver a elegir.</p>
+      <pre><code>Elige un mapa: 7
+Debes elegir un mapa del 1 al 3, o 0 para salir.
+Elige un mapa: 1</code></pre>
+      <p>Si se introduce texto en lugar de un entero, la versión actual muestra:</p>
+      <pre><code>Elige un mapa: dos
+Elección incorrecta.
+Has elegido salir. Hasta la próxima.</code></pre>
+      <h5>Movimiento y recogida</h5>
+      <p>Desde el inicio del mapa 1, introducir <code>d</code> permite avanzar a (1, 2). La siguiente tabla es un extracto de la salida; entre el mensaje y la tabla se muestran el mapa completo y la leyenda.</p>
+      <pre><code>Introduce una acción: d
+Te has desplazado a la fila 1, columna 2.
+
+|----------------------------------------------------|
+|  Vida  | Botiquines | Movimientos | fila | columna |
+|----------------------------------------------------|
+|100/100 |      0     |       1     |   1  |    2    |
+|----------------------------------------------------|</code></pre>
+      <p>Tras otros dos movimientos a la derecha, se recoge el botiquín de (1, 4). El contador pasa a tres movimientos y el inventario a un botiquín, con 100 de vida. La casilla queda vacía cuando el personaje se aparta. La recogida se aprecia en el mapa y en la tabla.</p>
+      <h5>Trampa y curación</h5>
+      <p>Desde el estado inicial del mapa 1, las acciones <code>S</code>, <code>S</code> y <code>D</code> llevan a la trampa de (3, 2). Extracto sin el mapa ni la leyenda:</p>
+      <pre><code>Introduce una acción: D
+Te has desplazado a la fila 3, columna 2.
+Has pisado una trampa. Pierdes 20 puntos de vida.
+
+|----------------------------------------------------|
+|  Vida  | Botiquines | Movimientos | fila | columna |
+|----------------------------------------------------|
+| 80/100 |      0     |       3     |   3  |    2    |
+|----------------------------------------------------|</code></pre>
+      <p>En otro momento de la partida, con 60 de vida y dos botiquines, utilizar uno deja 90 de vida y un botiquín. Un segundo uso deja 100 de vida y cero botiquines. Ninguno cambia la posición ni el contador de movimientos.</p>
+      <pre><code>Introduce una acción: 1
+Has utilizado un botiquín.</code></pre>
+      <h5>Acciones rechazadas</h5>
+      <p>Sin botiquines, con la vida completa o con el personaje muerto, el intento de utilizar uno deja los datos intactos:</p>
+      <pre><code>Introduce una acción: 1
+No cumples los criterios para usar un botiquín.</code></pre>
+      <p>Una pared o un destino fuera del mapa impiden el desplazamiento y mantienen posición y contador. En esos casos se vuelve a dibujar el estado, sin añadir un mensaje específico de rechazo para esos movimientos.</p>
+      <pre><code>Introduce una acción: DD
+Acción desconocida. Pulsa 3 para consultar el menú.</code></pre>
+      <p>Las letras minúsculas se convierten a mayúsculas. No se exige eliminar espacios exteriores: una entrada como <code> d </code> no equivale a <code>D</code>. Una línea vacía equivale a elegir 0.</p>
+      <h5>Menú y reinicio</h5>
+      <p>La opción 3 vuelve a mostrar el menú y después el estado completo, sin cambiar sus datos. Extracto sin el mapa ni la tabla:</p>
+      <pre><code>Introduce una acción: 3
+
+Opciones disponibles:
+    W. Mover arriba
+    A. Mover izquierda
+    S. Mover abajo
+    D. Mover derecha
+    1. Utilizar un botiquín
+    2. Reiniciar el mapa
+    3. Mostrar menú
+    0. Salir</code></pre>
+      <p>La opción 2 restaura el estado inicial del escenario elegido. Extracto sin el mapa ni la leyenda:</p>
+      <pre><code>Introduce una acción: 2
+Mapa reiniciado.
+
+|----------------------------------------------------|
+|  Vida  | Botiquines | Movimientos | fila | columna |
+|----------------------------------------------------|
+|100/100 |      0     |       0     |   1  |    1    |
+|----------------------------------------------------|</code></pre>
+      <h5>Finales alternativos</h5>
+      <p>Estos son los mensajes finales según la causa de terminación; se muestra el que corresponda:</p>
+      <pre><code>Has encontrado la salida. ¡Has completado el laberinto!
+Te has quedado sin vida. Fin del juego.
+Has elegido salir. Hasta la próxima.</code></pre>
+      <p>Al alcanzar la salida, también se muestra «El juego ya ha terminado.» antes de dibujar el último mapa. Al ganar o morir se presenta el último estado antes del mensaje final. Con 0 no se vuelve a dibujar.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-download"></i> Proyecto y evaluación</h4>
+      <p><a class="btn btn-primary" href="prom-ut03-examen-base.zip"><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>ExamenUT3</code>. Ejecuta <code>edu.masanz.da.ut3.app.Main</code> y completa los TODO respetando las firmas y los contratos descritos.</p>
+      <p>Puntuación máxima de <strong>RA3: 10 puntos</strong>, repartidos entre GUI (1), Personaje (1,4), Mapa (6,2) y Main (1,4). Son 12 TODO: 01–02, 11–13, 21–26 y 31.</p>
+      <div class="table-responsive"><table class="table table-bordered align-middle">
+        <thead class="table-light"><tr><th>Tarea</th><th>RA</th><th>Descripción</th><th>Puntos RA3</th></tr></thead>
+        <tbody>
+          <tr><td>TODO 01</td><td>RA3</td><td>Solicita una acción al usuario y devuelvela en mayúsculas.</td><td>0,40</td></tr>
+          <tr><td>TODO 02</td><td>RA3</td><td>Solicita el número del mapa y convierte la entrada a un número entero.</td><td>0,60</td></tr>
+          <tr><td>TODO 11</td><td>RA3</td><td>Indica si el personaje sigue con vida.</td><td>0,20</td></tr>
+          <tr><td>TODO 12</td><td>RA3</td><td>Aplica el daño recibido sin permitir una vida negativa.</td><td>0,60</td></tr>
+          <tr><td>TODO 13</td><td>RA3</td><td>Utiliza un único botiquín si el personaje está vivo, tiene existencias y necesita curarse.</td><td>0,60</td></tr>
+          <tr><td>TODO 21</td><td>RA3</td><td>Indica si la fila y la columna solicitadas pertenecen al mapa.</td><td>0,40</td></tr>
+          <tr><td>TODO 22</td><td>RA3</td><td>Determina si el juego ha terminado por victoria o por falta de vida.</td><td>0,40</td></tr>
+          <tr><td>TODO 23</td><td>RA3</td><td>Resuelve el movimiento solicitado.</td><td>1,00</td></tr>
+          <tr><td>TODO 24</td><td>RA3</td><td>Aplica el efecto de la casilla en la que se encuentra el jugador.</td><td>1,20</td></tr>
+          <tr><td>TODO 25</td><td>RA3</td><td>Dibuja el mapa completo y muestra la información actual del personaje utilizando GUI.</td><td>1,40</td></tr>
+          <tr><td>TODO 26</td><td>RA3</td><td>Gestiona las acciones del usuario y muestra sus resultados</td><td>1,80</td></tr>
+          <tr><td>TODO 31</td><td>RA2 y RA3</td><td>Selecciona un mapa controlando las entradas incorrectas y ejecuta el juego hasta que finalice.</td><td>1,40</td></tr>
+          <tr><th colspan="3">Total RA3</th><th>10,00</th></tr>
+        </tbody>
+      </table></div>
+      <p><strong>RA2 se evalúa de forma independiente sobre 10 puntos</strong>, únicamente mediante las acciones del método <code>main</code> de la clase <code>Main</code> (TODO 31). Ese TODO mantiene su valor de 1,40 puntos dentro de RA3 y tiene un máximo de 10 puntos para RA2. Se obtienen dos calificaciones separadas; no se suman.</p>
+      <p>Comprueba los tres escenarios, los rechazos sin cambios de estado, la recogida sin duplicados, la curación con sus límites, las trampas persistentes, el reinicio completo, los colores del mapa, la tabla del personaje y el final sin nuevas acciones.</p>
+      <p><strong>Está prohibido emplear cualquier técnica de desarrollo no trabajada en clase.</strong></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

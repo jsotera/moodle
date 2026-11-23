@@ -1,3 +1,15 @@
 moodle-books/
 assets/ejemplos/
 soluciones-profesorado/
+
+# Archivos locales de desarrollo y registros de monitorizacion.
+**/.idea/
+**/target/
+*.class
+__pycache__/
+*.pyc
+**/src/resources/logs/
+
+# Copias manuales conservadas en local; distribuir los ZIP de questions/.
+/projects/prom/ut03/ExamenUT3.zip
+/soluciones/prom/ut03/ExamenUT3-sol.zip

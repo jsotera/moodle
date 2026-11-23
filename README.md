@@ -8,6 +8,12 @@ Repositorio de materiales didácticos para publicar en GitHub Pages y reutilizar
 
 ### [LMGI · Lenguaje de Marcas](https://jsotera.github.io/moodle/lmgi/)
 
+## Herramientas
+
+[Editor de preguntas Moodle XML](tools/moodle-xml-editor/index.html): carga, edita
+y exporta bancos de preguntas desde el navegador, sin enviar los archivos a un
+servidor. Puede abrirse directamente en local. [Guía del editor](tools/moodle-xml-editor/README.md).
+
 ## Instalar como aplicacion
 
 Este sitio puede instalarse como PWA desde un navegador compatible, como Chrome o Edge.
