@@ -1,4 +1,4 @@
-const CACHE_NAME = "prom-lmgi-1793187609823";
+const CACHE_NAME = "prom-lmgi-1795434379452";
 const PRECACHE_URLS = [
   "./",
   "./assets/css/course.css",
@@ -130,7 +130,17 @@ const PRECACHE_URLS = [
   "./prom/ut10-ejercicios.html",
   "./prom/ut10-teoria.html",
   "./prom/ut10.html",
-  "./sw.js"
+  "./soluciones-profesorado/prom/ut03/examen-practico/rubrica-correccion.html",
+  "./sw.js",
+  "./tools/moodle-xml-editor/editor.css",
+  "./tools/moodle-xml-editor/editor.js",
+  "./tools/moodle-xml-editor/index.html",
+  "./tools/moodle-xml-editor/moodle-xml.js",
+  "./tools/moodle-xml-editor/question-pdf.js",
+  "./tools/moodle-xml-editor/vendor/css/all.min.css",
+  "./tools/moodle-xml-editor/vendor/pdfmake/mono-vfs.js",
+  "./tools/moodle-xml-editor/vendor/pdfmake/pdfmake.min.js",
+  "./tools/moodle-xml-editor/vendor/pdfmake/vfs_fonts.js"
 ];
 const CACHEABLE_DESTINATIONS = new Set(["document", "style", "script", "image", "font"]);
 
