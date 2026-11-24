@@ -1,0 +1,38 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> 4.10 Juego del ahorcado: toma de requisitos</h2>
+    <p class="lead">En esta actividad, vais a diseñar e implementar vuestra propia versión del clásico juego del <strong>Ahorcado</strong>. El reto es que debéis pensar por vosotros mismos las clases, métodos y atributos necesarios para llevar a cabo la solución. ¡Vamos allá!</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> Toma de Requisitos</h4>
+      <p>Un cliente ha venido a vosotros con la siguiente propuesta:</p>
+      <blockquote class="blockquote">
+        <p>"Quiero desarrollar un juego del Ahorcado donde el usuario pueda adivinar palabras. El juego debe permitir al jugador introducir letras una a una y mostrar el progreso de la palabra oculta, actualizando el estado del juego según los intentos fallidos. Además, me gustaría que el jugador pueda ver un contador de los intentos restantes y que el juego termine cuando acierte toda la palabra o agote sus intentos."</p>
+      </blockquote>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Requisitos del Juego</h4>
+      <ul>
+        <li>El juego debe seleccionar una palabra de manera aleatoria (podéis reutilizar la clase <code>GeneradorPalabras</code> creada anteriormente).</li>
+        <li>El jugador debe poder introducir letras una a una para intentar adivinar la palabra oculta.</li>
+        <li>Debe mostrar el estado actual de la palabra (por ejemplo, "_ _ a _ _ a").</li>
+        <li>El jugador tiene un número limitado de intentos (por defecto 6). Con cada intento fallido, se debe actualizar un contador de intentos restantes.</li>
+        <li>Deberán mostrarse <strong>mensajes </strong>con <strong>diferentes colores</strong>. Qué colores y cuando utilizarlos dependerá de vuestra decisión.</li>
+        <li>Del mismo modo, los <strong>textos </strong>que se muestren, deberán estar <strong>alineados correctamente</strong>, bajo vuestro criterio.</li>
+        <li>El juego termina cuando el jugador acierta toda la palabra o agota sus intentos.</li>
+        <li>Debéis mostrar un mensaje final indicando si el jugador ha ganado o perdido.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-chalkboard-teacher"></i> ¿Cómo lo Vamos a Hacer?</h4>
+      <p>A diferencia de los ejercicios anteriores, esta vez no os vamos a dar los atributos, métodos o clases que debéis utilizar. En su lugar, os dejamos algunas preguntas para ayudaros a pensar y estructurar vuestra aplicación:</p>
+      <ul>
+        <li>¿Qué clases necesitará el juego? ¿Podríais tener una clase para manejar el estado del juego?</li>
+        <li>¿Qué métodos necesitará la clase principal? ¿Tal vez un método para evaluar cada intento?</li>
+        <li>¿Qué atributos necesitaréis? ¿Una lista de letras acertadas? ¿Un contador de intentos?</li>
+        <li>¿Cómo vais a manejar la visualización del estado del juego en la consola?</li>
+        <li>¿Qué partes del código pueden beneficiarse de ser métodos estáticos o reutilizables?</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer10AhorcadoConsola</code></p>
+    </div>
+  </div>
+</div>

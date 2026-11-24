@@ -1,0 +1,30 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-tools"></i> 4.6 Clase de utilidades: GeneradorPalabras</h2>
+    <p class="lead">En esta actividad, vamos a dar nuestros primeros pasos en la creación de una clase de utilidades, similar a cómo hemos estado utilizando la clase <code>Math</code> en nuestros proyectos. La idea es que aprendáis a crear métodos y constantes estáticas, para que puedan ser invocadas sin necesidad de instanciar la clase.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-open"></i> Estructura del Proyecto</h4>
+      <ul>
+        <li>El proyecto deberá estar contenido dentro del paquete: <code>edu.masanz.da.ut4</code>.</li>
+        <li>Crearéis una clase llamada <code>GeneradorPalabras</code>, que estará alojada en un subpaquete denominado <code>util</code>, es decir: <code>edu.masanz.da.ut4.util</code>.</li>
+        <li>Esta clase <code>GeneradorPalabras</code> incluirá una constante y un método estático, que podréis invocar directamente desde la clase <code>Main</code>.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-alt"></i> Requisitos de la Clase GeneradorPalabras</h4>
+      <ul>
+        <li><strong>Constante estática:</strong> Crear una constante llamada <code>PALABRAS</code> que contenga un <code>String</code> con muchas palabras de la <strong>misma longitud</strong>, separadas por espacios. Por ejemplo: <code>"gato vaca rana leon osos"</code>.</li>
+        <li><strong>Método estático:</strong> Incluir un método llamado <code>obtenerPalabra()</code>, que devuelva una palabra aleatoria de la constante <code>PALABRAS</code>. Para seleccionar la palabra, utilizaréis métodos del objeto <code>String</code> como <code>charAt</code>, <code>length</code> y <code>substring</code>. Ten en cuenta que no conocemos ni el <strong>número de letras</strong> que compone cada palabra ni el <strong>número de palabras</strong> que hay en la constante.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Uso de la Clase GeneradorPalabras</h4>
+      <p>En la clase <code>Main</code>, invocaréis al método <code>obtenerPalabra()</code> de la clase <code>GeneradorPalabras</code> para mostrar una palabra aleatoria en pantalla. La clave aquí es que, al ser un método estático, no necesitaréis instanciar la clase <code>GeneradorPalabras</code> para invocarlo, de la misma forma que utilizáis <code>Math.random()</code> sin crear un objeto de tipo <code>Math</code>.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer06PalabrasRandom</code></p>
+      <p><strong>Reto adicional:</strong></p>
+      <p>¿Qué pasaría si el tamaño de las palabras es variable? ¿Cómo resolveríamos el problema para una constante <code>PALABRAS</code> que contenga por ejemplo los valores <code>"camion oro azul camarero"</code>?</p>
+      <p></p>
+      <p></p>
+    </div>
+  </div>
+</div>

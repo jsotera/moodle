@@ -1,0 +1,57 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-book"></i> 4.4 Completar los TODO de Biblioteca</h2>
+    <p class="lead">En esta actividad vas a practicar la programación orientada a objetos de manera inversa: <strong>no podrás crear nuevas clases ni métodos</strong>. Tu tarea será implementar la funcionalidad dentro de los métodos ya existentes de la clase <code>Biblioteca</code> utilizando únicamente los atributos y métodos que se proporcionan.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base</h4>
+      <p>Esta es la clase que se te proporciona, con los métodos donde tendrás que escribir tu código:</p>
+      <pre><code>public class Biblioteca {
+
+    public int librosDisponibles;
+    public int librosPrestados;
+    public int visitantes;
+
+    public Biblioteca() {
+        // TODO 01: Inicializar librosDisponibles con el valor facilitado
+        //  y librosPrestados y visitantes a 0
+    }
+
+    public boolean prestarLibro() {
+        // TODO 02: Comprobar si hay libros disponibles
+        //  Si hay, disminuir librosDisponibles y aumentar librosPrestados
+        return false;
+    }
+
+    public void devolverLibro() {
+        // TODO 03: Si los hay, disminuir librosPrestados y aumentar librosDisponibles
+    }
+
+    public void recibirVisitante() {
+        // TODO 04: Aumentar contador de visitantes
+        //  Posiblemente prestar un libro (un 15% de los visitantes suelen llevarse un libro)
+    }
+
+    public void mostrarEstado() {
+        // TODO 05: Mostrar libros disponibles, prestados y visitantes
+    }
+
+    public void simularDia() {
+        // TODO 06: Bucle de varias horas (iteraciones) donde se reciben visitantes,
+        //  se actualizar el estado y se devuelven los libros prestados
+    }
+}</code></pre>
+      <p>El código está preparado con <strong>TODOs</strong> que marcan el lugar donde debes implementar la lógica.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> Objetivo de la actividad</h4>
+      <p>Tu objetivo principal es:</p>
+      <ul>
+        <li>Escribir código dentro de los métodos ya existentes siguiendo las indicaciones de los TODOs.</li>
+        <li>Gestionar correctamente los atributos <code>librosDisponibles</code>, <code>librosPrestados</code> y <code>visitantes</code>.</li>
+        <li>Simular un día de funcionamiento de la biblioteca utilizando el método <code>simularDia()</code>.</li>
+        <li>Mostrar el estado de la biblioteca en cada momento para comprobar que todo funciona correctamente.</li>
+      </ul>
+      <p>Recuerda: <strong>no puedes añadir nuevos métodos ni clases</strong><span>, toda la lógica debe ir dentro de los métodos existentes.</span></p>
+    </div>
+  </div>
+</div>

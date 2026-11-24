@@ -1,0 +1,96 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cogs"></i> 4.1 Modularización: combate de personajes</h2>
+    <p class="lead">En esta actividad aprenderás a <strong>modularizar código</strong>. Partiremos de una clase <code>Codigo1</code> que contiene todo en un único método y varios atributos, y la tarea será reorganizarla en <strong>clases y métodos coherentes</strong> con nombres claros y responsables.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base a modularizar</h4>
+      <p>Esta es la clase que vamos a usar como punto de partida:</p>
+      <pre><code>public class Codigo1 {
+
+    public String nombre1;
+    public int vida1;
+    public int ataque1;
+    public int defensa1;
+
+    public String nombre2;
+    public int vida2;
+    public int ataque2;
+    public int defensa2;
+
+    public void blablabla() {
+
+        nombre1 = "R2D2";
+        vida1 = 100;
+        ataque1 = (int) (Math.random() * 10) + 5;
+        defensa1 = (int) (Math.random() * 10) + 5;
+
+        nombre2 = "C3P0";
+        vida2 = 100;
+        ataque2 = (int) (Math.random() * 10) + 5;
+        defensa2 = (int) (Math.random() * 10) + 5;
+
+        System.out.println("Comienza el combate");
+
+        while(vida1&gt;0 &amp;&amp; vida2&gt;0) {
+
+            System.out.println("Recalculando stats");
+
+            ataque1 = (int) (Math.random() * 10) + 5;
+            defensa1 = (int) (Math.random() * 10) + 5;
+
+            ataque2 = (int) (Math.random() * 10) + 5;
+            defensa2 = (int) (Math.random() * 10) + 5;
+
+            String s = "Los stats de " + nombre1 + " son:";
+            s += "\n\tvida: " + vida1;
+            s += "\n\tataque: " + ataque1;
+            s += "\n\tdefensa: " + defensa1;
+            System.out.println(s);
+
+            s = "Los stats de " + nombre2 + " son:";
+            s += "\n\tvida: " + vida2;
+            s += "\n\tataque: " + ataque2;
+            s += "\n\tdefensa: " + defensa2;
+            System.out.println(s);
+
+            if (ataque1 &gt; defensa2) {
+                vida2 = vida2 - (ataque1 - defensa2);
+                if (vida2 &lt;= 0) {
+                    vida2 = 0;
+                    System.out.println("GRRR..." + nombre2 + " PERDER COMBATE...BSSSS");
+                }
+            }
+            if (ataque2 &gt; defensa1) {
+                vida1 = vida1 - (ataque2 - defensa1);
+                if (vida1 &lt;= 0) {
+                    vida1 = 0;
+                    System.out.println("GRRR..." + nombre1 + " PERDER COMBATE...BSSSS");
+                }
+            }
+        }
+
+        if(vida1 &gt; vida2){
+            System.out.println(nombre1+" se alza con la victoria");
+        } else if (vida1 &lt; vida2) {
+            System.out.println(nombre2+" se alza con la victoria");
+        } else {
+            System.out.println("Ha sido un combate con empate");
+        }
+    }
+
+}
+</code></pre>
+      <p>Como puedes ver, todo está en <strong>una única clase y un único método</strong>. Esto dificulta la lectura, el mantenimiento y la reutilización del código.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> Objetivo de la modularización</h4>
+      <p>La tarea consiste en:</p>
+      <ul>
+        <li>Crear una clase <code>XXX</code> (elegir un nombre coherente) que represente a cada personaje del combate.</li>
+        <li>Crear métodos dentro de la clase para acciones concretas, por ejemplo: <code>decirEdad()</code>, <code>cantar(int tiempo)</code>, etc.</li>
+        <li><strong>Recordad</strong>, dividir el código en métodos pequeños y significativos para que cada parte tenga una única responsabilidad.</li>
+        <li>Elegir nombres claros y descriptivos para clases y métodos.</li>
+      </ul>
+    </div>
+  </div>
+</div>

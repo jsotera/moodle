@@ -1,0 +1,51 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-user-secret"></i> 4.12 Ampliación: ciudadano, ladrón y guardia</h2>
+    <p class="lead">En esta ampliación trabajaremos con <strong>tres objetos que interactúan entre sí</strong>: un <strong>Ciudadano</strong>, un <strong>Ladrón</strong> y un <strong>Guardia</strong>. El objetivo es consolidar el concepto de <strong>paso de objetos por referencia</strong>, y comprender cómo las modificaciones de estado entre objetos afectan a todo el sistema.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-city"></i> Escenario de la simulación</h4>
+      <p>Imagina una pequeña ciudad donde:</p>
+      <ul>
+        <li>El <strong>Ciudadano</strong> tiene un nombre y una cantidad de dinero, que puede aumentar al sacar dinero o disminuir si le roban.</li>
+        <li>El <strong>Ladrón</strong> puede robar a un ciudadano mediante el método <code>robar(Ciudadano c)</code>.</li>
+        <li>El <strong>Guardia</strong> patrulla la zona y puede intervenir para proteger al ciudadano o intentar atrapar al ladrón con el método <code>intervenir(Ladron l, Ciudadano c)</code>.</li>
+      </ul>
+      <p>Cada acción modificará el estado de los objetos, y deberás mostrarlo claramente en consola con <code>printf</code> y colores personalizados.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Estructura recomendada</h4>
+      <p>Las clases mínimas que deberías tener son:</p>
+      <ul>
+        <li><code>Ciudadano</code> → <small>nombre, dinero</small></li>
+        <li><code>Ladron</code> → <small>nombre, botín total, éxito en robos</small></li>
+        <li><code>Guardia</code> → <small>nombre, arrestos realizados</small></li>
+        <li><code>ColoresConsola</code> → <small>constantes con colores ANSI</small></li>
+        <li><code>Main</code> → <small>simulación de la aplicación</small></li>
+      </ul>
+      <p>Observa cómo un mismo objeto (<code>Ciudadano</code>) es modificado por <strong>dos objetos distintos</strong> en diferentes momentos del programa, reforzando el concepto de referencia compartida.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tasks"></i> Tareas a realizar</h4>
+      <ul>
+        <li>Implementar las clases <code>Ciudadano</code>, <code>Ladron</code> y <code>Guardia</code> con métodos y atributos coherentes.</li>
+        <li>Simular varias interacciones donde el ladrón roba y el guardia puede intervenir.</li>
+        <li>Demostrar claramente el <strong>paso de objetos por referencia</strong> (ver cómo se modifican los objetos desde distintos métodos).</li>
+        <li>Usar <code>printf</code> y <code>ColoresConsola</code> para mostrar la información de manera legible y atractiva.</li>
+        <li>Incluir mensajes de estado antes, durante y después de las acciones para comparar los cambios.</li>
+      </ul>
+      <p>💡 <strong>Consejo:</strong> Intenta modularizar el código creando métodos auxiliares como <code>mostrarEstadoGeneral()</code> o <code>simularDia()</code> para mantener un código limpio y reutilizable.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Retos opcionales</h4>
+      <ul>
+        <li>Que el ciudadano pueda <strong>denunciar el robo</strong> (porcentaje de éxito de intervención del guardia).</li>
+        <li>Que el ladrón pueda <strong>huir</strong> y acumular robos pendientes.</li>
+        <li>Añadir varios objetos de tipo <code>Ciudadano</code> en la iteración.</li>
+      </ul>
+      <p>Estos extras ayudan a trabajar la relación entre múltiples objetos y la composición de clases.</p>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4CiudadanoLadronGuardia</code></p>
+    </div>
+  </div>
+</div>

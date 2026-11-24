@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="../assets/pwa/icon-192.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/course.css?v=1795434379208" rel="stylesheet">
+    <link href="assets/css/course.css?v=1795510289024" rel="stylesheet">
   </head>
   <body data-page-id="ut04-ejercicios">
     <div class="app-shell">
@@ -69,12 +69,963 @@
     <p class="lead mb-0">Programación Orientada a Objetos (POO)</p>
   </div>
 </section>
+<nav class="unit-fragment-index content-card mb-4" data-fragment-index aria-label="Índice de ejercicios">
+  <h2 class="h5 text-primary mb-3">
+    <i class="fas fa-list-ul me-2" aria-hidden="true"></i>
+    Índice de Ejercicios
+  </h2>
+  <div class="section-nav-list">
 
-<section id="ut04-ejercicios-01-proyecto-empuja-piedras" class="fragment-section section-anchor">
-<div class="container mt-4 p-4"
+        <a class="section-nav-link" href="#ut04-ejercicios-01-modularizacion-combate">
+          4.1 Modularización: combate de personajes
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-02-modularizacion-carrera">
+          4.2 Modularización: carrera de coches
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-03-modularizacion-combate-turnos">
+          4.3 Modularización: combate por turnos
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-04-biblioteca-todos">
+          4.4 Completar los TODO de Biblioteca
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-05-diseno-clase-todos">
+          4.5 Diseña una clase con TODO
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-06-clase-utilidades-generador-palabras">
+          4.6 Clase de utilidades: GeneradorPalabras
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-07-colores-consola">
+          4.7 Colores para la consola
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-08-wordle-consola">
+          4.8 Wordle por consola
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-09-tabla-puntuaciones">
+          4.9 Tabla de puntuaciones
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-10-ahorcado-toma-requisitos">
+          4.10 Juego del ahorcado: toma de requisitos
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-11-ciudadano-ladron">
+          4.11 Objetos como parámetros: ciudadano y ladrón
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-12-ciudadano-ladron-guardia">
+          4.12 Ampliación: ciudadano, ladrón y guardia
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-13-pesca-oceano">
+          4.13 Objetos dentro de objetos: pesca en el océano
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-14-pesca-sostenible">
+          4.14 Ampliación: pesca sostenible
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-15-partido-futbol">
+          4.15 Partido de fútbol
+        </a>
+        <a class="section-nav-link" href="#ut04-ejercicios-90-proyecto-empuja-piedras">
+          4.16 Proyecto integrador UT1–UT4: EmpujaPiedras
+        </a>
+  </div>
+</nav>
+
+<section id="ut04-ejercicios-01-modularizacion-combate" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cogs"></i> 4.1 Modularización: combate de personajes</h2>
+    <p class="lead">En esta actividad aprenderás a <strong>modularizar código</strong>. Partiremos de una clase <code>Codigo1</code> que contiene todo en un único método y varios atributos, y la tarea será reorganizarla en <strong>clases y métodos coherentes</strong> con nombres claros y responsables.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base a modularizar</h4>
+      <p>Esta es la clase que vamos a usar como punto de partida:</p>
+      <pre><code>public class Codigo1 {
+
+    public String nombre1;
+    public int vida1;
+    public int ataque1;
+    public int defensa1;
+
+    public String nombre2;
+    public int vida2;
+    public int ataque2;
+    public int defensa2;
+
+    public void blablabla() {
+
+        nombre1 = "R2D2";
+        vida1 = 100;
+        ataque1 = (int) (Math.random() * 10) + 5;
+        defensa1 = (int) (Math.random() * 10) + 5;
+
+        nombre2 = "C3P0";
+        vida2 = 100;
+        ataque2 = (int) (Math.random() * 10) + 5;
+        defensa2 = (int) (Math.random() * 10) + 5;
+
+        System.out.println("Comienza el combate");
+
+        while(vida1&gt;0 &amp;&amp; vida2&gt;0) {
+
+            System.out.println("Recalculando stats");
+
+            ataque1 = (int) (Math.random() * 10) + 5;
+            defensa1 = (int) (Math.random() * 10) + 5;
+
+            ataque2 = (int) (Math.random() * 10) + 5;
+            defensa2 = (int) (Math.random() * 10) + 5;
+
+            String s = "Los stats de " + nombre1 + " son:";
+            s += "\n\tvida: " + vida1;
+            s += "\n\tataque: " + ataque1;
+            s += "\n\tdefensa: " + defensa1;
+            System.out.println(s);
+
+            s = "Los stats de " + nombre2 + " son:";
+            s += "\n\tvida: " + vida2;
+            s += "\n\tataque: " + ataque2;
+            s += "\n\tdefensa: " + defensa2;
+            System.out.println(s);
+
+            if (ataque1 &gt; defensa2) {
+                vida2 = vida2 - (ataque1 - defensa2);
+                if (vida2 &lt;= 0) {
+                    vida2 = 0;
+                    System.out.println("GRRR..." + nombre2 + " PERDER COMBATE...BSSSS");
+                }
+            }
+            if (ataque2 &gt; defensa1) {
+                vida1 = vida1 - (ataque2 - defensa1);
+                if (vida1 &lt;= 0) {
+                    vida1 = 0;
+                    System.out.println("GRRR..." + nombre1 + " PERDER COMBATE...BSSSS");
+                }
+            }
+        }
+
+        if(vida1 &gt; vida2){
+            System.out.println(nombre1+" se alza con la victoria");
+        } else if (vida1 &lt; vida2) {
+            System.out.println(nombre2+" se alza con la victoria");
+        } else {
+            System.out.println("Ha sido un combate con empate");
+        }
+    }
+
+}
+</code></pre>
+      <p>Como puedes ver, todo está en <strong>una única clase y un único método</strong>. Esto dificulta la lectura, el mantenimiento y la reutilización del código.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> Objetivo de la modularización</h4>
+      <p>La tarea consiste en:</p>
+      <ul>
+        <li>Crear una clase <code>XXX</code> (elegir un nombre coherente) que represente a cada personaje del combate.</li>
+        <li>Crear métodos dentro de la clase para acciones concretas, por ejemplo: <code>decirEdad()</code>, <code>cantar(int tiempo)</code>, etc.</li>
+        <li><strong>Recordad</strong>, dividir el código en métodos pequeños y significativos para que cada parte tenga una única responsabilidad.</li>
+        <li>Elegir nombres claros y descriptivos para clases y métodos.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-02-modularizacion-carrera" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cogs"></i> 4.2 Modularización: carrera de coches</h2>
+    <p class="lead">Vamos a seguir <strong>modularizando código</strong>. Volvéis a tener una clase, ahora se llama <code>Codigo2</code>, que contiene todo en un único método y varios atributos. Recordad, la tarea será reorganizarla en <strong>clases y métodos coherentes</strong> con nombres claros y responsables.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base a modularizar</h4>
+      <p>Esta es la clase que vamos a usar como punto de partida:</p>
+      <pre><code>public class Codigo2 {
+
+    public String coche1;
+    public int velocidad1;
+    public int distancia1;
+
+    public String coche2;
+    public int velocidad2;
+    public int distancia2;
+
+    public void blablabla() {
+        coche1 = "Rayo";
+        distancia1 = 0;
+
+        coche2 = "Trueno";
+        distancia2 = 0;
+
+        for (int i = 0; i &lt; 10; i++) {
+            velocidad1 = (int)(Math.random() * 20) + 5;
+            velocidad2 = (int)(Math.random() * 20) + 5;
+
+            distancia1 += velocidad1;
+            distancia2 += velocidad2;
+
+            System.out.println(coche1 + " avanza " + velocidad1 + " metros. Total: " + distancia1);
+            System.out.println(coche2 + " avanza " + velocidad2 + " metros. Total: " + distancia2);
+        }
+
+        if (distancia1 &gt; distancia2) {
+            System.out.println(coche1 + " gana la carrera!");
+        } else if (distancia2 &gt; distancia1) {
+            System.out.println(coche2 + " gana la carrera!");
+        } else {
+            System.out.println("Empate en la carrera!");
+        }
+    }
+}
+</code></pre>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-03-modularizacion-combate-turnos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cogs"></i> 4.3 Modularización: combate por turnos</h2>
+    <p class="lead">Si, vamos a darle una vuelta a esto de <strong>modularizar código</strong>. Ahora tenéis una clase <code>Codigo3</code>. ¡Esta vez tiene más miga, leer los comentarios! Recordad, la tarea será reorganizarla en <strong>clases y métodos coherentes</strong> con nombres claros y responsables.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base a modularizar</h4>
+      <p>Esta es la clase que vamos a usar como punto de partida:</p>
+      <pre><code>public class Codigo3 {
+
+    public int h1; // vida jugador1
+    public int h2; // vida jugador2
+    public int m1; // mana jugador1
+    public int m2; // mana jugador2
+    public int e1; // vida enemigo1
+    public int e2; // vida enemigo2
+    public int em1; // mana enemigo1
+    public int em2; // mana enemigo2
+
+    public void blablabla() {
+        h1 = 100; m1 = 50;
+        h2 = 100; m2 = 50;
+        e1 = 80; em1 = 40;
+        e2 = 80; em2 = 40;
+
+        java.util.Random rnd = new java.util.Random();
+
+        int turno = 1; // 1 = jugador1, 2 = jugador2
+
+        for (int i = 0; i &lt; 20; i++) {
+            System.out.println("=== Nuevo turno ===");
+
+            if (turno == 1 &amp;&amp; h1 &gt; 0) {
+                System.out.println("Jugador 1: vida " + h1 + ", mana " + m1);
+                int op = (int) (Math.random()*3)+1;
+                int dmg = 5, cost = 0;
+                if (op == 1) { dmg = 15; cost = 10; }
+                if (op == 2) { dmg = 25; cost = 15; }
+                if (op == 3) { dmg = 40; cost = 20; }
+
+                if (m1 &gt;= cost) {
+                    m1 -= cost;
+                    if (e1 &gt; 0) e1 -= dmg;
+                    else e2 -= dmg;
+                    System.out.println("Jugador1 hace " + dmg + " daño");
+                } else {
+                    System.out.println("No tienes mana suficiente!");
+                }
+                turno = 2;
+            } else if (turno == 2 &amp;&amp; h2 &gt; 0) {
+                System.out.println("Jugador 2: vida " + h2 + ", mana " + m2);
+                int op = (int) (Math.random()*3)+1;
+                int dmg = 5, cost = 0;
+                if (op == 1) { dmg = 15; cost = 10; }
+                if (op == 2) { dmg = 25; cost = 15; }
+                if (op == 3) { dmg = 40; cost = 20; }
+
+                if (m2 &gt;= cost) {
+                    m2 -= cost;
+                    if (e1 &gt; 0) e1 -= dmg;
+                    else e2 -= dmg;
+                    System.out.println("Jugador2 hace " + dmg + " daño");
+                } else {
+                    System.out.println("No tienes mana suficiente!");
+                }
+                turno = 3;
+            } else {
+                if (e1 &gt; 0) {
+                    int op = (int) (Math.random()*3)+1;
+                    int dmg = 5, cost = 0;
+                    if (op == 1) { dmg = 10; cost = 5; }
+                    if (op == 2) { dmg = 20; cost = 10; }
+                    if (op == 3) { dmg = 30; cost = 15; }
+
+                    if (em1 &gt;= cost) {
+                        em1 -= cost;
+                        if (h1 &gt; 0) h1 -= dmg;
+                        else h2 -= dmg;
+                        System.out.println("Enemigo1 hace " + dmg + " daño");
+                    } else {
+                        System.out.println("Enemigo1 no tiene mana suficiente");
+                    }
+                }
+
+                if (e2 &gt; 0) {
+                    int op = (int) (Math.random()*3)+1;
+                    int dmg = 5, cost = 0;
+                    if (op == 1) { dmg = 10; cost = 5; }
+                    if (op == 2) { dmg = 20; cost = 10; }
+                    if (op == 3) { dmg = 30; cost = 15; }
+
+                    if (em2 &gt;= cost) {
+                        em2 -= cost;
+                        if (h1 &gt; 0) h1 -= dmg;
+                        else h2 -= dmg;
+                        System.out.println("Enemigo2 hace " + dmg + " daño");
+                    } else {
+                        System.out.println("Enemigo2 no tiene mana suficiente");
+                    }
+                }
+                turno = 1;
+            }
+
+            System.out.println("Estado -&gt; J1: " + h1 + "/" + m1 + ", J2: " + h2 + "/" + m2 +
+                    " | E1: " + e1 + "/" + em1 + ", E2: " + e2 + "/" + em2);
+        }
+
+        if (h1 &gt; 0 || h2 &gt; 0) System.out.println("¡Los jugadores han ganado!");
+        else System.out.println("¡Los enemigos han ganado!");
+    }
+}
+
+</code></pre>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-04-biblioteca-todos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-book"></i> 4.4 Completar los TODO de Biblioteca</h2>
+    <p class="lead">En esta actividad vas a practicar la programación orientada a objetos de manera inversa: <strong>no podrás crear nuevas clases ni métodos</strong>. Tu tarea será implementar la funcionalidad dentro de los métodos ya existentes de la clase <code>Biblioteca</code> utilizando únicamente los atributos y métodos que se proporcionan.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base</h4>
+      <p>Esta es la clase que se te proporciona, con los métodos donde tendrás que escribir tu código:</p>
+      <pre><code>public class Biblioteca {
+
+    public int librosDisponibles;
+    public int librosPrestados;
+    public int visitantes;
+
+    public Biblioteca() {
+        // TODO 01: Inicializar librosDisponibles con el valor facilitado
+        //  y librosPrestados y visitantes a 0
+    }
+
+    public boolean prestarLibro() {
+        // TODO 02: Comprobar si hay libros disponibles
+        //  Si hay, disminuir librosDisponibles y aumentar librosPrestados
+        return false;
+    }
+
+    public void devolverLibro() {
+        // TODO 03: Si los hay, disminuir librosPrestados y aumentar librosDisponibles
+    }
+
+    public void recibirVisitante() {
+        // TODO 04: Aumentar contador de visitantes
+        //  Posiblemente prestar un libro (un 15% de los visitantes suelen llevarse un libro)
+    }
+
+    public void mostrarEstado() {
+        // TODO 05: Mostrar libros disponibles, prestados y visitantes
+    }
+
+    public void simularDia() {
+        // TODO 06: Bucle de varias horas (iteraciones) donde se reciben visitantes,
+        //  se actualizar el estado y se devuelven los libros prestados
+    }
+}</code></pre>
+      <p>El código está preparado con <strong>TODOs</strong> que marcan el lugar donde debes implementar la lógica.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> Objetivo de la actividad</h4>
+      <p>Tu objetivo principal es:</p>
+      <ul>
+        <li>Escribir código dentro de los métodos ya existentes siguiendo las indicaciones de los TODOs.</li>
+        <li>Gestionar correctamente los atributos <code>librosDisponibles</code>, <code>librosPrestados</code> y <code>visitantes</code>.</li>
+        <li>Simular un día de funcionamiento de la biblioteca utilizando el método <code>simularDia()</code>.</li>
+        <li>Mostrar el estado de la biblioteca en cada momento para comprobar que todo funciona correctamente.</li>
+      </ul>
+      <p>Recuerda: <strong>no puedes añadir nuevos métodos ni clases</strong><span>, toda la lógica debe ir dentro de los métodos existentes.</span></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-05-diseno-clase-todos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-users-cog"></i> 4.5 Diseña una clase con TODO</h2>
+    <p class="lead">En esta actividad vamos a trabajar el <strong>diseño de clases y la comprensión del código ajeno</strong>. Esta vez tú serás la persona que diseña una clase con <code>TODOs</code>, y otro/a compañero/a será quien tenga que completarla. De esta forma practicarás cómo estructurar código, dar instrucciones claras y trabajar en equipo sobre el mismo diseño.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Instrucciones de la actividad</h4>
+      <ul>
+        <li>Crea una clase Java original (por ejemplo: <code>CuentaBancaria</code>, <code>Robot</code>, <code>Juego</code>, <code>Inventario</code>, etc.).</li>
+        <li>Tu clase deberá contener al menos <strong>3 atributos</strong> y <strong>5 métodos</strong> (no de olvides del constructor).</li>
+        <li>En lugar de implementar el código de los métodos, escribe comentarios con <code>// TODO:</code> explicando claramente qué debe hacer cada método.</li>
+        <li>Las explicaciones deben ser <strong>claras y concisas</strong>, de modo que otra persona pueda completar el código sin dificultad, pero sin que le des la solución exacta.</li>
+        <li><strong>No se permite el uso de IA</strong>: esta actividad busca fomentar el pensamiento lógico y la capacidad de planificación. Si lo hace una máquina por nosotros, no aprendemos.</li>
+      </ul>
+      <p>Cuando termines tu clase, compártela con un/a compañero/a de clase. Esa persona deberá completar los métodos según tus indicaciones.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-project-diagram"></i> Fases del trabajo colaborativo</h4>
+      <ol>
+        <li><strong>Diseño:</strong> Crea tu clase con los TODOs siguiendo los requisitos.</li>
+        <li><strong>Intercambio:</strong> Envía tu clase a un/a compañero/a (o el profesor asignará parejas).</li>
+        <li><strong>Implementación:</strong> Completa la clase que te ha tocado rellenando los TODOs.</li>
+        <li><strong>Revisión:</strong> Devuelve la clase a su autor/a original para que revise si cumple con la intención del diseño.</li>
+      </ol>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-pencil-alt"></i> Requisitos mínimos</h4>
+      <ul>
+        <li>La clase debe tener un mínimo de <strong>3 atributos</strong>.</li>
+        <li>Debe incluir al menos <strong>5 métodos y 1 constructor.</strong></li>
+        <li>Los nombres de los atributos y métodos deben ser coherentes y seguir buenas prácticas (camelCase, nombres descriptivos, etc.).</li>
+        <li>Las instrucciones de los TODO deben ser comprensibles, pero no una guía paso a paso con código exacto.</li>
+        <li>No está permitido usar herramientas de IA para generar los TODOs. Esta actividad es de <strong>diseño y pensamiento propio</strong>.</li>
+      </ul>
+      <p>💡 <strong>Pista:</strong> si te cuesta pensar los TODOs desde cero, crea primero una versión funcional de tu clase, pruébala y, cuando funcione, elimina el código de los métodos sustituyéndolo por comentarios TODO que indiquen lo que hacía cada parte.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-06-clase-utilidades-generador-palabras" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-tools"></i> 4.6 Clase de utilidades: GeneradorPalabras</h2>
+    <p class="lead">En esta actividad, vamos a dar nuestros primeros pasos en la creación de una clase de utilidades, similar a cómo hemos estado utilizando la clase <code>Math</code> en nuestros proyectos. La idea es que aprendáis a crear métodos y constantes estáticas, para que puedan ser invocadas sin necesidad de instanciar la clase.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-open"></i> Estructura del Proyecto</h4>
+      <ul>
+        <li>El proyecto deberá estar contenido dentro del paquete: <code>edu.masanz.da.ut4</code>.</li>
+        <li>Crearéis una clase llamada <code>GeneradorPalabras</code>, que estará alojada en un subpaquete denominado <code>util</code>, es decir: <code>edu.masanz.da.ut4.util</code>.</li>
+        <li>Esta clase <code>GeneradorPalabras</code> incluirá una constante y un método estático, que podréis invocar directamente desde la clase <code>Main</code>.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-list-alt"></i> Requisitos de la Clase GeneradorPalabras</h4>
+      <ul>
+        <li><strong>Constante estática:</strong> Crear una constante llamada <code>PALABRAS</code> que contenga un <code>String</code> con muchas palabras de la <strong>misma longitud</strong>, separadas por espacios. Por ejemplo: <code>"gato vaca rana leon osos"</code>.</li>
+        <li><strong>Método estático:</strong> Incluir un método llamado <code>obtenerPalabra()</code>, que devuelva una palabra aleatoria de la constante <code>PALABRAS</code>. Para seleccionar la palabra, utilizaréis métodos del objeto <code>String</code> como <code>charAt</code>, <code>length</code> y <code>substring</code>. Ten en cuenta que no conocemos ni el <strong>número de letras</strong> que compone cada palabra ni el <strong>número de palabras</strong> que hay en la constante.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Uso de la Clase GeneradorPalabras</h4>
+      <p>En la clase <code>Main</code>, invocaréis al método <code>obtenerPalabra()</code> de la clase <code>GeneradorPalabras</code> para mostrar una palabra aleatoria en pantalla. La clave aquí es que, al ser un método estático, no necesitaréis instanciar la clase <code>GeneradorPalabras</code> para invocarlo, de la misma forma que utilizáis <code>Math.random()</code> sin crear un objeto de tipo <code>Math</code>.</p>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer06PalabrasRandom</code></p>
+      <p><strong>Reto adicional:</strong></p>
+      <p>¿Qué pasaría si el tamaño de las palabras es variable? ¿Cómo resolveríamos el problema para una constante <code>PALABRAS</code> que contenga por ejemplo los valores <code>"camion oro azul camarero"</code>?</p>
+      <p></p>
+      <p></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-07-colores-consola" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-palette"></i> 4.7 Colores para la consola</h2>
+    <p class="lead">En esta actividad, crearéis otra clase de utilidad llamada <code>ColoresConsola</code>. Esta clase os permitirá cambiar el color del texto que se muestra en la consola. Utilizaremos códigos de escape ANSI para modificar el color de la salida, lo que hará que vuestros programas sean más dinámicos y visualmente atractivos.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-open"></i> Estructura del Proyecto</h4>
+      <ul>
+        <li>El proyecto estará contenido en el paquete: <code>edu.masanz.da.ut4.util</code>.</li>
+        <li>Crearéis una clase llamada <code>ColoresConsola</code>, que contendrá constantes y métodos estáticos para cambiar el color del texto en consola.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-paint-brush"></i> Constantes para los Colores</h4>
+      <p>En la clase <code>ColoresConsola</code>, deberéis definir las siguientes constantes para cambiar el color del texto:</p>
+      <pre><code>public static final String RESET = "\u001B[0m";
+public static final String ROJO = "\u001B[31m";
+public static final String VERDE = "\u001B[32m";
+public static final String AMARILLO = "\u001B[33m";
+public static final String AZUL = "\u001B[34m";
+public static final String MAGENTA = "\u001B[35m";
+public static final String CIAN = "\u001B[36m";
+public static final String BLANCO = "\u001B[37m";</code>
+      </pre>
+      <p>Estas constantes representan los colores que podréis utilizar para modificar la salida de texto en la consola. La constante <code>RESET</code> se utiliza para volver al color predeterminado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Métodos Estáticos</h4>
+      <p>La clase <code>ColoresConsola</code> también deberá incluir métodos estáticos que permitan mostrar texto en la consola con los colores definidos. Algunos ejemplos de métodos que podríais implementar:</p>
+      <ul>
+        <li><code>imprimirEnRojo(String texto)</code>: Muestra el texto en color rojo.</li>
+        <li><code>imprimirEnVerde(String texto)</code>: Muestra el texto en color verde.</li>
+        <li><code>imprimirEnAmarillo(String texto)</code>: Muestra el texto en color amarillo.</li>
+        <li><code>imprimirEnAzul(String texto)</code>: Muestra el texto en color azul.</li>
+        <li>Cada método debe utilizar la constante de color correspondiente, seguido de <code>RESET</code> para volver al color predeterminado.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplo de Uso</h4>
+      <p>En la clase <code>Main</code>, podréis probar la clase <code>ColoresConsola</code> invocando los métodos de colores sin necesidad de crear una instancia. Por ejemplo:</p>
+      <pre><code>ColoresConsola.imprimirEnRojo("Este es un mensaje en rojo");
+ColoresConsola.imprimirEnVerde("Este es un mensaje en verde");</code>
+      </pre>
+      <p>Notaréis cómo cambia el color de la salida en la consola, haciendo el texto más visual y llamativo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Desafío Adicional</h4>
+      <ul>
+        <li>Añadid métodos adicionales para otros colores o incluso combinaciones de colores.</li>
+        <li>Intentad crear un método que permita cambiar el color de cualquier texto pasado como parámetro, sin necesidad de definir un método específico para cada color.</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer07PinkPower</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-08-wordle-consola" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-keyboard"></i> 4.8 Wordle por consola</h2>
+    <p class="lead">¡Ha llegado el momento de poner a prueba todo lo que habéis aprendido hasta ahora! En esta actividad, desarrollaremos un juego de <strong>Wordle</strong> en consola, utilizando las clases de utilidad que creasteis anteriormente: <code>GeneradorPalabras</code> y <code>ColoresConsola</code>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Estructura del Proyecto</h4>
+      <ul>
+        <li>El proyecto estará contenido en el paquete: <code>edu.masanz.da.ut4.wordle</code>.</li>
+        <li>Crearéis una nueva clase llamada <code>Wordle</code>, que será la clase principal del juego.</li>
+        <li>La clase <code>GeneradorPalabras</code> será utilizada para obtener la palabra del día.</li>
+        <li>La clase <code>ColoresConsola</code> permitirá cambiar los colores de salida en la consola.</li>
+        <li>Deberás crear cada clase en el paquete que consideres oportuno.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-clipboard-list"></i> Requisitos</h4>
+      <p>La clase <code>Wordle</code> deberá cumplir los siguientes requisitos:</p>
+      <ul>
+        <li>Tendrá <strong>dos constructores</strong>. Uno que reciba la palabra del día a evaluar y otro sin parámetros, en cuyo caso deberá generar la palabra del día a evaluar a través del método estático <code>obtenerPalabra()</code> de la clase <code>GeneradorPalabras</code>.</li>
+        <li>Implementará un método <code>evaluarPalabra(String
+            palabraUsuario)</code> que reciba la palabra introducida por el usuario y muestre un resultado formateado con colores según las siguientes reglas:
+<ul>
+<li>Si la letra no está en la palabra del día, se mostrará la letra en color <strong>rojo</strong>.</li>
+<li>Si la letra está en la palabra del día, pero no en la posición correcta, se mostrará la letra en color <strong>amarillo</strong>.</li>
+<li>Si la letra está en la posición correcta, se mostrará la letra en color <strong>verde</strong>.</li>
+</ul>
+</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplo de Salida</h4>
+      <p>Imaginad que la palabra del día es <code>PERRO</code>. Si el usuario introduce la palabra <code>PARTE</code>, el método <code>evaluarPalabra</code> debería devolver algo similar a:</p>
+      <pre><code><span class="text-success">P</span><span class="text-warning">A</span><span class="text-danger">RTE</span></code>
+      </pre>
+      <p>En este ejemplo:</p>
+      <ul>
+        <li><code>P</code> es correcta y está en la posición correcta (color verde).</li>
+        <li><code>A</code> está en la palabra del día, pero en una posición incorrecta (color amarillo).</li>
+        <li><code>R</code>, <code>T</code> y <code>E</code> no están en la palabra del día (color rojo).</li>
+      </ul>
+      <p></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas y Consejos</h4>
+      <ul>
+        <li>Recordad utilizar los métodos <code>charAt</code>, <code>length</code> y <code>substring</code> de la clase <code>String</code> para recorrer y comparar las letras de la palabra del día.</li>
+        <li>Utilizad las constantes de color definidas en <code>ColoresConsola</code> para mostrar el resultado con los colores adecuados.</li>
+        <li>Intentad hacer que el juego sea intuitivo y que el usuario pueda probar varias palabras hasta adivinar la palabra del día.</li>
+        <li>¡Únicamente habrá <strong>6 intentos</strong> para adivinar la palabra!</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer08WordleConsola</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-09-tabla-puntuaciones" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-table"></i> 4.9 Tabla de puntuaciones</h2>
+    <p class="lead">En esta actividad, vamos a seguir practicando con cadenas de texto y colores en consola. Además, utilizaremos el método <code>printf</code> para alinear el texto y mostrar una tabla de puntuaciones de forma elegante.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Descripción del Proyecto</h4>
+      <p>Vais a desarrollar un programa que muestre puntuaciones <strong>generadas aleatoriamente</strong> (valores entre 0 y 200) y nombres asignados a dichas puntuaciones introducidos por el usuario con la clase <code>Scanner</code>. Es decir, se introducirá un nombre y se generará una puntuación aleatoria asignada a dicho nombre. Cuando el usuario introduzca <strong>una palabra vacía</strong> el programa dejará de solicitar más nombres y mostrará una tabla con tres columnas: <strong>Jugador</strong>, <strong>Puntuación</strong> y <strong>Rango</strong>. El rango estará coloreado según la puntuación del jugador:</p>
+      <ul>
+        <li>Puntuación menor a 50: color <code>ROJO</code>.</li>
+        <li>Puntuación entre 50 y 100: color <code>AMARILLO</code>.</li>
+        <li>Puntuación mayor a 100: color <code>VERDE</code>.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplo de Salida</h4>
+      <pre><code>------------------------------------------------
+| Jugador           | Puntuación  | Rango      |
+------------------------------------------------
+| Alice             |         120 | VERDE      |
+| Bob               |          45 | ROJO       |
+| Charlie           |          75 | AMARILLO   |
+| David             |         200 | VERDE      |
+------------------------------------------------</code>
+      </pre>
+      <p>En este ejemplo:</p>
+      <ul>
+        <li>La columna de <strong>Jugador</strong> está alineada a la izquierda.</li>
+        <li>La columna de <strong>Puntuación</strong> está alineada a la derecha.</li>
+        <li>La columna de <strong>Rango</strong> muestra el color correspondiente usando las constantes de la clase <code>ColoresConsola</code>.</li>
+      </ul>
+      <p></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-clipboard-list"></i> Requisitos</h4>
+      <ul>
+        <li>Utilizad la clase <code>ColoresConsola</code> creada anteriormente para aplicar colores en la columna de rango.</li>
+        <li>Debéis formatear la tabla utilizando <code>printf</code> para asegurar que las columnas estén alineadas correctamente.</li>
+        <li>Al menos tres jugadores con puntuaciones diferentes.</li>
+        <li>El texto debe quedar formateado de manera limpia y legible.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Utilizad <code>%s</code> para formatear cadenas de texto, <code>%d</code> para números enteros y <code>%n</code> para saltos de línea.</li>
+        <li>Podéis alinear texto a la izquierda usando <code>%-20s</code> y a la derecha con <code>%20s</code> (por ejemplo).</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer09TablaClasificacion</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-10-ahorcado-toma-requisitos" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> 4.10 Juego del ahorcado: toma de requisitos</h2>
+    <p class="lead">En esta actividad, vais a diseñar e implementar vuestra propia versión del clásico juego del <strong>Ahorcado</strong>. El reto es que debéis pensar por vosotros mismos las clases, métodos y atributos necesarios para llevar a cabo la solución. ¡Vamos allá!</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-alt"></i> Toma de Requisitos</h4>
+      <p>Un cliente ha venido a vosotros con la siguiente propuesta:</p>
+      <blockquote class="blockquote">
+        <p>"Quiero desarrollar un juego del Ahorcado donde el usuario pueda adivinar palabras. El juego debe permitir al jugador introducir letras una a una y mostrar el progreso de la palabra oculta, actualizando el estado del juego según los intentos fallidos. Además, me gustaría que el jugador pueda ver un contador de los intentos restantes y que el juego termine cuando acierte toda la palabra o agote sus intentos."</p>
+      </blockquote>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Requisitos del Juego</h4>
+      <ul>
+        <li>El juego debe seleccionar una palabra de manera aleatoria (podéis reutilizar la clase <code>GeneradorPalabras</code> creada anteriormente).</li>
+        <li>El jugador debe poder introducir letras una a una para intentar adivinar la palabra oculta.</li>
+        <li>Debe mostrar el estado actual de la palabra (por ejemplo, "_ _ a _ _ a").</li>
+        <li>El jugador tiene un número limitado de intentos (por defecto 6). Con cada intento fallido, se debe actualizar un contador de intentos restantes.</li>
+        <li>Deberán mostrarse <strong>mensajes </strong>con <strong>diferentes colores</strong>. Qué colores y cuando utilizarlos dependerá de vuestra decisión.</li>
+        <li>Del mismo modo, los <strong>textos </strong>que se muestren, deberán estar <strong>alineados correctamente</strong>, bajo vuestro criterio.</li>
+        <li>El juego termina cuando el jugador acierta toda la palabra o agota sus intentos.</li>
+        <li>Debéis mostrar un mensaje final indicando si el jugador ha ganado o perdido.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-chalkboard-teacher"></i> ¿Cómo lo Vamos a Hacer?</h4>
+      <p>A diferencia de los ejercicios anteriores, esta vez no os vamos a dar los atributos, métodos o clases que debéis utilizar. En su lugar, os dejamos algunas preguntas para ayudaros a pensar y estructurar vuestra aplicación:</p>
+      <ul>
+        <li>¿Qué clases necesitará el juego? ¿Podríais tener una clase para manejar el estado del juego?</li>
+        <li>¿Qué métodos necesitará la clase principal? ¿Tal vez un método para evaluar cada intento?</li>
+        <li>¿Qué atributos necesitaréis? ¿Una lista de letras acertadas? ¿Un contador de intentos?</li>
+        <li>¿Cómo vais a manejar la visualización del estado del juego en la consola?</li>
+        <li>¿Qué partes del código pueden beneficiarse de ser métodos estáticos o reutilizables?</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer10AhorcadoConsola</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-11-ciudadano-ladron" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-exchange-alt"></i> 4.11 Objetos como parámetros: ciudadano y ladrón</h2>
+    <p class="lead">En esta actividad aprenderás cómo funciona el <strong>paso de objetos por referencia</strong> en Java. Verás cómo, al pasar un objeto como parámetro a un método, este puede <strong>modificar sus atributos directamente</strong>, afectando al objeto original fuera del método.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user-shield"></i> Contexto de la práctica</h4>
+      <p>Vamos a simular una pequeña historia entre dos clases:</p>
+      <ul>
+        <li><code>Ciudadano</code>: una persona con un nombre y una cantidad de dinero.</li>
+        <li><code>Ladron</code>: un personaje que puede robar dinero a un ciudadano mediante un método <code>robar(Ciudadano c)</code>.</li>
+      </ul>
+      <p>Además, el ciudadano podrá sacar dinero de un cajero con el método <code>sacarDinero()</code>, y cada clase tendrá su propio <code>toString()</code> para mostrar información formateada sobre su estado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Estructura del ejercicio</h4>
+      <p>Se deberá trabajar con tres clases principales:</p>
+      <ul>
+        <li><strong><code>Ciudadano</code></strong> → atributos: nombre, dinero. <br>Métodos: <code>sacarDinero()</code>, <code>toString()</code>.</li>
+        <li><strong><code>Ladron</code></strong> → atributos: nombre, dinero robado. <br>Métodos: <code>robar(Ciudadano c)</code>, <code>toString()</code>.</li>
+        <li><strong><code>Main</code></strong> → para crear los objetos, invocar los métodos y mostrar resultados.</li>
+      </ul>
+      <p>Observa cómo el método <code>robar(Ciudadano c)</code> modifica directamente el objeto <code>c</code> que se le pasa como parámetro. Esto demuestra que los <strong>objetos en Java se pasan por referencia</strong> (en realidad, por valor de referencia), por lo que los cambios internos afectan al mismo objeto.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-palette"></i> Uso de colores y salida formateada</h4>
+      <p>Para mejorar la visualización, emplea la clase auxiliar que desarrollamos en su día <code>ColoresConsola</code> para dar color al texto. Por ejemplo:</p>
+      <p>De este modo la salida será más elegante y clara visualmente.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tasks"></i> Tareas a realizar</h4>
+      <ul>
+        <li>Implementar las clases <code>Ciudadano</code> y <code>Ladron</code> con los métodos descritos.</li>
+        <li>Demostrar en el <code>main</code> cómo el ladrón modifica el dinero del ciudadano al robarle. </li>
+        <li>Usar <code>printf</code> para mostrar información formateada y colorida. Por ejemplo, sacar la información de <code>Ciudadano</code> y <code>Ladron</code> en modo tabla con alineación de textos y colores diferenciados.</li>
+        <li>Incluir el método <code>toString()</code> en ambas clases para mostrar información general de cada objeto.</li>
+      </ul>
+      <p>💡 Consejo: imprime el estado de los objetos antes y después de llamar al método <code>robar()</code> para visualizar claramente el efecto del paso por referencia. También tenemos <strong>Java Visualizer</strong> para observar que está pasando en <strong>modo debug</strong>.</p>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4CiudadanoLadron</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-12-ciudadano-ladron-guardia" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-user-secret"></i> 4.12 Ampliación: ciudadano, ladrón y guardia</h2>
+    <p class="lead">En esta ampliación trabajaremos con <strong>tres objetos que interactúan entre sí</strong>: un <strong>Ciudadano</strong>, un <strong>Ladrón</strong> y un <strong>Guardia</strong>. El objetivo es consolidar el concepto de <strong>paso de objetos por referencia</strong>, y comprender cómo las modificaciones de estado entre objetos afectan a todo el sistema.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-city"></i> Escenario de la simulación</h4>
+      <p>Imagina una pequeña ciudad donde:</p>
+      <ul>
+        <li>El <strong>Ciudadano</strong> tiene un nombre y una cantidad de dinero, que puede aumentar al sacar dinero o disminuir si le roban.</li>
+        <li>El <strong>Ladrón</strong> puede robar a un ciudadano mediante el método <code>robar(Ciudadano c)</code>.</li>
+        <li>El <strong>Guardia</strong> patrulla la zona y puede intervenir para proteger al ciudadano o intentar atrapar al ladrón con el método <code>intervenir(Ladron l, Ciudadano c)</code>.</li>
+      </ul>
+      <p>Cada acción modificará el estado de los objetos, y deberás mostrarlo claramente en consola con <code>printf</code> y colores personalizados.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Estructura recomendada</h4>
+      <p>Las clases mínimas que deberías tener son:</p>
+      <ul>
+        <li><code>Ciudadano</code> → <small>nombre, dinero</small></li>
+        <li><code>Ladron</code> → <small>nombre, botín total, éxito en robos</small></li>
+        <li><code>Guardia</code> → <small>nombre, arrestos realizados</small></li>
+        <li><code>ColoresConsola</code> → <small>constantes con colores ANSI</small></li>
+        <li><code>Main</code> → <small>simulación de la aplicación</small></li>
+      </ul>
+      <p>Observa cómo un mismo objeto (<code>Ciudadano</code>) es modificado por <strong>dos objetos distintos</strong> en diferentes momentos del programa, reforzando el concepto de referencia compartida.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tasks"></i> Tareas a realizar</h4>
+      <ul>
+        <li>Implementar las clases <code>Ciudadano</code>, <code>Ladron</code> y <code>Guardia</code> con métodos y atributos coherentes.</li>
+        <li>Simular varias interacciones donde el ladrón roba y el guardia puede intervenir.</li>
+        <li>Demostrar claramente el <strong>paso de objetos por referencia</strong> (ver cómo se modifican los objetos desde distintos métodos).</li>
+        <li>Usar <code>printf</code> y <code>ColoresConsola</code> para mostrar la información de manera legible y atractiva.</li>
+        <li>Incluir mensajes de estado antes, durante y después de las acciones para comparar los cambios.</li>
+      </ul>
+      <p>💡 <strong>Consejo:</strong> Intenta modularizar el código creando métodos auxiliares como <code>mostrarEstadoGeneral()</code> o <code>simularDia()</code> para mantener un código limpio y reutilizable.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Retos opcionales</h4>
+      <ul>
+        <li>Que el ciudadano pueda <strong>denunciar el robo</strong> (porcentaje de éxito de intervención del guardia).</li>
+        <li>Que el ladrón pueda <strong>huir</strong> y acumular robos pendientes.</li>
+        <li>Añadir varios objetos de tipo <code>Ciudadano</code> en la iteración.</li>
+      </ul>
+      <p>Estos extras ayudan a trabajar la relación entre múltiples objetos y la composición de clases.</p>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4CiudadanoLadronGuardia</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-13-pesca-oceano" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-fish"></i> 4.13 Objetos dentro de objetos: pesca en el océano</h2>
+    <p class="lead">En esta práctica trabajarás con un escenario donde un <strong>Pescador</strong> interactúa con un <strong>Océano</strong> que contiene varios <strong>Peces</strong>. Aprenderás cómo un objeto puede tener <strong>otros objetos como atributos</strong>, cómo se gestionan las referencias entre ellos y qué ocurre cuando un objeto “desaparece” (se vuelve <code>null</code>).</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-water"></i> Escenario de la simulación</h4>
+      <p>Imaginemos un océano que tiene tres peces. Cada pez tiene un <strong>nombre</strong> y un <strong>nivel de dificultad</strong> (un número aleatorio del 1 al 10 que representa lo difícil que es pescarlo).</p>
+      <ul>
+        <li>El <strong>Pescador</strong> puede intentar pescar con el método <code>pescar(Oceano o)</code>.</li>
+        <li>Por cada pez del océano, el pescador lanzará un número aleatorio. Si su número es <strong>mayor o igual</strong> al nivel de dificultad del pez, consigue pescarlo.</li>
+        <li>Cuando un pez es pescado, desaparece del océano (<code>null</code>) y el contador del pescador aumenta.</li>
+        <li>Después de cada intento de pesca, el océano intentará regenerarse con una pequeña probabilidad (por ejemplo, del 30%).</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Estructura</h4>
+      <p>Deberás trabajar con las siguientes clases:</p>
+      <ul>
+        <li><strong><code>Pez</code></strong>: representa un pez en el océano.</li>
+        <li><strong><code>Oceano</code></strong>: contiene tres atributos de tipo <code>Pez</code> (pez1, pez2, pez3).</li>
+        <li><strong><code>Pescador</code></strong>: tiene un contador de peces pescados y un método <code>pescar(Oceano o)</code>.</li>
+        <li><strong><code>Main</code></strong>: para ejecutar la simulación.</li>
+      </ul>
+      <p>Puedes personalizar nombres, probabilidades o lógica de regeneración. Lo importante es entender cómo un objeto (<code>Oceano</code>) <strong>contiene otros objetos</strong> y cómo se modifican desde otra clase (<code>Pescador</code>) gracias al <strong>paso por referencia</strong>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tasks"></i> Tareas a realizar</h4>
+      <ul>
+        <li>Implementar las clases <code>Pez</code>, <code>Oceano</code> y <code>Pescador</code> según la descripción.</li>
+        <li>Mostrar con <code>System.out.printf</code> información formateada y clara del proceso de pesca.</li>
+        <li>Demostrar cómo los peces del océano pueden desaparecer (<code>null</code>) y regenerarse (<code>new</code>) aleatoriamente.</li>
+        <li>Usar el método <code>toString()</code> en todas las clases para imprimir el estado del sistema antes y después de cada acción.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Retos opcionales</h4>
+      <ul>
+        <li>Dar distintos valores de “dificultad base” a cada pez según su tipo.</li>
+        <li>Hacer que el pescador solo tenga un número limitado de intentos.</li>
+        <li>Añadir un método <code>simularPesca()</code> que realice varios turnos de pesca y regeneración del oceano.</li>
+        <li>Usar colores en consola con la clase auxiliar <code>ColoresConsola</code> para resaltar los eventos.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4PescadorOceano</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-14-pesca-sostenible" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-users"></i> 4.14 Ampliación: pesca sostenible</h2>
+    <p class="lead">En esta parte del ejercicio, vamos a ampliar la simulación introduciendo una situación mucho más realista y compleja: <strong>varios pescadores que comparten el mismo océano</strong>. Además, el <strong>Océano </strong>no solo contiene peces, sino que también tiene un nuevo atributo: su <strong>nivel de contaminación</strong>. Este valor influirá directamente en la capacidad del océano para regenerar peces y cada vez que un pescador pesque un pez, modificará este valor.</p>
+    <p>De esta forma, veremos claramente cómo un mismo objeto compartido puede verse afectado por las acciones de diferentes instancias de otros objetos.</p>
+    <ul>
+      <li>Crea al menos <strong>tres pescadores distintos</strong>, cada uno con su propio nombre e historial de pesca.</li>
+      <li>Todos ellos deben <strong>pescar en el mismo objeto <code>Oceano</code></strong>.</li>
+      <li>El océano tendrá un <strong>nivel de contaminación</strong> entre 0 y 100. La probabilidad de regenerar peces disminuirá según aumente ese valor.</li>
+      <li>Después de que cada pescador pesque, el océano debe intentar regenerarse, afectado por su nivel de contaminación.</li>
+      <li>El nivel de contaminación será compartido por todos, por lo que las acciones de un pescador afectan al resto.</li>
+      <li>El pescador podrá limpiar el océano con un nuevo método <code>limpiarOceano(Oceano o)</code>. Podrá elegir está opción en base a una probabilidad o el criterio que elijáis, pero nunca podrá pescar y limpiar el océano al mismo tiempo. </li>
+    </ul>
+    <p>Por ejemplo, si un pescador es muy activo y contamina mucho, los demás notarán que el océano se regenera con más dificultad. Esto permite observar con claridad el concepto de <strong>paso por referencia</strong>: todos los pescadores están actuando sobre el mismo objeto en memoria, no sobre copias.</p>
+    <div class="alert alert-info mt-3" role="alert">💡 <strong>Reflexión:</strong> Este tipo de situación refleja perfectamente lo que ocurre en la programación cuando varios objetos modifican una misma referencia. Cambiar el estado del objeto compartido desde uno de ellos afecta al resto, y eso puede provocar consecuencias inesperadas si no se gestiona bien.</div>
+    <h5 class="text-primary mt-4"><i class="fas fa-seedling"></i> Retos adicionales</h5>
+    <ul>
+      <li>Haz que los pescadores tengan distintos <strong>niveles de ética ambiental</strong>, de manera que algunos limpien el océano más a menudo que otros.</li>
+      <li>Implementa un “ranking sostenible” al final del programa, donde se valore no solo quién pescó más peces, sino quién mantuvo el océano en mejor estado.</li>
+      <li>Permite que, si la contaminación llega a niveles extremos, los pescadores tengan que <strong>dejar de pescar</strong> hasta que se recupere el entorno.</li>
+      <li>Simular varios días de pesca, mostrando la evolución del sistema con <code>printf</code> y colores si lo deseas.</li>
+    </ul>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4OceanoSostenible</code></p>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-15-partido-futbol" class="fragment-section section-anchor">
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-futbol"></i> 4.15 Partido de fútbol</h2>
+    <p class="lead">En esta actividad vamos a simular un <strong>partido de fútbol</strong> entre jugadores y porteros, utilizando todo lo aprendido sobre <strong>paso por referencia, probabilidad y relaciones entre objetos</strong>.</p>
+    <p>Tendrás que diseñar las clases <code>Jugador</code> y <code>Portero</code> con los métodos y atributos necesarios para que el balón pueda ir pasando de unos a otros, y los eventos (pases, regates y chutes) ocurran según las probabilidades establecidas.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-users"></i> Clases principales</h4>
+      <ul>
+        <li><strong>Jugador</strong>: representa a un jugador de campo.</li>
+        <li><strong>Portero</strong>: representa al guardameta de un equipo.</li>
+      </ul>
+      <p>Ambos interactúan entre sí y con el balón, que estará “dentro” de un objeto en forma de atributo booleano (<code>tieneBalon</code>).</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-id-badge"></i> Atributos sugeridos</h4>
+      <p>Para la clase <code>Jugador</code> puedes considerar los siguientes atributos:</p>
+      <ul>
+        <li><code>String nombre</code> — nombre del jugador.</li>
+        <li><code>Jugador compi</code> — compañero de equipo al que puede pasar el balón.</li>
+        <li><code>boolean tieneBalon</code> — indica si el jugador tiene el balón actualmente.</li>
+        <li><code>int tasaExitoPase</code> — probabilidad (1–100) de completar un pase con éxito.</li>
+        <li><code>int tasaExitoGol</code> — probabilidad (1–100) de que su chute sea certero y llegue a portería.</li>
+        <li><code>int tasaInterceptar</code> — probabilidad (1–100) de interceptar un pase o un regate rival.</li>
+        <li><code>int tasaRegate</code> — probabilidad (1–100) de regatear con éxito a un rival.</li>
+      </ul>
+      <p>Y para la clase <code>Portero</code>:</p>
+      <ul>
+        <li><code>String nombre</code></li>
+        <li><code>boolean tieneBalon</code></li>
+        <li><code>int tasaParada</code> — probabilidad (1–100) de detener un disparo.</li>
+        <li><code>int tasaExitoPase</code> — probabilidad de realizar un pase correcto al iniciar jugada.</li>
+      </ul>
+      <div class="alert alert-info mt-3">💡 <strong>Nota:</strong> Puedes ajustar las probabilidades libremente para que el partido sea equilibrado y entretenido.</div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Métodos requeridos</h4>
+      <p>Cada clase debe tener los siguientes métodos:</p>
+      <h5 class="text-success"><i class="fas fa-running"></i> En <code>Jugador</code>:</h5>
+      <ul>
+        <li><code>void regatear(Jugador rival)</code> — el jugador intenta superar al rival.</li>
+        <li><code>void chutar(Portero porteroRival)</code> — intenta marcar un gol al portero contrario.</li>
+        <li><code>void pasar(Jugador destino, Jugador rival)</code> — intenta pasar el balón a su compañero evitando la intercepción.</li>
+        <li><code>String toString()</code> — devuelve una descripción del jugador, su tasa de éxito y si tiene el balón.</li>
+      </ul>
+      <h5 class="text-success"><i class="fas fa-hand-paper"></i> En <code>Portero</code>:</h5>
+      <ul>
+        <li><code>void pararBalon()</code> — determina si consigue detener el disparo.</li>
+        <li><code>void pasar(Jugador destino)</code> — el portero pasa el balón a un jugador de su equipo.</li>
+        <li><code>String toString()</code> — muestra su tasa de parada y si tiene el balón.</li>
+      </ul>
+      <p>Cada acción debe modificar correctamente el atributo <code>tieneBalon</code> de los jugadores implicados, para reflejar quién controla el balón en cada momento.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-random"></i> Lógica del partido</h4>
+      <p>Se simulará un pequeño partido o secuencia de jugadas:</p>
+      <ul>
+        <li>Comienza con un jugador que tiene el balón (<code>tieneBalon = true</code>).</li>
+        <li>El jugador puede decidir aleatoriamente si <strong>regatea</strong>, <strong>pasa</strong> o <strong>chuta</strong>.</li>
+        <li>Los rivales intentan interceptar el balón o detener el disparo, según corresponda.</li>
+        <li>Si el balón se pierde, cambia la posesión automáticamente.</li>
+      </ul>
+      <p>Utiliza <code>Math.random()</code> para generar los porcentajes de éxito o fallo. Por ejemplo: <code>if (Math.random() * 100 &lt; tasaExitoPase) ...</code></p>
+      <div class="alert alert-warning">⚠️ Recuerda que los métodos deben <strong>afectar a ambos objetos involucrados</strong>. Si un jugador falla un pase, su compañero no recibe el balón y el rival puede recuperarlo.</div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-comment-dots"></i> Presentación y formato</h4>
+      <ul>
+        <li>Utiliza <code>printf()</code> para mostrar mensajes de manera formateada, con colores si usas la clase de colores del ejercicio anterior.</li>
+        <li>Muestra mensajes claros, por ejemplo:<br><code>"Juan intenta regatear a Carlos y... ¡Lo consigue!"</code><br><code>"El portero Paco detiene el disparo de Juan con una gran parada."</code></li>
+        <li>Incluye un marcador global (goles Equipo1 vs Equipo2).</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-trophy"></i> Retos adicionales</h4>
+      <ul>
+        <li>Permite que el partido dure varios turnos (por ejemplo, 10 jugadas).</li>
+        <li>Agrega una clase <code>Equipo</code> que contenga varios jugadores y su portero, para simular equipos completos.</li>
+        <li>Implementa un método <code>iniciarPartido()</code> que automatice el flujo y declare el equipo ganador al final.</li>
+        <li>Agrega una estadística final con el número de pases, regates, tiros y goles exitosos.</li>
+        <li>Si te sientes valiente, puedes incluir una clase <code>Arbitro</code> e incluir un sistema de faltas y tarjetas (esto sería una gran ampliación)</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4PartidoFutbol</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section id="ut04-ejercicios-90-proyecto-empuja-piedras" class="fragment-section section-anchor">
+<div id="ut04-ejercicios-01-proyecto-empuja-piedras" class="container mt-4 p-4"
   style="padding-top: 0 !important; margin-top: 0 !important;">
   <div class="card shadow p-4">
-    <h2 class="text-primary mb-3"><i class="fas fa-cubes"></i> 4.1 Proyecto integrador UT1–UT4: EmpujaPiedras</h2>
+    <h2 class="text-primary mb-3"><i class="fas fa-cubes"></i> 4.16 Proyecto integrador UT1–UT4: EmpujaPiedras</h2>
     <p class="lead">Construye un juego en el que un personaje debe <strong>empujar todas las piedras hasta sus destinos</strong>. El mismo modelo funcionará desde consola y desde una interfaz JavaFX proporcionada.</p>
 
     <div class="mb-4">
@@ -342,8 +1293,8 @@ IListado&lt;Nivel&gt; niveles = new ListadoNiveles();</code></pre>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/search-data.js?v=1795434379208"></script>
-    <script src="assets/js/course.js?v=1795434379208"></script>
-    <script src="assets/js/pwa-register.js?v=1795434379208" data-service-worker="../sw.js" data-scope="../"></script>
+    <script src="assets/js/search-data.js?v=1795510289024"></script>
+    <script src="assets/js/course.js?v=1795510289024"></script>
+    <script src="assets/js/pwa-register.js?v=1795510289024" data-service-worker="../sw.js" data-scope="../"></script>
   </body>
 </html>

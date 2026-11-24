@@ -1,0 +1,48 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-fish"></i> 4.13 Objetos dentro de objetos: pesca en el océano</h2>
+    <p class="lead">En esta práctica trabajarás con un escenario donde un <strong>Pescador</strong> interactúa con un <strong>Océano</strong> que contiene varios <strong>Peces</strong>. Aprenderás cómo un objeto puede tener <strong>otros objetos como atributos</strong>, cómo se gestionan las referencias entre ellos y qué ocurre cuando un objeto “desaparece” (se vuelve <code>null</code>).</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-water"></i> Escenario de la simulación</h4>
+      <p>Imaginemos un océano que tiene tres peces. Cada pez tiene un <strong>nombre</strong> y un <strong>nivel de dificultad</strong> (un número aleatorio del 1 al 10 que representa lo difícil que es pescarlo).</p>
+      <ul>
+        <li>El <strong>Pescador</strong> puede intentar pescar con el método <code>pescar(Oceano o)</code>.</li>
+        <li>Por cada pez del océano, el pescador lanzará un número aleatorio. Si su número es <strong>mayor o igual</strong> al nivel de dificultad del pez, consigue pescarlo.</li>
+        <li>Cuando un pez es pescado, desaparece del océano (<code>null</code>) y el contador del pescador aumenta.</li>
+        <li>Después de cada intento de pesca, el océano intentará regenerarse con una pequeña probabilidad (por ejemplo, del 30%).</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Estructura</h4>
+      <p>Deberás trabajar con las siguientes clases:</p>
+      <ul>
+        <li><strong><code>Pez</code></strong>: representa un pez en el océano.</li>
+        <li><strong><code>Oceano</code></strong>: contiene tres atributos de tipo <code>Pez</code> (pez1, pez2, pez3).</li>
+        <li><strong><code>Pescador</code></strong>: tiene un contador de peces pescados y un método <code>pescar(Oceano o)</code>.</li>
+        <li><strong><code>Main</code></strong>: para ejecutar la simulación.</li>
+      </ul>
+      <p>Puedes personalizar nombres, probabilidades o lógica de regeneración. Lo importante es entender cómo un objeto (<code>Oceano</code>) <strong>contiene otros objetos</strong> y cómo se modifican desde otra clase (<code>Pescador</code>) gracias al <strong>paso por referencia</strong>.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tasks"></i> Tareas a realizar</h4>
+      <ul>
+        <li>Implementar las clases <code>Pez</code>, <code>Oceano</code> y <code>Pescador</code> según la descripción.</li>
+        <li>Mostrar con <code>System.out.printf</code> información formateada y clara del proceso de pesca.</li>
+        <li>Demostrar cómo los peces del océano pueden desaparecer (<code>null</code>) y regenerarse (<code>new</code>) aleatoriamente.</li>
+        <li>Usar el método <code>toString()</code> en todas las clases para imprimir el estado del sistema antes y después de cada acción.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Retos opcionales</h4>
+      <ul>
+        <li>Dar distintos valores de “dificultad base” a cada pez según su tipo.</li>
+        <li>Hacer que el pescador solo tenga un número limitado de intentos.</li>
+        <li>Añadir un método <code>simularPesca()</code> que realice varios turnos de pesca y regeneración del oceano.</li>
+        <li>Usar colores en consola con la clase auxiliar <code>ColoresConsola</code> para resaltar los eventos.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4PescadorOceano</code></p>
+    </div>
+  </div>
+</div>

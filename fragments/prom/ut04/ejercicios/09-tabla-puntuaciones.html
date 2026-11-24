@@ -1,0 +1,51 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-table"></i> 4.9 Tabla de puntuaciones</h2>
+    <p class="lead">En esta actividad, vamos a seguir practicando con cadenas de texto y colores en consola. Además, utilizaremos el método <code>printf</code> para alinear el texto y mostrar una tabla de puntuaciones de forma elegante.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Descripción del Proyecto</h4>
+      <p>Vais a desarrollar un programa que muestre puntuaciones <strong>generadas aleatoriamente</strong> (valores entre 0 y 200) y nombres asignados a dichas puntuaciones introducidos por el usuario con la clase <code>Scanner</code>. Es decir, se introducirá un nombre y se generará una puntuación aleatoria asignada a dicho nombre. Cuando el usuario introduzca <strong>una palabra vacía</strong> el programa dejará de solicitar más nombres y mostrará una tabla con tres columnas: <strong>Jugador</strong>, <strong>Puntuación</strong> y <strong>Rango</strong>. El rango estará coloreado según la puntuación del jugador:</p>
+      <ul>
+        <li>Puntuación menor a 50: color <code>ROJO</code>.</li>
+        <li>Puntuación entre 50 y 100: color <code>AMARILLO</code>.</li>
+        <li>Puntuación mayor a 100: color <code>VERDE</code>.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplo de Salida</h4>
+      <pre><code>------------------------------------------------
+| Jugador           | Puntuación  | Rango      |
+------------------------------------------------
+| Alice             |         120 | VERDE      |
+| Bob               |          45 | ROJO       |
+| Charlie           |          75 | AMARILLO   |
+| David             |         200 | VERDE      |
+------------------------------------------------</code>
+      </pre>
+      <p>En este ejemplo:</p>
+      <ul>
+        <li>La columna de <strong>Jugador</strong> está alineada a la izquierda.</li>
+        <li>La columna de <strong>Puntuación</strong> está alineada a la derecha.</li>
+        <li>La columna de <strong>Rango</strong> muestra el color correspondiente usando las constantes de la clase <code>ColoresConsola</code>.</li>
+      </ul>
+      <p></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-clipboard-list"></i> Requisitos</h4>
+      <ul>
+        <li>Utilizad la clase <code>ColoresConsola</code> creada anteriormente para aplicar colores en la columna de rango.</li>
+        <li>Debéis formatear la tabla utilizando <code>printf</code> para asegurar que las columnas estén alineadas correctamente.</li>
+        <li>Al menos tres jugadores con puntuaciones diferentes.</li>
+        <li>El texto debe quedar formateado de manera limpia y legible.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas</h4>
+      <ul>
+        <li>Utilizad <code>%s</code> para formatear cadenas de texto, <code>%d</code> para números enteros y <code>%n</code> para saltos de línea.</li>
+        <li>Podéis alinear texto a la izquierda usando <code>%-20s</code> y a la derecha con <code>%20s</code> (por ejemplo).</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer09TablaClasificacion</code></p>
+    </div>
+  </div>
+</div>

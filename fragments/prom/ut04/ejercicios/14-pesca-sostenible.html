@@ -1,0 +1,25 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-users"></i> 4.14 Ampliación: pesca sostenible</h2>
+    <p class="lead">En esta parte del ejercicio, vamos a ampliar la simulación introduciendo una situación mucho más realista y compleja: <strong>varios pescadores que comparten el mismo océano</strong>. Además, el <strong>Océano </strong>no solo contiene peces, sino que también tiene un nuevo atributo: su <strong>nivel de contaminación</strong>. Este valor influirá directamente en la capacidad del océano para regenerar peces y cada vez que un pescador pesque un pez, modificará este valor.</p>
+    <p>De esta forma, veremos claramente cómo un mismo objeto compartido puede verse afectado por las acciones de diferentes instancias de otros objetos.</p>
+    <ul>
+      <li>Crea al menos <strong>tres pescadores distintos</strong>, cada uno con su propio nombre e historial de pesca.</li>
+      <li>Todos ellos deben <strong>pescar en el mismo objeto <code>Oceano</code></strong>.</li>
+      <li>El océano tendrá un <strong>nivel de contaminación</strong> entre 0 y 100. La probabilidad de regenerar peces disminuirá según aumente ese valor.</li>
+      <li>Después de que cada pescador pesque, el océano debe intentar regenerarse, afectado por su nivel de contaminación.</li>
+      <li>El nivel de contaminación será compartido por todos, por lo que las acciones de un pescador afectan al resto.</li>
+      <li>El pescador podrá limpiar el océano con un nuevo método <code>limpiarOceano(Oceano o)</code>. Podrá elegir está opción en base a una probabilidad o el criterio que elijáis, pero nunca podrá pescar y limpiar el océano al mismo tiempo. </li>
+    </ul>
+    <p>Por ejemplo, si un pescador es muy activo y contamina mucho, los demás notarán que el océano se regenera con más dificultad. Esto permite observar con claridad el concepto de <strong>paso por referencia</strong>: todos los pescadores están actuando sobre el mismo objeto en memoria, no sobre copias.</p>
+    <div class="alert alert-info mt-3" role="alert">💡 <strong>Reflexión:</strong> Este tipo de situación refleja perfectamente lo que ocurre en la programación cuando varios objetos modifican una misma referencia. Cambiar el estado del objeto compartido desde uno de ellos afecta al resto, y eso puede provocar consecuencias inesperadas si no se gestiona bien.</div>
+    <h5 class="text-primary mt-4"><i class="fas fa-seedling"></i> Retos adicionales</h5>
+    <ul>
+      <li>Haz que los pescadores tengan distintos <strong>niveles de ética ambiental</strong>, de manera que algunos limpien el océano más a menudo que otros.</li>
+      <li>Implementa un “ranking sostenible” al final del programa, donde se valore no solo quién pescó más peces, sino quién mantuvo el océano en mejor estado.</li>
+      <li>Permite que, si la contaminación llega a niveles extremos, los pescadores tengan que <strong>dejar de pescar</strong> hasta que se recupere el entorno.</li>
+      <li>Simular varios días de pesca, mostrando la evolución del sistema con <code>printf</code> y colores si lo deseas.</li>
+    </ul>
+    <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4OceanoSostenible</code></p>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-futbol"></i> 4.15 Partido de fútbol</h2>
+    <p class="lead">En esta actividad vamos a simular un <strong>partido de fútbol</strong> entre jugadores y porteros, utilizando todo lo aprendido sobre <strong>paso por referencia, probabilidad y relaciones entre objetos</strong>.</p>
+    <p>Tendrás que diseñar las clases <code>Jugador</code> y <code>Portero</code> con los métodos y atributos necesarios para que el balón pueda ir pasando de unos a otros, y los eventos (pases, regates y chutes) ocurran según las probabilidades establecidas.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-users"></i> Clases principales</h4>
+      <ul>
+        <li><strong>Jugador</strong>: representa a un jugador de campo.</li>
+        <li><strong>Portero</strong>: representa al guardameta de un equipo.</li>
+      </ul>
+      <p>Ambos interactúan entre sí y con el balón, que estará “dentro” de un objeto en forma de atributo booleano (<code>tieneBalon</code>).</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-id-badge"></i> Atributos sugeridos</h4>
+      <p>Para la clase <code>Jugador</code> puedes considerar los siguientes atributos:</p>
+      <ul>
+        <li><code>String nombre</code> — nombre del jugador.</li>
+        <li><code>Jugador compi</code> — compañero de equipo al que puede pasar el balón.</li>
+        <li><code>boolean tieneBalon</code> — indica si el jugador tiene el balón actualmente.</li>
+        <li><code>int tasaExitoPase</code> — probabilidad (1–100) de completar un pase con éxito.</li>
+        <li><code>int tasaExitoGol</code> — probabilidad (1–100) de que su chute sea certero y llegue a portería.</li>
+        <li><code>int tasaInterceptar</code> — probabilidad (1–100) de interceptar un pase o un regate rival.</li>
+        <li><code>int tasaRegate</code> — probabilidad (1–100) de regatear con éxito a un rival.</li>
+      </ul>
+      <p>Y para la clase <code>Portero</code>:</p>
+      <ul>
+        <li><code>String nombre</code></li>
+        <li><code>boolean tieneBalon</code></li>
+        <li><code>int tasaParada</code> — probabilidad (1–100) de detener un disparo.</li>
+        <li><code>int tasaExitoPase</code> — probabilidad de realizar un pase correcto al iniciar jugada.</li>
+      </ul>
+      <div class="alert alert-info mt-3">💡 <strong>Nota:</strong> Puedes ajustar las probabilidades libremente para que el partido sea equilibrado y entretenido.</div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Métodos requeridos</h4>
+      <p>Cada clase debe tener los siguientes métodos:</p>
+      <h5 class="text-success"><i class="fas fa-running"></i> En <code>Jugador</code>:</h5>
+      <ul>
+        <li><code>void regatear(Jugador rival)</code> — el jugador intenta superar al rival.</li>
+        <li><code>void chutar(Portero porteroRival)</code> — intenta marcar un gol al portero contrario.</li>
+        <li><code>void pasar(Jugador destino, Jugador rival)</code> — intenta pasar el balón a su compañero evitando la intercepción.</li>
+        <li><code>String toString()</code> — devuelve una descripción del jugador, su tasa de éxito y si tiene el balón.</li>
+      </ul>
+      <h5 class="text-success"><i class="fas fa-hand-paper"></i> En <code>Portero</code>:</h5>
+      <ul>
+        <li><code>void pararBalon()</code> — determina si consigue detener el disparo.</li>
+        <li><code>void pasar(Jugador destino)</code> — el portero pasa el balón a un jugador de su equipo.</li>
+        <li><code>String toString()</code> — muestra su tasa de parada y si tiene el balón.</li>
+      </ul>
+      <p>Cada acción debe modificar correctamente el atributo <code>tieneBalon</code> de los jugadores implicados, para reflejar quién controla el balón en cada momento.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-random"></i> Lógica del partido</h4>
+      <p>Se simulará un pequeño partido o secuencia de jugadas:</p>
+      <ul>
+        <li>Comienza con un jugador que tiene el balón (<code>tieneBalon = true</code>).</li>
+        <li>El jugador puede decidir aleatoriamente si <strong>regatea</strong>, <strong>pasa</strong> o <strong>chuta</strong>.</li>
+        <li>Los rivales intentan interceptar el balón o detener el disparo, según corresponda.</li>
+        <li>Si el balón se pierde, cambia la posesión automáticamente.</li>
+      </ul>
+      <p>Utiliza <code>Math.random()</code> para generar los porcentajes de éxito o fallo. Por ejemplo: <code>if (Math.random() * 100 &lt; tasaExitoPase) ...</code></p>
+      <div class="alert alert-warning">⚠️ Recuerda que los métodos deben <strong>afectar a ambos objetos involucrados</strong>. Si un jugador falla un pase, su compañero no recibe el balón y el rival puede recuperarlo.</div>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-comment-dots"></i> Presentación y formato</h4>
+      <ul>
+        <li>Utiliza <code>printf()</code> para mostrar mensajes de manera formateada, con colores si usas la clase de colores del ejercicio anterior.</li>
+        <li>Muestra mensajes claros, por ejemplo:<br><code>"Juan intenta regatear a Carlos y... ¡Lo consigue!"</code><br><code>"El portero Paco detiene el disparo de Juan con una gran parada."</code></li>
+        <li>Incluye un marcador global (goles Equipo1 vs Equipo2).</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-trophy"></i> Retos adicionales</h4>
+      <ul>
+        <li>Permite que el partido dure varios turnos (por ejemplo, 10 jugadas).</li>
+        <li>Agrega una clase <code>Equipo</code> que contenga varios jugadores y su portero, para simular equipos completos.</li>
+        <li>Implementa un método <code>iniciarPartido()</code> que automatice el flujo y declare el equipo ganador al final.</li>
+        <li>Agrega una estadística final con el número de pases, regates, tiros y goles exitosos.</li>
+        <li>Si te sientes valiente, puedes incluir una clase <code>Arbitro</code> e incluir un sistema de faltas y tarjetas (esto sería una gran ampliación)</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4PartidoFutbol</code></p>
+    </div>
+  </div>
+</div>

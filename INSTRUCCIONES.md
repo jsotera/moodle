@@ -354,6 +354,17 @@ El contenido se editará preferentemente en subfragmentos dentro de `fragments/{
 
 Los subfragmentos se ordenan por nombre de archivo. Usar prefijos numéricos:
 
+- En las unidades, colocar primero todos los ejercicios y al final todos los
+  proyectos integradores. Mantener este orden cuando se incorporen más proyectos.
+- En PROM UT4, los ejercicios usan los prefijos `01-`, `02-`, etc.; reservar
+  `90-` y siguientes para los proyectos. La numeración visible `4.1`, `4.2`,
+  etc. debe ser continua según el orden de lectura, sin usar el prefijo reservado
+  del archivo como número del proyecto. Al añadir ejercicios, actualizar la
+  numeración visible de los proyectos que van al final.
+- Orden actual de PROM UT4: modularización y diseño de clases (4.1–4.5),
+  utilidades, String y printf (4.6–4.10), referencias entre objetos
+  (4.11–4.15) y proyectos integradores al final (desde 4.16).
+
 ```text
 fragments/prom/ut01/teoria/01-introduccion-entorno-java.html
 fragments/prom/ut01/teoria/02-variables-tipos-constantes.html

@@ -1,0 +1,48 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cogs"></i> 4.2 Modularización: carrera de coches</h2>
+    <p class="lead">Vamos a seguir <strong>modularizando código</strong>. Volvéis a tener una clase, ahora se llama <code>Codigo2</code>, que contiene todo en un único método y varios atributos. Recordad, la tarea será reorganizarla en <strong>clases y métodos coherentes</strong> con nombres claros y responsables.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base a modularizar</h4>
+      <p>Esta es la clase que vamos a usar como punto de partida:</p>
+      <pre><code>public class Codigo2 {
+
+    public String coche1;
+    public int velocidad1;
+    public int distancia1;
+
+    public String coche2;
+    public int velocidad2;
+    public int distancia2;
+
+    public void blablabla() {
+        coche1 = "Rayo";
+        distancia1 = 0;
+
+        coche2 = "Trueno";
+        distancia2 = 0;
+
+        for (int i = 0; i &lt; 10; i++) {
+            velocidad1 = (int)(Math.random() * 20) + 5;
+            velocidad2 = (int)(Math.random() * 20) + 5;
+
+            distancia1 += velocidad1;
+            distancia2 += velocidad2;
+
+            System.out.println(coche1 + " avanza " + velocidad1 + " metros. Total: " + distancia1);
+            System.out.println(coche2 + " avanza " + velocidad2 + " metros. Total: " + distancia2);
+        }
+
+        if (distancia1 &gt; distancia2) {
+            System.out.println(coche1 + " gana la carrera!");
+        } else if (distancia2 &gt; distancia1) {
+            System.out.println(coche2 + " gana la carrera!");
+        } else {
+            System.out.println("Empate en la carrera!");
+        }
+    }
+}
+</code></pre>
+    </div>
+  </div>
+</div>

@@ -108,6 +108,12 @@ function parseArgs() {
       options.unit = args[++i]?.replace(/^ut/i, "").padStart(2, "0");
     } else if (arg === "--kind") {
       options.kind = args[++i];
+    } else if (arg === "--chapters") {
+      const range = /^(\d+)-(\d+)$/.exec(args[++i] || "");
+      if (!range || Number(range[1]) < 1 || Number(range[2]) < Number(range[1])) {
+        throw new Error("Usa --chapters inicio-fin, por ejemplo: --chapters 1-15.");
+      }
+      options.chapters = { from: Number(range[1]), to: Number(range[2]) };
     } else if (arg === "--help" || arg === "-h") {
       options.help = true;
     } else {
@@ -127,9 +133,11 @@ Uso:
   node scripts/build-moodle-books.js --module lmgi --unit 03
   node scripts/build-moodle-books.js --module lmgi --unit 03 --kind teoria
   node scripts/build-moodle-books.js --module prom --unit 02 --kind ejercicios
+  node scripts/build-moodle-books.js --module prom --unit 04 --kind ejercicios --chapters 1-15
 
 Salida:
   moodle-books/{modulo}/utXX/{teoria|ejercicios}.mbz
+  Con --chapters se añade el intervalo al nombre del archivo, sin sobrescribir el libro completo.
 `);
 }
 
@@ -186,8 +194,7 @@ function activityFile(rootName, inner = "") {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<${rootName}>\n${inner}</${rootName}>\n`;
 }
 
-function buildMoodleBackupXml({ filename, moduleId, sectionId, moduleConfig, unit, kind, timestamp, backupId }) {
-  const bookTitle = `${kinds[kind]} UT${unit.number}`;
+function buildMoodleBackupXml({ filename, moduleId, sectionId, moduleConfig, unit, kind, timestamp, backupId, bookTitle = `${kinds[kind]} UT${unit.number}` }) {
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <moodle_backup>
@@ -353,8 +360,16 @@ function writeArchiveIndex(baseDir, timestamp) {
   );
 }
 
-function createMoodleBook({ moduleConfig, unit, kind }) {
-  const chapters = collectFragments(moduleConfig, unit, kind);
+function createMoodleBook({ moduleConfig, unit, kind }, options = {}) {
+  const allChapters = collectFragments(moduleConfig, unit, kind);
+
+  if (options.chapters && options.chapters.to > allChapters.length) {
+    throw new Error(`El intervalo solicitado supera los ${allChapters.length} capítulos de ${moduleConfig.id}/ut${unit.number}/${kind}.`);
+  }
+
+  const chapters = (options.chapters
+    ? allChapters.slice(options.chapters.from - 1, options.chapters.to)
+    : allChapters).map((chapter, index) => ({ ...chapter, pageNumber: index + 1 }));
 
   if (chapters.length === 0) {
     return null;
@@ -368,8 +383,10 @@ function createMoodleBook({ moduleConfig, unit, kind }) {
   const contextId = Number(`${moduleSeed}${unit.number}${kindSeed}79`);
   const bookId = Number(`${unit.number}${kindSeed}00`);
   const backupId = `${moduleConfig.id}${unit.number}${kind}${timestamp}`.replace(/[^a-zA-Z0-9]/g, "").slice(0, 32);
-  const bookTitle = `${kinds[kind]} UT${unit.number}`;
-  const filename = `${moduleConfig.id}-ut${unit.number}-${kind}-book.mbz`;
+  const rangeTitle = options.chapters ? ` (${options.chapters.from}–${options.chapters.to})` : "";
+  const rangeFilename = options.chapters ? `-${String(options.chapters.from).padStart(2, "0")}-${String(options.chapters.to).padStart(2, "0")}` : "";
+  const bookTitle = `${kinds[kind]} UT${unit.number}${rangeTitle}`;
+  const filename = `${moduleConfig.id}-ut${unit.number}-${kind}${rangeFilename}-book.mbz`;
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `moodle-book-${moduleConfig.id}-ut${unit.number}-${kind}-`));
   const activityDir = path.join(tempDir, "activities", `book_${moduleId}`);
 
@@ -381,7 +398,8 @@ function createMoodleBook({ moduleConfig, unit, kind }) {
     unit,
     kind,
     timestamp,
-    backupId
+    backupId,
+    bookTitle
   }));
   write(path.join(tempDir, "files.xml"), simpleXmlFile("files"));
   write(path.join(tempDir, "badges.xml"), simpleXmlFile("badges"));
@@ -447,7 +465,7 @@ function main() {
   }
 
   const targets = getTargets(options);
-  const generated = targets.map(createMoodleBook).filter(Boolean);
+  const generated = targets.map((target) => createMoodleBook(target, options)).filter(Boolean);
 
   if (generated.length === 0) {
     console.log("No se han encontrado fragmentos para generar libros Moodle.");

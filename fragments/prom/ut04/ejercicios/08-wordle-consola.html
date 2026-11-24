@@ -1,0 +1,54 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-keyboard"></i> 4.8 Wordle por consola</h2>
+    <p class="lead">¡Ha llegado el momento de poner a prueba todo lo que habéis aprendido hasta ahora! En esta actividad, desarrollaremos un juego de <strong>Wordle</strong> en consola, utilizando las clases de utilidad que creasteis anteriormente: <code>GeneradorPalabras</code> y <code>ColoresConsola</code>.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cogs"></i> Estructura del Proyecto</h4>
+      <ul>
+        <li>El proyecto estará contenido en el paquete: <code>edu.masanz.da.ut4.wordle</code>.</li>
+        <li>Crearéis una nueva clase llamada <code>Wordle</code>, que será la clase principal del juego.</li>
+        <li>La clase <code>GeneradorPalabras</code> será utilizada para obtener la palabra del día.</li>
+        <li>La clase <code>ColoresConsola</code> permitirá cambiar los colores de salida en la consola.</li>
+        <li>Deberás crear cada clase en el paquete que consideres oportuno.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-clipboard-list"></i> Requisitos</h4>
+      <p>La clase <code>Wordle</code> deberá cumplir los siguientes requisitos:</p>
+      <ul>
+        <li>Tendrá <strong>dos constructores</strong>. Uno que reciba la palabra del día a evaluar y otro sin parámetros, en cuyo caso deberá generar la palabra del día a evaluar a través del método estático <code>obtenerPalabra()</code> de la clase <code>GeneradorPalabras</code>.</li>
+        <li>Implementará un método <code>evaluarPalabra(String
+            palabraUsuario)</code> que reciba la palabra introducida por el usuario y muestre un resultado formateado con colores según las siguientes reglas:
+<ul>
+<li>Si la letra no está en la palabra del día, se mostrará la letra en color <strong>rojo</strong>.</li>
+<li>Si la letra está en la palabra del día, pero no en la posición correcta, se mostrará la letra en color <strong>amarillo</strong>.</li>
+<li>Si la letra está en la posición correcta, se mostrará la letra en color <strong>verde</strong>.</li>
+</ul>
+</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplo de Salida</h4>
+      <p>Imaginad que la palabra del día es <code>PERRO</code>. Si el usuario introduce la palabra <code>PARTE</code>, el método <code>evaluarPalabra</code> debería devolver algo similar a:</p>
+      <pre><code><span class="text-success">P</span><span class="text-warning">A</span><span class="text-danger">RTE</span></code>
+      </pre>
+      <p>En este ejemplo:</p>
+      <ul>
+        <li><code>P</code> es correcta y está en la posición correcta (color verde).</li>
+        <li><code>A</code> está en la palabra del día, pero en una posición incorrecta (color amarillo).</li>
+        <li><code>R</code>, <code>T</code> y <code>E</code> no están en la palabra del día (color rojo).</li>
+      </ul>
+      <p></p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-lightbulb"></i> Pistas y Consejos</h4>
+      <ul>
+        <li>Recordad utilizar los métodos <code>charAt</code>, <code>length</code> y <code>substring</code> de la clase <code>String</code> para recorrer y comparar las letras de la palabra del día.</li>
+        <li>Utilizad las constantes de color definidas en <code>ColoresConsola</code> para mostrar el resultado con los colores adecuados.</li>
+        <li>Intentad hacer que el juego sea intuitivo y que el usuario pueda probar varias palabras hasta adivinar la palabra del día.</li>
+        <li>¡Únicamente habrá <strong>6 intentos</strong> para adivinar la palabra!</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer08WordleConsola</code></p>
+    </div>
+  </div>
+</div>

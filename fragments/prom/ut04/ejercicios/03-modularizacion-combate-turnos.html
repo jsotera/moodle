@@ -1,0 +1,115 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cogs"></i> 4.3 Modularización: combate por turnos</h2>
+    <p class="lead">Si, vamos a darle una vuelta a esto de <strong>modularizar código</strong>. Ahora tenéis una clase <code>Codigo3</code>. ¡Esta vez tiene más miga, leer los comentarios! Recordad, la tarea será reorganizarla en <strong>clases y métodos coherentes</strong> con nombres claros y responsables.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-code"></i> Código base a modularizar</h4>
+      <p>Esta es la clase que vamos a usar como punto de partida:</p>
+      <pre><code>public class Codigo3 {
+
+    public int h1; // vida jugador1
+    public int h2; // vida jugador2
+    public int m1; // mana jugador1
+    public int m2; // mana jugador2
+    public int e1; // vida enemigo1
+    public int e2; // vida enemigo2
+    public int em1; // mana enemigo1
+    public int em2; // mana enemigo2
+
+    public void blablabla() {
+        h1 = 100; m1 = 50;
+        h2 = 100; m2 = 50;
+        e1 = 80; em1 = 40;
+        e2 = 80; em2 = 40;
+
+        java.util.Random rnd = new java.util.Random();
+
+        int turno = 1; // 1 = jugador1, 2 = jugador2
+
+        for (int i = 0; i &lt; 20; i++) {
+            System.out.println("=== Nuevo turno ===");
+
+            if (turno == 1 &amp;&amp; h1 &gt; 0) {
+                System.out.println("Jugador 1: vida " + h1 + ", mana " + m1);
+                int op = (int) (Math.random()*3)+1;
+                int dmg = 5, cost = 0;
+                if (op == 1) { dmg = 15; cost = 10; }
+                if (op == 2) { dmg = 25; cost = 15; }
+                if (op == 3) { dmg = 40; cost = 20; }
+
+                if (m1 &gt;= cost) {
+                    m1 -= cost;
+                    if (e1 &gt; 0) e1 -= dmg;
+                    else e2 -= dmg;
+                    System.out.println("Jugador1 hace " + dmg + " daño");
+                } else {
+                    System.out.println("No tienes mana suficiente!");
+                }
+                turno = 2;
+            } else if (turno == 2 &amp;&amp; h2 &gt; 0) {
+                System.out.println("Jugador 2: vida " + h2 + ", mana " + m2);
+                int op = (int) (Math.random()*3)+1;
+                int dmg = 5, cost = 0;
+                if (op == 1) { dmg = 15; cost = 10; }
+                if (op == 2) { dmg = 25; cost = 15; }
+                if (op == 3) { dmg = 40; cost = 20; }
+
+                if (m2 &gt;= cost) {
+                    m2 -= cost;
+                    if (e1 &gt; 0) e1 -= dmg;
+                    else e2 -= dmg;
+                    System.out.println("Jugador2 hace " + dmg + " daño");
+                } else {
+                    System.out.println("No tienes mana suficiente!");
+                }
+                turno = 3;
+            } else {
+                if (e1 &gt; 0) {
+                    int op = (int) (Math.random()*3)+1;
+                    int dmg = 5, cost = 0;
+                    if (op == 1) { dmg = 10; cost = 5; }
+                    if (op == 2) { dmg = 20; cost = 10; }
+                    if (op == 3) { dmg = 30; cost = 15; }
+
+                    if (em1 &gt;= cost) {
+                        em1 -= cost;
+                        if (h1 &gt; 0) h1 -= dmg;
+                        else h2 -= dmg;
+                        System.out.println("Enemigo1 hace " + dmg + " daño");
+                    } else {
+                        System.out.println("Enemigo1 no tiene mana suficiente");
+                    }
+                }
+
+                if (e2 &gt; 0) {
+                    int op = (int) (Math.random()*3)+1;
+                    int dmg = 5, cost = 0;
+                    if (op == 1) { dmg = 10; cost = 5; }
+                    if (op == 2) { dmg = 20; cost = 10; }
+                    if (op == 3) { dmg = 30; cost = 15; }
+
+                    if (em2 &gt;= cost) {
+                        em2 -= cost;
+                        if (h1 &gt; 0) h1 -= dmg;
+                        else h2 -= dmg;
+                        System.out.println("Enemigo2 hace " + dmg + " daño");
+                    } else {
+                        System.out.println("Enemigo2 no tiene mana suficiente");
+                    }
+                }
+                turno = 1;
+            }
+
+            System.out.println("Estado -&gt; J1: " + h1 + "/" + m1 + ", J2: " + h2 + "/" + m2 +
+                    " | E1: " + e1 + "/" + em1 + ", E2: " + e2 + "/" + em2);
+        }
+
+        if (h1 &gt; 0 || h2 &gt; 0) System.out.println("¡Los jugadores han ganado!");
+        else System.out.println("¡Los enemigos han ganado!");
+    }
+}
+
+</code></pre>
+    </div>
+  </div>
+</div>

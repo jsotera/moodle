@@ -1,0 +1,54 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-palette"></i> 4.7 Colores para la consola</h2>
+    <p class="lead">En esta actividad, crearéis otra clase de utilidad llamada <code>ColoresConsola</code>. Esta clase os permitirá cambiar el color del texto que se muestra en la consola. Utilizaremos códigos de escape ANSI para modificar el color de la salida, lo que hará que vuestros programas sean más dinámicos y visualmente atractivos.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-open"></i> Estructura del Proyecto</h4>
+      <ul>
+        <li>El proyecto estará contenido en el paquete: <code>edu.masanz.da.ut4.util</code>.</li>
+        <li>Crearéis una clase llamada <code>ColoresConsola</code>, que contendrá constantes y métodos estáticos para cambiar el color del texto en consola.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-paint-brush"></i> Constantes para los Colores</h4>
+      <p>En la clase <code>ColoresConsola</code>, deberéis definir las siguientes constantes para cambiar el color del texto:</p>
+      <pre><code>public static final String RESET = "\u001B[0m";
+public static final String ROJO = "\u001B[31m";
+public static final String VERDE = "\u001B[32m";
+public static final String AMARILLO = "\u001B[33m";
+public static final String AZUL = "\u001B[34m";
+public static final String MAGENTA = "\u001B[35m";
+public static final String CIAN = "\u001B[36m";
+public static final String BLANCO = "\u001B[37m";</code>
+      </pre>
+      <p>Estas constantes representan los colores que podréis utilizar para modificar la salida de texto en la consola. La constante <code>RESET</code> se utiliza para volver al color predeterminado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Métodos Estáticos</h4>
+      <p>La clase <code>ColoresConsola</code> también deberá incluir métodos estáticos que permitan mostrar texto en la consola con los colores definidos. Algunos ejemplos de métodos que podríais implementar:</p>
+      <ul>
+        <li><code>imprimirEnRojo(String texto)</code>: Muestra el texto en color rojo.</li>
+        <li><code>imprimirEnVerde(String texto)</code>: Muestra el texto en color verde.</li>
+        <li><code>imprimirEnAmarillo(String texto)</code>: Muestra el texto en color amarillo.</li>
+        <li><code>imprimirEnAzul(String texto)</code>: Muestra el texto en color azul.</li>
+        <li>Cada método debe utilizar la constante de color correspondiente, seguido de <code>RESET</code> para volver al color predeterminado.</li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> Ejemplo de Uso</h4>
+      <p>En la clase <code>Main</code>, podréis probar la clase <code>ColoresConsola</code> invocando los métodos de colores sin necesidad de crear una instancia. Por ejemplo:</p>
+      <pre><code>ColoresConsola.imprimirEnRojo("Este es un mensaje en rojo");
+ColoresConsola.imprimirEnVerde("Este es un mensaje en verde");</code>
+      </pre>
+      <p>Notaréis cómo cambia el color de la salida en la consola, haciendo el texto más visual y llamativo.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-check-circle"></i> Desafío Adicional</h4>
+      <ul>
+        <li>Añadid métodos adicionales para otros colores o incluso combinaciones de colores.</li>
+        <li>Intentad crear un método que permita cambiar el color de cualquier texto pasado como parámetro, sin necesidad de definir un método específico para cada color.</li>
+      </ul>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4Ejer07PinkPower</code></p>
+    </div>
+  </div>
+</div>

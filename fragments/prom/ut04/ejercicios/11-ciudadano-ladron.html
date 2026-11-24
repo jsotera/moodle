@@ -1,0 +1,43 @@
+<div class="container mt-4 p-4" style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-exchange-alt"></i> 4.11 Objetos como parámetros: ciudadano y ladrón</h2>
+    <p class="lead">En esta actividad aprenderás cómo funciona el <strong>paso de objetos por referencia</strong> en Java. Verás cómo, al pasar un objeto como parámetro a un método, este puede <strong>modificar sus atributos directamente</strong>, afectando al objeto original fuera del método.</p>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user-shield"></i> Contexto de la práctica</h4>
+      <p>Vamos a simular una pequeña historia entre dos clases:</p>
+      <ul>
+        <li><code>Ciudadano</code>: una persona con un nombre y una cantidad de dinero.</li>
+        <li><code>Ladron</code>: un personaje que puede robar dinero a un ciudadano mediante un método <code>robar(Ciudadano c)</code>.</li>
+      </ul>
+      <p>Además, el ciudadano podrá sacar dinero de un cajero con el método <code>sacarDinero()</code>, y cada clase tendrá su propio <code>toString()</code> para mostrar información formateada sobre su estado.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-code"></i> Estructura del ejercicio</h4>
+      <p>Se deberá trabajar con tres clases principales:</p>
+      <ul>
+        <li><strong><code>Ciudadano</code></strong> → atributos: nombre, dinero. <br>Métodos: <code>sacarDinero()</code>, <code>toString()</code>.</li>
+        <li><strong><code>Ladron</code></strong> → atributos: nombre, dinero robado. <br>Métodos: <code>robar(Ciudadano c)</code>, <code>toString()</code>.</li>
+        <li><strong><code>Main</code></strong> → para crear los objetos, invocar los métodos y mostrar resultados.</li>
+      </ul>
+      <p>Observa cómo el método <code>robar(Ciudadano c)</code> modifica directamente el objeto <code>c</code> que se le pasa como parámetro. Esto demuestra que los <strong>objetos en Java se pasan por referencia</strong> (en realidad, por valor de referencia), por lo que los cambios internos afectan al mismo objeto.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-palette"></i> Uso de colores y salida formateada</h4>
+      <p>Para mejorar la visualización, emplea la clase auxiliar que desarrollamos en su día <code>ColoresConsola</code> para dar color al texto. Por ejemplo:</p>
+      <p>De este modo la salida será más elegante y clara visualmente.</p>
+    </div>
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-tasks"></i> Tareas a realizar</h4>
+      <ul>
+        <li>Implementar las clases <code>Ciudadano</code> y <code>Ladron</code> con los métodos descritos.</li>
+        <li>Demostrar en el <code>main</code> cómo el ladrón modifica el dinero del ciudadano al robarle. </li>
+        <li>Usar <code>printf</code> para mostrar información formateada y colorida. Por ejemplo, sacar la información de <code>Ciudadano</code> y <code>Ladron</code> en modo tabla con alineación de textos y colores diferenciados.</li>
+        <li>Incluir el método <code>toString()</code> en ambas clases para mostrar información general de cada objeto.</li>
+      </ul>
+      <p>💡 Consejo: imprime el estado de los objetos antes y después de llamar al método <code>robar()</code> para visualizar claramente el efecto del paso por referencia. También tenemos <strong>Java Visualizer</strong> para observar que está pasando en <strong>modo debug</strong>.</p>
+    </div>
+    <div class="mb-4">
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>UT4CiudadanoLadron</code></p>
+    </div>
+  </div>
+</div>
