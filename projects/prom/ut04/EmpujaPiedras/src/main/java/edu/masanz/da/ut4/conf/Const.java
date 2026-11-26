@@ -1,8 +1,14 @@
-package edu.masanz.da.ut4.configuracion;
+package edu.masanz.da.ut4.conf;
 
-/** Datos iniciales: titulo, filas del tablero y separador --- entre niveles. */
-public class Constantes {
-    /** . vacio, J personaje, P piedra, D destino, * piedra en destino, + personaje en destino. */
+public class Const {
+
+    public static final String JUGADOR = "J";
+    public static final String PIEDRA = "P";
+    public static final String DESTINO = "D";
+    public static final String LIBRE = ".";
+    public static final String COLOCADA = "*";
+    public static final String SUPERPUESTO = "+";
+
     public static final String NIVELES =
             "Primer empuje\n"
             + "......\n"

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EmpujaPiedras — Proyecto base de PROM UT4</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
+  <style>
+    body { background: #f4f6f7; color: #202428; font-family: Arial, sans-serif; line-height: 1.55; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    pre { background: #17212b; color: #f8f9fa; padding: 1rem; border-radius: .5rem; white-space: pre; overflow-x: auto; }
+    pre code { color: inherit; font-family: Consolas, monospace; }
+    code { overflow-wrap: anywhere; }
+    li { margin-bottom: .4rem; }
+    @media print { body { background: white; } .container, .card { max-width: none; padding: 0 !important; margin: 0 !important; box-shadow: none !important; border: 0; } .btn { display: none; } h2, h4 { break-after: avoid; } tr, pre { break-inside: avoid; } pre { white-space: pre-wrap; } }
+  </style>
+</head>
+<body>
+<div id="ut04-ejercicios-01-proyecto-empuja-piedras" class="container mt-4 p-4"
+  style="padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow p-4">
+    <h2 class="text-primary mb-3"><i class="fas fa-cubes"></i> 4.16 Proyecto integrador UT1–UT4: EmpujaPiedras</h2>
+    <p class="lead">Construye un juego en el que un personaje empuja piedras hasta colocarlas en sus destinos. Implementa el modelo y la versión de consola para que también funcionen con la interfaz JavaFX proporcionada.</p>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-box-open"></i> Punto de partida</h4>
+      <p><strong>Nombre del proyecto del ejercicio:</strong> <code>EmpujaPiedras</code>.</p>
+      <p><a class="btn btn-primary" href="https://jsotera.github.io/moodle/prom/assets/downloads/prom-ut04-empuja-piedras-base.zip"><i class="fas fa-file-archive"></i> Descargar proyecto base</a></p>
+      <p>Se entregan completas las siguientes clases. Debes utilizarlas tal como están:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Clase proporcionada</th><th>Paquete</th><th>Función</th></tr></thead>
+          <tbody>
+            <tr><td><code>AplicacionJavaFX</code></td><td><code>edu.masanz.da.ut4.vista.javafx</code></td><td>Crea la ventana, recibe las acciones y actualiza la presentación.</td></tr>
+            <tr><td><code>VistaTablero</code></td><td><code>edu.masanz.da.ut4.vista.javafx</code></td><td>Dibuja las casillas a partir de la información de un <code>Nivel</code>.</td></tr>
+            <tr><td><code>MainJavaFX</code></td><td><code>edu.masanz.da.ut4.app</code></td><td>Inicia la aplicación gráfica.</td></tr>
+            <tr><td><code>Const</code></td><td><code>edu.masanz.da.ut4.conf</code></td><td>Contiene los símbolos y el texto de los escenarios.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>El resto de las clases se entrega vacío o con sus métodos sin implementar: <code>GUI</code>, <code>Personaje</code>, <code>Nivel</code>, <code>Util</code> y <code>MainConsola</code>. Debes completar también sus constructores, accesores y métodos de salida. Respeta los paquetes, los nombres, las firmas y los tipos que necesitan las clases proporcionadas.</p>
+      <p>La base incluye las firmas con cuerpos completamente vacíos, sin retornos provisionales. Debes declarar los atributos necesarios e implementar los métodos antes de poder compilar y ejecutar el proyecto.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-gamepad"></i> Reglas del juego</h4>
+      <ul>
+        <li>El tablero tiene filas y columnas. Las coordenadas empiezan en cero y se expresan siempre como <strong>(fila, columna)</strong>.</li>
+        <li>W mueve arriba, A a la izquierda, S abajo y D a la derecha. Cada acción intenta avanzar una casilla.</li>
+        <li>El personaje puede desplazarse a una casilla libre. Su posición debe quedar actualizada tanto en el tablero como en el objeto <code>Personaje</code>.</li>
+        <li>Si la casilla siguiente contiene una piedra sin colocar, solo puede empujarla cuando la casilla situada justo después, en la misma dirección, está libre o contiene un destino.</li>
+        <li>Al empujar, el personaje ocupa la antigua posición de la piedra. Si esta llega a suelo libre, sigue siendo una piedra sin colocar; si llega a un destino, pasa a ser una piedra colocada.</li>
+        <li>No se puede salir del tablero, empujar dos piedras juntas ni empujar una piedra fuera de los límites.</li>
+        <li>En esta versión, una piedra colocada queda fija: no vuelve a empujarse. El personaje tampoco entra directamente en un destino vacío ni en una casilla con una piedra colocada.</li>
+        <li>Una acción rechazada no cambia el tablero ni la posición del personaje.</li>
+        <li>El nivel está terminado cuando ya no quedan piedras sin colocar. A partir de ese momento se rechazan los movimientos.</li>
+        <li>Reiniciar recupera el texto inicial del nivel y reconstruye el personaje en su posición inicial.</li>
+      </ul>
+      <p>Los símbolos están definidos en <code>Const</code>. Su significado es:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Símbolo</th><th>Constante</th><th>Significado</th></tr></thead>
+          <tbody>
+            <tr><td><code>.</code></td><td><code>Const.LIBRE</code></td><td>Casilla libre.</td></tr>
+            <tr><td><code>J</code></td><td><code>Const.JUGADOR</code></td><td>Personaje.</td></tr>
+            <tr><td><code>P</code></td><td><code>Const.PIEDRA</code></td><td>Piedra sin colocar.</td></tr>
+            <tr><td><code>D</code></td><td><code>Const.DESTINO</code></td><td>Destino vacío, que puede recibir una piedra.</td></tr>
+            <tr><td><code>*</code></td><td><code>Const.COLOCADA</code></td><td>Piedra colocada en un destino.</td></tr>
+            <tr><td><code>+</code></td><td><code>Const.SUPERPUESTO</code></td><td>Constante disponible, sin intervención en las reglas de movimiento de esta versión.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-folder-tree"></i> Organización y responsabilidades</h4>
+      <p>El paquete base es <code>edu.masanz.da.ut4</code>. Debes implementar estas cinco clases:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Paquete</th><th>Clase</th><th>Responsabilidad</th></tr></thead>
+          <tbody>
+            <tr><td><code>vista.consola</code></td><td><code>GUI</code></td><td>Lectura de acciones y salida de texto.</td></tr>
+            <tr><td><code>modelo</code></td><td><code>Personaje</code></td><td>Fila y columna del personaje.</td></tr>
+            <tr><td><code>modelo</code></td><td><code>Nivel</code></td><td>Tablero, personaje, consultas, movimientos, reinicio y cambio de escenario.</td></tr>
+            <tr><td><code>utilidades</code></td><td><code>Util</code></td><td>Creación de un nivel a partir de <code>Const.NIVELES</code> y consulta de la cantidad de escenarios.</td></tr>
+            <tr><td><code>app</code></td><td><code>MainConsola</code></td><td>Inicio y desarrollo de la partida de texto.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>El tablero se conserva como un <code>String</code> con saltos de línea. Las piedras y los destinos se representan mediante sus símbolos dentro de esa cadena. No es necesario crear clases para cada piedra o destino ni almacenar las casillas en arrays, colecciones o listados enlazados.</p>
+      <p>Las dos interfaces utilizan el mismo <code>Nivel</code>. La vista gráfica consulta sus casillas y solicita movimientos; no debes duplicar las reglas en JavaFX. <code>Nivel</code> también dispone de métodos para mostrar el mapa y gestionar acciones de consola mediante <code>GUI</code>.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-keyboard"></i> GUI: entrada y salida de consola</h4>
+      <p>Todos sus métodos son estáticos. La entrada se comparte mediante un <code>Scanner</code>. Implementa:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Método</th><th>Comportamiento</th></tr></thead>
+          <tbody>
+            <tr><td><code>void mostrarTitulo()</code></td><td>Imprime <code>PROYECTO UT4</code>.</td></tr>
+            <tr><td><code>void mostrarMenu()</code></td><td>Presenta W, A, S y D como direcciones y <code>0. Salir</code> al final.</td></tr>
+            <tr><td><code>void mostrarCasilla(String simbolo)</code></td><td>Imprime una casilla entre corchetes, sin salto de línea. Permite aplicar los colores ANSI de la presentación de consola.</td></tr>
+            <tr><td><code>void nuevaLinea()</code></td><td>Termina la línea actual.</td></tr>
+            <tr><td><code>void mostrarMensaje(String mensaje)</code></td><td>Imprime el mensaje recibido en una línea.</td></tr>
+            <tr><td><code>String pedirAccion()</code></td><td>Muestra <code>Introduce una acción: </code>, lee una línea y la devuelve en mayúsculas. Una entrada en blanco devuelve <code>"0"</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>El menú de consola tiene este contenido:</p>
+      <pre><code>Opciones disponibles:
+    W. Mover arriba
+    A. Mover izquierda
+    S. Mover abajo
+    D. Mover derecha
+    0. Salir</code></pre>
+      <p>La consola utiliza este menú de movimiento y salida. Reiniciar y avanzar de nivel son controles de la interfaz gráfica.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-user"></i> Personaje: posición actual</h4>
+      <p>La clase contiene dos atributos privados de tipo <code>int</code>: <code>fila</code> y <code>columna</code>. Implementa el constructor <code>Personaje(int fila, int columna)</code> y los métodos <code>getFila()</code>, <code>setFila(int fila)</code>, <code>getColumna()</code> y <code>setColumna(int columna)</code>.</p>
+      <p>El constructor establece las coordenadas recibidas; los accesores permiten consultar y actualizar cada una. El personaje no lee del teclado ni dibuja el tablero. Su posición inicial para el reinicio se obtiene del texto inicial del nivel.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-cubes"></i> Nivel: estado y consultas</h4>
+      <p>El estado incluye <code>titulo</code>, <code>numNivel</code>, <code>nivelInicial</code>, <code>nivelActual</code> y una referencia a <code>Personaje</code>. Tanto el tablero inicial como el actual son cadenas con una fila por línea.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Constructor o método</th><th>Comportamiento</th></tr></thead>
+          <tbody>
+            <tr><td><code>Nivel(String titulo, String nivel, int numNivel)</code></td><td>Guarda el título, el número y el texto recibido como tablero inicial y actual. Localiza al personaje; si no hay ninguna casilla J, rechaza la construcción con una <code>RuntimeException</code>.</td></tr>
+            <tr><td><code>Personaje buscarPersonaje()</code></td><td>Devuelve un personaje situado en la primera casilla J del tablero actual, o <code>null</code> si no encuentra ninguna.</td></tr>
+            <tr><td><code>String obtenerCasilla(int fila, int columna)</code></td><td>Devuelve el símbolo de esa posición como un <code>String</code> de un carácter. Fuera del tablero devuelve <code>null</code>. Los saltos de línea no son casillas.</td></tr>
+            <tr><td><code>void modificarCasilla(int fila, int columna, String casilla)</code></td><td>Sustituye el símbolo de una casilla existente. Fuera del tablero no cambia nada. Los símbolos utilizados tienen un carácter.</td></tr>
+            <tr><td><code>boolean contiene(int fila, int columna)</code></td><td>Indica si ambas coordenadas pertenecen al tablero.</td></tr>
+            <tr><td><code>int getFilas()</code></td><td>Obtiene la cantidad de filas del texto del nivel. En los datos proporcionados, cada fila termina en un salto de línea.</td></tr>
+            <tr><td><code>int getColumnas()</code></td><td>Obtiene la anchura de la primera fila, sin contar su salto de línea.</td></tr>
+            <tr><td><code>boolean estaTerminada()</code></td><td>Devuelve <code>true</code> cuando no queda ninguna casilla P en el tablero actual.</td></tr>
+            <tr><td><code>String getTitulo()</code>, <code>int getNumNivel()</code>, <code>String getNivelInicial()</code></td><td>Devuelven el título, el número del escenario y el texto inicial, respectivamente.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Las coordenadas de casilla siempre son <code>(fila, columna)</code>. En los tres escenarios dados, el personaje comienza en la fila 2, columna 1; su posición se obtiene del símbolo J y no debe fijarse de antemano.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-arrows-up-down-left-right"></i> Nivel: acciones y presentación</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Método</th><th>Comportamiento</th></tr></thead>
+          <tbody>
+            <tr><td><code>boolean mover(String accion)</code></td><td>Realiza un desplazamiento o un empuje según las reglas descritas. Devuelve <code>true</code> si se realiza y <code>false</code> si se rechaza. También rechaza <code>null</code>, direcciones distintas de W/A/S/D y movimientos con el nivel terminado. Una cadena como <code>DD</code> no representa dos movimientos.</td></tr>
+            <tr><td><code>void mostrarMapa()</code></td><td>Muestra una línea en blanco y el tablero completo. Cada casilla se presenta mediante <code>GUI.mostrarCasilla</code> y cada fila termina con <code>GUI.nuevaLinea()</code>.</td></tr>
+            <tr><td><code>void gestionarAccion(String accion)</code></td><td>Recibe una acción normalizada. Para W/A/S/D solicita el movimiento y, si se acepta, comunica las nuevas coordenadas mediante <code>GUI</code>. Con 0 no modifica ni imprime nada. Para una acción desconocida muestra un aviso.</td></tr>
+            <tr><td><code>void reiniciar()</code></td><td>Recupera <code>nivelInicial</code> como tablero actual y vuelve a localizar al personaje en ese texto. Conserva el título y el número del nivel.</td></tr>
+            <tr><td><code>void siguienteNivel()</code></td><td>Carga el escenario de número siguiente mediante <code>Util.generarNivel</code> y sustituye el título, el número, el texto inicial, el tablero actual y el personaje del nivel que se está utilizando.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No se pide llevar contadores de movimientos o empujes. La representación procede directamente del tablero actual: no se superpone una J al dibujar sobre un terreno separado.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-file-lines"></i> Util y formato de los escenarios</h4>
+      <p><code>Const.NIVELES</code> reúne los tres escenarios. Cada bloque empieza por un título y continúa con las filas del tablero. La línea <code>---</code> separa dos escenarios y no se coloca después del último. Las filas utilizan puntos para las casillas libres y terminan en <code>\n</code>.</p>
+      <p>Implementa estos métodos estáticos de <code>Util</code>:</p>
+      <ul>
+        <li><code>Nivel generarNivel(int n)</code>: obtiene el título y el tablero del escenario solicitado y crea un <code>Nivel</code> con el número recibido. La numeración interna empieza en <strong>cero</strong>.</li>
+        <li><code>int getTotalNiveles()</code>: obtiene la cantidad de escenarios definidos en <code>Const.NIVELES</code>. La constante proporcionada contiene tres escenarios.</li>
+      </ul>
+      <p>Trabaja con el formato de la constante entregada y las operaciones de <code>String</code>. No es necesario construir un listado de objetos <code>Nivel</code> para seleccionar un escenario.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Número interno</th><th>Título</th><th>Filas × columnas</th><th>Piedras / destinos</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>Primer empuje</td><td>5 × 6</td><td>1 / 1</td></tr>
+            <tr><td>1</td><td>Dos entregas</td><td>6 × 7</td><td>2 / 2</td></tr>
+            <tr><td>2</td><td>Tres caminos</td><td>7 × 8</td><td>3 / 3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Estos son los datos del primer escenario, ya incluidos en <code>Const</code>:</p>
+      <pre><code>Primer empuje
+......
+......
+.JP.D.
+......
+......</code></pre>
+      <p>El título no forma parte del tablero que se entrega al constructor de <code>Nivel</code>. Al reiniciar debe recuperarse ese tablero original. El cambio de escenario utiliza otro bloque de la misma constante.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-terminal"></i> MainConsola y funcionamiento de la partida</h4>
+      <p>Implementa <code>public static void main(String[] args)</code> en <code>MainConsola</code>. Debe mostrar el título, crear el nivel, presentar el menú y dibujar el estado inicial. Después solicita acciones hasta que se elija 0 o el nivel esté terminado. Tras cada acción distinta de 0, gestiona su resultado y vuelve a mostrar el mapa, también cuando no se ha podido mover.</p>
+      <p>La consola inicia <code>Util.generarNivel(1)</code>, correspondiente a <strong>Dos entregas</strong>. La aplicación JavaFX proporcionada inicia <code>Util.generarNivel(0)</code>, correspondiente a <strong>Primer empuje</strong>. Se trata de partidas independientes.</p>
+      <p>Una línea vacía permite salir porque <code>GUI.pedirAccion()</code> devuelve <code>"0"</code>. La entrada en minúsculas se convierte a mayúsculas. Al salir o completar el nivel no se solicita otra acción.</p>
+      <p>Extracto de la salida inicial de consola:</p>
+      <pre><code>PROYECTO UT4
+
+Opciones disponibles:
+    W. Mover arriba
+    A. Mover izquierda
+    S. Mover abajo
+    D. Mover derecha
+    0. Salir
+
+[.][.][.][.][.][.][.]
+[.][.][.][.][.][.][.]
+[.][J][P][.][.][D][.]
+[.][.][.][.][P][D][.]
+[.][.][.][.][.][.][.]
+[.][.][.][.][.][.][.]
+Introduce una acción:</code></pre>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-desktop"></i> Integración con JavaFX</h4>
+      <p>Ejecuta el método <code>main</code> de <code>edu.masanz.da.ut4.app.MainJavaFX</code> desde IntelliJ IDEA. Las clases de la interfaz gráfica se entregan completas y no deben modificarse.</p>
+      <ul>
+        <li>W, A, S y D, o sus botones, llaman al movimiento del nivel.</li>
+        <li>R y el botón <strong>Reiniciar</strong> solicitan el reinicio.</li>
+        <li>N y el botón <strong>Siguiente nivel</strong> solicitan el avance. El botón queda habilitado cuando el nivel está terminado.</li>
+        <li>La cabecera consulta el número y el título del nivel y <code>Util.getTotalNiveles()</code>.</li>
+        <li><code>VistaTablero</code> consulta <code>getFilas()</code>, <code>getColumnas()</code> y <code>obtenerCasilla(fila, columna)</code> para representar el estado actual.</li>
+      </ul>
+      <p>La presentación gráfica distingue el personaje en azul, las piedras sin colocar en gris, los destinos con un aro rosa y las piedras colocadas en verde. Debes proporcionar los símbolos correctos desde <code>Nivel</code> para que la vista los dibuje.</p>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-vial"></i> Ejemplos y comprobaciones</h4>
+      <p>En <strong>Primer empuje</strong>, dos acciones D consecutivas empujan la piedra hasta el destino. Estos son extractos de la fila 2 del tablero, no pantallas completas:</p>
+      <pre><code>Inicial:          [.][J][P][.][D][.]
+Después de D:     [.][.][J][P][D][.]
+Después de otra D: [.][.][.][J][*][.]</code></pre>
+      <p>Después del segundo empuje no queda ninguna P, por lo que el nivel está terminado y un nuevo movimiento se rechaza. Reiniciar recupera la fila inicial y vuelve a permitir el juego.</p>
+      <p>En una partida de consola que sigue activa, un movimiento aceptado puede mostrar:</p>
+      <pre><code>Introduce una acción: d
+Te has desplazado a la fila 2, columna 2.</code></pre>
+      <p>A continuación se muestra el mapa completo. Un movimiento bloqueado no añade un mensaje de desplazamiento y deja el tablero igual.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-light"><tr><th>Comprobación</th><th>Resultado esperado</th></tr></thead>
+          <tbody>
+            <tr><td>Consultar una casilla fuera de los límites.</td><td>Devuelve <code>null</code>.</td></tr>
+            <tr><td>Modificar una casilla fuera de los límites.</td><td>El tablero permanece igual.</td></tr>
+            <tr><td>Movimiento a una casilla libre.</td><td>La posición anterior queda libre; el tablero y el personaje coinciden en la nueva posición.</td></tr>
+            <tr><td>Empuje hacia suelo libre o hacia un destino.</td><td>El personaje ocupa el lugar anterior de la piedra y esta queda como P o *, respectivamente.</td></tr>
+            <tr><td>Empuje contra otra piedra, una piedra colocada o el límite.</td><td>Se rechaza sin cambios.</td></tr>
+            <tr><td>Intento de entrar directamente en D o en *.</td><td>Se rechaza sin cambios.</td></tr>
+            <tr><td>Acción desconocida o <code>null</code> en <code>mover</code>.</td><td>Devuelve <code>false</code> sin modificar el nivel.</td></tr>
+            <tr><td>Completar un escenario y reiniciarlo.</td><td>Se recuperan el tablero y la posición iniciales; el título y el número se conservan.</td></tr>
+            <tr><td>Pasar del escenario 0 al 1 y del 1 al 2.</td><td>Se actualizan título, número, ambos textos y personaje dentro del objeto Nivel utilizado.</td></tr>
+            <tr><td>Crear dos niveles a partir de la misma constante.</td><td>Mover o reiniciar uno no modifica el estado del otro.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-primary mb-3"><i class="fas fa-clipboard-check"></i> Entrega y revisión</h4>
+      <p>Entrega el proyecto con las cinco clases completadas y las cuatro clases proporcionadas sin modificar. Revisa los tres escenarios y comprueba el comportamiento tanto en consola como en JavaFX.</p>
+      <p>Documenta con Javadoc los métodos que implementes y prepara una comprobación de movimiento válido, un empuje, un rechazo, la finalización y el reinicio. El código debe ser legible y utilizar las constantes disponibles para los símbolos del tablero.</p>
+      <p>Si entregas un ZIP, excluye <code>target</code>, clases compiladas y carpetas del IDE.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -7,6 +7,31 @@ que se conserva debajo. El usuario confirma que los exámenes ya se han realizad
 y autoriza expresamente hacer commit y push del trabajo acumulado, incluidos
 los materiales de preguntas y el examen práctico con su solución.
 
+### EmpujaPiedras: nueva base del 26 de noviembre de 2026
+
+- El docente aporta una nueva solución externa y pide sustituir el enunciado
+  y generar una base a partir de ella. Esa solución externa no se modifica.
+- En `projects/prom/ut04/EmpujaPiedras/` se conservan completas únicamente
+  `AplicacionJavaFX`, `VistaTablero`, `MainJavaFX` y `conf.Const`, idénticas a
+  las aportadas. `GUI`, `Personaje`, `Nivel`, `Util` y `MainConsola` contienen
+  las firmas de 30 constructores/métodos con cuerpos totalmente vacíos.
+- **Por petición expresa, la base no tiene retornos provisionales ni lógica:**
+  todavía no compila. El alumnado debe declarar los atributos e implementar
+  también los constructores y accesores. No rellenar esos métodos para
+  «arreglar» la compilación sin una nueva petición.
+- El tablero es un String con saltos de línea, los niveles se numeran desde
+  cero y una piedra colocada queda fija. Esta versión sustituye la anterior
+  arquitectura con listados, Juego, Partida, nodos y vista previa.
+- Base preparada para JDK 25, con las dependencias JavaFX del proyecto aportado.
+  El ZIP de `assets/downloads/prom-ut04-empuja-piedras-base.zip` y sus copias
+  de publicación incluyen README y enunciado, sin IDE, compilados ni solución.
+- La base y el ZIP anteriores se conservan en la copia local ignorada
+  `soluciones-profesorado/copias-base/EmpujaPiedras-anterior-27ae362b/`.
+  Las soluciones antiguas del repositorio no se han sustituido por la solución
+  externa. La descripción histórica posterior de EmpujaPiedras está superada.
+
+### Estado del trabajo anterior
+
 - Entorno nuevo configurado: Git, Node 26, Python 3.11 y JDK 25 disponibles.
   ReportLab 5.1.0 en `%LOCALAPPDATA%/codex-question-pdf`. Playwright reutilizado
   del proyecto local `Proyectos/loot-and-heroes/Idle-RPG---Loot-and-Heroes`,

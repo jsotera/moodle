@@ -1,8 +1,7 @@
 package edu.masanz.da.ut4.vista.javafx;
 
-import edu.masanz.da.ut4.api.Partida;
-import edu.masanz.da.ut4.demo.VistaPrevia;
-import edu.masanz.da.ut4.modelo.Juego;
+import edu.masanz.da.ut4.modelo.Nivel;
+import edu.masanz.da.ut4.utilidades.Util;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -16,9 +15,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/** Interfaz suministrada. Traduce eventos a llamadas al mismo contrato que la consola. */
 public class AplicacionJavaFX extends Application {
-    private Partida partida;
+
+    private Nivel nivel;
     private final VistaTablero tablero = new VistaTablero();
     private final Label titulo = new Label();
     private final Label contadores = new Label();
@@ -26,22 +25,15 @@ public class AplicacionJavaFX extends Application {
     private final Label modo = new Label();
     private final Button siguiente = new Button("Siguiente nivel");
 
-    /** @param stage ventana proporcionada por JavaFX */
     @Override
     public void start(Stage stage) {
-        String aviso = null;
-        if (getParameters().getRaw().contains("--demo")) {
-            partida = new VistaPrevia();
-        } else {
-            try {
-                Partida nueva = new Juego();
-                comprobarLectura(nueva);
-                partida = nueva;
-            } catch (UnsupportedOperationException e) {
-                partida = new VistaPrevia();
-                aviso = e.getMessage();
-            }
-        }
+        nivel = Util.generarNivel(0);
+        generarEscena(stage);
+        actualizar();
+        stage.show();
+    }
+
+    private void generarEscena(Stage stage) {
         Label marca = new Label("Empuja piedras");
         marca.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #16343a;");
         modo.setStyle("-fx-text-fill: #63767a;");
@@ -53,9 +45,8 @@ public class AplicacionJavaFX extends Application {
         Button reiniciar = new Button("Reiniciar");
         reiniciar.setOnAction(e -> ejecutar("R"));
         siguiente.setOnAction(e -> ejecutar("N"));
-        Button cargar = new Button("Cargar mi implementacion");
-        cargar.setOnAction(e -> cargarModelo());
-        HBox acciones = new HBox(10, reiniciar, siguiente, cargar);
+
+        HBox acciones = new HBox(10, reiniciar, siguiente);
         VBox cabecera = new VBox(8, marca, modo, new Separator(), titulo, contadores, acciones);
         cabecera.setPadding(new Insets(20, 24, 16, 24));
 
@@ -87,11 +78,6 @@ public class AplicacionJavaFX extends Application {
         stage.setScene(scene);
         stage.setMinWidth(620);
         stage.setMinHeight(680);
-        actualizar();
-        if (aviso != null) {
-            mensaje.setText(aviso + ". Se muestra una vista previa estatica.");
-        }
-        stage.show();
     }
 
     private void agregarBoton(HBox fila, String texto, String accion) {
@@ -101,24 +87,12 @@ public class AplicacionJavaFX extends Application {
         fila.getChildren().add(boton);
     }
 
-    private void cargarModelo() {
-        try {
-            Partida nueva = new Juego();
-            // Comprueba el contrato antes de abandonar una vista previa funcional.
-            comprobarLectura(nueva);
-            partida = nueva;
-            actualizar();
-        } catch (UnsupportedOperationException | IndexOutOfBoundsException | IllegalArgumentException e) {
-            mensaje.setText(e.getMessage());
-        }
-    }
-
     private void ejecutar(String accion) {
         try {
             switch (accion) {
-                case "R": partida.reiniciar(); break;
-                case "N": partida.siguienteNivel(); break;
-                default: partida.mover(accion);
+                case "R": nivel.reiniciar(); break;
+                case "N": nivel.siguienteNivel(); break;
+                default: nivel.mover(accion);
             }
             actualizar();
         } catch (UnsupportedOperationException | IndexOutOfBoundsException | IllegalArgumentException e) {
@@ -127,35 +101,8 @@ public class AplicacionJavaFX extends Application {
     }
 
     private void actualizar() {
-        titulo.setText("Nivel " + partida.getNumeroNivel() + " / " + partida.getTotalNiveles() + " - " + partida.getTituloNivel());
-        contadores.setText("Movimientos: " + partida.getMovimientos() + "    Empujes: " + partida.getEmpujes()
-                + "    Destinos: " + partida.getDestinosCubiertos() + " / " + partida.getCantidadDestinos());
-        modo.setText(partida.esVistaPrevia() ? "Vista previa del proyecto base"
-                : "Partida " + partida.getCodigoPartida() + " | " + String.format("%.1f", partida.getProgreso()) + "% completado");
-        mensaje.setText(partida.getMensaje());
-        siguiente.setText(partida.esVistaPrevia() ? "Ver otro ejemplo" : "Siguiente nivel");
-        siguiente.setDisable(!partida.esVistaPrevia() && (!partida.estaResuelto() || partida.estaTerminada()));
-        tablero.mostrar(partida);
-    }
-
-    private void comprobarLectura(Partida nueva) {
-        nueva.getCodigoPartida();
-        nueva.getProgreso();
-        nueva.getNumeroNivel();
-        nueva.getTotalNiveles();
-        nueva.getTituloNivel();
-        nueva.getMovimientos();
-        nueva.getEmpujes();
-        nueva.getDestinosCubiertos();
-        nueva.getCantidadDestinos();
-        nueva.getMensaje();
-        nueva.esVistaPrevia();
-        nueva.estaResuelto();
-        nueva.estaTerminada();
-        for (int y = 0; y < nueva.getAltura(); y++) {
-            for (int x = 0; x < nueva.getAnchura(); x++) {
-                nueva.getCasilla(x, y);
-            }
-        }
+        titulo.setText("Nivel " + nivel.getNumNivel() + " / " + Util.getTotalNiveles() + " - " + nivel.getTitulo());
+        siguiente.setDisable(!nivel.estaTerminada());
+        tablero.mostrar(nivel);
     }
 }
