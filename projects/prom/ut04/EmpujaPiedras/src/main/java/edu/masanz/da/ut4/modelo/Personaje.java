@@ -6,12 +6,14 @@ public class Personaje {
     }
 
     public int getFila() {
+        return 0;
     }
 
     public void setFila(int fila) {
     }
 
     public int getColumna() {
+        return 0;
     }
 
     public void setColumna(int columna) {

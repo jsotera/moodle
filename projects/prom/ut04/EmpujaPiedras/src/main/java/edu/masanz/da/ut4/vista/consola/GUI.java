@@ -20,5 +20,6 @@ public class GUI {
     }
 
     public static String pedirAccion() {
+        return null;
     }
 }

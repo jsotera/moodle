@@ -18,10 +18,11 @@ Implementa `GUI`, `Personaje`, `Nivel`, `Util` y `MainConsola`, siguiendo
 declarar los atributos necesarios e implementar constructores, accesores y
 resto de métodos.
 
-Los cuerpos están completamente vacíos: no contienen instrucciones, retornos
-provisionales, excepciones ni soluciones en comentarios. La base todavía no
-compila ni puede ejecutarse. Los errores por falta de retorno desaparecerán
-cuando implementes los métodos correspondientes.
+La base compila con JDK 25. Los métodos con retorno incluyen únicamente el
+valor provisional correspondiente: `0`, `false` o `null`. Los constructores y
+los métodos `void` permanecen vacíos. Estos valores permiten compilar, pero no
+implementan el funcionamiento del juego: debes sustituirlos por la lógica
+correspondiente antes de utilizar la aplicación.
 
 Conserva las firmas que utiliza la interfaz gráfica. En `Personaje`, por ejemplo,
 los accesores y el constructor también deben implementarse.

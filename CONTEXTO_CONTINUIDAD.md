@@ -14,11 +14,13 @@ los materiales de preguntas y el examen práctico con su solución.
 - En `projects/prom/ut04/EmpujaPiedras/` se conservan completas únicamente
   `AplicacionJavaFX`, `VistaTablero`, `MainJavaFX` y `conf.Const`, idénticas a
   las aportadas. `GUI`, `Personaje`, `Nivel`, `Util` y `MainConsola` contienen
-  las firmas de 30 constructores/métodos con cuerpos totalmente vacíos.
-- **Por petición expresa, la base no tiene retornos provisionales ni lógica:**
-  todavía no compila. El alumnado debe declarar los atributos e implementar
-  también los constructores y accesores. No rellenar esos métodos para
-  «arreglar» la compilación sin una nueva petición.
+  las firmas de 30 constructores/métodos pendientes.
+- El usuario aclara después que la base debe compilar: los 15 métodos con
+  retorno llevan únicamente `0`, `false` o `null`, según su tipo. Los
+  constructores y métodos void siguen vacíos. Esta aclaración sustituye la
+  indicación anterior de dejar todos los cuerpos completamente vacíos.
+  El alumnado debe declarar los atributos e implementar también los
+  constructores y accesores. No se incluye lógica de solución en esas clases.
 - El tablero es un String con saltos de línea, los niveles se numeran desde
   cero y una piedra colocada queda fija. Esta versión sustituye la anterior
   arquitectura con listados, Juego, Partida, nodos y vista previa.

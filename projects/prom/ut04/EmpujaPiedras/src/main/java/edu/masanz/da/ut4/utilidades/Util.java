@@ -6,8 +6,10 @@ import edu.masanz.da.ut4.modelo.Nivel;
 public class Util {
 
     public static Nivel generarNivel(int n) {
+        return null;
     }
 
     public static int getTotalNiveles() {
+        return 0;
     }
 }
