@@ -36,3 +36,8 @@ triángulo verde de IntelliJ IDEA.
 La configuración mantiene las dependencias JavaFX del proyecto de referencia.
 No se incluyen las clases, listados, vistas previas ni pruebas de la versión
 anterior de EmpujaPiedras.
+
+Repositorio del proyecto base: https://github.com/jsotera/prom-26-27-ut-4-empuja-piedras
+
+El enunciado incluido muestra dos capturas de la solución JavaFX en funcionamiento.
+Las imágenes están en `assets/img/prom/ut04/` y no contienen código de la solución.
